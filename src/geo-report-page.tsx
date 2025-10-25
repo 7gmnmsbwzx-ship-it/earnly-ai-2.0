@@ -521,6 +521,199 @@ export const GeoReportPage = () => {
             </div>
         </section>
 
+        <!-- GEO vs Traditional SEO Comparison -->
+        <section class="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                        GEO vs Traditional SEO
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Understanding the key differences between Generative Engine Optimization and traditional Search Engine Optimization
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-20">
+                    <!-- Traditional SEO -->
+                    <div class="geo-card rounded-3xl p-8 border-l-4 border-gray-500">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-search mr-3 text-gray-400"></i>
+                            Traditional SEO
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Optimizes for search engine rankings</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Focuses on driving traffic to websites</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Keyword-focused content strategy</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Link building for domain authority</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generative Engine Optimization -->
+                    <div class="geo-card rounded-3xl p-8 border-l-4 border-blue-500">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-robot mr-3 text-blue-400"></i>
+                            Generative Engine Optimization
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Optimizes for AI search citations</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Focuses on brand visibility in AI responses</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Answer-first content structure</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-300">Entity optimization and schema markup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key GEO Strategies -->
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Key GEO Strategies
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Essential optimization techniques for maximizing your visibility in AI-powered search results
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <!-- Answer-First Content -->
+                    <div class="geo-card rounded-3xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-question-circle text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Answer-First Content</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Structure content to directly answer questions in the first 50-80 words, making it easy for AI systems to extract and cite.
+                        </p>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <div class="text-sm text-gray-400 mb-2">Best Practice:</div>
+                            <div class="text-blue-400 font-mono text-sm">
+                                "The best email marketing platform for small businesses is [Answer]. Here's why: [3-5 key benefits]..."
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Schema Markup -->
+                    <div class="geo-card rounded-3xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Schema Markup</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Implement comprehensive structured data to help AI systems understand your content and business entities.
+                        </p>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <div class="text-sm text-gray-400 mb-2">Key Types:</div>
+                            <div class="text-green-400 font-mono text-sm">
+                                FAQPage, Product, Organization, Article, Review, HowTo
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entity Optimization -->
+                    <div class="geo-card rounded-3xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-network-wired text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Entity Optimization</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Build strong entity relationships and topical authority to become a trusted source for AI systems.
+                        </p>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <div class="text-sm text-gray-400 mb-2">Focus Areas:</div>
+                            <div class="text-purple-400 font-mono text-sm">
+                                Brand mentions, Expert authorship, Industry connections
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Citation Tracking -->
+                    <div class="geo-card rounded-3xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Citation Tracking</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Monitor and measure your brand's visibility across AI platforms to optimize performance continuously.
+                        </p>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <div class="text-sm text-gray-400 mb-2">Track:</div>
+                            <div class="text-orange-400 font-mono text-sm">
+                                Citation frequency, Source attribution, Response quality
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional References -->
+                <div class="mt-16 geo-card rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6 text-center">
+                        <i class="fas fa-book-open mr-3 text-blue-400"></i>
+                        GEO Reference Materials
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white mb-2">Research Papers</h4>
+                            <p class="text-gray-300 text-sm">
+                                Latest academic research on AI search behavior and optimization strategies
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-tools text-white text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white mb-2">Implementation Guides</h4>
+                            <p class="text-gray-300 text-sm">
+                                Step-by-step guides for implementing GEO strategies across different platforms
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-bar text-white text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white mb-2">Case Studies</h4>
+                            <p class="text-gray-300 text-sm">
+                                Real-world examples of successful GEO implementation and results
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="bg-gray-900 text-white py-16 border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
