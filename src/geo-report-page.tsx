@@ -306,33 +306,7 @@ export const GeoReportPage = () => {
                         </div>
                         
                         <div class="space-y-6">
-                            <!-- AI Platform Performance -->
-                            <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-4">
-                                <h4 class="font-semibold text-gray-800 mb-3">AI Platform Visibility</h4>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between items-center">
-                                        <div class="flex items-center">
-                                            <div class="w-4 h-4 bg-green-500 rounded mr-2"></div>
-                                            <span class="text-sm text-gray-700">ChatGPT Mentions</span>
-                                        </div>
-                                        <span class="font-bold text-green-600">8.7K/month</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <div class="flex items-center">
-                                            <div class="w-4 h-4 bg-blue-500 rounded mr-2"></div>
-                                            <span class="text-sm text-gray-700">Claude Recommendations</span>
-                                        </div>
-                                        <span class="font-bold text-blue-600">6.2K/month</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <div class="flex items-center">
-                                            <div class="w-4 h-4 bg-purple-500 rounded mr-2"></div>
-                                            <span class="text-sm text-gray-700">Gemini Features</span>
-                                        </div>
-                                        <span class="font-bold text-purple-600">4.9K/month</span>
-                                    </div>
-                                </div>
-                            </div>
+
                             
                             <!-- Key Insights -->
                             <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-lg p-4">
@@ -446,26 +420,7 @@ export const GeoReportPage = () => {
                     </div>
                 </div>
 
-                <!-- AI Platforms Performance -->
-                <div class="geo-card rounded-2xl p-10 mb-16">
-                    <div class="flex items-center justify-between mb-10">
-                        <h2 class="text-3xl font-bold text-white flex items-center">
-                            <i class="fas fa-robot mr-4 text-blue-400"></i>
-                            AI Platform Performance
-                        </h2>
-                        <select class="bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-6 py-3 text-white backdrop-blur-lg" id="platform-filter">
-                            <option value="all">All Platforms</option>
-                            <option value="chatgpt">ChatGPT</option>
-                            <option value="claude">Claude</option>
-                            <option value="gemini">Gemini</option>
-                            <option value="perplexity">Perplexity</option>
-                        </select>
-                    </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8" id="ai-platforms">
-                        <!-- Platform cards will be populated by JavaScript -->
-                    </div>
-                </div>
 
                 <!-- Performance Trends -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
@@ -675,42 +630,7 @@ export const GeoReportPage = () => {
                     </div>
                 </div>
 
-                <!-- Additional References -->
-                <div class="mt-16 geo-card rounded-3xl p-8">
-                    <h3 class="text-2xl font-bold text-white mb-6 text-center">
-                        <i class="fas fa-book-open mr-3 text-blue-400"></i>
-                        GEO Reference Materials
-                    </h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white mb-2">Research Papers</h4>
-                            <p class="text-gray-300 text-sm">
-                                Latest academic research on AI search behavior and optimization strategies
-                            </p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-tools text-white text-2xl"></i>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white mb-2">Implementation Guides</h4>
-                            <p class="text-gray-300 text-sm">
-                                Step-by-step guides for implementing GEO strategies across different platforms
-                            </p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-chart-bar text-white text-2xl"></i>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white mb-2">Case Studies</h4>
-                            <p class="text-gray-300 text-sm">
-                                Real-world examples of successful GEO implementation and results
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </section>
 
