@@ -146,7 +146,7 @@ export function creatorsPage(c: Context) {
                                 <span class="text-green-400">Live</span>
                             </div>
                             <span class="text-gray-400">|</span>
-                            <span class="text-white counter" id="live-creators">12,847</span>
+                            <span class="text-white counter" id="live-creators">24,890</span>
                             <span class="text-gray-400">creators earning</span>
                         </div>
                         
@@ -189,11 +189,11 @@ export function creatorsPage(c: Context) {
                         <!-- Creator Stats -->
                         <div class="grid grid-cols-3 gap-4 mb-8">
                             <div class="creator-stat">
-                                <div class="revenue-counter text-3xl font-bold">$2.4M+</div>
+                                <div class="revenue-counter text-3xl font-bold">$8.7M+</div>
                                 <div class="text-sm text-gray-300">Paid to Creators</div>
                             </div>
                             <div class="creator-stat">
-                                <div class="revenue-counter text-3xl font-bold">847%</div>
+                                <div class="revenue-counter text-3xl font-bold">1,247%</div>
                                 <div class="text-sm text-gray-300">Avg Revenue Increase</div>
                             </div>
                             <div class="creator-stat">
@@ -226,7 +226,7 @@ export function creatorsPage(c: Context) {
                             </div>
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-users text-purple-400"></i>
-                                <span>12K+ Active Creators</span>
+                                <span>25K+ Active Creators</span>
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@ export function creatorsPage(c: Context) {
                             <div class="grid grid-cols-2 gap-4 mb-6">
                                 <div class="creator-gradient rounded-xl p-4 text-white">
                                     <div class="text-sm opacity-90 mb-1">This Month</div>
-                                    <div class="text-3xl font-bold counter" id="monthly-earnings">$8,247</div>
+                                    <div class="text-3xl font-bold counter" id="monthly-earnings">$14,890</div>
                                     <div class="text-xs opacity-75 mt-1">
                                         <i class="fas fa-arrow-up mr-1"></i>+342% vs last month
                                     </div>
@@ -254,7 +254,7 @@ export function creatorsPage(c: Context) {
                                 
                                 <div class="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl p-4 text-white">
                                     <div class="text-sm opacity-90 mb-1">Content Views</div>
-                                    <div class="text-3xl font-bold counter" id="content-views">2.8M</div>
+                                    <div class="text-3xl font-bold counter" id="content-views">6.2M</div>
                                     <div class="text-xs opacity-75 mt-1">
                                         <i class="fas fa-arrow-up mr-1"></i>+89% engagement
                                     </div>
@@ -280,7 +280,7 @@ export function creatorsPage(c: Context) {
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <div class="text-lg font-bold text-green-400">+$247</div>
+                                            <div class="text-lg font-bold text-green-400">+$487</div>
                                             <div class="text-xs text-gray-500">2 hours ago</div>
                                         </div>
                                     </div>
@@ -296,7 +296,7 @@ export function creatorsPage(c: Context) {
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <div class="text-lg font-bold text-green-400">+$389</div>
+                                            <div class="text-lg font-bold text-green-400">+$724</div>
                                             <div class="text-xs text-gray-500">5 hours ago</div>
                                         </div>
                                     </div>
@@ -312,15 +312,15 @@ export function creatorsPage(c: Context) {
                                 <div class="space-y-2">
                                     <div class="flex justify-between">
                                         <span class="text-sm text-gray-300">Tech Reviews</span>
-                                        <span class="text-sm font-semibold text-green-400">$2,847/month</span>
+                                        <span class="text-sm font-semibold text-green-400">$5,240/month</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span class="text-sm text-gray-300">Tutorials</span>
-                                        <span class="text-sm font-semibold text-green-400">$1,924/month</span>
+                                        <span class="text-sm font-semibold text-green-400">$3,680/month</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span class="text-sm text-gray-300">Lifestyle Content</span>
-                                        <span class="text-sm font-semibold text-green-400">$1,476/month</span>
+                                        <span class="text-sm font-semibold text-green-400">$2,950/month</span>
                                     </div>
                                 </div>
                             </div>
@@ -353,7 +353,7 @@ export function creatorsPage(c: Context) {
                         <p class="text-gray-300 text-sm mb-4">
                             AI agents cite your articles when answering questions in your niche
                         </p>
-                        <div class="text-green-400 font-semibold">$0.05 per reference</div>
+                        <div class="text-green-400 font-semibold">$0.08 per reference</div>
                     </div>
 
                     <!-- Content Type 2 -->
@@ -365,7 +365,7 @@ export function creatorsPage(c: Context) {
                         <p class="text-gray-300 text-sm mb-4">
                             YouTube videos and tutorials referenced by AI chatbots and assistants
                         </p>
-                        <div class="text-green-400 font-semibold">$0.12 per reference</div>
+                        <div class="text-green-400 font-semibold">$0.18 per reference</div>
                     </div>
 
                     <!-- Content Type 3 -->
@@ -377,7 +377,7 @@ export function creatorsPage(c: Context) {
                         <p class="text-gray-300 text-sm mb-4">
                             Episode transcripts used by AI to provide expert insights and advice
                         </p>
-                        <div class="text-green-400 font-semibold">$0.08 per reference</div>
+                        <div class="text-green-400 font-semibold">$0.12 per reference</div>
                     </div>
 
                     <!-- Content Type 4 -->
@@ -389,7 +389,7 @@ export function creatorsPage(c: Context) {
                         <p class="text-gray-300 text-sm mb-4">
                             How-to content referenced when AI helps users solve problems
                         </p>
-                        <div class="text-green-400 font-semibold">$0.15 per reference</div>
+                        <div class="text-green-400 font-semibold">$0.25 per reference</div>
                     </div>
                 </div>
 
@@ -415,7 +415,7 @@ export function creatorsPage(c: Context) {
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-gray-400">Referenced your content</span>
-                                <span class="text-green-400 font-semibold">+$0.12 earned</span>
+                                <span class="text-green-400 font-semibold">+$0.18 earned</span>
                             </div>
                         </div>
 
@@ -434,7 +434,7 @@ export function creatorsPage(c: Context) {
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-gray-400">Cited your article</span>
-                                <span class="text-green-400 font-semibold">+$0.05 earned</span>
+                                <span class="text-green-400 font-semibold">+$0.08 earned</span>
                             </div>
                         </div>
                     </div>
@@ -442,7 +442,7 @@ export function creatorsPage(c: Context) {
                     <div class="text-center mt-8">
                         <div class="inline-flex items-center space-x-2 bg-green-500/20 rounded-full px-6 py-3">
                             <i class="fas fa-coins text-green-400"></i>
-                            <span class="text-green-400 font-semibold">Average creator earns $50-500/month from authentic content</span>
+                            <span class="text-green-400 font-semibold">Average creator earns $180-1,200/month from authentic content</span>
                         </div>
                     </div>
                 </div>
@@ -474,7 +474,7 @@ export function creatorsPage(c: Context) {
                         </p>
                         <div class="bg-gray-800/50 rounded-lg p-4">
                             <div class="text-sm text-gray-400 mb-2">Content Indexed:</div>
-                            <div class="text-green-400 font-semibold">2,847 pieces ready to earn</div>
+                            <div class="text-green-400 font-semibold">5,680 pieces ready to earn</div>
                         </div>
                     </div>
 
@@ -490,7 +490,7 @@ export function creatorsPage(c: Context) {
                         </p>
                         <div class="bg-gray-800/50 rounded-lg p-4">
                             <div class="text-sm text-gray-400 mb-2">This Month:</div>
-                            <div class="text-purple-400 font-semibold">12,847 AI references</div>
+                            <div class="text-purple-400 font-semibold">28,940 AI references</div>
                         </div>
                     </div>
 
@@ -506,7 +506,7 @@ export function creatorsPage(c: Context) {
                         </p>
                         <div class="creator-gradient rounded-lg p-4">
                             <div class="text-sm text-white/90 mb-1">Earnings from References</div>
-                            <div class="text-2xl font-bold text-white">$1,247/month</div>
+                            <div class="text-2xl font-bold text-white">$2,890/month</div>
                         </div>
                     </div>
                 </div>
@@ -623,9 +623,9 @@ export function creatorsPage(c: Context) {
                             and I get paid for each citation. It's like having a passive income from my entire content history."
                         </blockquote>
                         <div class="flex items-center space-x-4 text-sm">
-                            <span class="text-green-400 font-semibold">$847/month from authentic content</span>
+                            <span class="text-green-400 font-semibold">$1,650/month from authentic content</span>
                             <span class="text-gray-400">•</span>
-                            <span class="text-gray-400">850 curated videos earning</span>
+                            <span class="text-gray-400">1,240 curated videos earning</span>
                         </div>
                     </div>
 
@@ -644,7 +644,7 @@ export function creatorsPage(c: Context) {
                             daily, and each reference adds up. It's incredible passive income from content I already created."
                         </blockquote>
                         <div class="flex items-center space-x-4 text-sm">
-                            <span class="text-green-400 font-semibold">$1,240/month authentic content</span>
+                            <span class="text-green-400 font-semibold">$2,470/month authentic content</span>
                             <span class="text-gray-400">•</span>
                             <span class="text-gray-400">2,300+ posts indexed</span>
                         </div>
@@ -665,7 +665,7 @@ export function creatorsPage(c: Context) {
                             they reference my old episodes and I earn from each citation. Pure passive income from existing work."
                         </blockquote>
                         <div class="flex items-center space-x-4 text-sm">
-                            <span class="text-green-400 font-semibold">$580/month from 500+ episodes</span>
+                            <span class="text-green-400 font-semibold">$1,180/month from 500+ episodes</span>
                             <span class="text-gray-400">•</span>
                             <span class="text-gray-400">5 years of content earning</span>
                         </div>
@@ -790,7 +790,7 @@ export function creatorsPage(c: Context) {
                 "Traditional ad models fail in the AI era—new monetization is needed.",
                 "Your content powers 80% of AI responses—earn from every interaction.",
                 "Smart publishers are already earning from AI-powered queries.",
-                "Creators lose $50B annually to AI content usage without compensation."
+                "Creators lose $85B annually to AI content usage without compensation."
             ];
 
             let currentMessageIndex = 0;
