@@ -569,105 +569,17 @@ class EarnlyGEOReport {
     }, 3000);
   }
 
-  async exportGEOReport(format) {
-    try {
-      const exportData = {
-        format: format,
-        dateRange: '30_days',
-        platforms: this.aiPlatforms.map(p => p.id),
-        includeOptimizations: true,
-        includeQueryData: true
-      };
-
-      // Show loading state
-      const button = event.target;
-      const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
-      button.disabled = true;
-
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      // Show success notification
-      const notification = document.createElement('div');
-      notification.className = 'fixed top-4 right-4 bg-blue-500 text-white p-4 rounded-lg shadow-lg z-50';
-      notification.innerHTML = `
-        <div class="flex items-center space-x-2">
-          <i class="fas fa-download"></i>
-          <span>GEO Report (${format.toUpperCase()}) is ready for download!</span>
-        </div>
-      `;
-      
-      document.body.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.remove();
-      }, 5000);
-
-      // Reset button
-      button.innerHTML = originalText;
-      button.disabled = false;
-
-    } catch (error) {
-      console.error('Export failed:', error);
-      alert('Export failed. Please try again.');
-    }
-  }
-
-  scheduleReport() {
-    // Create modal for scheduling options
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black bg-opacity-70 backdrop-blur-lg flex items-center justify-center z-50';
-    modal.innerHTML = `
-      <div class="geo-card rounded-3xl p-10 max-w-lg w-full mx-4">
-        <h2 class="text-3xl font-bold text-white mb-8 text-center">Schedule GEO Report</h2>
-        
-        <div class="space-y-6">
-          <div>
-            <label class="block text-lg font-medium text-gray-300 mb-3">Frequency</label>
-            <select class="w-full bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-4 py-3 text-white backdrop-blur-lg">
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-          </div>
-          
-          <div>
-            <label class="block text-lg font-medium text-gray-300 mb-3">Email Recipients</label>
-            <input type="email" placeholder="Enter email addresses" class="w-full bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-4 py-3 text-white placeholder-gray-400 backdrop-blur-lg">
-          </div>
-          
-          <div>
-            <label class="block text-lg font-medium text-gray-300 mb-3">Report Format</label>
-            <select class="w-full bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-4 py-3 text-white backdrop-blur-lg">
-              <option value="pdf">PDF Report</option>
-              <option value="excel">Excel Data</option>
-              <option value="both">Both Formats</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="flex space-x-4 mt-8">
-          <button onclick="this.parentElement.parentElement.parentElement.remove()" class="flex-1 bg-gray-600 bg-opacity-50 text-white py-3 rounded-xl font-semibold hover:bg-opacity-70 transition-colors backdrop-blur-lg">
-            Cancel
-          </button>
-          <button onclick="earnlyGEO.confirmSchedule(); this.parentElement.parentElement.parentElement.remove();" class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
-            Schedule Report
-          </button>
-        </div>
-      </div>
-    `;
-
-    document.body.appendChild(modal);
-  }
-
-  confirmSchedule() {
+  async bookDemo() {
+    // Show demo booking success notification
     const notification = document.createElement('div');
-    notification.className = 'fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50';
+    notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-xl shadow-xl z-50';
     notification.innerHTML = `
-      <div class="flex items-center space-x-2">
-        <i class="fas fa-calendar-check"></i>
-        <span>GEO Report has been scheduled successfully!</span>
+      <div class="flex items-center space-x-3">
+        <i class="fas fa-calendar-check text-2xl"></i>
+        <div>
+          <div class="font-bold text-lg">Demo Requested!</div>
+          <div class="text-sm opacity-90">Our team will contact you within 24 hours</div>
+        </div>
       </div>
     `;
     
@@ -676,6 +588,92 @@ class EarnlyGEOReport {
     setTimeout(() => {
       notification.remove();
     }, 5000);
+    
+    // Redirect to demo booking page
+    setTimeout(() => {
+      window.location.href = '/get-started';
+    }, 1000);
+  }
+
+  scheduleCall() {
+    // Create modal for demo scheduling options
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black bg-opacity-70 backdrop-blur-lg flex items-center justify-center z-50';
+    modal.innerHTML = `
+      <div class="geo-card rounded-3xl p-10 max-w-lg w-full mx-4">
+        <h2 class="text-3xl font-bold text-white mb-8 text-center">
+          <i class="fas fa-video mr-3 text-blue-400"></i>
+          Schedule Your Demo
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <label class="block text-lg font-medium text-gray-300 mb-3">Preferred Time</label>
+            <select class="w-full bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-4 py-3 text-white backdrop-blur-lg">
+              <option value="morning">Morning (9am - 12pm)</option>
+              <option value="afternoon">Afternoon (12pm - 5pm)</option>
+              <option value="evening">Evening (5pm - 8pm)</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-lg font-medium text-gray-300 mb-3">Your Email</label>
+            <input type="email" placeholder="Enter your email address" class="w-full bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-4 py-3 text-white placeholder-gray-400 backdrop-blur-lg">
+          </div>
+          
+          <div>
+            <label class="block text-lg font-medium text-gray-300 mb-3">Company/Website</label>
+            <input type="text" placeholder="Your company or website" class="w-full bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-4 py-3 text-white placeholder-gray-400 backdrop-blur-lg">
+          </div>
+
+          <div>
+            <label class="block text-lg font-medium text-gray-300 mb-3">Demo Focus</label>
+            <select class="w-full bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl px-4 py-3 text-white backdrop-blur-lg">
+              <option value="geo-optimization">GEO Optimization</option>
+              <option value="ai-monetization">AI Monetization</option>
+              <option value="full-platform">Full Platform Tour</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex space-x-4 mt-8">
+          <button onclick="this.parentElement.parentElement.parentElement.remove()" class="flex-1 bg-gray-600 bg-opacity-50 text-white py-3 rounded-xl font-semibold hover:bg-opacity-70 transition-colors backdrop-blur-lg">
+            Cancel
+          </button>
+          <button onclick="earnlyGEO.confirmDemo(); this.parentElement.parentElement.parentElement.remove();" class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
+            <i class="fas fa-calendar-check mr-2"></i>
+            Book Demo
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+  }
+
+  confirmDemo() {
+    const notification = document.createElement('div');
+    notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-xl shadow-xl z-50';
+    notification.innerHTML = `
+      <div class="flex items-center space-x-3">
+        <i class="fas fa-calendar-check text-2xl"></i>
+        <div>
+          <div class="font-bold text-lg">Demo Scheduled!</div>
+          <div class="text-sm opacity-90">Check your email for confirmation details</div>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.remove();
+    }, 5000);
+
+    // Redirect to get started page after a short delay
+    setTimeout(() => {
+      window.location.href = '/get-started';
+    }, 2000);
   }
 }
 
@@ -801,16 +799,19 @@ function showReportGeneratedNotification(websiteUrl) {
 }
 
 // Global functions
-function exportGEOReport(format) {
-  if (window.earnlyGEO) {
-    window.earnlyGEO.exportGEOReport(format);
-  }
+function bookDemo() {
+  // Redirect to demo booking page
+  window.location.href = '/get-started';
 }
 
-function scheduleReport() {
-  if (window.earnlyGEO) {
-    window.earnlyGEO.scheduleReport();
-  }
+function scheduleCall() {
+  // Open email client for scheduling
+  window.location.href = 'mailto:demo@earnly.app?subject=Schedule Demo Call&body=Hi, I would like to schedule a demo of Earnly\'s GEO optimization platform.';
+}
+
+function contactSales() {
+  // Redirect to contact page
+  window.location.href = '/contact';
 }
 
 // Initialize when DOM is loaded
