@@ -425,87 +425,114 @@ export const GeoReportPage = () => {
                 <!-- Combined Analytics Dashboard -->
                 <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-16">
                     <!-- GEO Performance Overview -->
-                    <div class="geo-card rounded-2xl p-8 flex flex-col h-full">
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-chart-line mr-3 text-blue-400"></i>
+                    <div class="geo-card rounded-2xl p-6 flex flex-col h-full">
+                        <h3 class="text-lg font-bold text-white mb-5 flex items-center">
+                            <i class="fas fa-chart-line mr-3 text-blue-400 text-lg"></i>
                             GEO Performance Overview
                         </h3>
-                        <div class="flex-1 flex flex-col justify-between">
+                        <div class="flex-1 flex flex-col">
                             <!-- Key Metrics -->
-                            <div class="grid grid-cols-2 gap-4 mb-6">
-                                <div class="bg-blue-500 bg-opacity-20 rounded-xl p-4 text-center">
-                                    <div class="text-2xl font-bold text-blue-400" id="overall-score">94</div>
-                                    <div class="text-sm text-gray-300">Overall Score</div>
+                            <div class="grid grid-cols-2 gap-3 mb-5">
+                                <div class="bg-blue-500 bg-opacity-15 rounded-xl p-3 text-center border border-blue-400 border-opacity-20">
+                                    <div class="text-3xl font-bold text-blue-400 mb-1" id="overall-score">94</div>
+                                    <div class="text-xs font-medium text-gray-300">Overall Score</div>
                                 </div>
-                                <div class="bg-green-500 bg-opacity-20 rounded-xl p-4 text-center">
-                                    <div class="text-2xl font-bold text-green-400" id="ai-visibility">87</div>
-                                    <div class="text-sm text-gray-300">AI Visibility</div>
+                                <div class="bg-green-500 bg-opacity-15 rounded-xl p-3 text-center border border-green-400 border-opacity-20">
+                                    <div class="text-3xl font-bold text-green-400 mb-1" id="ai-visibility">87</div>
+                                    <div class="text-xs font-medium text-gray-300">AI Visibility</div>
                                 </div>
                             </div>
+                            
+                            <!-- Additional Metrics Row -->
+                            <div class="grid grid-cols-2 gap-3 mb-5">
+                                <div class="bg-purple-500 bg-opacity-15 rounded-lg p-2 text-center">
+                                    <div class="text-lg font-bold text-purple-400">15.8%</div>
+                                    <div class="text-xs text-gray-400">Conversion</div>
+                                </div>
+                                <div class="bg-orange-500 bg-opacity-15 rounded-lg p-2 text-center">
+                                    <div class="text-lg font-bold text-orange-400">42.3K</div>
+                                    <div class="text-xs text-gray-400">Queries</div>
+                                </div>
+                            </div>
+                            
                             <!-- Mini Trend Chart -->
-                            <div class="flex-1 min-h-[120px]">
-                                <canvas id="optimization-trends-chart" width="320" height="120"></canvas>
+                            <div class="flex-1 min-h-[100px] mb-4">
+                                <canvas id="optimization-trends-chart" width="280" height="100"></canvas>
                             </div>
-                            <!-- Quick Stats -->
-                            <div class="mt-4 pt-4 border-t border-white border-opacity-10">
-                                <div class="flex justify-between text-sm">
+                            
+                            <!-- Performance Summary -->
+                            <div class="mt-auto pt-3 border-t border-white border-opacity-10">
+                                <div class="flex justify-between items-center text-sm mb-2">
                                     <span class="text-gray-300">This Week</span>
-                                    <span class="text-green-400 font-semibold">+12.4% ↗</span>
+                                    <span class="text-green-400 font-semibold flex items-center">
+                                        <i class="fas fa-arrow-up text-xs mr-1"></i>
+                                        +12.4%
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-gray-400">Trend</span>
+                                    <span class="text-blue-400 font-medium">Strongly Positive</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Platform Performance Comparison -->
-                    <div class="geo-card rounded-2xl p-8 flex flex-col h-full">
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-robot mr-3 text-green-400"></i>
+                    <div class="geo-card rounded-2xl p-6 flex flex-col h-full">
+                        <h3 class="text-lg font-bold text-white mb-5 flex items-center">
+                            <i class="fas fa-robot mr-3 text-green-400 text-lg"></i>
                             Platform Performance
                         </h3>
                         <div class="flex-1 flex flex-col">
                             <!-- Platform Rankings -->
-                            <div class="space-y-3 mb-6" id="platform-rankings">
+                            <div class="space-y-2 mb-5" id="platform-rankings">
                                 <!-- Will be populated by JavaScript -->
                             </div>
-                            <!-- Chart -->
-                            <div class="flex-1 min-h-[140px]">
-                                <canvas id="query-performance-chart" width="320" height="140"></canvas>
+                            
+                            <!-- Performance Chart -->
+                            <div class="flex-1 min-h-[120px] mb-4">
+                                <canvas id="query-performance-chart" width="280" height="120"></canvas>
                             </div>
-                            <!-- Summary -->
-                            <div class="mt-4 pt-4 border-t border-white border-opacity-10">
-                                <div class="flex justify-between text-sm">
+                            
+                            <!-- Platform Insights -->
+                            <div class="mt-auto pt-3 border-t border-white border-opacity-10">
+                                <div class="flex justify-between items-center text-sm mb-2">
                                     <span class="text-gray-300">Best Platform</span>
                                     <span class="text-green-400 font-semibold">ChatGPT</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-gray-400">Growth Rate</span>
+                                    <span class="text-green-400 font-medium">+12.4% avg</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Query Intelligence -->
-                    <div class="geo-card rounded-2xl p-8 flex flex-col h-full">
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-brain mr-3 text-purple-400"></i>
+                    <div class="geo-card rounded-2xl p-6 flex flex-col h-full">
+                        <h3 class="text-lg font-bold text-white mb-5 flex items-center">
+                            <i class="fas fa-brain mr-3 text-purple-400 text-lg"></i>
                             Query Intelligence
                         </h3>
                         <div class="flex-1 flex flex-col">
-                            <!-- Top Query -->
-                            <div class="bg-purple-500 bg-opacity-20 rounded-xl p-4 mb-4">
+                            <!-- Top Query Highlight -->
+                            <div class="bg-purple-500 bg-opacity-15 rounded-xl p-3 mb-5 border border-purple-400 border-opacity-20">
                                 <div class="flex items-center justify-between">
                                     <div class="flex-1 min-w-0">
-                                        <div class="text-sm font-semibold text-purple-400 mb-1">Top Query</div>
-                                        <div class="text-white text-sm truncate" id="top-query-text">
+                                        <div class="text-xs font-semibold text-purple-400 mb-1">Top Performing Query</div>
+                                        <div class="text-white text-sm font-medium truncate" id="top-query-text">
                                             "best AI-powered productivity tools"
                                         </div>
                                         <div class="text-xs text-gray-400 mt-1" id="top-query-stats">
-                                            8,420 imp • 234 conv • 94 score
+                                            8,420 imp • 234 conv
                                         </div>
                                     </div>
-                                    <div class="ml-4">
-                                        <div class="w-12 h-12 relative">
-                                            <svg class="w-12 h-12 transform -rotate-90">
-                                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="3" fill="transparent" class="text-white text-opacity-20"/>
-                                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="3" fill="transparent" class="text-purple-400" 
-                                                  stroke-dasharray="126" stroke-dashoffset="32" stroke-linecap="round"/>
+                                    <div class="ml-3">
+                                        <div class="w-10 h-10 relative">
+                                            <svg class="w-10 h-10 transform -rotate-90">
+                                                <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2" fill="transparent" class="text-white text-opacity-20"/>
+                                                <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2" fill="transparent" class="text-purple-400" 
+                                                  stroke-dasharray="100" stroke-dashoffset="6" stroke-linecap="round"/>
                                             </svg>
                                             <div class="absolute inset-0 flex items-center justify-center">
                                                 <span class="text-xs font-bold text-white">94</span>
@@ -515,26 +542,48 @@ export const GeoReportPage = () => {
                                 </div>
                             </div>
                             
-                            <!-- Categories Chart -->
-                            <div class="flex-1 flex items-center justify-center min-h-[160px]">
-                                <canvas id="query-categories-chart" width="200" height="160"></canvas>
+                            <!-- Query Categories -->
+                            <div class="mb-5">
+                                <h4 class="text-sm font-medium text-gray-300 mb-3">Query Categories</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+                                            <span class="text-sm text-gray-300">Product</span>
+                                        </div>
+                                        <span class="text-blue-400 font-semibold text-sm">35%</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                                            <span class="text-sm text-gray-300">Compare</span>
+                                        </div>
+                                        <span class="text-green-400 font-semibold text-sm">28%</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-3 h-3 bg-orange-400 rounded-full"></div>
+                                            <span class="text-sm text-gray-300">How-to</span>
+                                        </div>
+                                        <span class="text-orange-400 font-semibold text-sm">15%</span>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <!-- Query Breakdown -->
-                            <div class="mt-4 pt-4 border-t border-white border-opacity-10">
-                                <div class="grid grid-cols-3 gap-2 text-xs">
-                                    <div class="text-center">
-                                        <div class="text-blue-400 font-bold">35%</div>
-                                        <div class="text-gray-400">Product</div>
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="text-green-400 font-bold">28%</div>
-                                        <div class="text-gray-400">Compare</div>
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="text-orange-400 font-bold">15%</div>
-                                        <div class="text-gray-400">How-to</div>
-                                    </div>
+                            <!-- Categories Chart -->
+                            <div class="flex-1 flex items-center justify-center min-h-[120px] mb-4">
+                                <canvas id="query-categories-chart" width="180" height="120"></canvas>
+                            </div>
+                            
+                            <!-- Query Summary -->
+                            <div class="mt-auto pt-3 border-t border-white border-opacity-10">
+                                <div class="flex justify-between items-center text-sm mb-2">
+                                    <span class="text-gray-300">Total Queries</span>
+                                    <span class="text-purple-400 font-semibold">42.3K</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-gray-400">Avg Score</span>
+                                    <span class="text-purple-400 font-medium">87.2</span>
                                 </div>
                             </div>
                         </div>

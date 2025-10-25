@@ -302,15 +302,19 @@ class EarnlyGEOReport {
     const topPlatforms = this.aiPlatforms.slice(0, 4);
     
     container.innerHTML = topPlatforms.map((platform, index) => `
-      <div class="flex items-center justify-between p-2 bg-white bg-opacity-5 rounded-lg">
+      <div class="flex items-center justify-between p-2 bg-white bg-opacity-5 rounded-lg hover:bg-opacity-10 transition-all">
         <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 ${this.getPlatformGradient(platform.name)} rounded-lg flex items-center justify-center">
-            <i class="${this.getPlatformIcon(platform.name)} text-white text-sm"></i>
+          <div class="w-7 h-7 ${this.getPlatformGradient(platform.name)} rounded-lg flex items-center justify-center">
+            <i class="${this.getPlatformIcon(platform.name)} text-white text-xs"></i>
           </div>
-          <span class="font-medium text-white text-sm">${platform.name}</span>
+          <div class="flex-1">
+            <div class="font-medium text-white text-sm">${platform.name}</div>
+            <div class="text-xs text-gray-400">${platform.queries.toLocaleString()} queries</div>
+          </div>
         </div>
         <div class="text-right">
-          <div class="text-sm font-bold ${this.getPlatformColor(platform.name)}">${platform.score}/100</div>
+          <div class="text-sm font-bold ${this.getPlatformColor(platform.name)}">${platform.score}</div>
+          <div class="text-xs text-gray-400">${platform.change}</div>
         </div>
       </div>
     `).join('');
@@ -356,62 +360,81 @@ class EarnlyGEOReport {
           labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
           datasets: [{
             label: 'Overall GEO Score',
-            data: [78, 82, 85, 87, 89, 92],
+            data: [78, 82, 85, 87, 89, 94],
             borderColor: '#3b82f6',
-            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
             fill: true,
             tension: 0.4,
-            borderWidth: 3,
+            borderWidth: 2,
             pointBackgroundColor: '#3b82f6',
             pointBorderColor: '#ffffff',
-            pointBorderWidth: 2,
-            pointRadius: 6
+            pointBorderWidth: 1,
+            pointRadius: 4
           }, {
             label: 'AI Visibility Score',
-            data: [72, 76, 80, 83, 87, 89],
+            data: [72, 76, 80, 83, 85, 87],
             borderColor: '#10b981',
-            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+            backgroundColor: 'rgba(16, 185, 129, 0.1)',
             fill: true,
             tension: 0.4,
-            borderWidth: 3,
+            borderWidth: 2,
             pointBackgroundColor: '#10b981',
             pointBorderColor: '#ffffff',
-            pointBorderWidth: 2,
-            pointRadius: 6
+            pointBorderWidth: 1,
+            pointRadius: 4
           }]
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             legend: {
               position: 'bottom',
               labels: {
                 color: '#ffffff',
                 font: {
-                  size: 14,
+                  size: 11,
                   weight: 'bold'
-                }
+                },
+                boxWidth: 12,
+                boxHeight: 12,
+                padding: 15
               }
             }
           },
           scales: {
             x: {
               ticks: {
-                color: '#ffffff'
+                color: '#ffffff',
+                font: {
+                  size: 10
+                }
               },
               grid: {
-                color: 'rgba(255, 255, 255, 0.1)'
+                color: 'rgba(255, 255, 255, 0.1)',
+                lineWidth: 1
               }
             },
             y: {
-              beginAtZero: true,
+              beginAtZero: false,
+              min: 70,
               max: 100,
               ticks: {
-                color: '#ffffff'
+                color: '#ffffff',
+                font: {
+                  size: 10
+                },
+                stepSize: 10
               },
               grid: {
-                color: 'rgba(255, 255, 255, 0.1)'
+                color: 'rgba(255, 255, 255, 0.1)',
+                lineWidth: 1
               }
+            }
+          },
+          elements: {
+            point: {
+              hoverRadius: 6
             }
           }
         }
@@ -424,33 +447,30 @@ class EarnlyGEOReport {
       new Chart(queryCtx, {
         type: 'bar',
         data: {
-          labels: ['ChatGPT', 'Claude', 'Gemini', 'Perplexity', 'Copilot', 'Bard'],
+          labels: ['ChatGPT', 'Claude', 'Gemini', 'Perplexity'],
           datasets: [{
             label: 'Query Volume',
-            data: [15420, 8920, 12540, 6780, 4320, 3890],
+            data: [15420, 8920, 12540, 6780],
             backgroundColor: [
-              'rgba(16, 163, 127, 0.8)',
-              'rgba(217, 119, 6, 0.8)',
-              'rgba(66, 133, 244, 0.8)',
-              'rgba(139, 92, 246, 0.8)',
-              'rgba(6, 182, 212, 0.8)',
-              'rgba(245, 158, 11, 0.8)'
+              'rgba(16, 163, 127, 0.7)',
+              'rgba(217, 119, 6, 0.7)',
+              'rgba(66, 133, 244, 0.7)',
+              'rgba(139, 92, 246, 0.7)'
             ],
             borderColor: [
               '#10a37f',
               '#d97706',
               '#4285f4',
-              '#8b5cf6',
-              '#06b6d4',
-              '#f59e0b'
+              '#8b5cf6'
             ],
-            borderWidth: 2,
-            borderRadius: 8,
+            borderWidth: 1,
+            borderRadius: 6,
             borderSkipped: false
           }]
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             legend: {
               display: false
@@ -461,20 +481,29 @@ class EarnlyGEOReport {
               ticks: {
                 color: '#ffffff',
                 font: {
+                  size: 10,
                   weight: 'bold'
                 }
               },
               grid: {
-                color: 'rgba(255, 255, 255, 0.1)'
+                color: 'rgba(255, 255, 255, 0.1)',
+                lineWidth: 1
               }
             },
             y: {
               beginAtZero: true,
               ticks: {
-                color: '#ffffff'
+                color: '#ffffff',
+                font: {
+                  size: 10
+                },
+                callback: function(value) {
+                  return value >= 1000 ? (value / 1000) + 'K' : value;
+                }
               },
               grid: {
-                color: 'rgba(255, 255, 255, 0.1)'
+                color: 'rgba(255, 255, 255, 0.1)',
+                lineWidth: 1
               }
             }
           }
