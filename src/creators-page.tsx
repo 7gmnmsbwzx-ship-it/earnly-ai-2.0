@@ -330,7 +330,7 @@ export function creatorsPage(c: Context) {
             </div>
         </section>
 
-        <!-- Archived Content Value Section -->
+        <!-- Authentic Content Value Section -->
         <section class="py-20 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -338,7 +338,7 @@ export function creatorsPage(c: Context) {
                         <span class="creator-gradient bg-clip-text text-transparent">Every Piece</span> of Content Earns
                     </h2>
                     <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-12">
-                        Your archived content becomes a goldmine. When AI systems reference your work to answer users' questions, 
+                        Your authentic content becomes a goldmine. When AI systems reference your work to answer users' questions, 
                         <span class="text-green-400 font-semibold">you get paid automatically.</span>
                     </p>
                 </div>
@@ -442,7 +442,7 @@ export function creatorsPage(c: Context) {
                     <div class="text-center mt-8">
                         <div class="inline-flex items-center space-x-2 bg-green-500/20 rounded-full px-6 py-3">
                             <i class="fas fa-coins text-green-400"></i>
-                            <span class="text-green-400 font-semibold">Average creator earns $50-500/month from archived content</span>
+                            <span class="text-green-400 font-semibold">Average creator earns $50-500/month from authentic content</span>
                         </div>
                     </div>
                 </div>
@@ -623,9 +623,9 @@ export function creatorsPage(c: Context) {
                             and I get paid for each citation. It's like having a passive income from my entire content history."
                         </blockquote>
                         <div class="flex items-center space-x-4 text-sm">
-                            <span class="text-green-400 font-semibold">$847/month from old content</span>
+                            <span class="text-green-400 font-semibold">$847/month from authentic content</span>
                             <span class="text-gray-400">•</span>
-                            <span class="text-gray-400">850 archived videos earning</span>
+                            <span class="text-gray-400">850 curated videos earning</span>
                         </div>
                     </div>
 
@@ -644,7 +644,7 @@ export function creatorsPage(c: Context) {
                             daily, and each reference adds up. It's incredible passive income from content I already created."
                         </blockquote>
                         <div class="flex items-center space-x-4 text-sm">
-                            <span class="text-green-400 font-semibold">$1,240/month archived content</span>
+                            <span class="text-green-400 font-semibold">$1,240/month authentic content</span>
                             <span class="text-gray-400">•</span>
                             <span class="text-gray-400">2,300+ posts indexed</span>
                         </div>
