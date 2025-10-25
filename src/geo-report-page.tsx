@@ -423,37 +423,119 @@ export const GeoReportPage = () => {
 
 
                 <!-- Combined Analytics Dashboard -->
-                <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-16">
-                    <!-- Optimization Score Trends -->
-                    <div class="geo-card rounded-2xl p-8">
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-16">
+                    <!-- GEO Performance Overview -->
+                    <div class="geo-card rounded-2xl p-8 flex flex-col h-full">
                         <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-chart-area mr-3 text-blue-400"></i>
-                            Optimization Score Trends
+                            <i class="fas fa-chart-line mr-3 text-blue-400"></i>
+                            GEO Performance Overview
                         </h3>
-                        <canvas id="optimization-trends-chart" width="350" height="180"></canvas>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <!-- Key Metrics -->
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="bg-blue-500 bg-opacity-20 rounded-xl p-4 text-center">
+                                    <div class="text-2xl font-bold text-blue-400" id="overall-score">94</div>
+                                    <div class="text-sm text-gray-300">Overall Score</div>
+                                </div>
+                                <div class="bg-green-500 bg-opacity-20 rounded-xl p-4 text-center">
+                                    <div class="text-2xl font-bold text-green-400" id="ai-visibility">87</div>
+                                    <div class="text-sm text-gray-300">AI Visibility</div>
+                                </div>
+                            </div>
+                            <!-- Mini Trend Chart -->
+                            <div class="flex-1 min-h-[120px]">
+                                <canvas id="optimization-trends-chart" width="320" height="120"></canvas>
+                            </div>
+                            <!-- Quick Stats -->
+                            <div class="mt-4 pt-4 border-t border-white border-opacity-10">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-300">This Week</span>
+                                    <span class="text-green-400 font-semibold">+12.4% ↗</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- AI Query Performance -->
-                    <div class="geo-card rounded-2xl p-8">
+                    <!-- Platform Performance Comparison -->
+                    <div class="geo-card rounded-2xl p-8 flex flex-col h-full">
                         <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-users mr-3 text-green-400"></i>
-                            AI Query Performance
+                            <i class="fas fa-robot mr-3 text-green-400"></i>
+                            Platform Performance
                         </h3>
-                        <canvas id="query-performance-chart" width="350" height="180"></canvas>
+                        <div class="flex-1 flex flex-col">
+                            <!-- Platform Rankings -->
+                            <div class="space-y-3 mb-6" id="platform-rankings">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <!-- Chart -->
+                            <div class="flex-1 min-h-[140px]">
+                                <canvas id="query-performance-chart" width="320" height="140"></canvas>
+                            </div>
+                            <!-- Summary -->
+                            <div class="mt-4 pt-4 border-t border-white border-opacity-10">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-300">Best Platform</span>
+                                    <span class="text-green-400 font-semibold">ChatGPT</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- AI Query Analysis -->
-                    <div class="geo-card rounded-2xl p-8">
+                    <!-- Query Intelligence -->
+                    <div class="geo-card rounded-2xl p-8 flex flex-col h-full">
                         <h3 class="text-xl font-bold text-white mb-6 flex items-center">
                             <i class="fas fa-brain mr-3 text-purple-400"></i>
-                            AI Query Analysis
+                            Query Intelligence
                         </h3>
-                        <div class="space-y-4">
-                            <div class="space-y-3" id="top-queries-compact">
-                                <!-- Compact query data will be populated by JavaScript -->
+                        <div class="flex-1 flex flex-col">
+                            <!-- Top Query -->
+                            <div class="bg-purple-500 bg-opacity-20 rounded-xl p-4 mb-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-semibold text-purple-400 mb-1">Top Query</div>
+                                        <div class="text-white text-sm truncate" id="top-query-text">
+                                            "best AI-powered productivity tools"
+                                        </div>
+                                        <div class="text-xs text-gray-400 mt-1" id="top-query-stats">
+                                            8,420 imp • 234 conv • 94 score
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="w-12 h-12 relative">
+                                            <svg class="w-12 h-12 transform -rotate-90">
+                                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="3" fill="transparent" class="text-white text-opacity-20"/>
+                                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="3" fill="transparent" class="text-purple-400" 
+                                                  stroke-dasharray="126" stroke-dashoffset="32" stroke-linecap="round"/>
+                                            </svg>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-xs font-bold text-white">94</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-4">
-                                <canvas id="query-categories-chart" width="280" height="200"></canvas>
+                            
+                            <!-- Categories Chart -->
+                            <div class="flex-1 flex items-center justify-center min-h-[160px]">
+                                <canvas id="query-categories-chart" width="200" height="160"></canvas>
+                            </div>
+                            
+                            <!-- Query Breakdown -->
+                            <div class="mt-4 pt-4 border-t border-white border-opacity-10">
+                                <div class="grid grid-cols-3 gap-2 text-xs">
+                                    <div class="text-center">
+                                        <div class="text-blue-400 font-bold">35%</div>
+                                        <div class="text-gray-400">Product</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-green-400 font-bold">28%</div>
+                                        <div class="text-gray-400">Compare</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-orange-400 font-bold">15%</div>
+                                        <div class="text-gray-400">How-to</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

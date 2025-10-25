@@ -127,6 +127,7 @@ class EarnlyGEOReport {
     this.renderOptimizationSuggestions();
     this.renderTopQueries();
     this.renderTopQueriesCompact();
+    this.renderPlatformRankings();
     this.initializeCharts();
     this.startRealTimeUpdates();
   }
@@ -292,6 +293,57 @@ class EarnlyGEOReport {
         </div>
       </div>
     `).join('');
+  }
+
+  renderPlatformRankings() {
+    const container = document.getElementById('platform-rankings');
+    if (!container) return;
+
+    const topPlatforms = this.aiPlatforms.slice(0, 4);
+    
+    container.innerHTML = topPlatforms.map((platform, index) => `
+      <div class="flex items-center justify-between p-2 bg-white bg-opacity-5 rounded-lg">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 ${this.getPlatformGradient(platform.name)} rounded-lg flex items-center justify-center">
+            <i class="${this.getPlatformIcon(platform.name)} text-white text-sm"></i>
+          </div>
+          <span class="font-medium text-white text-sm">${platform.name}</span>
+        </div>
+        <div class="text-right">
+          <div class="text-sm font-bold ${this.getPlatformColor(platform.name)}">${platform.score}/100</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  getPlatformGradient(platformName) {
+    const gradients = {
+      'ChatGPT': 'bg-gradient-to-r from-green-500 to-emerald-600',
+      'Claude': 'bg-gradient-to-r from-orange-500 to-red-600', 
+      'Gemini': 'bg-gradient-to-r from-blue-500 to-indigo-600',
+      'Perplexity': 'bg-gradient-to-r from-purple-500 to-violet-600'
+    };
+    return gradients[platformName] || 'bg-gradient-to-r from-gray-500 to-gray-600';
+  }
+
+  getPlatformIcon(platformName) {
+    const icons = {
+      'ChatGPT': 'fas fa-comments',
+      'Claude': 'fas fa-brain',
+      'Gemini': 'fas fa-gem',
+      'Perplexity': 'fas fa-search'
+    };
+    return icons[platformName] || 'fas fa-robot';
+  }
+
+  getPlatformColor(platformName) {
+    const colors = {
+      'ChatGPT': 'text-green-400',
+      'Claude': 'text-orange-400',
+      'Gemini': 'text-blue-400', 
+      'Perplexity': 'text-purple-400'
+    };
+    return colors[platformName] || 'text-gray-400';
   }
 
   initializeCharts() {
