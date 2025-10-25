@@ -126,6 +126,7 @@ class EarnlyGEOReport {
     this.renderAIPlatforms();
     this.renderOptimizationSuggestions();
     this.renderTopQueries();
+    this.renderTopQueriesCompact();
     this.initializeCharts();
     this.startRealTimeUpdates();
   }
@@ -252,6 +253,40 @@ class EarnlyGEOReport {
               <div class="absolute inset-0 flex items-center justify-center">
                 <span class="text-sm font-bold text-white">${query.score}</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  renderTopQueriesCompact() {
+    const container = document.getElementById('top-queries-compact');
+    if (!container) return;
+
+    // Show only top 3 queries in compact format
+    const topThreeQueries = this.topQueries.slice(0, 3);
+    
+    container.innerHTML = topThreeQueries.map((query, index) => `
+      <div class="flex items-center justify-between p-3 bg-white bg-opacity-5 rounded-lg hover:bg-opacity-10 transition-all">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg flex items-center justify-center font-bold text-sm">
+            ${query.rank}
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-medium text-white text-sm truncate">"${query.query}"</p>
+            <p class="text-gray-400 text-xs">${query.impressions.toLocaleString()} imp • ${query.conversions} conv</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 relative">
+            <svg class="w-10 h-10 transform -rotate-90">
+              <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="3" fill="transparent" class="text-white text-opacity-20"/>
+              <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="3" fill="transparent" class="text-blue-400" 
+                stroke-dasharray="100" stroke-dashoffset="${100 - query.score}" stroke-linecap="round"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-xs font-bold text-white">${query.score}</span>
             </div>
           </div>
         </div>

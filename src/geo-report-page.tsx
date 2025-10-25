@@ -422,22 +422,40 @@ export const GeoReportPage = () => {
 
 
 
-                <!-- Performance Trends -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-                    <div class="geo-card rounded-2xl p-10">
-                        <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
-                            <i class="fas fa-chart-area mr-4 text-blue-400"></i>
+                <!-- Combined Analytics Dashboard -->
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-16">
+                    <!-- Optimization Score Trends -->
+                    <div class="geo-card rounded-2xl p-8">
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-chart-area mr-3 text-blue-400"></i>
                             Optimization Score Trends
                         </h3>
-                        <canvas id="optimization-trends-chart" width="400" height="200"></canvas>
+                        <canvas id="optimization-trends-chart" width="350" height="180"></canvas>
                     </div>
 
-                    <div class="geo-card rounded-2xl p-10">
-                        <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
-                            <i class="fas fa-users mr-4 text-green-400"></i>
+                    <!-- AI Query Performance -->
+                    <div class="geo-card rounded-2xl p-8">
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-users mr-3 text-green-400"></i>
                             AI Query Performance
                         </h3>
-                        <canvas id="query-performance-chart" width="400" height="200"></canvas>
+                        <canvas id="query-performance-chart" width="350" height="180"></canvas>
+                    </div>
+
+                    <!-- AI Query Analysis -->
+                    <div class="geo-card rounded-2xl p-8">
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-brain mr-3 text-purple-400"></i>
+                            AI Query Analysis
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="space-y-3" id="top-queries-compact">
+                                <!-- Compact query data will be populated by JavaScript -->
+                            </div>
+                            <div class="mt-4">
+                                <canvas id="query-categories-chart" width="280" height="200"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -449,26 +467,6 @@ export const GeoReportPage = () => {
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="optimization-suggestions">
                         <!-- Suggestions will be populated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Query Analysis -->
-                <div class="geo-card rounded-2xl p-10 mb-16">
-                    <h2 class="text-3xl font-bold text-white mb-10 flex items-center">
-                        <i class="fas fa-brain mr-4 text-purple-400"></i>
-                        AI Query Analysis
-                    </h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div class="lg:col-span-2">
-                            <h3 class="text-xl font-semibold text-white mb-6">Top Performing Queries</h3>
-                            <div class="space-y-4" id="top-queries">
-                                <!-- Query data will be populated by JavaScript -->
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-6">Query Categories</h3>
-                            <canvas id="query-categories-chart" width="300" height="300"></canvas>
-                        </div>
                     </div>
                 </div>
 
