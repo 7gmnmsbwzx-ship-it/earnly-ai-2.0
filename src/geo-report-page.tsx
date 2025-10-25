@@ -192,9 +192,7 @@ export const GeoReportPage = () => {
                             <span class="text-white">Real-time GEO</span>
                         </div>
                         
-                        <button class="btn-interactive text-white px-6 py-2 rounded-lg font-semibold">
-                            Book a Demo
-                        </button>
+
                     </div>
                 </div>
             </div>
@@ -519,23 +517,7 @@ export const GeoReportPage = () => {
                     </div>
                 </div>
 
-                <!-- Demo and Contact Actions -->
-                <div class="text-center">
-                    <div class="inline-flex items-center space-x-6 geo-card rounded-2xl p-8">
-                        <a href="/get-started" class="btn-interactive text-white px-10 py-5 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105 flex items-center text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
-                            <i class="fas fa-calendar-check mr-3 text-2xl"></i>
-                            Book a Demo
-                        </a>
-                        <a href="mailto:demo@earnly.app" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-10 py-5 rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all transform hover:scale-105 flex items-center text-xl font-bold">
-                            <i class="fas fa-video mr-3 text-2xl"></i>
-                            Schedule Call
-                        </a>
-                        <a href="/contact" class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-10 py-5 rounded-xl hover:from-orange-600 hover:to-red-700 transition-all transform hover:scale-105 flex items-center text-xl font-bold">
-                            <i class="fas fa-comments mr-3 text-2xl"></i>
-                            Contact Sales
-                        </a>
-                    </div>
-                </div>
+
             </div>
         </section>
 
