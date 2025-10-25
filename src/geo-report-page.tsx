@@ -192,7 +192,7 @@ export const GeoReportPage = () => {
                             <span class="text-white">Real-time GEO</span>
                         </div>
                         
-                        <button onclick="bookDemo()" class="text-white hover:text-blue-400 transition-colors">
+                        <button onclick="bookDemo()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all hover:scale-105 shadow-lg">
                             Book a demo
                         </button>
 
