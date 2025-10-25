@@ -11,6 +11,7 @@ import { GeoReportPage } from './geo-report-page'
 import { SimpleWorkingPage } from './simple-working'
 import { aiPlatformsDirectoryPage } from './ai-platforms-directory'
 import { getStartedPage } from './get-started-page'
+import { creatorsPage } from './creators-page'
 
 // Temporarily inline matching logic to avoid import issues
 
@@ -1231,6 +1232,11 @@ app.get('/ai-directory', (c) => {
 // Get Started Page - Superior to AdMesh
 app.get('/get-started', (c) => {
   return getStartedPage(c)
+})
+
+// Creators Page
+app.get('/creators', (c) => {
+  return creatorsPage(c)
 })
 
 // Dashboard route for authenticated users

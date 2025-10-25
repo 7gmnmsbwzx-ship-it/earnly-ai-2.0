@@ -100,6 +100,7 @@ export const ForAIPlatformsPage = () => {
                     <div class="flex items-center space-x-4">
                         <a href="/" class="text-white hover:text-blue-400 transition-colors">Home</a>
                         <a href="/for-advertisers" class="text-white hover:text-blue-400 transition-colors">For Advertisers</a>
+                        <a href="/creators" class="text-white hover:text-purple-400 transition-colors">For Creators</a>
                         <a href="/geo-report" class="text-white hover:text-blue-400 transition-colors">GEO Analytics</a>
                         <a href="/dashboard/platform" class="text-white hover:text-blue-400 transition-colors bg-green-600 bg-opacity-20 px-3 py-1 rounded-lg border border-green-500 border-opacity-30">
                             <i class="fas fa-cogs mr-2"></i>Dashboard
@@ -921,6 +922,7 @@ export const ForAIPlatformsPage = () => {
                         <ul class="space-y-3 text-gray-400">
                             <li><a href="/for-advertisers" class="hover:text-white transition-colors">For Advertisers</a></li>
                             <li><a href="/for-ai-platforms" class="hover:text-white transition-colors">For AI Platforms</a></li>
+                            <li><a href="/creators" class="hover:text-white transition-colors">For Creators</a></li>
                             <li><a href="/geo-report" class="hover:text-white transition-colors">GEO Analytics</a></li>
                             <li><a href="#" class="hover:text-white transition-colors">API Integration</a></li>
                         </ul>

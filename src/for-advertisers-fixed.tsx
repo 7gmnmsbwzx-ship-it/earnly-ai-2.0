@@ -79,6 +79,7 @@ export const ForAdvertisersFixed = () => {
                     <div class="flex items-center space-x-4">
                         <a href="/" class="text-white hover:text-blue-400 transition-colors">Home</a>
                         <a href="/for-ai-platforms" class="text-white hover:text-blue-400 transition-colors">For AI Platforms</a>
+                        <a href="/creators" class="text-white hover:text-purple-400 transition-colors">For Creators</a>
                         <a href="/geo-report" class="text-white hover:text-blue-400 transition-colors">GEO Analytics</a>
                         <a href="/dashboard/advertiser" class="text-white hover:text-blue-400 transition-colors bg-blue-600 bg-opacity-20 px-3 py-1 rounded-lg border border-blue-500 border-opacity-30">
                             <i class="fas fa-chart-line mr-2"></i>Dashboard
@@ -649,6 +650,7 @@ export const ForAdvertisersFixed = () => {
                         <ul class="space-y-2 text-gray-400 text-sm">
                             <li><a href="/for-advertisers" class="hover:text-white transition-colors">For Advertisers</a></li>
                             <li><a href="/for-ai-platforms" class="hover:text-white transition-colors">For AI Platforms</a></li>
+                            <li><a href="/creators" class="hover:text-white transition-colors">For Creators</a></li>
                             <li><a href="/geo-report" class="hover:text-white transition-colors">Analytics</a></li>
                         </ul>
                     </div>

@@ -67,7 +67,7 @@ export const AdvancedHomepage = () => {
                         <div class="hidden md:flex space-x-8 ml-10">
                             <a href="/for-advertisers" class="text-white hover:text-blue-400 transition-colors">For Advertisers</a>
                             <a href="/for-ai-platforms" class="text-white hover:text-blue-400 transition-colors">For AI Platforms</a>
-                            <a href="/ai-directory" class="text-white hover:text-blue-400 transition-colors">AI Directory</a>
+                            <a href="/creators" class="text-white hover:text-purple-400 transition-colors">For Creators</a>
                             <a href="/geo-report" class="text-white hover:text-blue-400 transition-colors">GEO Analytics</a>
                         </div>
                     </div>
@@ -83,6 +83,9 @@ export const AdvancedHomepage = () => {
                             <span class="text-gray-400">conversations</span>
                         </div>
                         
+                        <a href="/signin" class="text-white hover:text-blue-400 transition-colors px-4 py-2 font-medium">
+                            Sign In
+                        </a>
                         <a href="/get-started" class="btn-interactive bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
                             Get Started
                         </a>

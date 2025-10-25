@@ -73,6 +73,7 @@ export function getStartedPage(c: Context) {
                 background: rgba(15, 23, 42, 0.6);
                 border: 1px solid rgba(148, 163, 184, 0.2);
                 backdrop-filter: blur(15px);
+                transition: opacity 0.3s ease-in-out;
             }
             
             .password-requirement {
@@ -141,10 +142,10 @@ export function getStartedPage(c: Context) {
             </div>
         </nav>
 
-        <!-- Main Content - AdMesh Style Layout -->
-        <div class="min-h-screen flex items-center py-12">
+        <!-- Main Content - Fixed Layout -->
+        <div class="py-8 lg:py-12">
             <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
                     
                     <!-- Left Side - Welcome & Testimonial (Modern Glass Design) -->
                     <div class="text-white">
@@ -153,69 +154,146 @@ export function getStartedPage(c: Context) {
                                 Welcome to Earnly
                             </h1>
                             <p class="text-xl text-slate-300 mb-8 leading-relaxed">
-                                Join our platform to connect with customers through AI Platforms
+                                Join our platform to monetize AI interactions and connect with your audience
                             </p>
                         </div>
                         
-                        <!-- Modern Testimonial Card -->
-                        <div class="testimonial-card rounded-2xl p-8 floating-animation">
-                            <div class="flex items-start space-x-4 mb-6">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" 
-                                     class="w-16 h-16 rounded-full border-2 border-blue-400/50" alt="Sarah C.">
-                                <div class="flex-1">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="font-bold text-white text-lg">Sarah C.</div>
-                                        <div class="bg-blue-500/20 text-blue-300 text-xs px-2 py-1 rounded-full">
-                                            Verified User
+                        <!-- Dynamic Testimonial Card -->
+                        <div class="testimonial-card rounded-2xl p-8 floating-animation" id="testimonial-card">
+                            <!-- Advertiser Testimonial -->
+                            <div id="advertiser-testimonial" class="testimonial-content hidden">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                                         class="w-16 h-16 rounded-full border-2 border-blue-400/50" alt="Mike R.">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="font-bold text-white text-lg">Mike R.</div>
+                                            <div class="bg-blue-500/20 text-blue-300 text-xs px-2 py-1 rounded-full">
+                                                Verified User
+                                            </div>
                                         </div>
+                                        <div class="text-sm text-slate-400 mb-4">Marketing Director, TechFlow Solutions</div>
                                     </div>
-                                    <div class="text-sm text-slate-400 mb-4">Head of Growth, TechFlow AI</div>
+                                </div>
+                                <blockquote class="text-slate-200 text-lg leading-relaxed mb-4">
+                                    "Earnly gave us instant visibility across all apps. We hit <span class="text-green-400 font-semibold">500 conversions</span> in our first week through AI-driven offers. It's the future of marketing."
+                                </blockquote>
+                                <div class="flex items-center space-x-4 text-sm text-slate-400">
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>5.0 rating</span>
+                                    </div>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-calendar text-blue-400"></i>
+                                        <span>2 weeks ago</span>
+                                    </div>
                                 </div>
                             </div>
-                            <blockquote class="text-slate-200 text-lg leading-relaxed mb-4">
-                                "Earnly gave us instant visibility across all apps. We hit <span class="text-green-400 font-semibold">500 conversions</span> in our first week through AI-driven offers. It's the future of marketing."
-                            </blockquote>
-                            <div class="flex items-center space-x-4 text-sm text-slate-400">
-                                <div class="flex items-center space-x-1">
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <span>5.0 rating</span>
+
+                            <!-- AI Platform Testimonial -->
+                            <div id="platform-testimonial" class="testimonial-content hidden">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+                                         class="w-16 h-16 rounded-full border-2 border-purple-400/50" alt="Alex T.">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="font-bold text-white text-lg">Alex T.</div>
+                                            <div class="bg-purple-500/20 text-purple-300 text-xs px-2 py-1 rounded-full">
+                                                Verified User
+                                            </div>
+                                        </div>
+                                        <div class="text-sm text-slate-400 mb-4">CTO, IntelliChat AI</div>
+                                    </div>
                                 </div>
-                                <div class="flex items-center space-x-1">
-                                    <i class="fas fa-calendar text-blue-400"></i>
-                                    <span>2 weeks ago</span>
+                                <blockquote class="text-slate-200 text-lg leading-relaxed mb-4">
+                                    "Integrating Earnly's monetization layer increased our <span class="text-green-400 font-semibold">revenue by 340%</span>. Our AI responses now generate income while providing better user experiences."
+                                </blockquote>
+                                <div class="flex items-center space-x-4 text-sm text-slate-400">
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>5.0 rating</span>
+                                    </div>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-calendar text-purple-400"></i>
+                                        <span>1 week ago</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Creator Testimonial -->
+                            <div id="creator-testimonial" class="testimonial-content">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                         class="w-16 h-16 rounded-full border-2 border-pink-400/50" alt="Sarah Chen">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="font-bold text-white text-lg">Sarah Chen</div>
+                                            <div class="bg-pink-500/20 text-pink-300 text-xs px-2 py-1 rounded-full">
+                                                Verified Creator
+                                            </div>
+                                        </div>
+                                        <div class="text-sm text-slate-400 mb-4">Tech YouTuber • 850K subscribers</div>
+                                    </div>
+                                </div>
+                                <blockquote class="text-slate-200 text-lg leading-relaxed mb-4">
+                                    "My 5-year-old tech tutorials are still earning me money! AI assistants reference my content daily, and I get paid for each citation. It's like having <span class="text-green-400 font-semibold">passive income from my entire content history</span>."
+                                </blockquote>
+                                <div class="flex items-center space-x-4 text-sm text-slate-400">
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>5.0 rating</span>
+                                    </div>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-calendar text-pink-400"></i>
+                                        <span>3 days ago</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Right Side - Modern Glass Registration Form -->
-                    <div class="glass-card rounded-3xl p-10 max-w-lg mx-auto w-full">
-                        <div class="text-center mb-8">
-                            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-4">
-                                <i class="fas fa-rocket text-white text-2xl"></i>
+                    <div class="glass-card rounded-3xl p-8 max-w-lg mx-auto w-full">
+                        <div class="text-center mb-6">
+                            <div class="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-3">
+                                <i class="fas fa-rocket text-white text-xl"></i>
                             </div>
-                            <h2 class="text-3xl font-bold text-white mb-2">Get started with Earnly</h2>
-                            <p class="text-slate-400">Create your account to start connecting with customers through AI Platforms</p>
+                            <h2 class="text-2xl font-bold text-white mb-2">Get started with Earnly</h2>
+                            <p class="text-slate-400 text-sm">Create your account to start earning from AI interactions</p>
                         </div>
 
-                        <!-- Modern Role Selection -->
-                        <div class="mb-8">
+                        <!-- Enhanced Role Selection -->
+                        <div class="mb-6">
                             <p class="text-sm text-slate-300 mb-4 font-medium">I am a...</p>
-                            <div class="grid grid-cols-2 gap-3">
+                            <div class="grid grid-cols-3 gap-3">
                                 <button onclick="selectAccountType('advertiser')" 
-                                        class="role-btn px-6 py-4 text-sm font-semibold rounded-xl text-slate-300 hover:text-white transition-all duration-300"
+                                        class="role-btn px-3 py-4 text-sm font-semibold rounded-xl text-slate-300 hover:text-white transition-all duration-300"
                                         id="advertiser-btn">
                                     <div class="flex flex-col items-center space-y-2">
-                                        <i class="fas fa-bullhorn text-lg"></i>
-                                        <span>Advertiser</span>
+                                        <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                                            <i class="fas fa-bullhorn text-blue-400"></i>
+                                        </div>
+                                        <span class="text-xs">Advertiser</span>
                                     </div>
                                 </button>
                                 <button onclick="selectAccountType('platform')" 
-                                        class="role-btn active px-6 py-4 text-sm font-semibold rounded-xl transition-all duration-300"
+                                        class="role-btn px-3 py-4 text-sm font-semibold rounded-xl text-slate-300 hover:text-white transition-all duration-300"
                                         id="platform-btn">
                                     <div class="flex flex-col items-center space-y-2">
-                                        <i class="fas fa-robot text-lg"></i>
-                                        <span>AI Platform</span>
+                                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                                            <i class="fas fa-robot text-purple-400"></i>
+                                        </div>
+                                        <span class="text-xs">AI Platform</span>
+                                    </div>
+                                </button>
+                                <button onclick="selectAccountType('creator')" 
+                                        class="role-btn active px-3 py-4 text-sm font-semibold rounded-xl transition-all duration-300"
+                                        id="creator-btn">
+                                    <div class="flex flex-col items-center space-y-2">
+                                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                                            <i class="fas fa-palette text-white"></i>
+                                        </div>
+                                        <span class="text-xs text-white">Creator</span>
                                     </div>
                                 </button>
                             </div>
@@ -232,7 +310,7 @@ export function getStartedPage(c: Context) {
                                     <input type="url" 
                                            name="website"
                                            required
-                                           class="form-input w-full px-4 py-4 pl-12 rounded-xl text-lg"
+                                           class="form-input w-full px-4 py-3 pl-12 rounded-xl text-lg"
                                            placeholder="example.com"
                                            id="website-input">
                                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -243,7 +321,7 @@ export function getStartedPage(c: Context) {
 
                             <!-- Password -->
                             <div>
-                                <label class="block text-sm font-semibold text-slate-300 mb-3">
+                                <label class="block text-sm font-semibold text-slate-300 mb-2">
                                     Password
                                 </label>
                                 <div class="relative group">
@@ -251,21 +329,21 @@ export function getStartedPage(c: Context) {
                                            name="password"
                                            required
                                            minlength="8"
-                                           class="form-input w-full px-4 py-4 pl-12 pr-14 rounded-xl text-lg"
+                                           class="form-input w-full px-4 py-3 pl-11 pr-12 rounded-xl"
                                            placeholder="••••••••"
                                            oninput="checkPasswordRequirements(this.value)">
-                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i class="fas fa-lock text-slate-500 group-focus-within:text-blue-400 transition-colors"></i>
                                     </div>
-                                    <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                                    <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                         <i class="fas fa-eye text-slate-500 hover:text-slate-300 transition-colors" id="password-toggle"></i>
                                     </button>
                                 </div>
                                 
-                                <!-- Password Requirements (AdMesh Style) -->
-                                <div class="mt-3 space-y-2">
-                                    <p class="text-xs text-gray-400">Password requirements:</p>
-                                    <div class="space-y-1">
+                                <!-- Password Requirements -->
+                                <div class="mt-2 space-y-1">
+                                    <p class="text-xs text-slate-400">Password requirements:</p>
+                                    <div class="grid grid-cols-2 gap-1 text-xs">
                                         <div class="password-requirement">
                                             <div class="requirement-dot" id="length-dot"></div>
                                             <span>At least 8 characters</span>
@@ -288,7 +366,7 @@ export function getStartedPage(c: Context) {
 
                             <!-- Modern Create Account Button -->
                             <button type="submit" 
-                                    class="create-account-btn w-full text-white py-4 px-6 rounded-xl font-semibold text-lg mt-8">
+                                    class="create-account-btn w-full text-white py-3 px-6 rounded-xl font-semibold mt-6">
                                 <span class="flex items-center justify-center space-x-2">
                                     <span>Create account</span>
                                     <i class="fas fa-arrow-right"></i>
@@ -296,7 +374,7 @@ export function getStartedPage(c: Context) {
                             </button>
 
                             <!-- Modern Terms -->
-                            <p class="text-xs text-slate-400 text-center leading-relaxed mt-6">
+                            <p class="text-xs text-slate-400 text-center leading-relaxed mt-4">
                                 By continuing, you agree to Earnly's 
                                 <a href="/terms" class="text-blue-400 hover:text-blue-300 underline">Terms of Service</a> 
                                 and 
@@ -305,7 +383,7 @@ export function getStartedPage(c: Context) {
                             </p>
 
                             <!-- Modern Sign In Link -->
-                            <div class="text-center mt-8 pt-6 border-t border-white/10">
+                            <div class="text-center mt-6 pt-4 border-t border-white/10">
                                 <p class="text-sm text-slate-400">
                                     Already have an account? 
                                     <a href="/signin" class="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Sign in</a>
@@ -319,30 +397,84 @@ export function getStartedPage(c: Context) {
 
         <!-- JavaScript for Enhanced Functionality -->
         <script>
-            let selectedAccountType = 'platform';
+            let selectedAccountType = 'creator';
 
             function selectAccountType(type) {
                 selectedAccountType = type;
                 
                 const advertiserBtn = document.getElementById('advertiser-btn');
                 const platformBtn = document.getElementById('platform-btn');
+                const creatorBtn = document.getElementById('creator-btn');
                 const websiteLabel = document.getElementById('website-label');
                 const websiteInput = document.getElementById('website-input');
 
-                // Reset styles
-                advertiserBtn.className = 'role-btn px-6 py-4 text-sm font-semibold rounded-xl text-slate-300 hover:text-white transition-all duration-300';
-                platformBtn.className = 'role-btn px-6 py-4 text-sm font-semibold rounded-xl text-slate-300 hover:text-white transition-all duration-300';
+                // Reset all buttons to default style
+                const defaultClass = 'role-btn px-3 py-4 text-sm font-semibold rounded-xl text-slate-300 hover:text-white transition-all duration-300';
+                advertiserBtn.className = defaultClass;
+                platformBtn.className = defaultClass;
+                creatorBtn.className = defaultClass;
 
-                // Apply active style
+                // Reset icons to default colors
+                const advertiserIcon = advertiserBtn.querySelector('.w-10');
+                const platformIcon = platformBtn.querySelector('.w-10');
+                const creatorIcon = creatorBtn.querySelector('.w-10');
+                
+                advertiserIcon.className = 'w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center';
+                advertiserIcon.querySelector('i').className = 'fas fa-bullhorn text-blue-400';
+                
+                platformIcon.className = 'w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center';
+                platformIcon.querySelector('i').className = 'fas fa-robot text-purple-400';
+                
+                creatorIcon.className = 'w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center';
+                creatorIcon.querySelector('i').className = 'fas fa-palette text-pink-400';
+
+                // Reset text colors
+                advertiserBtn.querySelector('span').className = 'text-xs';
+                platformBtn.querySelector('span').className = 'text-xs';
+                creatorBtn.querySelector('span').className = 'text-xs';
+
+                // Apply active style to selected button and update testimonial
                 if (type === 'advertiser') {
-                    advertiserBtn.className = 'role-btn active px-6 py-4 text-sm font-semibold rounded-xl transition-all duration-300';
+                    advertiserBtn.className = 'role-btn active px-3 py-4 text-sm font-semibold rounded-xl transition-all duration-300';
+                    advertiserIcon.className = 'w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center';
+                    advertiserIcon.querySelector('i').className = 'fas fa-bullhorn text-white';
+                    advertiserBtn.querySelector('span').className = 'text-xs text-white';
                     websiteLabel.textContent = 'Company Website';
                     websiteInput.placeholder = 'company.com';
-                } else {
-                    platformBtn.className = 'role-btn active px-6 py-4 text-sm font-semibold rounded-xl transition-all duration-300';
+                    showTestimonial('advertiser');
+                } else if (type === 'platform') {
+                    platformBtn.className = 'role-btn active px-3 py-4 text-sm font-semibold rounded-xl transition-all duration-300';
+                    platformIcon.className = 'w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center';
+                    platformIcon.querySelector('i').className = 'fas fa-robot text-white';
+                    platformBtn.querySelector('span').className = 'text-xs text-white';
                     websiteLabel.textContent = 'AI Platform Website';
                     websiteInput.placeholder = 'your-ai-platform.com';
+                    showTestimonial('platform');
+                } else if (type === 'creator') {
+                    creatorBtn.className = 'role-btn active px-3 py-4 text-sm font-semibold rounded-xl transition-all duration-300';
+                    creatorIcon.className = 'w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center';
+                    creatorIcon.querySelector('i').className = 'fas fa-palette text-white';
+                    creatorBtn.querySelector('span').className = 'text-xs text-white';
+                    websiteLabel.textContent = 'Content Portfolio URL';
+                    websiteInput.placeholder = 'youtube.com/@yourchannel or your-blog.com';
+                    showTestimonial('creator');
                 }
+            }
+
+            function showTestimonial(type) {
+                // Hide all testimonials
+                document.getElementById('advertiser-testimonial').classList.add('hidden');
+                document.getElementById('platform-testimonial').classList.add('hidden');
+                document.getElementById('creator-testimonial').classList.add('hidden');
+
+                // Show selected testimonial with fade effect
+                const testimonialCard = document.getElementById('testimonial-card');
+                testimonialCard.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    document.getElementById(type + '-testimonial').classList.remove('hidden');
+                    testimonialCard.style.opacity = '1';
+                }, 150);
             }
 
             function togglePassword() {
@@ -404,8 +536,10 @@ export function getStartedPage(c: Context) {
                     setTimeout(() => {
                         if (selectedAccountType === 'advertiser') {
                             window.location.href = '/for-advertisers?welcome=true';
-                        } else {
+                        } else if (selectedAccountType === 'platform') {
                             window.location.href = '/for-ai-platforms?welcome=true';
+                        } else if (selectedAccountType === 'creator') {
+                            window.location.href = '/creators?welcome=true';
                         }
                     }, 1500);
 

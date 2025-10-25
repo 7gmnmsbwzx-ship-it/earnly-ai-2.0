@@ -135,23 +135,23 @@ class EarnlyGEOReport {
     if (!container) return;
 
     container.innerHTML = this.aiPlatforms.map((platform, index) => `
-      <div class="ai-platform-card rounded-2xl p-8 cursor-pointer floating-widget" 
+      <div class="ai-platform-card rounded-2xl p-6 cursor-pointer floating-widget overflow-hidden" 
            style="animation-delay: -${index * 0.3}s;"
            onclick="earnlyGEO.viewPlatformDetails('${platform.id}')">
-        <div class="flex items-center justify-between mb-6">
-          <div class="flex items-center space-x-4">
-            <div class="w-16 h-16 platform-gradient-${platform.id} rounded-2xl flex items-center justify-center">
+        <div class="flex items-center justify-between mb-6 gap-2">
+          <div class="flex items-center space-x-4 flex-1 min-w-0">
+            <div class="w-16 h-16 platform-gradient-${platform.id} rounded-2xl flex items-center justify-center flex-shrink-0">
               <i class="${platform.icon} text-white text-2xl"></i>
             </div>
-            <div>
-              <h3 class="font-bold text-white text-xl">${platform.name}</h3>
-              <p class="text-gray-300">${platform.queries.toLocaleString()} queries</p>
+            <div class="min-w-0">
+              <h3 class="font-bold text-white text-xl truncate">${platform.name}</h3>
+              <p class="text-gray-300 text-sm truncate">${platform.queries.toLocaleString()} queries</p>
             </div>
           </div>
-          <div class="text-right">
-            <div class="flex items-center space-x-2">
-              <i class="fas fa-arrow-${platform.trend === 'up' ? 'up' : 'down'} text-${platform.trend === 'up' ? 'green' : 'red'}-400"></i>
-              <span class="text-${platform.trend === 'up' ? 'green' : 'red'}-400 font-bold">${platform.change}</span>
+          <div class="text-right flex-shrink-0">
+            <div class="flex items-center justify-end space-x-1">
+              <i class="fas fa-arrow-${platform.trend === 'up' ? 'up' : 'down'} text-${platform.trend === 'up' ? 'green' : 'red'}-400 text-sm"></i>
+              <span class="text-${platform.trend === 'up' ? 'green' : 'red'}-400 font-bold text-sm whitespace-nowrap">${platform.change}</span>
             </div>
           </div>
         </div>

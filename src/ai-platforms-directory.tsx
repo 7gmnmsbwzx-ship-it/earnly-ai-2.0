@@ -44,6 +44,7 @@ export function aiPlatformsDirectoryPage(c: any) {
                             <div class="hidden md:flex space-x-6 ml-8">
                                 <a href="/for-advertisers" class="text-gray-700 hover:text-purple-600 transition-colors">For Advertisers</a>
                                 <a href="/for-ai-platforms" class="text-gray-700 hover:text-purple-600 transition-colors">For AI Platforms</a>
+                                <a href="/creators" class="text-gray-700 hover:text-purple-600 transition-colors">For Creators</a>
                                 <a href="/ai-directory" class="text-purple-600 font-semibold">AI Directory</a>
                             </div>
                         </div>
@@ -200,6 +201,7 @@ export function aiPlatformsDirectoryPage(c: any) {
                             <ul class="space-y-2 text-gray-400">
                                 <li><a href="/for-ai-platforms" class="hover:text-white">For AI Platforms</a></li>
                                 <li><a href="/for-advertisers" class="hover:text-white">For Advertisers</a></li>
+                                <li><a href="/creators" class="hover:text-white">For Creators</a></li>
                                 <li><a href="/ai-directory" class="hover:text-white">AI Directory</a></li>
                             </ul>
                         </div>

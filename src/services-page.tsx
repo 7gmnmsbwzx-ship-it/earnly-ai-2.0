@@ -122,6 +122,7 @@ export const ServicesPage = () => {
                             <a href="/services" class="text-blue-400 font-semibold">Services</a>
                             <a href="/for-advertisers" class="text-white hover:text-blue-400 transition-colors">For Advertisers</a>
                             <a href="/for-ai-platforms" class="text-white hover:text-blue-400 transition-colors">For AI Platforms</a>
+                            <a href="/creators" class="text-white hover:text-purple-400 transition-colors">For Creators</a>
                             <a href="/geo-report" class="text-white hover:text-blue-400 transition-colors">GEO Analytics</a>
                         </div>
                     </div>
@@ -688,6 +689,7 @@ export const ServicesPage = () => {
                         <ul class="space-y-3 text-gray-400">
                             <li><a href="/for-advertisers" class="hover:text-white transition-colors">For Advertisers</a></li>
                             <li><a href="/for-ai-platforms" class="hover:text-white transition-colors">For AI Platforms</a></li>
+                            <li><a href="/creators" class="hover:text-white transition-colors">For Creators</a></li>
                             <li><a href="/geo-report" class="hover:text-white transition-colors">GEO Analytics</a></li>
                             <li><a href="#" class="hover:text-white transition-colors">API Integration</a></li>
                         </ul>

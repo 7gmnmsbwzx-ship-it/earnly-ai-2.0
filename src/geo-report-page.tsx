@@ -182,6 +182,7 @@ export const GeoReportPage = () => {
                         <a href="/" class="text-white hover:text-blue-400 transition-colors">Home</a>
                         <a href="/for-advertisers" class="text-white hover:text-blue-400 transition-colors">For Advertisers</a>
                         <a href="/for-ai-platforms" class="text-white hover:text-blue-400 transition-colors">For AI Platforms</a>
+                        <a href="/creators" class="text-white hover:text-purple-400 transition-colors">For Creators</a>
                         <div class="hidden lg:flex items-center space-x-2 text-sm">
                             <div class="flex items-center space-x-1">
                                 <div class="w-2 h-2 bg-green-400 rounded-full pulse-glow"></div>
