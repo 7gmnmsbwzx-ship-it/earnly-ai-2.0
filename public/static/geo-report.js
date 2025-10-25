@@ -934,3 +934,79 @@ function contactSales() {
 document.addEventListener('DOMContentLoaded', function() {
   window.earnlyGEO = new EarnlyGEOReport();
 });
+
+// Book Demo Function
+function bookDemo() {
+    // Show booking modal
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+    modal.innerHTML = `
+        <div class="bg-white rounded-2xl p-8 max-w-lg w-full mx-4 relative">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-calendar-check text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Book Your GEO Demo</h3>
+                <p class="text-gray-600">Get a personalized walkthrough of your AI search optimization potential</p>
+            </div>
+            
+            <div class="space-y-4">
+                <input type="text" id="demo-name" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <input type="email" id="demo-email" placeholder="Email Address" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <input type="text" id="demo-company" placeholder="Company Name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <input type="url" id="demo-website" placeholder="Website URL (optional)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                
+                <button onclick="submitDemo()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-lg font-bold text-lg transition-all shadow-lg">
+                    Schedule Demo
+                </button>
+                
+                <p class="text-xs text-gray-500 text-center mt-3">
+                    We'll send you a calendar invite within 24 hours
+                </p>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    modal.id = 'booking-modal';
+}
+
+function closeBookingModal() {
+    const modal = document.getElementById('booking-modal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+function submitDemo() {
+    const name = document.getElementById('demo-name').value;
+    const email = document.getElementById('demo-email').value;
+    const company = document.getElementById('demo-company').value;
+    const website = document.getElementById('demo-website').value;
+    
+    if (!name || !email || !company) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    
+    // Show success message
+    const modal = document.getElementById('booking-modal');
+    modal.innerHTML = `
+        <div class="bg-white rounded-2xl p-8 max-w-lg w-full mx-4 text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Demo Requested!</h3>
+            <p class="text-gray-600 mb-6">
+                Thanks ${name}! We'll analyze your GEO potential and send you a personalized demo invite within 24 hours.
+            </p>
+            <button onclick="closeBookingModal()" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-all">
+                Got it!
+            </button>
+        </div>
+    `;
+    
+    // Auto-close after 3 seconds
+    setTimeout(closeBookingModal, 3000);
+}
