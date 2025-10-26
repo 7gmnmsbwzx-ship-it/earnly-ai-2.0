@@ -58,6 +58,16 @@ export const ForAdvertisersFixed = () => {
             -webkit-text-fill-color: transparent;
             background-clip: text;
           }
+          
+          /* Pulse glow animation */
+          .pulse-glow {
+            animation: pulse-glow 2s infinite;
+          }
+          
+          @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
+          }
         </style>
     </head>
     <body class="bg-gray-900 text-white">
@@ -99,9 +109,12 @@ export const ForAdvertisersFixed = () => {
                     <!-- Hero Content -->
                     <div class="animate-fade-in">
                         <div class="mb-6">
-                            <div class="inline-flex items-center space-x-2 glass rounded-full px-4 py-2 mb-6">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
-                                <span class="text-sm text-white font-medium">AI-Native Advertising Platform</span>
+                            <!-- Dynamic AI-Native Advertising Platform Banner -->
+                            <div class="flex justify-center mb-6">
+                                <div class="inline-flex items-center space-x-3 glass text-white px-6 py-3 rounded-full text-sm font-medium backdrop-blur-lg border border-white border-opacity-20">
+                                    <span class="w-3 h-3 bg-blue-400 rounded-full pulse-glow"></span>
+                                    <span id="advertising-dynamic-banner">AI-Native Advertising Platform</span>
+                                </div>
                             </div>
                         </div>
                         
@@ -1920,7 +1933,49 @@ export const ForAdvertisersFixed = () => {
             // Initialize on load
             document.addEventListener('DOMContentLoaded', function() {
                 selectAdFormat('inline'); // Set default format
+                
+                // Initialize advertising banner rotation
+                initializeAdvertisingBanner();
             });
+            
+            // Dynamic Advertising Platform Banner Messages
+            const advertisingBannerMessages = [
+                'AI-Native Advertising Platform',
+                'Agentic ads deliver 5x higher conversion rates than traditional display ads.',
+                'The future of advertising is conversational, contextual, and AI-native.',
+                'Users spend 3x more time with contextual AI recommendations than banner ads.',
+                'Traditional ads are getting 70% less engagement in AI-powered searches.',
+                'Contextual advertising in AI conversations drives 340% higher ROI.',
+                'Smart recommendations convert 8x better than interruption-based ads.',
+                '90% of AI users prefer contextual suggestions over traditional advertising.'
+            ];
+
+            let currentAdvertisingBannerIndex = 0;
+
+            function rotateAdvertisingBannerMessage() {
+                const bannerElement = document.getElementById('advertising-dynamic-banner');
+                if (bannerElement) {
+                    bannerElement.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        currentAdvertisingBannerIndex = (currentAdvertisingBannerIndex + 1) % advertisingBannerMessages.length;
+                        bannerElement.textContent = advertisingBannerMessages[currentAdvertisingBannerIndex];
+                        bannerElement.style.opacity = '1';
+                    }, 350);
+                }
+            }
+
+            function initializeAdvertisingBanner() {
+                const advertisingBannerElement = document.getElementById('advertising-dynamic-banner');
+                if (advertisingBannerElement) {
+                    advertisingBannerElement.style.transition = 'opacity 0.35s ease-in-out';
+                    // Start rotation after 3 seconds, then every 4.5 seconds
+                    setTimeout(() => {
+                        rotateAdvertisingBannerMessage();
+                        setInterval(rotateAdvertisingBannerMessage, 4500);
+                    }, 3000);
+                }
+            }
         </script>
     </body>
     </html>

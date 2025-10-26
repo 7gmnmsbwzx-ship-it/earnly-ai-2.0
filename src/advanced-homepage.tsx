@@ -144,13 +144,7 @@ export const AdvancedHomepage = () => {
                             </div>
                         </div>
                         
-                        <!-- AI-Native Advertising Platform Banner -->
-                        <div class="flex justify-center mb-8">
-                            <div class="inline-flex items-center space-x-3 bg-gray-800 bg-opacity-60 text-gray-200 px-6 py-3 rounded-full text-sm font-medium backdrop-blur-lg border border-gray-600 border-opacity-30">
-                                <span class="w-3 h-3 bg-blue-400 rounded-full pulse-glow"></span>
-                                <span id="advertising-dynamic-banner">AI-Native Advertising Platform</span>
-                            </div>
-                        </div>
+
                     </div>
                     
                     <!-- Interactive Dashboard Preview -->
