@@ -755,40 +755,58 @@ export const ForAdvertisersFixed = () => {
                         <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
                              alt="Earnly Logo" 
                              class="h-8 w-auto mb-4">
-                        <p class="text-gray-400 text-sm">AI-native advertising platform for the modern enterprise.</p>
+                        <p class="text-gray-400 leading-relaxed">AI-native advertising platform connecting advertisers with AI platforms through contextual recommendations and real-time optimization.</p>
                     </div>
                     
                     <div>
-                        <h4 class="font-semibold mb-3">Platform</h4>
-                        <ul class="space-y-2 text-gray-400 text-sm">
+                        <h4 class="font-semibold text-white mb-6">Solutions</h4>
+                        <ul class="space-y-3 text-gray-400">
                             <li><a href="/for-advertisers" class="hover:text-white transition-colors">For Advertisers</a></li>
                             <li><a href="/for-ai-platforms" class="hover:text-white transition-colors">For AI Platforms</a></li>
                             <li><a href="/creators" class="hover:text-white transition-colors">For Creators</a></li>
-                            <li><a href="/geo-report" class="hover:text-white transition-colors">Analytics</a></li>
+                            <li><a href="/geo-report" class="hover:text-white transition-colors">GEO Analytics</a></li>
                         </ul>
                     </div>
                     
                     <div>
-                        <h4 class="font-semibold mb-3">Company</h4>
-                        <ul class="space-y-2 text-gray-400 text-sm">
-                            <li><a href="#" class="hover:text-white transition-colors">About</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
+                        <h4 class="font-semibold text-white mb-6">Resources</h4>
+                        <ul class="space-y-3 text-gray-400">
+                            <li><a href="https://docs.getearnly.com" class="hover:text-white transition-colors">Documentation</a></li>
+                            <li><a href="https://api.getearnly.com" class="hover:text-white transition-colors">API Reference</a></li>
+                            <li><a href="/help" class="hover:text-white transition-colors">Help Center</a></li>
+                            <li><a href="https://status.getearnly.com" class="hover:text-white transition-colors">System Status</a></li>
                         </ul>
                     </div>
                     
                     <div>
-                        <h4 class="font-semibold mb-3">Support</h4>
-                        <ul class="space-y-2 text-gray-400 text-sm">
-                            <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">API Reference</a></li>
+                        <h4 class="font-semibold text-white mb-6">Contact</h4>
+                        <ul class="space-y-3 text-gray-400">
+                            <li><a href="mailto:hello@getearnly.com" class="hover:text-white transition-colors">hello@getearnly.com</a></li>
+                            <li><a href="mailto:support@getearnly.com" class="hover:text-white transition-colors">Support</a></li>
+                            <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                            <li><a href="/terms" class="hover:text-white transition-colors">Terms of Service</a></li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400 text-sm">
-                    <p>&copy; 2025 Earnly. All rights reserved.</p>
+                <div class="border-t border-gray-800 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="text-gray-400 text-sm mb-6 md:mb-0 text-center md:text-left">
+                            <p>&copy; 2025 Earnly AI. All rights reserved.</p>
+                            <p class="mt-1">Transforming AI conversations into revenue streams worldwide.</p>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://twitter.com/getearnly" class="text-gray-400 hover:text-blue-400 transition-colors" title="Follow us on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/getearnly" class="text-gray-400 hover:text-blue-500 transition-colors" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/getearnly" class="text-gray-400 hover:text-purple-400 transition-colors" title="View our GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

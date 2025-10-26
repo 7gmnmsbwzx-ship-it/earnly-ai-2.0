@@ -188,42 +188,61 @@ export function aiPlatformsDirectoryPage(c: any) {
             </section>
 
             <!-- Footer -->
-            <footer class="bg-gray-900 text-white py-12">
+            <!-- Optimized Footer -->
+            <footer class="bg-gray-900 text-white py-16 border-t border-gray-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid md:grid-cols-4 gap-8">
                         <div>
                             <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
-                                 alt="Earnly Logo" class="h-8 w-auto mb-4">
-                            <p class="text-gray-400">Connecting AI platforms with monetization opportunities through intelligent integrations.</p>
+                                 alt="Earnly Logo" class="h-10 w-auto mb-6">
+                            <p class="text-gray-400 leading-relaxed">Connecting AI platforms with monetization opportunities through intelligent integrations and real-time optimization.</p>
                         </div>
                         <div>
-                            <h4 class="font-semibold mb-4">Platform</h4>
-                            <ul class="space-y-2 text-gray-400">
-                                <li><a href="/for-ai-platforms" class="hover:text-white">For AI Platforms</a></li>
-                                <li><a href="/for-advertisers" class="hover:text-white">For Advertisers</a></li>
-                                <li><a href="/creators" class="hover:text-white">For Creators</a></li>
-                                <li><a href="/ai-directory" class="hover:text-white">AI Directory</a></li>
+                            <h4 class="font-semibold text-white mb-6">Solutions</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li><a href="/for-ai-platforms" class="hover:text-white transition-colors">For AI Platforms</a></li>
+                                <li><a href="/for-advertisers" class="hover:text-white transition-colors">For Advertisers</a></li>
+                                <li><a href="/creators" class="hover:text-white transition-colors">For Creators</a></li>
+                                <li><a href="/geo-report" class="hover:text-white transition-colors">GEO Analytics</a></li>
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-semibold mb-4">Resources</h4>
-                            <ul class="space-y-2 text-gray-400">
-                                <li><a href="#" class="hover:text-white">Documentation</a></li>
-                                <li><a href="#" class="hover:text-white">API Reference</a></li>
-                                <li><a href="#" class="hover:text-white">Integration Guide</a></li>
+                            <h4 class="font-semibold text-white mb-6">Resources</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li><a href="https://docs.getearnly.com" class="hover:text-white transition-colors">Documentation</a></li>
+                                <li><a href="https://api.getearnly.com" class="hover:text-white transition-colors">API Reference</a></li>
+                                <li><a href="/help" class="hover:text-white transition-colors">Help Center</a></li>
+                                <li><a href="https://status.getearnly.com" class="hover:text-white transition-colors">System Status</a></li>
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-semibold mb-4">Company</h4>
-                            <ul class="space-y-2 text-gray-400">
-                                <li><a href="#" class="hover:text-white">About</a></li>
-                                <li><a href="#" class="hover:text-white">Contact</a></li>
-                                <li><a href="#" class="hover:text-white">Privacy</a></li>
+                            <h4 class="font-semibold text-white mb-6">Contact</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li><a href="mailto:hello@getearnly.com" class="hover:text-white transition-colors">hello@getearnly.com</a></li>
+                                <li><a href="mailto:support@getearnly.com" class="hover:text-white transition-colors">Support</a></li>
+                                <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                                <li><a href="/terms" class="hover:text-white transition-colors">Terms of Service</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                        <p>&copy; 2024 Earnly AI. All rights reserved.</p>
+                    <div class="border-t border-gray-800 mt-12 pt-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div class="text-gray-400 text-sm mb-4 md:mb-0 text-center md:text-left">
+                                <p>&copy; 2025 Earnly AI. All rights reserved.</p>
+                                <p class="mt-1">Transforming AI conversations into revenue streams worldwide.</p>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://twitter.com/getearnly" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://linkedin.com/company/getearnly" class="text-gray-400 hover:text-blue-500 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/getearnly" class="text-gray-400 hover:text-purple-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </footer>
