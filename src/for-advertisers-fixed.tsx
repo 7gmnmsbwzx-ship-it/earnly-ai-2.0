@@ -450,6 +450,99 @@ export const ForAdvertisersFixed = () => {
             </div>
         </section>
 
+        <!-- How It Works -->
+        <section class="py-20 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <p class="text-sm font-semibold text-blue-400 mb-4 tracking-wide uppercase">HOW IT WORKS</p>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                        Earnly Connects Your Brand to AI Platforms
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                        Our platform integrates your products directly into the AI agent ecosystem, allowing 
+                        seamless discovery when users are looking for solutions.
+                    </p>
+                </div>
+
+                <!-- Three Step Process -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <!-- Step 1: Publish Your Offers -->
+                    <div class="relative group">
+                        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-blue-500 transition-all hover-lift">
+                            <!-- Step Number -->
+                            <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-white">1</span>
+                            </div>
+                            
+                            <!-- Icon -->
+                            <div class="mb-6">
+                                <div class="w-16 h-16 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fas fa-upload text-2xl text-blue-400"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-3">Publish Your Offers</h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    Upload your products to the Earnly network with structured metadata that 
+                                    makes them discoverable by AI platforms.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Get Matched by AI Platforms -->
+                    <div class="relative group">
+                        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-green-500 transition-all hover-lift">
+                            <!-- Step Number -->
+                            <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-green-600 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-white">2</span>
+                            </div>
+                            
+                            <!-- Icon -->
+                            <div class="mb-6">
+                                <div class="w-16 h-16 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fas fa-search text-2xl text-green-400"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-3">Get Matched by AI Platforms</h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    AI platforms dynamically pull your offers based on real-time user queries 
+                                    and preferences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Pay Only for Results -->
+                    <div class="relative group">
+                        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-purple-500 transition-all hover-lift">
+                            <!-- Step Number -->
+                            <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-white">3</span>
+                            </div>
+                            
+                            <!-- Icon -->
+                            <div class="mb-6">
+                                <div class="w-16 h-16 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fas fa-credit-card text-2xl text-purple-400"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-3">Pay Only for Results</h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    Only pay when users take verifiable actions — clicks, signups, or purchases. 
+                                    Maximize your ROI.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Get Started Button -->
+                <div class="text-center">
+                    <button onclick="startCampaign()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Why Advertisers Choose Earnly -->
         <section class="py-20 bg-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
