@@ -2054,28 +2054,38 @@ const smartBanner = new EarnlySmartBanner({
                         <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
                             <h4 class="text-2xl font-bold text-white mb-6">Authentication</h4>
                             
-                            <div class="space-y-4">
+                            <div class="space-y-6">
                                 <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
                                     <div class="flex items-center mb-2">
                                         <i class="fas fa-key text-yellow-400 mr-2"></i>
-                                        <span class="text-yellow-400 font-semibold">API Key Required</span>
+                                        <span class="text-yellow-400 font-semibold">🔑 API Key Required</span>
                                     </div>
                                     <p class="text-gray-300 text-sm">
                                         All requests require a valid API key in the Authorization header.
                                     </p>
                                 </div>
                                 
-                                <div class="bg-black rounded-lg p-4">
-                                    <div class="text-gray-400 text-sm mb-2">Headers</div>
-                                    <pre class="text-green-400 text-sm"><code>Authorization: Bearer your_api_key_here
+                                <div class="bg-gray-800 rounded-lg p-4 border border-gray-600">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-gray-300 font-semibold">Headers</span>
+                                        <button onclick="copyToClipboard('auth-headers')" class="text-gray-400 hover:text-white transition-colors">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="auth-headers" class="text-green-400 text-sm font-mono overflow-x-auto"><code>Authorization: Bearer your_api_key_here
 Content-Type: application/json</code></pre>
                                 </div>
                                 
-                                <div class="bg-black rounded-lg p-4">
-                                    <div class="text-gray-400 text-sm mb-2">Example Request</div>
-                                    <pre class="text-green-400 text-sm"><code>curl -X POST https://api.earnly.com/v1/recommendations \
-  -H "Authorization: Bearer ern_1234567890abcdef" \
-  -H "Content-Type: application/json" \
+                                <div class="bg-gray-800 rounded-lg p-4 border border-gray-600">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-gray-300 font-semibold">Example Request</span>
+                                        <button onclick="copyToClipboard('curl-example')" class="text-gray-400 hover:text-white transition-colors">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="curl-example" class="text-green-400 text-sm font-mono overflow-x-auto"><code>curl -X POST https://api.earnly.com/v1/recommendations \\
+  -H "Authorization: Bearer ern_1234567890abcdef" \\
+  -H "Content-Type: application/json" \\
   -d '{
     "context": "I need a CRM for my startup",
     "userId": "user_123",
@@ -2085,51 +2095,61 @@ Content-Type: application/json</code></pre>
                             </div>
                         </div>
 
-                        <!-- Request/Response Schema -->
+                        <!-- Request Schema -->
                         <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
                             <h4 class="text-2xl font-bold text-white mb-6">Request Schema</h4>
                             
-                            <div class="space-y-4">
-                                <div class="bg-black rounded-lg p-4">
-                                    <div class="text-gray-400 text-sm mb-2">POST /v1/recommendations</div>
-                                    <pre class="text-green-400 text-sm"><code>{
-  "context": "string",        // Required: User message/context
-  "userId": "string",         // Required: Unique user identifier
-  "platform": "string",       // Required: Your platform type
-  "intent": "string",         // Optional: Detected user intent
-  "limit": "number",          // Optional: Max recommendations (1-10)
-  "categories": ["string"],   // Optional: Filter categories
-  "priceRange": {             // Optional: Price filtering
-    "min": 0,
-    "max": 1000
-  }
-}</code></pre>
+                            <div class="space-y-6">
+                                <div class="bg-gray-800 rounded-lg p-4 border border-gray-600">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-blue-400 font-semibold">POST /v1/recommendations</span>
+                                        <button onclick="copyToClipboard('request-schema')" class="text-gray-400 hover:text-white transition-colors">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="request-schema" class="text-sm font-mono overflow-x-auto"><code><span class="text-white">{</span>
+  <span class="text-blue-300">"context"</span><span class="text-white">:</span> <span class="text-green-300">"string"</span><span class="text-gray-400">,        // Required: User message/context</span>
+  <span class="text-blue-300">"userId"</span><span class="text-white">:</span> <span class="text-green-300">"string"</span><span class="text-gray-400">,         // Required: Unique user identifier</span>
+  <span class="text-blue-300">"platform"</span><span class="text-white">:</span> <span class="text-green-300">"string"</span><span class="text-gray-400">,       // Required: Your platform type</span>
+  <span class="text-blue-300">"intent"</span><span class="text-white">:</span> <span class="text-green-300">"string"</span><span class="text-gray-400">,         // Optional: Detected user intent</span>
+  <span class="text-blue-300">"limit"</span><span class="text-white">:</span> <span class="text-yellow-300">number</span><span class="text-gray-400">,          // Optional: Max recommendations (1-10)</span>
+  <span class="text-blue-300">"categories"</span><span class="text-white">:</span> <span class="text-white">[</span><span class="text-green-300">"string"</span><span class="text-white">]</span><span class="text-gray-400">,   // Optional: Filter categories</span>
+  <span class="text-blue-300">"priceRange"</span><span class="text-white">: {</span>             <span class="text-gray-400">// Optional: Price filtering</span>
+    <span class="text-blue-300">"min"</span><span class="text-white">:</span> <span class="text-yellow-300">0</span><span class="text-white">,</span>
+    <span class="text-blue-300">"max"</span><span class="text-white">:</span> <span class="text-yellow-300">1000</span>
+  <span class="text-white">}</span>
+<span class="text-white">}</span></code></pre>
                                 </div>
                                 
-                                <div class="bg-black rounded-lg p-4">
-                                    <div class="text-gray-400 text-sm mb-2">Response Format</div>
-                                    <pre class="text-green-400 text-sm"><code>{
-  "success": true,
-  "recommendations": [
-    {
-      "id": "rec_123",
-      "title": "HubSpot CRM",
-      "description": "Free CRM for startups",
-      "price": "$0/month",
-      "image_url": "https://...",
-      "earnly_link": "https://earnly.app/l/abc123",
-      "match_score": 94.5,
-      "category": "business_software",
-      "advertiser": "HubSpot",
-      "commission": 25.00
-    }
-  ],
-  "meta": {
-    "query_id": "q_456",
-    "processing_time": 120,
-    "total_results": 3
-  }
-}</code></pre>
+                                <div class="bg-gray-800 rounded-lg p-4 border border-gray-600">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-semibold">Response Format</span>
+                                        <button onclick="copyToClipboard('response-schema')" class="text-gray-400 hover:text-white transition-colors">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="response-schema" class="text-sm font-mono overflow-x-auto"><code><span class="text-white">{</span>
+  <span class="text-blue-300">"success"</span><span class="text-white">:</span> <span class="text-orange-300">true</span><span class="text-white">,</span>
+  <span class="text-blue-300">"recommendations"</span><span class="text-white">:</span> <span class="text-white">[</span>
+    <span class="text-white">{</span>
+      <span class="text-blue-300">"id"</span><span class="text-white">:</span> <span class="text-green-300">"rec_123"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"title"</span><span class="text-white">:</span> <span class="text-green-300">"HubSpot CRM"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"description"</span><span class="text-white">:</span> <span class="text-green-300">"Free CRM for startups"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"price"</span><span class="text-white">:</span> <span class="text-green-300">"$0/month"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"image_url"</span><span class="text-white">:</span> <span class="text-green-300">"https://..."</span><span class="text-white">,</span>
+      <span class="text-blue-300">"earnly_link"</span><span class="text-white">:</span> <span class="text-green-300">"https://earnly.app/l/abc123"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"match_score"</span><span class="text-white">:</span> <span class="text-yellow-300">94.5</span><span class="text-white">,</span>
+      <span class="text-blue-300">"category"</span><span class="text-white">:</span> <span class="text-green-300">"business_software"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"advertiser"</span><span class="text-white">:</span> <span class="text-green-300">"HubSpot"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"commission"</span><span class="text-white">:</span> <span class="text-yellow-300">25.00</span>
+    <span class="text-white">}</span>
+  <span class="text-white">]</span><span class="text-white">,</span>
+  <span class="text-blue-300">"meta"</span><span class="text-white">:</span> <span class="text-white">{</span>
+    <span class="text-blue-300">"query_id"</span><span class="text-white">:</span> <span class="text-green-300">"q_456"</span><span class="text-white">,</span>
+    <span class="text-blue-300">"processing_time"</span><span class="text-white">:</span> <span class="text-yellow-300">120</span><span class="text-white">,</span>
+    <span class="text-blue-300">"total_results"</span><span class="text-white">:</span> <span class="text-yellow-300">3</span>
+  <span class="text-white">}</span>
+<span class="text-white">}</span></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -2138,77 +2158,138 @@ Content-Type: application/json</code></pre>
                     <!-- Error Codes & Rate Limits -->
                     <div class="grid lg:grid-cols-2 gap-12 mt-12">
                         <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
-                            <h4 class="text-2xl font-bold text-white mb-6">Error Codes</h4>
+                            <h4 class="text-2xl font-bold text-white mb-6">🚨 Error Codes</h4>
                             
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
-                                    <div>
-                                        <div class="text-red-400 font-mono">400</div>
-                                        <div class="text-gray-400 text-sm">Bad Request</div>
+                            <div class="space-y-4">
+                                <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4 hover:bg-red-900/30 transition-colors">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                                                <span class="text-red-400 font-mono font-bold text-lg">400</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-red-300 font-semibold">Bad Request</div>
+                                                <div class="text-gray-400 text-xs">Invalid request parameters</div>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-exclamation-triangle text-red-400"></i>
                                     </div>
-                                    <div class="text-gray-300 text-sm">Invalid request parameters</div>
                                 </div>
                                 
-                                <div class="flex items-center justify-between p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
-                                    <div>
-                                        <div class="text-red-400 font-mono">401</div>
-                                        <div class="text-gray-400 text-sm">Unauthorized</div>
+                                <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4 hover:bg-red-900/30 transition-colors">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                                                <span class="text-red-400 font-mono font-bold text-lg">401</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-red-300 font-semibold">Unauthorized</div>
+                                                <div class="text-gray-400 text-xs">Invalid or missing API key</div>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-lock text-red-400"></i>
                                     </div>
-                                    <div class="text-gray-300 text-sm">Invalid or missing API key</div>
                                 </div>
                                 
-                                <div class="flex items-center justify-between p-3 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
-                                    <div>
-                                        <div class="text-yellow-400 font-mono">429</div>
-                                        <div class="text-gray-400 text-sm">Rate Limited</div>
+                                <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-4 hover:bg-yellow-900/30 transition-colors">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                                                <span class="text-yellow-400 font-mono font-bold text-lg">429</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-yellow-300 font-semibold">Rate Limited</div>
+                                                <div class="text-gray-400 text-xs">Too many requests</div>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-clock text-yellow-400"></i>
                                     </div>
-                                    <div class="text-gray-300 text-sm">Too many requests</div>
                                 </div>
                                 
-                                <div class="flex items-center justify-between p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
-                                    <div>
-                                        <div class="text-red-400 font-mono">500</div>
-                                        <div class="text-gray-400 text-sm">Server Error</div>
+                                <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4 hover:bg-red-900/30 transition-colors">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                                                <span class="text-red-400 font-mono font-bold text-lg">500</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-red-300 font-semibold">Server Error</div>
+                                                <div class="text-gray-400 text-xs">Internal server error</div>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-server text-red-400"></i>
                                     </div>
-                                    <div class="text-gray-300 text-sm">Internal server error</div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
-                            <h4 class="text-2xl font-bold text-white mb-6">Rate Limits</h4>
+                            <h4 class="text-2xl font-bold text-white mb-6">⚡ Rate Limits</h4>
                             
                             <div class="space-y-4">
-                                <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-green-400 font-semibold">Free Tier</span>
-                                        <span class="bg-green-600 text-white px-2 py-1 rounded text-xs">$0/month</span>
+                                <div class="bg-gradient-to-r from-green-900/30 to-emerald-900/30 border border-green-500/30 rounded-xl p-6 hover:scale-105 transition-transform">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-gift text-white"></i>
+                                            </div>
+                                            <span class="text-green-300 font-bold text-lg">Free Tier</span>
+                                        </div>
+                                        <span class="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 rounded-full text-sm font-bold">$0/month</span>
                                     </div>
-                                    <div class="text-gray-300 text-sm">
-                                        1,000 requests/month<br>
-                                        10 requests/minute
+                                    <div class="grid grid-cols-2 gap-4 text-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-green-300">1K</div>
+                                            <div class="text-xs text-gray-400">requests/month</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-green-300">10</div>
+                                            <div class="text-xs text-gray-400">requests/minute</div>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-blue-400 font-semibold">Pro Plan</span>
-                                        <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">$99/month</span>
+                                <div class="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 border border-blue-500/30 rounded-xl p-6 hover:scale-105 transition-transform">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-rocket text-white"></i>
+                                            </div>
+                                            <span class="text-blue-300 font-bold text-lg">Pro Plan</span>
+                                        </div>
+                                        <span class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 py-1 rounded-full text-sm font-bold">$99/month</span>
                                     </div>
-                                    <div class="text-gray-300 text-sm">
-                                        50,000 requests/month<br>
-                                        100 requests/minute
+                                    <div class="grid grid-cols-2 gap-4 text-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-blue-300">50K</div>
+                                            <div class="text-xs text-gray-400">requests/month</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-blue-300">100</div>
+                                            <div class="text-xs text-gray-400">requests/minute</div>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-purple-400 font-semibold">Enterprise</span>
-                                        <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs">Custom</span>
+                                <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 border border-purple-500/30 rounded-xl p-6 hover:scale-105 transition-transform">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-crown text-white"></i>
+                                            </div>
+                                            <span class="text-purple-300 font-bold text-lg">Enterprise</span>
+                                        </div>
+                                        <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold">Custom</span>
                                     </div>
-                                    <div class="text-gray-300 text-sm">
-                                        Unlimited requests<br>
-                                        Dedicated infrastructure
+                                    <div class="grid grid-cols-2 gap-4 text-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-purple-300">∞</div>
+                                            <div class="text-xs text-gray-400">unlimited requests</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-purple-300">⚡</div>
+                                            <div class="text-xs text-gray-400">dedicated infrastructure</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
