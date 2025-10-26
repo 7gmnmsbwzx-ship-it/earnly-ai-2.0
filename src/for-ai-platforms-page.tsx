@@ -741,133 +741,1020 @@ export const ForAIPlatformsPage = () => {
 
 
 
-        <!-- Technical Documentation -->
-        <section class="py-20 bg-gray-800">
+        <!-- Comprehensive Developer Documentation -->
+        <section class="py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-black">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-white mb-4">Developer Resources</h2>
-                    <p class="text-xl text-gray-300">Everything you need to integrate and optimize</p>
+                    <h2 class="text-5xl font-bold text-white mb-6">
+                        Complete Integration Guide
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Everything you need to integrate Earnly: from quick start to advanced optimization, 
+                        with real examples for every AI platform type.
+                    </p>
                 </div>
-                
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Code Examples -->
-                    <div class="space-y-6">
-                        <div class="bg-gray-900 rounded-2xl p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-xl font-bold text-white">Quick Integration</h3>
-                                <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">SDK</span>
+
+                <!-- Documentation Navigation -->
+                <div class="mb-12">
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <button onclick="showDocSection('quickstart')" id="nav-quickstart" class="doc-nav-btn active bg-gradient-to-r from-green-600 to-teal-600 text-white px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105">
+                            <i class="fas fa-rocket mr-2"></i>Quick Start
+                        </button>
+                        <button onclick="showDocSection('platforms')" id="nav-platforms" class="doc-nav-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold transition-all hover:bg-gray-600">
+                            <i class="fas fa-layer-group mr-2"></i>Platform Types
+                        </button>
+                        <button onclick="showDocSection('formats')" id="nav-formats" class="doc-nav-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold transition-all hover:bg-gray-600">
+                            <i class="fas fa-palette mr-2"></i>Ad Formats
+                        </button>
+                        <button onclick="showDocSection('api')" id="nav-api" class="doc-nav-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold transition-all hover:bg-gray-600">
+                            <i class="fas fa-code mr-2"></i>API Reference
+                        </button>
+                        <button onclick="showDocSection('examples')" id="nav-examples" class="doc-nav-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold transition-all hover:bg-gray-600">
+                            <i class="fas fa-play mr-2"></i>Live Examples
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Start Section -->
+                <div id="doc-quickstart" class="doc-section">
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <!-- Installation & Setup -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-download text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">1. Install SDK</h3>
+                                    <p class="text-gray-400">Get started in under 2 minutes</p>
+                                </div>
                             </div>
                             
-                            <div class="bg-black rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
-                                <div class="text-gray-400 mb-2">// Install & Initialize</div>
-                                <div class="mb-2">npm install earnly-sdk</div>
-                                <div class="mb-4">import { Earnly } from 'earnly-sdk'</div>
+                            <div class="space-y-4">
+                                <div class="bg-black rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-mono text-sm">npm</span>
+                                        <button onclick="copyToClipboard('npm-install')" class="text-gray-400 hover:text-white transition-colors">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <div id="npm-install" class="font-mono text-green-400 text-sm">npm install earnly-sdk</div>
+                                </div>
                                 
-                                <div class="text-gray-400 mb-2">// Get recommendations</div>
-                                <div class="mb-2">const earnly = new Earnly('your-api-key')</div>
-                                <div class="mb-2">const recs = await earnly.query({</div>
-                                <div class="ml-4 mb-2">context: userMessage,</div>
-                                <div class="ml-4 mb-2">userId: userId,</div>
-                                <div class="ml-4 mb-2">platform: 'your-platform'</div>
-                                <div class="mb-4">})</div>
+                                <div class="bg-black rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-blue-400 font-mono text-sm">yarn</span>
+                                        <button onclick="copyToClipboard('yarn-install')" class="text-gray-400 hover:text-white transition-colors">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <div id="yarn-install" class="font-mono text-green-400 text-sm">yarn add earnly-sdk</div>
+                                </div>
                                 
-                                <div class="text-gray-400 mb-2">// Display recommendations</div>
-                                <div>recs.forEach(rec => display(rec))</div>
+                                <div class="bg-black rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-purple-400 font-mono text-sm">cdn</span>
+                                        <button onclick="copyToClipboard('cdn-install')" class="text-gray-400 hover:text-white transition-colors">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <div id="cdn-install" class="font-mono text-green-400 text-sm">
+                                        &lt;script src="https://cdn.earnly.com/sdk.js"&gt;&lt;/script&gt;
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="bg-gray-900 rounded-2xl p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-xl font-bold text-white">REST API Example</h3>
-                                <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">API</span>
+
+                        <!-- First Integration -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">2. First Integration</h3>
+                                    <p class="text-gray-400">One API call, instant results</p>
+                                </div>
                             </div>
                             
-                            <div class="bg-black rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
-                                <div class="text-gray-400 mb-2">// POST /api/recommendations</div>
-                                <div class="mb-2">curl -X POST \\</div>
-                                <div class="mb-2">  -H "Authorization: Bearer $API_KEY" \\</div>
-                                <div class="mb-2">  -H "Content-Type: application/json" \\</div>
-                                <div class="mb-2">  -d '{</div>
-                                <div class="ml-4 mb-2">"context": "user message",</div>
-                                <div class="ml-4 mb-2">"userId": "user_123",</div>
-                                <div class="ml-4 mb-2">"platform": "your-platform"</div>
-                                <div class="mb-4">  }' \\</div>
-                                <div>  https://api.earnly.com/recommendations</div>
+                            <div class="bg-black rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-green-400 font-mono text-sm">JavaScript</span>
+                                    <button onclick="copyToClipboard('js-example')" class="text-gray-400 hover:text-white transition-colors">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre id="js-example" class="font-mono text-sm text-green-400 overflow-x-auto"><code>import { Earnly } from 'earnly-sdk'
+
+const earnly = new Earnly('your-api-key')
+
+// Get contextual recommendations
+const recommendations = await earnly.query({
+  context: "I need a project management tool",
+  userId: "user_123",
+  platform: "ai-assistant",
+  intent: "software_recommendation"
+})
+
+// Display recommendations
+recommendations.forEach(rec => {
+  console.log(rec.title, rec.description)
+  // Use rec.earnly_link for tracking
+})</code></pre>
+                            </div>
+                            
+                            <div class="mt-4 p-4 bg-gradient-to-r from-green-900/30 to-teal-900/30 border border-green-500/30 rounded-lg">
+                                <div class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-400 mr-2"></i>
+                                    <span class="text-yellow-400 font-semibold">Pro Tip:</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mt-2">
+                                    Use specific context and intent for better recommendations. 
+                                    The more context you provide, the higher the conversion rates.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Documentation Links -->
-                    <div class="space-y-6">
-                        <div class="bg-white rounded-2xl p-8">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Documentation</h3>
+                </div>
+
+                <!-- Platform Types Section -->
+                <div id="doc-platforms" class="doc-section hidden">
+                    <div class="mb-12">
+                        <h3 class="text-3xl font-bold text-white mb-6 text-center">
+                            Optimize by AI Platform Type
+                        </h3>
+                        <p class="text-gray-300 text-center max-w-3xl mx-auto mb-12">
+                            Different AI platforms need different integration approaches. Here's how to optimize 
+                            Earnly for your specific platform type with proven best practices.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Conversational AI -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-comments text-white text-2xl"></i>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold text-white mb-4">Conversational AI</h4>
+                            <p class="text-gray-400 mb-6">ChatGPT, Claude, Gemini-style platforms</p>
                             
                             <div class="space-y-4">
-                                <a href="#" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-500 transition-colors">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-rocket text-green-600 mr-3"></i>
-                                        <div>
-                                            <div class="font-semibold text-gray-900">Quick Start Guide</div>
-                                            <div class="text-sm text-gray-600">Get up and running in 5 minutes</div>
-                                        </div>
-                                    </div>
-                                    <i class="fas fa-arrow-right text-gray-400"></i>
-                                </a>
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-green-400 font-semibold text-sm mb-2">Best Format:</div>
+                                    <div class="text-gray-300 text-sm">Inline Citations + Product Cards</div>
+                                </div>
                                 
-                                <a href="#" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-book text-blue-600 mr-3"></i>
-                                        <div>
-                                            <div class="font-semibold text-gray-900">API Reference</div>
-                                            <div class="text-sm text-gray-600">Complete API documentation</div>
-                                        </div>
-                                    </div>
-                                    <i class="fas fa-arrow-right text-gray-400"></i>
-                                </a>
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-blue-400 font-semibold text-sm mb-2">Timing:</div>
+                                    <div class="text-gray-300 text-sm">After helpful response, before follow-up</div>
+                                </div>
                                 
-                                <a href="#" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-purple-500 transition-colors">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-code text-purple-600 mr-3"></i>
-                                        <div>
-                                            <div class="font-semibold text-gray-900">SDK Documentation</div>
-                                            <div class="text-sm text-gray-600">Language-specific guides</div>
-                                        </div>
-                                    </div>
-                                    <i class="fas fa-arrow-right text-gray-400"></i>
-                                </a>
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-purple-400 font-semibold text-sm mb-2">Conversion Rate:</div>
+                                    <div class="text-gray-300 text-sm">2.1% average (industry leading)</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showPlatformCode('conversational')" class="w-full mt-6 bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                View Integration Code
+                            </button>
+                        </div>
+
+                        <!-- Search & Discovery -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700 hover:border-green-500/50 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-search text-white text-2xl"></i>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold text-white mb-4">Search & Discovery</h4>
+                            <p class="text-gray-400 mb-6">Perplexity, You.com, SearchGPT-style</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-green-400 font-semibold text-sm mb-2">Best Format:</div>
+                                    <div class="text-gray-300 text-sm">Sponsored Results + Shopping Cards</div>
+                                </div>
                                 
-                                <a href="#" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-orange-500 transition-colors">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-lightbulb text-orange-600 mr-3"></i>
-                                        <div>
-                                            <div class="font-semibold text-gray-900">Best Practices</div>
-                                            <div class="text-sm text-gray-600">Optimization tips & tricks</div>
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-blue-400 font-semibold text-sm mb-2">Timing:</div>
+                                    <div class="text-gray-300 text-sm">Mixed with organic results</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-purple-400 font-semibold text-sm mb-2">Conversion Rate:</div>
+                                    <div class="text-gray-300 text-sm">1.8% average (high intent)</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showPlatformCode('search')" class="w-full mt-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                View Integration Code
+                            </button>
+                        </div>
+
+                        <!-- Code & Development -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700 hover:border-purple-500/50 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-terminal text-white text-2xl"></i>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold text-white mb-4">Code & Development</h4>
+                            <p class="text-gray-400 mb-6">GitHub Copilot, Cursor, Replit-style</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-green-400 font-semibold text-sm mb-2">Best Format:</div>
+                                    <div class="text-gray-300 text-sm">Tool Suggestions + API Cards</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-blue-400 font-semibold text-sm mb-2">Timing:</div>
+                                    <div class="text-gray-300 text-sm">After code generation, with tools</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-purple-400 font-semibold text-sm mb-2">Conversion Rate:</div>
+                                    <div class="text-gray-300 text-sm">2.8% average (developer tools)</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showPlatformCode('development')" class="w-full mt-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                View Integration Code
+                            </button>
+                        </div>
+
+                        <!-- Creative & Content -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700 hover:border-orange-500/50 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-palette text-white text-2xl"></i>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold text-white mb-4">Creative & Content</h4>
+                            <p class="text-gray-400 mb-6">Midjourney, DALL-E, Jasper-style</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-green-400 font-semibold text-sm mb-2">Best Format:</div>
+                                    <div class="text-gray-300 text-sm">Creative Tools + Asset Marketplace</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-blue-400 font-semibold text-sm mb-2">Timing:</div>
+                                    <div class="text-gray-300 text-sm">After generation, with enhancements</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-purple-400 font-semibold text-sm mb-2">Conversion Rate:</div>
+                                    <div class="text-gray-300 text-sm">1.9% average (creative tools)</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showPlatformCode('creative')" class="w-full mt-6 bg-gradient-to-r from-orange-600 to-red-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                View Integration Code
+                            </button>
+                        </div>
+
+                        <!-- Business & Productivity -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700 hover:border-teal-500/50 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-briefcase text-white text-2xl"></i>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold text-white mb-4">Business & Productivity</h4>
+                            <p class="text-gray-400 mb-6">Notion AI, Zapier, Monday.com-style</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-green-400 font-semibold text-sm mb-2">Best Format:</div>
+                                    <div class="text-gray-300 text-sm">SaaS Cards + Integration Hub</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-blue-400 font-semibold text-sm mb-2">Timing:</div>
+                                    <div class="text-gray-300 text-sm">Workflow completion + upgrades</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-purple-400 font-semibold text-sm mb-2">Conversion Rate:</div>
+                                    <div class="text-gray-300 text-sm">3.2% average (B2B SaaS)</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showPlatformCode('business')" class="w-full mt-6 bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                View Integration Code
+                            </button>
+                        </div>
+
+                        <!-- Education & Learning -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700 hover:border-indigo-500/50 transition-all">
+                            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold text-white mb-4">Education & Learning</h4>
+                            <p class="text-gray-400 mb-6">Khan Academy AI, Coursera AI, Duolingo</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-green-400 font-semibold text-sm mb-2">Best Format:</div>
+                                    <div class="text-gray-300 text-sm">Course Cards + Learning Resources</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-blue-400 font-semibold text-sm mb-2">Timing:</div>
+                                    <div class="text-gray-300 text-sm">After explanation, with next steps</div>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-3">
+                                    <div class="text-purple-400 font-semibold text-sm mb-2">Conversion Rate:</div>
+                                    <div class="text-gray-300 text-sm">2.4% average (education)</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="showPlatformCode('education')" class="w-full mt-6 bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                View Integration Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ad Formats Section -->
+                <div id="doc-formats" class="doc-section hidden">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-bold text-white mb-6">
+                            Proven Ad Formats & UI Components
+                        </h3>
+                        <p class="text-gray-300 max-w-3xl mx-auto">
+                            Ready-to-use UI components with proven conversion rates. Each format is optimized 
+                            for specific use cases and platform types.
+                        </p>
+                    </div>
+
+                    <!-- Format Tabs -->
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <button onclick="showFormat('inline')" id="format-inline" class="format-btn active bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold">
+                            Inline Citations
+                        </button>
+                        <button onclick="showFormat('cards')" id="format-cards" class="format-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold">
+                            Product Cards
+                        </button>
+                        <button onclick="showFormat('sidebar')" id="format-sidebar" class="format-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold">
+                            Sidebar Widget
+                        </button>
+                        <button onclick="showFormat('banner')" id="format-banner" class="format-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold">
+                            Smart Banner
+                        </button>
+                    </div>
+
+                    <!-- Inline Citations Format -->
+                    <div id="format-inline-content" class="format-content">
+                        <div class="grid lg:grid-cols-2 gap-12">
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h4 class="text-2xl font-bold text-white mb-4">Inline Citations</h4>
+                                <p class="text-gray-400 mb-6">
+                                    Blend recommendations naturally within AI responses. Highest user satisfaction (94%) 
+                                    with minimal disruption to user experience.
+                                </p>
+                                
+                                <!-- Live Preview -->
+                                <div class="bg-white rounded-xl p-6 mb-6">
+                                    <h5 class="font-bold text-gray-900 mb-4">Live Preview:</h5>
+                                    <div class="space-y-4">
+                                        <div class="text-gray-800">
+                                            <p class="mb-3">For project management, I recommend considering these popular options:</p>
+                                            
+                                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-3">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center space-x-3">
+                                                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=40&h=40&fit=crop" 
+                                                             class="w-10 h-10 rounded object-cover" alt="Asana">
+                                                        <div>
+                                                            <div class="font-semibold text-gray-900">Asana Premium</div>
+                                                            <div class="text-sm text-gray-600">Advanced project tracking</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center space-x-2">
+                                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">94% Match</span>
+                                                        <span class="text-xs text-gray-500">Sponsored</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <p>Each tool has different strengths depending on your team size and workflow preferences.</p>
                                         </div>
                                     </div>
-                                    <i class="fas fa-arrow-right text-gray-400"></i>
-                                </a>
+                                </div>
+                                
+                                <!-- Performance Stats -->
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-green-400">2.1%</div>
+                                        <div class="text-xs text-gray-400">Conversion Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-blue-400">94%</div>
+                                        <div class="text-xs text-gray-400">User Satisfaction</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-purple-400">0.2s</div>
+                                        <div class="text-xs text-gray-400">Load Time</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Implementation Code -->
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h5 class="text-xl font-bold text-white mb-4">Implementation</h5>
+                                
+                                <div class="bg-black rounded-lg p-4 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-mono text-sm">React Component</span>
+                                        <button onclick="copyToClipboard('inline-react')" class="text-gray-400 hover:text-white">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="inline-react" class="text-sm text-green-400 overflow-x-auto"><code>function InlineCitation({ recommendation }) {
+  return (
+    &lt;div className="inline-citation"&gt;
+      &lt;div className="flex items-center p-3 
+                    bg-blue-50 border-l-4 
+                    border-blue-500 rounded-r-lg"&gt;
+        &lt;img src={recommendation.image} 
+             className="w-10 h-10 rounded mr-3" /&gt;
+        &lt;div className="flex-1"&gt;
+          &lt;div className="font-semibold"&gt;
+            {recommendation.title}
+          &lt;/div&gt;
+          &lt;div className="text-sm text-gray-600"&gt;
+            {recommendation.description}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;a href={recommendation.earnly_link} 
+           className="ml-3 bg-blue-600 text-white 
+                    px-3 py-1 rounded text-sm"&gt;
+          View
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 border border-green-500/30 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-rocket text-green-400 mr-2"></i>
+                                        <span class="text-green-400 font-semibold">Best Practices:</span>
+                                    </div>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• Place after helpful content, not before</li>
+                                        <li>• Use subtle styling that matches your brand</li>
+                                        <li>• Include match percentage for credibility</li>
+                                        <li>• Add "Sponsored" label for transparency</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="bg-white rounded-2xl p-8">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Support</h3>
+                    </div>
+
+                    <!-- Product Cards Format -->
+                    <div id="format-cards-content" class="format-content hidden">
+                        <div class="grid lg:grid-cols-2 gap-12">
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h4 class="text-2xl font-bold text-white mb-4">Product Cards</h4>
+                                <p class="text-gray-400 mb-6">
+                                    Dedicated product showcases perfect for e-commerce and SaaS recommendations. 
+                                    Higher click-through rates with rich product information.
+                                </p>
+                                
+                                <!-- Live Preview -->
+                                <div class="bg-white rounded-xl p-6 mb-6">
+                                    <h5 class="font-bold text-gray-900 mb-4">Live Preview:</h5>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="border rounded-xl p-4 hover:shadow-lg transition-shadow">
+                                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=120&fit=crop" 
+                                                 class="w-full h-24 object-cover rounded-lg mb-3" alt="Product">
+                                            <div class="font-semibold text-gray-900 mb-2">Notion Premium</div>
+                                            <div class="text-sm text-gray-600 mb-3">All-in-one workspace for teams</div>
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-lg font-bold text-green-600">$8/month</span>
+                                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm">Try Free</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border rounded-xl p-4 hover:shadow-lg transition-shadow">
+                                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=120&fit=crop" 
+                                                 class="w-full h-24 object-cover rounded-lg mb-3" alt="Product">
+                                            <div class="font-semibold text-gray-900 mb-2">Slack Pro</div>
+                                            <div class="text-sm text-gray-600 mb-3">Team communication platform</div>
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-lg font-bold text-green-600">$7.25/month</span>
+                                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm">Get Started</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Performance Stats -->
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-green-400">1.8%</div>
+                                        <div class="text-xs text-gray-400">Conversion Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-blue-400">3.2%</div>
+                                        <div class="text-xs text-gray-400">Click-through Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-purple-400">$24</div>
+                                        <div class="text-xs text-gray-400">Avg. Commission</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Implementation Code -->
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h5 class="text-xl font-bold text-white mb-4">Implementation</h5>
+                                
+                                <div class="bg-black rounded-lg p-4 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-mono text-sm">Vue Component</span>
+                                        <button onclick="copyToClipboard('card-vue')" class="text-gray-400 hover:text-white">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="card-vue" class="text-sm text-green-400 overflow-x-auto"><code>&lt;template&gt;
+  &lt;div class="product-card border rounded-xl p-4 
+              hover:shadow-lg transition-all"&gt;
+    &lt;img :src="product.image" 
+         class="w-full h-32 object-cover 
+                rounded-lg mb-4" /&gt;
+    
+    &lt;h3 class="font-bold text-gray-900 mb-2"&gt;
+      {{ product.title }}
+    &lt;/h3&gt;
+    
+    &lt;p class="text-sm text-gray-600 mb-4"&gt;
+      {{ product.description }}
+    &lt;/p&gt;
+    
+    &lt;div class="flex justify-between items-center"&gt;
+      &lt;span class="text-xl font-bold text-green-600"&gt;
+        {{ product.price }}
+      &lt;/span&gt;
+      
+      &lt;a :href="product.earnly_link" 
+         class="bg-blue-600 text-white px-4 py-2 
+                rounded font-semibold hover:bg-blue-700"&gt;
+        {{ product.cta_text }}
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 border border-purple-500/30 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-palette text-purple-400 mr-2"></i>
+                                        <span class="text-purple-400 font-semibold">Design Tips:</span>
+                                    </div>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• Use high-quality product images</li>
+                                        <li>• Include pricing and clear CTAs</li>
+                                        <li>• Add hover effects for engagement</li>
+                                        <li>• Group 2-4 cards for best results</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional format contents would go here (sidebar, banner) -->
+                    <div id="format-sidebar-content" class="format-content hidden">
+                        <div class="text-center py-12">
+                            <i class="fas fa-code text-4xl text-gray-600 mb-4"></i>
+                            <h4 class="text-xl font-bold text-white mb-2">Sidebar Widget Documentation</h4>
+                            <p class="text-gray-400">Coming soon - persistent sidebar recommendations</p>
+                        </div>
+                    </div>
+
+                    <div id="format-banner-content" class="format-content hidden">
+                        <div class="text-center py-12">
+                            <i class="fas fa-code text-4xl text-gray-600 mb-4"></i>
+                            <h4 class="text-xl font-bold text-white mb-2">Smart Banner Documentation</h4>
+                            <p class="text-gray-400">Coming soon - intelligent banner placements</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Reference Section -->
+                <div id="doc-api" class="doc-section hidden">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-bold text-white mb-6">Complete API Reference</h3>
+                        <p class="text-gray-300 max-w-3xl mx-auto">
+                            Full API documentation with request/response schemas, authentication, 
+                            error codes, and rate limits.
+                        </p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <!-- Authentication -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                            <h4 class="text-2xl font-bold text-white mb-6">Authentication</h4>
                             
                             <div class="space-y-4">
-                                <button onclick="openLiveChat()" class="w-full flex items-center justify-center p-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                                    <i class="fas fa-comments mr-3"></i>
-                                    Live Chat Support
-                                </button>
+                                <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-key text-yellow-400 mr-2"></i>
+                                        <span class="text-yellow-400 font-semibold">API Key Required</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">
+                                        All requests require a valid API key in the Authorization header.
+                                    </p>
+                                </div>
                                 
-                                <button onclick="joinSlackCommunity()" class="w-full flex items-center justify-center p-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
-                                    <i class="fab fa-slack mr-3"></i>
-                                    Join Developer Community
-                                </button>
+                                <div class="bg-black rounded-lg p-4">
+                                    <div class="text-gray-400 text-sm mb-2">Headers</div>
+                                    <pre class="text-green-400 text-sm"><code>Authorization: Bearer your_api_key_here
+Content-Type: application/json</code></pre>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-4">
+                                    <div class="text-gray-400 text-sm mb-2">Example Request</div>
+                                    <pre class="text-green-400 text-sm"><code>curl -X POST https://api.earnly.com/v1/recommendations \
+  -H "Authorization: Bearer ern_1234567890abcdef" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "context": "I need a CRM for my startup",
+    "userId": "user_123",
+    "platform": "business_ai"
+  }'</code></pre>
+                                </div>
                             </div>
+                        </div>
+
+                        <!-- Request/Response Schema -->
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                            <h4 class="text-2xl font-bold text-white mb-6">Request Schema</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-black rounded-lg p-4">
+                                    <div class="text-gray-400 text-sm mb-2">POST /v1/recommendations</div>
+                                    <pre class="text-green-400 text-sm"><code>{
+  "context": "string",        // Required: User message/context
+  "userId": "string",         // Required: Unique user identifier
+  "platform": "string",       // Required: Your platform type
+  "intent": "string",         // Optional: Detected user intent
+  "limit": "number",          // Optional: Max recommendations (1-10)
+  "categories": ["string"],   // Optional: Filter categories
+  "priceRange": {             // Optional: Price filtering
+    "min": 0,
+    "max": 1000
+  }
+}</code></pre>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-4">
+                                    <div class="text-gray-400 text-sm mb-2">Response Format</div>
+                                    <pre class="text-green-400 text-sm"><code>{
+  "success": true,
+  "recommendations": [
+    {
+      "id": "rec_123",
+      "title": "HubSpot CRM",
+      "description": "Free CRM for startups",
+      "price": "$0/month",
+      "image_url": "https://...",
+      "earnly_link": "https://earnly.app/l/abc123",
+      "match_score": 94.5,
+      "category": "business_software",
+      "advertiser": "HubSpot",
+      "commission": 25.00
+    }
+  ],
+  "meta": {
+    "query_id": "q_456",
+    "processing_time": 120,
+    "total_results": 3
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Codes & Rate Limits -->
+                    <div class="grid lg:grid-cols-2 gap-12 mt-12">
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                            <h4 class="text-2xl font-bold text-white mb-6">Error Codes</h4>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
+                                    <div>
+                                        <div class="text-red-400 font-mono">400</div>
+                                        <div class="text-gray-400 text-sm">Bad Request</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm">Invalid request parameters</div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
+                                    <div>
+                                        <div class="text-red-400 font-mono">401</div>
+                                        <div class="text-gray-400 text-sm">Unauthorized</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm">Invalid or missing API key</div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-3 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
+                                    <div>
+                                        <div class="text-yellow-400 font-mono">429</div>
+                                        <div class="text-gray-400 text-sm">Rate Limited</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm">Too many requests</div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
+                                    <div>
+                                        <div class="text-red-400 font-mono">500</div>
+                                        <div class="text-gray-400 text-sm">Server Error</div>
+                                    </div>
+                                    <div class="text-gray-300 text-sm">Internal server error</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                            <h4 class="text-2xl font-bold text-white mb-6">Rate Limits</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-green-400 font-semibold">Free Tier</span>
+                                        <span class="bg-green-600 text-white px-2 py-1 rounded text-xs">$0/month</span>
+                                    </div>
+                                    <div class="text-gray-300 text-sm">
+                                        1,000 requests/month<br>
+                                        10 requests/minute
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-blue-400 font-semibold">Pro Plan</span>
+                                        <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">$99/month</span>
+                                    </div>
+                                    <div class="text-gray-300 text-sm">
+                                        50,000 requests/month<br>
+                                        100 requests/minute
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-purple-400 font-semibold">Enterprise</span>
+                                        <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs">Custom</span>
+                                    </div>
+                                    <div class="text-gray-300 text-sm">
+                                        Unlimited requests<br>
+                                        Dedicated infrastructure
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Examples Section -->
+                <div id="doc-examples" class="doc-section hidden">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-bold text-white mb-6">Interactive Examples</h3>
+                        <p class="text-gray-300 max-w-3xl mx-auto">
+                            Test Earnly's API with live examples. See real responses and try different 
+                            platform types and contexts.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                        <h4 class="text-2xl font-bold text-white mb-6">API Playground</h4>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <!-- Request Builder -->
+                            <div>
+                                <h5 class="text-lg font-bold text-white mb-4">Build Your Request</h5>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="text-white text-sm font-medium mb-2 block">Context</label>
+                                        <textarea id="playground-context" 
+                                                  placeholder="Enter user message or context..." 
+                                                  class="w-full p-3 bg-black border border-gray-600 rounded-lg text-white resize-none h-20"></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="text-white text-sm font-medium mb-2 block">Platform Type</label>
+                                        <select id="playground-platform" class="w-full p-3 bg-black border border-gray-600 rounded-lg text-white">
+                                            <option value="conversational_ai">Conversational AI</option>
+                                            <option value="search_discovery">Search & Discovery</option>
+                                            <option value="code_development">Code & Development</option>
+                                            <option value="creative_content">Creative & Content</option>
+                                            <option value="business_productivity">Business & Productivity</option>
+                                            <option value="education_learning">Education & Learning</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="text-white text-sm font-medium mb-2 block">User Intent (Optional)</label>
+                                        <input type="text" 
+                                               id="playground-intent" 
+                                               placeholder="e.g., software_recommendation, product_search..." 
+                                               class="w-full p-3 bg-black border border-gray-600 rounded-lg text-white">
+                                    </div>
+                                    
+                                    <button onclick="testEarnlyAPI()" 
+                                            class="w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                        <i class="fas fa-play mr-2"></i>Test API Call
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Response Display -->
+                            <div>
+                                <h5 class="text-lg font-bold text-white mb-4">API Response</h5>
+                                
+                                <div id="playground-response" class="bg-black border border-gray-600 rounded-lg p-4 h-80 overflow-y-auto">
+                                    <div class="text-gray-400 text-sm text-center py-8">
+                                        <i class="fas fa-code text-2xl mb-2"></i><br>
+                                        Click "Test API Call" to see the response
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-gray-400 text-sm">Status:</span>
+                                        <span id="response-status" class="text-gray-500">Not sent</span>
+                                    </div>
+                                    <button onclick="copyResponse()" 
+                                            class="text-gray-400 hover:text-white transition-colors">
+                                        <i class="fas fa-copy mr-1"></i>Copy Response
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Section -->
+                <div class="mt-16 text-center">
+                    <div class="bg-gradient-to-r from-green-900/50 to-teal-900/50 rounded-2xl p-8 border border-green-500/30">
+                        <h4 class="text-2xl font-bold text-white mb-4">Need Help?</h4>
+                        <p class="text-gray-300 mb-6">
+                            Our team is here to help you integrate successfully. Get support, join our community, 
+                            or schedule a technical consultation.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="openLiveChat()" class="bg-gradient-to-r from-green-600 to-teal-600 text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                                <i class="fas fa-comments mr-2"></i>Live Chat Support
+                            </button>
+                            <button onclick="joinSlackCommunity()" class="border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                                <i class="fab fa-slack mr-2"></i>Developer Community
+                            </button>
+                            <button onclick="scheduleConsultation()" class="border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                                <i class="fas fa-calendar mr-2"></i>Schedule Call
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <script>
+            // Documentation Navigation
+            function showDocSection(sectionId) {
+                // Hide all sections
+                document.querySelectorAll('.doc-section').forEach(section => {
+                    section.classList.add('hidden')
+                })
+                
+                // Show selected section
+                document.getElementById('doc-' + sectionId).classList.remove('hidden')
+                
+                // Update navigation buttons
+                document.querySelectorAll('.doc-nav-btn').forEach(btn => {
+                    btn.className = 'doc-nav-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold transition-all hover:bg-gray-600'
+                })
+                
+                document.getElementById('nav-' + sectionId).className = 'doc-nav-btn active bg-gradient-to-r from-green-600 to-teal-600 text-white px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105'
+            }
+
+            // Ad Format Navigation
+            function showFormat(formatId) {
+                // Hide all format contents
+                document.querySelectorAll('.format-content').forEach(content => {
+                    content.classList.add('hidden')
+                })
+                
+                // Show selected format
+                document.getElementById('format-' + formatId + '-content').classList.remove('hidden')
+                
+                // Update format buttons
+                document.querySelectorAll('.format-btn').forEach(btn => {
+                    btn.className = 'format-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold'
+                })
+                
+                document.getElementById('format-' + formatId).className = 'format-btn active bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold'
+            }
+
+            // Copy to Clipboard
+            function copyToClipboard(elementId) {
+                const element = document.getElementById(elementId)
+                const text = element.textContent || element.innerText
+                
+                navigator.clipboard.writeText(text).then(() => {
+                    // Show success feedback
+                    const button = event.target
+                    const originalHtml = button.innerHTML
+                    button.innerHTML = '<i class="fas fa-check"></i>'
+                    button.classList.add('text-green-400')
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalHtml
+                        button.classList.remove('text-green-400')
+                    }, 2000)
+                })
+            }
+
+            // API Playground
+            function testEarnlyAPI() {
+                const context = document.getElementById('playground-context').value
+                const platform = document.getElementById('playground-platform').value
+                const intent = document.getElementById('playground-intent').value
+                
+                if (!context.trim()) {
+                    alert('Please enter a context for the API call')
+                    return
+                }
+                
+                // Update status
+                document.getElementById('response-status').innerHTML = '<span class="text-yellow-400">Sending...</span>'
+                
+                // Simulate API call (replace with actual API call in production)
+                setTimeout(() => {
+                    const mockResponse = {
+                        "success": true,
+                        "recommendations": [
+                            {
+                                "id": "rec_" + Math.random().toString(36).substring(7),
+                                "title": "Example Product",
+                                "description": "Perfect match for your needs",
+                                "price": "$29/month",
+                                "image_url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200",
+                                "earnly_link": "https://earnly.app/l/" + Math.random().toString(36).substring(7),
+                                "match_score": 94.5,
+                                "category": "software",
+                                "advertiser": "Example Company",
+                                "commission": 15.00
+                            }
+                        ],
+                        "meta": {
+                            "query_id": "q_" + Math.random().toString(36).substring(7),
+                            "processing_time": Math.floor(Math.random() * 200) + 50,
+                            "total_results": 1
+                        }
+                    }
+                    
+                    document.getElementById('playground-response').innerHTML = 
+                        '<pre class="text-green-400 text-sm">' + 
+                        JSON.stringify(mockResponse, null, 2) + 
+                        '</pre>'
+                    
+                    document.getElementById('response-status').innerHTML = '<span class="text-green-400">200 OK</span>'
+                }, 1000)
+            }
+
+            // Show Platform-Specific Code
+            function showPlatformCode(platformType) {
+                alert('Platform-specific integration guide for ' + platformType + ' coming soon!')
+            }
+
+            // Support Functions
+            function openLiveChat() {
+                alert('Live chat would open here - integrate with your support system')
+            }
+
+            function joinSlackCommunity() {
+                alert('Slack community invitation - add your Slack invite link')
+            }
+
+            function scheduleConsultation() {
+                alert('Consultation scheduling - integrate with Calendly or similar')
+            }
+
+            function copyResponse() {
+                const response = document.getElementById('playground-response').textContent
+                navigator.clipboard.writeText(response)
+                alert('Response copied to clipboard!')
+            }
+        </script>
 
         <!-- CTA Section -->
         <section class="py-20 bg-gradient-to-r from-green-900 to-teal-900">
