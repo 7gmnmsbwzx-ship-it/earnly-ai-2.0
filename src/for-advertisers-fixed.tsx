@@ -94,7 +94,7 @@ export const ForAdvertisersFixed = () => {
                         <a href="/dashboard/advertiser" class="text-white hover:text-blue-400 transition-colors bg-blue-600 bg-opacity-20 px-3 py-1 rounded-lg border border-blue-500 border-opacity-30">
                             <i class="fas fa-chart-line mr-2"></i>Dashboard
                         </a>
-                        <button onclick="startCampaign()" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover-scale">
+                        <button onclick="startCampaign()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover-scale transition-all duration-300">
                             Get Started
                         </button>
                     </div>

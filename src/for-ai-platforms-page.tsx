@@ -79,6 +79,22 @@ export const ForAIPlatformsPage = () => {
             cursor: pointer;
             border: 2px solid #1f2937;
           }
+          
+          /* Glass morphism effects */
+          .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+          }
+          
+          /* Hover effects */
+          .hover-scale {
+            transition: all 0.3s ease;
+          }
+          .hover-scale:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          }
         </style>
     </head>
     <body class="bg-gray-900 text-white overflow-x-hidden">
@@ -105,8 +121,8 @@ export const ForAIPlatformsPage = () => {
                         <a href="/dashboard/platform" class="text-white hover:text-blue-400 transition-colors bg-green-600 bg-opacity-20 px-3 py-1 rounded-lg border border-green-500 border-opacity-30">
                             <i class="fas fa-cogs mr-2"></i>Dashboard
                         </a>
-                        <button onclick="startIntegrationNow()" class="btn-interactive bg-gradient-to-r from-green-600 to-teal-600 text-white px-6 py-2 rounded-lg font-semibold">
-                            Start Integration
+                        <button onclick="startIntegrationNow()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover-scale transition-all duration-300">
+                            Get Started
                         </button>
                     </div>
                 </div>
