@@ -12,6 +12,8 @@ import { SimpleWorkingPage } from './simple-working'
 import { aiPlatformsDirectoryPage } from './ai-platforms-directory'
 import { getStartedPage } from './get-started-page'
 import { creatorsPage } from './creators-page'
+import { termsPage } from './terms-page'
+import { privacyPage } from './privacy-page'
 
 // Temporarily inline matching logic to avoid import issues
 
@@ -1237,6 +1239,16 @@ app.get('/get-started', (c) => {
 // Creators Page
 app.get('/creators', (c) => {
   return creatorsPage(c)
+})
+
+// Terms of Service Page
+app.get('/terms', (c) => {
+  return termsPage(c)
+})
+
+// Privacy Policy Page
+app.get('/privacy', (c) => {
+  return privacyPage(c)
 })
 
 // Dashboard route for authenticated users
