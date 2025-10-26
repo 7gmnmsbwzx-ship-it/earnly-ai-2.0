@@ -147,6 +147,15 @@ export const GeoReportPage = () => {
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
           }
           
+          /* Hover effects */
+          .hover-scale {
+            transition: all 0.3s ease;
+          }
+          .hover-scale:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          }
+          
           .earnly-logo {
             height: 40px;
             width: auto;
@@ -192,8 +201,8 @@ export const GeoReportPage = () => {
                             <span class="text-white">Real-time GEO</span>
                         </div>
                         
-                        <button onclick="bookDemo()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all hover:scale-105 shadow-lg">
-                            Book a demo
+                        <button onclick="bookDemo()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover-scale transition-all duration-300">
+                            Get Started
                         </button>
 
                     </div>
