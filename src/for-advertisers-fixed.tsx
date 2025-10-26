@@ -320,6 +320,16 @@ export const ForAdvertisersFixed = () => {
                                             </button>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Fold Arrow -->
+                                    <div class="flex justify-center mt-6">
+                                        <button onclick="togglePreviewResults()" 
+                                                id="fold-preview-btn"
+                                                class="text-gray-500 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100 group"
+                                                title="Collapse preview">
+                                            <i class="fas fa-chevron-up text-lg group-hover:scale-110 transition-transform" id="fold-arrow-icon"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -753,6 +763,25 @@ export const ForAdvertisersFixed = () => {
                 // Show results section with animation
                 const resultsDiv = document.getElementById('brand-preview-results');
                 resultsDiv.classList.remove('hidden');
+                
+                // Reset any collapsed state
+                previewCollapsed = false;
+                resultsDiv.style.maxHeight = 'none';
+                resultsDiv.style.overflow = 'visible';
+                resultsDiv.style.marginTop = '2rem';
+                resultsDiv.style.paddingTop = '';
+                resultsDiv.style.paddingBottom = '';
+                
+                // Update fold button state
+                const arrowIcon = document.getElementById('fold-arrow-icon');
+                const foldButton = document.getElementById('fold-preview-btn');
+                if (arrowIcon) {
+                    arrowIcon.className = 'fas fa-chevron-up text-lg group-hover:scale-110 transition-transform';
+                }
+                if (foldButton) {
+                    foldButton.title = 'Collapse preview';
+                }
+                
                 resultsDiv.style.opacity = '0';
                 resultsDiv.style.transform = 'translateY(20px)';
                 
@@ -1971,6 +2000,56 @@ export const ForAdvertisersFixed = () => {
                         rotateAdvertisingBannerMessage();
                         setInterval(rotateAdvertisingBannerMessage, 4500);
                     }, 3000);
+                }
+            }
+            
+            // Toggle Preview Results Function
+            let previewCollapsed = false;
+            
+            function togglePreviewResults() {
+                const resultsContainer = document.getElementById('brand-preview-results');
+                const foldButton = document.getElementById('fold-preview-btn');
+                const arrowIcon = document.getElementById('fold-arrow-icon');
+                
+                if (!resultsContainer) return;
+                
+                previewCollapsed = !previewCollapsed;
+                
+                if (previewCollapsed) {
+                    // Collapse the preview
+                    resultsContainer.style.transition = 'all 0.4s ease-out';
+                    resultsContainer.style.maxHeight = '0';
+                    resultsContainer.style.opacity = '0';
+                    resultsContainer.style.overflow = 'hidden';
+                    resultsContainer.style.marginTop = '0';
+                    resultsContainer.style.paddingTop = '0';
+                    resultsContainer.style.paddingBottom = '0';
+                    
+                    // Update button and icon
+                    arrowIcon.className = 'fas fa-chevron-down text-lg group-hover:scale-110 transition-transform';
+                    foldButton.title = 'Expand preview';
+                    
+                } else {
+                    // Expand the preview
+                    resultsContainer.style.transition = 'all 0.4s ease-out';
+                    resultsContainer.style.maxHeight = 'none';
+                    resultsContainer.style.opacity = '1';
+                    resultsContainer.style.overflow = 'visible';
+                    resultsContainer.style.marginTop = '2rem';
+                    resultsContainer.style.paddingTop = '';
+                    resultsContainer.style.paddingBottom = '';
+                    
+                    // Update button and icon
+                    arrowIcon.className = 'fas fa-chevron-up text-lg group-hover:scale-110 transition-transform';
+                    foldButton.title = 'Collapse preview';
+                    
+                    // Scroll to preview after expansion
+                    setTimeout(() => {
+                        resultsContainer.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
+                    }, 200);
                 }
             }
         </script>
