@@ -202,7 +202,7 @@ export const GeoReportPage = () => {
                         </div>
                         
                         <button onclick="bookDemo()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover-scale transition-all duration-300">
-                            Get Started
+                            Book a Demo
                         </button>
 
                     </div>
