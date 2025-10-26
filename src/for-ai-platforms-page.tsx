@@ -1248,7 +1248,7 @@ recommendations.forEach(rec => {
                                             <div class="text-sm text-gray-600 mb-3">Team communication platform</div>
                                             <div class="flex items-center justify-between">
                                                 <span class="text-lg font-bold text-green-600">$7.25/month</span>
-                                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm">Get Started</button>
+                                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm">Try Free</button>
                                             </div>
                                         </div>
                                     </div>
