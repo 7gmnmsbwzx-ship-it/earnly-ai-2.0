@@ -1103,3 +1103,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });
+
+
+// Dynamic Advertising Platform Banner Messages
+const advertisingBannerMessages = [
+    'AI-Native Advertising Platform',
+    'Agentic ads deliver 5x higher conversion rates than traditional display ads.',
+    'The future of advertising is conversational, contextual, and AI-native.',
+    'Users spend 3x more time with contextual AI recommendations than banner ads.',
+    'Traditional ads are getting 70% less engagement in AI-powered searches.',
+    'Contextual advertising in AI conversations drives 340% higher ROI.',
+    'Smart recommendations convert 8x better than interruption-based ads.',
+    '90% of AI users prefer contextual suggestions over traditional advertising.'
+];
+
+let currentAdvertisingBannerIndex = 0;
+
+function rotateAdvertisingBannerMessage() {
+    const bannerElement = document.getElementById('advertising-dynamic-banner');
+    if (bannerElement) {
+        bannerElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            currentAdvertisingBannerIndex = (currentAdvertisingBannerIndex + 1) % advertisingBannerMessages.length;
+            bannerElement.textContent = advertisingBannerMessages[currentAdvertisingBannerIndex];
+            bannerElement.style.opacity = '1';
+        }, 350);
+    }
+}
+
+// Update the DOMContentLoaded event listener to include advertising banner
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing banner functionality
+    const bannerElement = document.getElementById('dynamic-banner');
+    if (bannerElement) {
+        bannerElement.style.transition = 'opacity 0.3s ease-in-out';
+        setTimeout(() => {
+            rotateBannerMessage();
+            setInterval(rotateBannerMessage, 4000);
+        }, 3000);
+    }
+    
+    // New advertising banner functionality
+    const advertisingBannerElement = document.getElementById('advertising-dynamic-banner');
+    if (advertisingBannerElement) {
+        advertisingBannerElement.style.transition = 'opacity 0.35s ease-in-out';
+        // Start rotation after 5 seconds, then every 4.5 seconds
+        setTimeout(() => {
+            rotateAdvertisingBannerMessage();
+            setInterval(rotateAdvertisingBannerMessage, 4500);
+        }, 5000);
+    }
+});
