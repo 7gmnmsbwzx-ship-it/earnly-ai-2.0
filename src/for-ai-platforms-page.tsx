@@ -358,10 +358,7 @@ export const ForAIPlatformsPage = () => {
             
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <div class="inline-flex items-center space-x-2 bg-blue-600 bg-opacity-20 rounded-full px-6 py-3 mb-6 border border-blue-500/30">
-                        <i class="fas fa-star text-blue-400"></i>
-                        <span class="text-blue-400 font-semibold">Why Choose Earnly</span>
-                    </div>
+
                     <h2 class="text-5xl lg:text-6xl font-bold text-white mb-6">
                         Why AI Platforms Choose
                         <span class="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Earnly</span>
@@ -526,7 +523,7 @@ export const ForAIPlatformsPage = () => {
         <section class="py-20 bg-gray-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <div class="text-sm text-gray-400 uppercase tracking-wide font-medium mb-4">EARNINGS CALCULATOR</div>
+
                     <h2 class="text-5xl font-bold text-white mb-6">See Your Earning Potential</h2>
                     <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                         Use our interactive calculator to estimate how much you could earn by integrating 
