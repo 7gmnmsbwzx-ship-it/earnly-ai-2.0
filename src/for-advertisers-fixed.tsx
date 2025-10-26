@@ -534,9 +534,7 @@ export const ForAdvertisersFixed = () => {
                             </span>
                             <div class="absolute inset-0 bg-gradient-to-r from-green-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </button>
-                        <p class="text-gray-400 text-sm mt-4 max-w-lg mx-auto">
-                            Join thousands of brands already leveraging AI-native advertising • No setup fees • Performance-only billing
-                        </p>
+
                     </div>
                 </div>
             </div>
