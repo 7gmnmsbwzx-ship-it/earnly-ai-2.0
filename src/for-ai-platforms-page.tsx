@@ -95,6 +95,16 @@ export const ForAIPlatformsPage = () => {
             transform: translateY(-2px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
           }
+          
+          /* Pulse glow animation */
+          .pulse-glow {
+            animation: pulse-glow 2s infinite;
+          }
+          
+          @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.6); }
+          }
         </style>
     </head>
     <body class="bg-gray-900 text-white overflow-x-hidden">
@@ -138,9 +148,9 @@ export const ForAIPlatformsPage = () => {
                     <!-- Hero Content -->
                     <div class="animate-fade-in-up">
                         <div class="mb-6">
-                            <div class="inline-flex items-center space-x-2 bg-green-600 bg-opacity-20 rounded-full px-4 py-2 mb-4">
-                                <i class="fas fa-robot text-green-400"></i>
-                                <span class="text-green-400 font-semibold">For AI Platforms</span>
+                            <div class="inline-flex items-center space-x-2 bg-white bg-opacity-10 rounded-full px-4 py-2 mb-4">
+                                <span class="w-2 h-2 bg-green-400 rounded-full pulse-glow"></span>
+                                <span class="text-sm text-white" id="ai-platform-dynamic-banner">For AI Platforms</span>
                             </div>
                         </div>
                         
@@ -984,6 +994,48 @@ export const ForAIPlatformsPage = () => {
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></script>
         <script src="/static/for-ai-platforms.js"></script>
+        
+        <script>
+            // Dynamic AI Platform Banner Messages
+            const aiPlatformBannerMessages = [
+                'For AI Platforms',
+                'Real-time data integration boosts AI accuracy by 40%.',
+                'AI builders using live data see 3x higher user satisfaction.',
+                'LLMs are trained on outdated data—your users need real-time answers.'
+            ];
+
+            let currentAiPlatformBannerIndex = 0;
+
+            function rotateAiPlatformBannerMessage() {
+                const bannerElement = document.getElementById('ai-platform-dynamic-banner');
+                if (bannerElement) {
+                    bannerElement.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        currentAiPlatformBannerIndex = (currentAiPlatformBannerIndex + 1) % aiPlatformBannerMessages.length;
+                        bannerElement.textContent = aiPlatformBannerMessages[currentAiPlatformBannerIndex];
+                        bannerElement.style.opacity = '1';
+                    }, 350);
+                }
+            }
+
+            function initializeAiPlatformBanner() {
+                const aiPlatformBannerElement = document.getElementById('ai-platform-dynamic-banner');
+                if (aiPlatformBannerElement) {
+                    aiPlatformBannerElement.style.transition = 'opacity 0.35s ease-in-out';
+                    // Start rotation after 3 seconds, then every 4.5 seconds
+                    setTimeout(() => {
+                        rotateAiPlatformBannerMessage();
+                        setInterval(rotateAiPlatformBannerMessage, 4500);
+                    }, 3000);
+                }
+            }
+            
+            // Initialize banner rotation on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                initializeAiPlatformBanner();
+            });
+        </script>
     </body>
     </html>
   `
