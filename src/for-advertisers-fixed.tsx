@@ -392,175 +392,82 @@ export const ForAdvertisersFixed = () => {
         </section>
 
         <!-- How It Works -->
-        <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-            <!-- Animated Background Elements -->
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-                <div class="absolute bottom-20 right-20 w-48 h-48 bg-purple-500 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
-                <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-green-500 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
-            </div>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section class="py-20 bg-gray-900">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <div class="inline-flex items-center space-x-2 bg-blue-600 bg-opacity-20 rounded-full px-6 py-2 mb-6 border border-blue-400 border-opacity-30">
-                        <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                        <p class="text-sm font-semibold text-blue-300 tracking-wide uppercase">HOW IT WORKS</p>
-                    </div>
-                    <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        Three Simple Steps to 
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-green-400">
-                            AI-Native Success
-                        </span>
-                    </h2>
-                    <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                        Transform your advertising strategy with our intelligent platform that seamlessly integrates 
-                        your brand into AI conversations at the exact moment of user intent.
-                    </p>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">How It Works</h2>
                 </div>
 
-                <!-- Process Flow with Connecting Lines -->
-                <div class="relative">
-                    <!-- Connecting Flow Lines (Desktop) -->
-                    <div class="hidden md:block absolute top-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-                        <svg class="w-full h-12" viewBox="0 0 800 48">
-                            <path d="M100,24 Q200,8 300,24 T500,24 T700,24" 
-                                  stroke="url(#flowGradient)" 
-                                  stroke-width="3" 
-                                  fill="none" 
-                                  stroke-dasharray="8,4"
-                                  class="animate-pulse">
-                            </path>
-                            <defs>
-                                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" style="stop-color:#3B82F6"/>
-                                    <stop offset="50%" style="stop-color:#10B981"/>
-                                    <stop offset="100%" style="stop-color:#8B5CF6"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-
-                    <!-- Three Step Process -->
-                    <div class="grid md:grid-cols-3 gap-8 mb-16 relative z-10">
-                        <!-- Step 1: Connect & Configure -->
-                        <div class="group transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 border border-gray-600 hover:border-blue-400 transition-all shadow-2xl relative overflow-hidden">
-                                <!-- Background Glow Effect -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl"></div>
-                                
-                                <!-- Floating Step Badge -->
-                                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center shadow-xl border-4 border-gray-900">
-                                    <span class="text-xl font-black text-white">1</span>
-                                </div>
-                                
-                                <!-- Icon with Animation -->
-                                <div class="mt-8 mb-6 text-center">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
-                                        <i class="fas fa-plug text-3xl text-white"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">Connect & Configure</h3>
-                                    <p class="text-gray-300 leading-relaxed text-sm">
-                                        Seamlessly integrate your product catalog with our AI-native platform using 
-                                        intelligent tagging and contextual metadata for maximum discoverability.
-                                    </p>
-                                </div>
-                                
-                                <!-- Feature Badges -->
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="px-3 py-1 bg-blue-900 bg-opacity-50 text-blue-300 text-xs rounded-full border border-blue-700">
-                                        Smart Tagging
-                                    </span>
-                                    <span class="px-3 py-1 bg-blue-900 bg-opacity-50 text-blue-300 text-xs rounded-full border border-blue-700">
-                                        Auto-Sync
-                                    </span>
-                                </div>
-                            </div>
+                <!-- Three Step Process -->
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <!-- Step 1: Connect & Configure -->
+                    <div class="bg-gray-800 rounded-2xl p-8 text-center border border-gray-700">
+                        <!-- Step Number Badge -->
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-plug text-2xl text-white"></i>
                         </div>
-
-                        <!-- Step 2: AI-Powered Matching -->
-                        <div class="group transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 border border-gray-600 hover:border-green-400 transition-all shadow-2xl relative overflow-hidden">
-                                <!-- Background Glow Effect -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-green-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl"></div>
-                                
-                                <!-- Floating Step Badge -->
-                                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex items-center justify-center shadow-xl border-4 border-gray-900">
-                                    <span class="text-xl font-black text-white">2</span>
-                                </div>
-                                
-                                <!-- Icon with Animation -->
-                                <div class="mt-8 mb-6 text-center">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-700 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
-                                        <i class="fas fa-brain text-3xl text-white"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-green-300 transition-colors">AI-Powered Matching</h3>
-                                    <p class="text-gray-300 leading-relaxed text-sm">
-                                        Advanced algorithms analyze user intent and conversation context to surface 
-                                        your products at the perfect moment with precision targeting.
-                                    </p>
-                                </div>
-                                
-                                <!-- Feature Badges -->
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="px-3 py-1 bg-green-900 bg-opacity-50 text-green-300 text-xs rounded-full border border-green-700">
-                                        Intent Analysis
-                                    </span>
-                                    <span class="px-3 py-1 bg-green-900 bg-opacity-50 text-green-300 text-xs rounded-full border border-green-700">
-                                        Real-time
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Performance-Based Revenue -->
-                        <div class="group transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 border border-gray-600 hover:border-purple-400 transition-all shadow-2xl relative overflow-hidden">
-                                <!-- Background Glow Effect -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl"></div>
-                                
-                                <!-- Floating Step Badge -->
-                                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center shadow-xl border-4 border-gray-900">
-                                    <span class="text-xl font-black text-white">3</span>
-                                </div>
-                                
-                                <!-- Icon with Animation -->
-                                <div class="mt-8 mb-6 text-center">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
-                                        <i class="fas fa-chart-line text-3xl text-white"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">Performance-Based Revenue</h3>
-                                    <p class="text-gray-300 leading-relaxed text-sm">
-                                        Pay only for verified conversions with transparent analytics and real-time 
-                                        ROI tracking that ensures every dollar drives measurable results.
-                                    </p>
-                                </div>
-                                
-                                <!-- Feature Badges -->
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="px-3 py-1 bg-purple-900 bg-opacity-50 text-purple-300 text-xs rounded-full border border-purple-700">
-                                        Zero Risk
-                                    </span>
-                                    <span class="px-3 py-1 bg-purple-900 bg-opacity-50 text-purple-300 text-xs rounded-full border border-purple-700">
-                                        ROI Tracking
-                                    </span>
-                                </div>
-                            </div>
+                        
+                        <h3 class="text-2xl font-bold text-white mb-4">Connect & Configure</h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Seamlessly integrate your product catalog with our AI-native platform using intelligent tagging 
+                            and contextual metadata for maximum discoverability.
+                        </p>
+                        
+                        <!-- Feature Tags -->
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">Smart Tagging</span>
+                            <span class="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">Auto-Sync</span>
                         </div>
                     </div>
 
-                    <!-- Enhanced Call-to-Action -->
-                    <div class="text-center">
-                        <div class="inline-block">
-                            <button onclick="startCampaign()" class="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all hover:scale-105 shadow-2xl border border-white border-opacity-20">
-                                <span class="relative z-10 flex items-center">
-                                    <i class="fas fa-rocket mr-3 text-xl"></i>
-                                    Start Your AI Journey
-                                </span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-green-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            </button>
-                            <p class="text-gray-400 text-sm mt-3">No setup fees • Performance-only billing • Cancel anytime</p>
+                    <!-- Step 2: AI-Powered Matching -->
+                    <div class="bg-gray-800 rounded-2xl p-8 text-center border border-gray-700">
+                        <!-- Step Number Badge -->
+                        <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-brain text-2xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-white mb-4">AI-Powered Matching</h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Advanced algorithms analyze user intent and conversation context to surface your products at 
+                            the perfect moment with precision targeting.
+                        </p>
+                        
+                        <!-- Feature Tags -->
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-green-600 text-white text-sm rounded-full">Intent Analysis</span>
+                            <span class="px-3 py-1 bg-green-600 text-white text-sm rounded-full">Real-time</span>
                         </div>
                     </div>
+
+                    <!-- Step 3: Performance-Based Revenue -->
+                    <div class="bg-gray-800 rounded-2xl p-8 text-center border border-gray-700">
+                        <!-- Step Number Badge -->
+                        <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chart-line text-2xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-white mb-4">Performance-Based Revenue</h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Pay only for verified conversions with transparent analytics and real-time ROI tracking that 
+                            ensures every dollar drives measurable results.
+                        </p>
+                        
+                        <!-- Feature Tags -->
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-purple-600 text-white text-sm rounded-full">Zero Risk</span>
+                            <span class="px-3 py-1 bg-purple-600 text-white text-sm rounded-full">ROI Tracking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call-to-Action -->
+                <div class="text-center">
+                    <button onclick="startCampaign()" class="bg-gradient-to-r from-blue-600 to-green-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-green-700 transition-all shadow-lg">
+                        <i class="fas fa-rocket mr-3"></i>
+                        Start Your AI Journey
+                    </button>
+                    <p class="text-gray-400 text-sm mt-4">No setup fees • Performance-only billing • Cancel anytime</p>
                 </div>
             </div>
         </section>
