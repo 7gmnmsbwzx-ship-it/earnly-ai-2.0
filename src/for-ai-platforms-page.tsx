@@ -1098,6 +1098,9 @@ recommendations.forEach(rec => {
                         <button onclick="showFormat('cards')" id="format-cards" class="format-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold">
                             Product Cards
                         </button>
+                        <button onclick="showFormat('summary')" id="format-summary" class="format-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold">
+                            Summary Unit
+                        </button>
                         <button onclick="showFormat('sidebar')" id="format-sidebar" class="format-btn bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold">
                             Sidebar Widget
                         </button>
@@ -1328,20 +1331,710 @@ recommendations.forEach(rec => {
                         </div>
                     </div>
 
-                    <!-- Additional format contents would go here (sidebar, banner) -->
-                    <div id="format-sidebar-content" class="format-content hidden">
-                        <div class="text-center py-12">
-                            <i class="fas fa-code text-4xl text-gray-600 mb-4"></i>
-                            <h4 class="text-xl font-bold text-white mb-2">Sidebar Widget Documentation</h4>
-                            <p class="text-gray-400">Coming soon - persistent sidebar recommendations</p>
+                    <!-- Summary Unit Format -->
+                    <div id="format-summary-content" class="format-content hidden">
+                        <div class="grid lg:grid-cols-2 gap-12">
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h4 class="text-2xl font-bold text-white mb-4">Summary Unit</h4>
+                                <p class="text-gray-400 mb-6">
+                                    AI-powered comprehensive summaries with embedded recommendations. Perfect for search engines 
+                                    and conversational AI that provide detailed analysis and reviews.
+                                </p>
+                                
+                                <!-- Live Preview -->
+                                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 mb-6 shadow-lg">
+                                    <h5 class="font-bold text-gray-900 mb-6 text-lg">Live Preview:</h5>
+                                    
+                                    <!-- Summary Unit Preview -->
+                                    <div class="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200 shadow-lg">
+                                        <!-- AI Analysis Header -->
+                                        <div class="flex items-start space-x-4 mb-5">
+                                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md">
+                                                <i class="fas fa-brain text-white text-xl"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="flex items-center justify-between mb-2">
+                                                    <h4 class="font-bold text-gray-900 text-lg">AI Analysis</h4>
+                                                    <span class="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold border border-blue-300">Smart Match</span>
+                                                </div>
+                                                <p class="text-gray-700 text-sm leading-relaxed">
+                                                    Based on your requirements, I found <strong>Asana Premium</strong> to be an excellent match with high relevance scores.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Recommendation Card -->
+                                        <div class="bg-white rounded-xl p-5 border border-gray-300 shadow-sm mb-4">
+                                            <div class="flex items-start space-x-4">
+                                                <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-blue-700 font-bold text-2xl">A</span>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="flex items-center justify-between mb-3">
+                                                        <h5 class="font-bold text-gray-900 text-lg">Asana Premium</h5>
+                                                        <div class="flex items-center">
+                                                            <span class="text-yellow-500">★★★★★</span>
+                                                            <span class="text-gray-600 text-sm ml-2 font-medium">4.8/5</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- User Review Quote -->
+                                                    <div class="bg-gray-50 rounded-lg p-3 mb-3 border-l-4 border-blue-500">
+                                                        <p class="text-gray-700 text-sm italic mb-2">"Exceptional platform that transformed our workflow. The AI features are incredibly intuitive."</p>
+                                                        <div class="text-xs text-gray-500">— Sarah M., Product Manager</div>
+                                                    </div>
+                                                    
+                                                    <!-- Key Features -->
+                                                    <div class="grid grid-cols-2 gap-2 mb-4">
+                                                        <div class="flex items-center text-xs text-gray-600">
+                                                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                            <span>Enterprise Security</span>
+                                                        </div>
+                                                        <div class="flex items-center text-xs text-gray-600">
+                                                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                            <span>24/7 Support</span>
+                                                        </div>
+                                                        <div class="flex items-center text-xs text-gray-600">
+                                                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                            <span>Free Trial</span>
+                                                        </div>
+                                                        <div class="flex items-center text-xs text-gray-600">
+                                                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                            <span>No Setup Fees</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Action Section -->
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center space-x-3">
+                                                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all">
+                                                    Explore Asana
+                                                </button>
+                                                <button class="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                                                    Save for Later
+                                                </button>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-xs text-gray-500">Sponsored content</div>
+                                                <div class="text-xs text-blue-600 font-medium">Verified by AI</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Performance Stats -->
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-green-400">2.3%</div>
+                                        <div class="text-xs text-gray-400">Conversion Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-blue-400">4.1%</div>
+                                        <div class="text-xs text-gray-400">Engagement Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-purple-400">$31</div>
+                                        <div class="text-xs text-gray-400">Avg. Commission</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Implementation Code -->
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h5 class="text-xl font-bold text-white mb-4">Implementation</h5>
+                                
+                                <div class="bg-black rounded-lg p-4 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-mono text-sm">JavaScript Implementation</span>
+                                        <button onclick="copyToClipboard('summary-js')" class="text-gray-400 hover:text-white">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="summary-js" class="text-sm text-green-400 overflow-x-auto"><code>// Summary Unit Integration
+async function generateSummaryUnit(query, context) {
+  const response = await earnly.query({
+    context: query,
+    format: 'summary_unit',
+    includeReviews: true,
+    includeFeatures: true,
+    maxRecommendations: 1
+  })
+  
+  return \`
+    &lt;div class="summary-unit"&gt;
+      &lt;div class="ai-header"&gt;
+        &lt;h4&gt;AI Analysis&lt;/h4&gt;
+        &lt;span class="match-badge"&gt;Smart Match&lt;/span&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="recommendation-card"&gt;
+        &lt;h5&gt;\${response.title}&lt;/h5&gt;
+        &lt;div class="review-quote"&gt;
+          \${response.featured_review}
+        &lt;/div&gt;
+        &lt;div class="features"&gt;
+          \${response.key_features.map(f =&gt; 
+            \`&lt;span&gt;✓ \${f}&lt;/span&gt;\`
+          ).join('')}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="actions"&gt;
+        &lt;a href="\${response.earnly_link}"&gt;
+          Explore \${response.title}
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  \`
+}</code></pre>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-orange-900/30 to-red-900/30 border border-orange-500/30 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-lightbulb text-orange-400 mr-2"></i>
+                                        <span class="text-orange-400 font-semibold">Best Use Cases:</span>
+                                    </div>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• Search engines providing detailed product analysis</li>
+                                        <li>• AI assistants giving comprehensive recommendations</li>
+                                        <li>• Research platforms with in-depth reviews</li>
+                                        <li>• Comparison tools and buying guides</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Sidebar Widget Format -->
+                    <div id="format-sidebar-content" class="format-content hidden">
+                        <div class="grid lg:grid-cols-2 gap-12">
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h4 class="text-2xl font-bold text-white mb-4">Sidebar Widget</h4>
+                                <p class="text-gray-400 mb-6">
+                                    Persistent sidebar recommendations that don't interrupt the main content flow. 
+                                    Perfect for content platforms, documentation sites, and dashboard interfaces.
+                                </p>
+                                
+                                <!-- Live Preview -->
+                                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 mb-6 shadow-lg">
+                                    <h5 class="font-bold text-gray-900 mb-6 text-lg">Live Preview:</h5>
+                                    
+                                    <div class="flex gap-4">
+                                        <!-- Main Content Area -->
+                                        <div class="flex-1 bg-white border border-gray-200 rounded-lg p-4">
+                                            <h6 class="font-semibold text-gray-800 mb-2">Main Content Area</h6>
+                                            <p class="text-sm text-gray-600 mb-2">This is where your primary AI conversation or content appears...</p>
+                                            <p class="text-xs text-gray-500">User can focus on main interaction while recommendations are available in sidebar</p>
+                                        </div>
+                                        
+                                        <!-- Sidebar Widget -->
+                                        <div class="w-64 bg-gradient-to-b from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4 shadow-sm">
+                                            <div class="flex items-center mb-3">
+                                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center mr-2">
+                                                    <i class="fas fa-magic text-white text-xs"></i>
+                                                </div>
+                                                <h6 class="font-semibold text-gray-800 text-sm">Recommended</h6>
+                                            </div>
+                                            
+                                            <!-- Compact Recommendation Cards -->
+                                            <div class="space-y-3">
+                                                <div class="bg-white rounded-lg p-3 border border-gray-200 hover:shadow-md transition-shadow">
+                                                    <div class="flex items-center space-x-2 mb-2">
+                                                        <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                            <span class="text-white font-bold text-xs">N</span>
+                                                        </div>
+                                                        <div class="flex-1 min-w-0">
+                                                            <div class="font-semibold text-gray-900 text-sm truncate">Notion</div>
+                                                            <div class="text-xs text-gray-600">$8/month</div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="w-full bg-blue-600 text-white py-1 px-2 rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                                                        Try Free
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="bg-white rounded-lg p-3 border border-gray-200 hover:shadow-md transition-shadow">
+                                                    <div class="flex items-center space-x-2 mb-2">
+                                                        <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-teal-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                            <span class="text-white font-bold text-xs">S</span>
+                                                        </div>
+                                                        <div class="flex-1 min-w-0">
+                                                            <div class="font-semibold text-gray-900 text-sm truncate">Slack</div>
+                                                            <div class="text-xs text-gray-600">$7.25/month</div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="w-full bg-green-600 text-white py-1 px-2 rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                                                        Try Free
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="bg-white rounded-lg p-3 border border-gray-200 hover:shadow-md transition-shadow">
+                                                    <div class="flex items-center space-x-2 mb-2">
+                                                        <div class="w-8 h-8 bg-gradient-to-r from-orange-400 to-red-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                            <span class="text-white font-bold text-xs">A</span>
+                                                        </div>
+                                                        <div class="flex-1 min-w-0">
+                                                            <div class="font-semibold text-gray-900 text-sm truncate">Asana</div>
+                                                            <div class="text-xs text-gray-600">$10.99/month</div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="w-full bg-orange-600 text-white py-1 px-2 rounded text-xs font-medium hover:bg-orange-700 transition-colors">
+                                                        Try Free
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-3 pt-3 border-t border-blue-200">
+                                                <div class="text-xs text-gray-500 text-center">
+                                                    <i class="fas fa-shield-alt text-blue-500 mr-1"></i>
+                                                    Sponsored by Earnly
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Performance Stats -->
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-green-400">1.4%</div>
+                                        <div class="text-xs text-gray-400">Conversion Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-blue-400">8.7%</div>
+                                        <div class="text-xs text-gray-400">View Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-purple-400">0.1s</div>
+                                        <div class="text-xs text-gray-400">Load Time</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Implementation Code -->
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h5 class="text-xl font-bold text-white mb-4">Implementation</h5>
+                                
+                                <div class="bg-black rounded-lg p-4 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-mono text-sm">CSS + HTML Setup</span>
+                                        <button onclick="copyToClipboard('sidebar-html')" class="text-gray-400 hover:text-white">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="sidebar-html" class="text-sm text-green-400 overflow-x-auto"><code>&lt;!-- Sidebar Widget Layout --&gt;
+&lt;div class="layout-container"&gt;
+  &lt;main class="main-content"&gt;
+    &lt;!-- Your AI conversation content --&gt;
+  &lt;/main&gt;
+  
+  &lt;aside class="earnly-sidebar"&gt;
+    &lt;div class="sidebar-header"&gt;
+      &lt;h3&gt;Recommended&lt;/h3&gt;
+    &lt;/div&gt;
+    
+    &lt;div id="earnly-recommendations"&gt;
+      &lt;!-- Dynamic recommendations loaded here --&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.layout-container {
+  display: flex;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.earnly-sidebar {
+  width: 280px;
+  background: linear-gradient(to bottom, #eff6ff, #e0e7ff);
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  padding: 1rem;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+&lt;/style&gt;</code></pre>
+                                </div>
+                                
+                                <div class="bg-black rounded-lg p-4 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-mono text-sm">JavaScript Integration</span>
+                                        <button onclick="copyToClipboard('sidebar-js')" class="text-gray-400 hover:text-white">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="sidebar-js" class="text-sm text-green-400 overflow-x-auto"><code>// Initialize Sidebar Widget
+class EarnlySidebarWidget {
+  constructor(container, options = {}) {
+    this.container = container
+    this.maxItems = options.maxItems || 3
+    this.updateInterval = options.updateInterval || 30000
+    this.init()
+  }
+  
+  async init() {
+    await this.loadRecommendations()
+    this.startAutoUpdate()
+  }
+  
+  async loadRecommendations() {
+    try {
+      const context = this.getPageContext()
+      const recommendations = await earnly.query({
+        context,
+        format: 'sidebar',
+        limit: this.maxItems
+      })
+      
+      this.renderRecommendations(recommendations)
+    } catch (error) {
+      console.error('Sidebar widget error:', error)
+    }
+  }
+  
+  renderRecommendations(recommendations) {
+    const html = recommendations.map(rec =&gt; \`
+      &lt;div class="sidebar-item"&gt;
+        &lt;div class="item-header"&gt;
+          &lt;div class="item-icon"&gt;\${rec.title.charAt(0)}&lt;/div&gt;
+          &lt;div class="item-info"&gt;
+            &lt;div class="item-title"&gt;\${rec.title}&lt;/div&gt;
+            &lt;div class="item-price"&gt;\${rec.price}&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;a href="\${rec.earnly_link}" class="item-cta"&gt;
+          Try Free
+        &lt;/a&gt;
+      &lt;/div&gt;
+    \`).join('')
+    
+    this.container.innerHTML = html
+  }
+  
+  getPageContext() {
+    // Extract context from current conversation/page
+    return document.querySelector('.main-content')?.textContent || ''
+  }
+  
+  startAutoUpdate() {
+    setInterval(() =&gt; {
+      this.loadRecommendations()
+    }, this.updateInterval)
+  }
+}
+
+// Initialize widget
+const sidebar = new EarnlySidebarWidget(
+  document.getElementById('earnly-recommendations'),
+  { maxItems: 3, updateInterval: 30000 }
+)</code></pre>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 border border-cyan-500/30 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-columns text-cyan-400 mr-2"></i>
+                                        <span class="text-cyan-400 font-semibold">Design Guidelines:</span>
+                                    </div>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• Keep sidebar width between 240-320px for optimal UX</li>
+                                        <li>• Use sticky positioning to maintain visibility while scrolling</li>
+                                        <li>• Limit to 3-5 recommendations to avoid overwhelming users</li>
+                                        <li>• Update recommendations based on conversation context</li>
+                                        <li>• Ensure mobile responsiveness (hide on small screens)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Smart Banner Format -->
                     <div id="format-banner-content" class="format-content hidden">
-                        <div class="text-center py-12">
-                            <i class="fas fa-code text-4xl text-gray-600 mb-4"></i>
-                            <h4 class="text-xl font-bold text-white mb-2">Smart Banner Documentation</h4>
-                            <p class="text-gray-400">Coming soon - intelligent banner placements</p>
+                        <div class="grid lg:grid-cols-2 gap-12">
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h4 class="text-2xl font-bold text-white mb-4">Smart Banner</h4>
+                                <p class="text-gray-400 mb-6">
+                                    Intelligent banner placements that adapt to user behavior and content context. 
+                                    Non-intrusive yet highly visible for maximum engagement without disrupting experience.
+                                </p>
+                                
+                                <!-- Live Preview -->
+                                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 mb-6 shadow-lg">
+                                    <h5 class="font-bold text-gray-900 mb-6 text-lg">Live Preview:</h5>
+                                    
+                                    <div class="space-y-4">
+                                        <!-- Top Banner Example -->
+                                        <div>
+                                            <div class="text-xs text-gray-600 mb-2">Top Banner Placement:</div>
+                                            <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-4 text-white shadow-lg">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center space-x-3">
+                                                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                                            <i class="fas fa-star text-white"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="font-semibold">Boost your productivity with Notion</div>
+                                                            <div class="text-xs opacity-90">Join 20M+ users who chose Notion for team collaboration</div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors">
+                                                        Try Free
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Inline Banner Example -->
+                                        <div>
+                                            <div class="text-xs text-gray-600 mb-2">Inline Banner Placement:</div>
+                                            <div class="bg-white border-2 border-dashed border-gray-300 p-3 rounded-lg">
+                                                <div class="text-sm text-gray-600 mb-3">AI conversation content above...</div>
+                                                
+                                                <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 my-3">
+                                                    <div class="flex items-center justify-between">
+                                                        <div class="flex items-center space-x-3">
+                                                            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                                                                <span class="text-white font-bold">S</span>
+                                                            </div>
+                                                            <div>
+                                                                <div class="font-semibold text-gray-900">Slack - Team Communication</div>
+                                                                <div class="text-sm text-gray-600">Recommended based on your workflow needs</div>
+                                                                <div class="flex items-center mt-1">
+                                                                    <span class="text-yellow-500 text-sm">★★★★★</span>
+                                                                    <span class="text-xs text-gray-500 ml-2">4.6/5 • Free trial available</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors">
+                                                            Try Free
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="text-sm text-gray-600">...AI conversation content continues below</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Bottom Banner Example -->
+                                        <div>
+                                            <div class="text-xs text-gray-600 mb-2">Bottom Banner Placement:</div>
+                                            <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl p-3 text-white shadow-lg">
+                                                <div class="flex items-center justify-between text-sm">
+                                                    <div class="flex items-center space-x-2">
+                                                        <i class="fas fa-rocket"></i>
+                                                        <span><strong>Asana Premium</strong> - Perfect for your project management needs</span>
+                                                    </div>
+                                                    <button class="bg-white text-purple-600 px-3 py-1 rounded-lg font-semibold text-xs hover:bg-gray-100 transition-colors">
+                                                        Start Free Trial
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Performance Stats -->
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-green-400">3.2%</div>
+                                        <div class="text-xs text-gray-400">Click Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-blue-400">12.8%</div>
+                                        <div class="text-xs text-gray-400">View Rate</div>
+                                    </div>
+                                    <div class="text-center bg-black rounded-lg p-3">
+                                        <div class="text-2xl font-bold text-purple-400">$19</div>
+                                        <div class="text-xs text-gray-400">Avg. Commission</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Implementation Code -->
+                            <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-700">
+                                <h5 class="text-xl font-bold text-white mb-4">Implementation</h5>
+                                
+                                <div class="bg-black rounded-lg p-4 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-green-400 font-mono text-sm">Smart Banner Manager</span>
+                                        <button onclick="copyToClipboard('banner-js')" class="text-gray-400 hover:text-white">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre id="banner-js" class="text-sm text-green-400 overflow-x-auto"><code>// Smart Banner Integration
+class EarnlySmartBanner {
+  constructor(options = {}) {
+    this.placements = options.placements || ['top', 'inline', 'bottom']
+    this.maxBanners = options.maxBanners || 1
+    this.contextWindow = options.contextWindow || 1000
+    this.init()
+  }
+  
+  async init() {
+    this.observeContent()
+    await this.loadBanner()
+  }
+  
+  async loadBanner() {
+    const context = this.getContentContext()
+    const placement = this.determineBestPlacement()
+    
+    try {
+      const recommendation = await earnly.query({
+        context,
+        format: 'banner',
+        placement: placement,
+        limit: 1
+      })
+      
+      if (recommendation) {
+        this.createBanner(recommendation, placement)
+      }
+    } catch (error) {
+      console.error('Banner loading error:', error)
+    }
+  }
+  
+  createBanner(rec, placement) {
+    const banner = document.createElement('div')
+    banner.className = \`earnly-banner earnly-banner-\${placement}\`
+    banner.innerHTML = this.getBannerTemplate(rec, placement)
+    
+    this.insertBanner(banner, placement)
+    this.trackBannerView(rec.id, placement)
+  }
+  
+  getBannerTemplate(rec, placement) {
+    const templates = {
+      top: \`
+        &lt;div class="banner-top"&gt;
+          &lt;div class="banner-content"&gt;
+            &lt;div class="banner-icon"&gt;⭐&lt;/div&gt;
+            &lt;div class="banner-text"&gt;
+              &lt;strong&gt;\${rec.title}&lt;/strong&gt;
+              &lt;span&gt;\${rec.description}&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;button onclick="window.open('\${rec.earnly_link}')"&gt;
+            Try Free
+          &lt;/button&gt;
+        &lt;/div&gt;
+      \`,
+      inline: \`
+        &lt;div class="banner-inline"&gt;
+          &lt;div class="banner-product"&gt;
+            &lt;div class="product-icon"&gt;\${rec.title.charAt(0)}&lt;/div&gt;
+            &lt;div class="product-info"&gt;
+              &lt;h4&gt;\${rec.title}&lt;/h4&gt;
+              &lt;p&gt;\${rec.description}&lt;/p&gt;
+              &lt;div class="rating"&gt;
+                ⭐⭐⭐⭐⭐ \${rec.rating}/5
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;button onclick="window.open('\${rec.earnly_link}')"&gt;
+            Try Free
+          &lt;/button&gt;
+        &lt;/div&gt;
+      \`,
+      bottom: \`
+        &lt;div class="banner-bottom"&gt;
+          &lt;span&gt;🚀 &lt;strong&gt;\${rec.title}&lt;/strong&gt; - \${rec.description}&lt;/span&gt;
+          &lt;button onclick="window.open('\${rec.earnly_link}')"&gt;
+            Start Free Trial
+          &lt;/button&gt;
+        &lt;/div&gt;
+      \`
+    }
+    
+    return templates[placement] || templates.inline
+  }
+  
+  insertBanner(banner, placement) {
+    const positions = {
+      top: () =&gt; document.body.insertAdjacentElement('afterbegin', banner),
+      inline: () =&gt; this.insertInlineAfterParagraph(banner),
+      bottom: () =&gt; document.body.appendChild(banner)
+    }
+    
+    positions[placement]()
+  }
+  
+  insertInlineAfterParagraph(banner) {
+    const paragraphs = document.querySelectorAll('p, .message')
+    const targetIndex = Math.floor(paragraphs.length / 2)
+    const target = paragraphs[targetIndex]
+    
+    if (target) {
+      target.insertAdjacentElement('afterend', banner)
+    }
+  }
+  
+  determineBestPlacement() {
+    const scrollProgress = window.scrollY / (document.body.scrollHeight - window.innerHeight)
+    
+    if (scrollProgress &lt; 0.2) return 'top'
+    if (scrollProgress &gt; 0.8) return 'bottom'
+    return 'inline'
+  }
+  
+  getContentContext() {
+    const content = document.body.textContent || ''
+    return content.slice(-this.contextWindow) // Use recent context
+  }
+  
+  observeContent() {
+    const observer = new MutationObserver(() =&gt; {
+      clearTimeout(this.updateTimer)
+      this.updateTimer = setTimeout(() =&gt; this.loadBanner(), 2000)
+    })
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    })
+  }
+  
+  trackBannerView(id, placement) {
+    // Analytics tracking
+    earnly.track('banner_view', { id, placement })
+  }
+}
+
+// Initialize Smart Banner
+const smartBanner = new EarnlySmartBanner({
+  placements: ['top', 'inline', 'bottom'],
+  maxBanners: 1,
+  contextWindow: 1000
+})</code></pre>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border border-indigo-500/30 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-eye text-indigo-400 mr-2"></i>
+                                        <span class="text-indigo-400 font-semibold">Smart Placement Logic:</span>
+                                    </div>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• <strong>Top Banner</strong>: High visibility, best for urgent offers</li>
+                                        <li>• <strong>Inline Banner</strong>: Natural integration, highest engagement</li>
+                                        <li>• <strong>Bottom Banner</strong>: Non-intrusive, good for follow-up actions</li>
+                                        <li>• Dynamic placement based on user scroll behavior</li>
+                                        <li>• Context-aware recommendations update automatically</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
