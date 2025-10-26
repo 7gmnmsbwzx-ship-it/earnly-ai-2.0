@@ -1063,3 +1063,43 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLiveMetrics();
     }, 8000); // Update every 8 seconds
 });
+
+// Dynamic Banner Messages
+const bannerMessages = [
+    'New: Real-time AI Optimization',
+    'There\'s a $30 billion AI search market coming online—is your site ready?',
+    'LLMs now answer more than 2 billion queries per month—and growing.',
+    '80% of consumers expect answers directly—without clicking links.',
+    'AI search isn\'t the future—it\'s already replacing traditional search for millions.',
+    'Publishers losing 50% of traffic to AI-powered search results.',
+    '340% revenue increase possible with proper AI monetization.',
+    'Enterprise-grade AI monetization platform trusted by 500+ platforms.'
+];
+
+let currentBannerIndex = 0;
+
+function rotateBannerMessage() {
+    const bannerElement = document.getElementById('dynamic-banner');
+    if (bannerElement) {
+        bannerElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            currentBannerIndex = (currentBannerIndex + 1) % bannerMessages.length;
+            bannerElement.textContent = bannerMessages[currentBannerIndex];
+            bannerElement.style.opacity = '1';
+        }, 300);
+    }
+}
+
+// Initialize banner rotation when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const bannerElement = document.getElementById('dynamic-banner');
+    if (bannerElement) {
+        bannerElement.style.transition = 'opacity 0.3s ease-in-out';
+        // Start rotation after 3 seconds, then every 4 seconds
+        setTimeout(() => {
+            rotateBannerMessage();
+            setInterval(rotateBannerMessage, 4000);
+        }, 3000);
+    }
+});

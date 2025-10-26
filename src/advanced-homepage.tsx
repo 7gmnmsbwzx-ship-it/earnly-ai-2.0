@@ -111,8 +111,8 @@ export const AdvancedHomepage = () => {
                     <div class="animate-fade-in-up">
                         <div class="mb-6">
                             <div class="inline-flex items-center space-x-2 bg-white bg-opacity-10 rounded-full px-4 py-2 mb-4">
-                                <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                                <span class="text-sm text-white">New: Real-time AI Optimization</span>
+                                <span class="w-2 h-2 bg-green-400 rounded-full pulse-glow"></span>
+                                <span class="text-sm text-white" id="dynamic-banner">New: Real-time AI Optimization</span>
                             </div>
                         </div>
                         

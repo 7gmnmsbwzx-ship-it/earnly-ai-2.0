@@ -214,9 +214,9 @@ export const GeoReportPage = () => {
             
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <div class="inline-flex items-center space-x-2 bg-green-500 bg-opacity-20 text-green-300 px-4 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-lg border border-green-500 border-opacity-30">
-                        <i class="fas fa-gift"></i>
-                        <span>Free Report Generator</span>
+                    <div class="inline-flex items-center space-x-2 bg-orange-500 bg-opacity-20 text-orange-300 px-4 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-lg border border-orange-500 border-opacity-30">
+                        <i class="fas fa-bolt"></i>
+                        <span id="geo-dynamic-banner">AI-powered search is already cannibalizing up to 50% of publisher traffic.</span>
                     </div>
                     
                     <h1 class="text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">

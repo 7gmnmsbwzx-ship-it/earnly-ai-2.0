@@ -1010,3 +1010,45 @@ function submitDemo() {
     // Auto-close after 3 seconds
     setTimeout(closeBookingModal, 3000);
 }
+
+
+// Dynamic GEO Banner Messages
+const geoBannerMessages = [
+    'AI-powered search is already cannibalizing up to 50% of publisher traffic.',
+    'There\'s a $30 billion AI search market coming online—is your site ready?',
+    'LLMs now answer more than 2 billion queries per month—and growing.',
+    '80% of consumers expect answers directly—without clicking links.',
+    'AI search isn\'t the future—it\'s already replacing traditional search for millions.',
+    'ChatGPT gets 1.8 billion monthly visits—more than most news sites.',
+    'Google\'s AI Overviews are reshaping how 8.5 billion searches happen daily.',
+    '73% of marketers say AI search optimization is their top priority for 2024.',
+    'Websites optimized for AI search see 340% higher conversion rates.'
+];
+
+let currentGeoBannerIndex = 0;
+
+function rotateGeoBannerMessage() {
+    const bannerElement = document.getElementById('geo-dynamic-banner');
+    if (bannerElement) {
+        bannerElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            currentGeoBannerIndex = (currentGeoBannerIndex + 1) % geoBannerMessages.length;
+            bannerElement.textContent = geoBannerMessages[currentGeoBannerIndex];
+            bannerElement.style.opacity = '1';
+        }, 300);
+    }
+}
+
+// Initialize GEO banner rotation when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const bannerElement = document.getElementById('geo-dynamic-banner');
+    if (bannerElement) {
+        bannerElement.style.transition = 'opacity 0.3s ease-in-out';
+        // Start rotation after 3 seconds, then every 5 seconds
+        setTimeout(() => {
+            rotateGeoBannerMessage();
+            setInterval(rotateGeoBannerMessage, 5000);
+        }, 3000);
+    }
+});
