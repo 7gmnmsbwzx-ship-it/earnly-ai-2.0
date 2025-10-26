@@ -150,7 +150,7 @@ export const ForAIPlatformsPage = () => {
                         <div class="mb-6">
                             <div class="inline-flex items-center space-x-2 bg-white bg-opacity-10 rounded-full px-4 py-2 mb-4">
                                 <span class="w-2 h-2 bg-green-400 rounded-full pulse-glow"></span>
-                                <span class="text-sm text-white" id="ai-platform-dynamic-banner">For AI Platforms</span>
+                                <span class="text-sm text-white" id="ai-platform-dynamic-banner">Real-time data integration boosts AI accuracy by 40%.</span>
                             </div>
                         </div>
                         
@@ -998,7 +998,6 @@ export const ForAIPlatformsPage = () => {
         <script>
             // Dynamic AI Platform Banner Messages
             const aiPlatformBannerMessages = [
-                'For AI Platforms',
                 'Real-time data integration boosts AI accuracy by 40%.',
                 'AI builders using live data see 3x higher user satisfaction.',
                 'LLMs are trained on outdated data—your users need real-time answers.'
