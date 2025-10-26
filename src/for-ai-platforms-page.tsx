@@ -2083,7 +2083,7 @@ Content-Type: application/json</code></pre>
                                             <i class="fas fa-copy"></i>
                                         </button>
                                     </div>
-                                    <pre id="curl-example" class="text-green-400 text-sm font-mono overflow-x-auto"><code>curl -X POST https://api.earnly.com/v1/recommendations \\
+                                    <pre id="curl-example" class="text-green-400 text-sm font-mono overflow-x-auto"><code>curl -X POST https://api.getearnly.com/v1/recommendations \\
   -H "Authorization: Bearer ern_1234567890abcdef" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -2137,7 +2137,7 @@ Content-Type: application/json</code></pre>
       <span class="text-blue-300">"description"</span><span class="text-white">:</span> <span class="text-green-300">"Free CRM for startups"</span><span class="text-white">,</span>
       <span class="text-blue-300">"price"</span><span class="text-white">:</span> <span class="text-green-300">"$0/month"</span><span class="text-white">,</span>
       <span class="text-blue-300">"image_url"</span><span class="text-white">:</span> <span class="text-green-300">"https://..."</span><span class="text-white">,</span>
-      <span class="text-blue-300">"earnly_link"</span><span class="text-white">:</span> <span class="text-green-300">"https://earnly.app/l/abc123"</span><span class="text-white">,</span>
+      <span class="text-blue-300">"earnly_link"</span><span class="text-white">:</span> <span class="text-green-300">"https://getearnly.com/l/abc123"</span><span class="text-white">,</span>
       <span class="text-blue-300">"match_score"</span><span class="text-white">:</span> <span class="text-yellow-300">94.5</span><span class="text-white">,</span>
       <span class="text-blue-300">"category"</span><span class="text-white">:</span> <span class="text-green-300">"business_software"</span><span class="text-white">,</span>
       <span class="text-blue-300">"advertiser"</span><span class="text-white">:</span> <span class="text-green-300">"HubSpot"</span><span class="text-white">,</span>
@@ -2482,7 +2482,7 @@ Content-Type: application/json</code></pre>
                                 "description": "Perfect match for your needs",
                                 "price": "$29/month",
                                 "image_url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200",
-                                "earnly_link": "https://earnly.app/l/" + Math.random().toString(36).substring(7),
+                                "earnly_link": "https://getearnly.com/l/" + Math.random().toString(36).substring(7),
                                 "match_score": 94.5,
                                 "category": "software",
                                 "advertiser": "Example Company",

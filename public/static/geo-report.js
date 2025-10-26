@@ -922,7 +922,7 @@ function bookDemo() {
 
 function scheduleCall() {
   // Open email client for scheduling
-  window.location.href = 'mailto:demo@earnly.app?subject=Schedule Demo Call&body=Hi, I would like to schedule a demo of Earnly\'s GEO optimization platform.';
+  window.location.href = 'mailto:demo@getearnly.com?subject=Schedule Demo Call&body=Hi, I would like to schedule a demo of Earnly\'s GEO optimization platform.';
 }
 
 function contactSales() {

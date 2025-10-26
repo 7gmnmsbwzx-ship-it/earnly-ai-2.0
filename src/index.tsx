@@ -259,7 +259,7 @@ app.post('/api/ai/query', async (c) => {
           budget_efficiency: 85
         },
         recommendation_reason: "Perfect match for competitive gaming with high-end specs and excellent performance",
-        earnly_link: `https://earnly.app/l/demo123`
+        earnly_link: `https://getearnly.com/l/demo123`
       }
     ]
     
@@ -641,7 +641,7 @@ app.post('/api/ai/query/advanced', async (c) => {
           price_sensitivity: 'medium'
         },
         recommendation_reason: "Perfect match for competitive gaming with high-end specs, excellent performance ratings, and strong user reviews in your demographic",
-        earnly_link: `https://earnly.app/l/demo_${Date.now()}`,
+        earnly_link: `https://getearnly.com/l/demo_${Date.now()}`,
         estimated_commission: 127.49,
         conversion_tracking: {
           click_tracking: true,
@@ -690,7 +690,7 @@ app.post('/api/ai/query/advanced', async (c) => {
           price_sensitivity: 'low'
         },
         recommendation_reason: "Excellent audio quality for streaming and content creation, highly rated in gaming communities with superior noise cancellation",
-        earnly_link: `https://earnly.app/l/demo_${Date.now() + 1}`,
+        earnly_link: `https://getearnly.com/l/demo_${Date.now() + 1}`,
         estimated_commission: 59.99,
         conversion_tracking: {
           click_tracking: true,
@@ -1082,7 +1082,7 @@ app.post('/api/geo/export', async (c) => {
     // Simulate processing delay
     setTimeout(() => {
       exportData.status = 'completed';
-      exportData.downloadUrl = `https://earnly.app/downloads/geo-reports/${exportData.exportId}.${format}`;
+      exportData.downloadUrl = `https://getearnly.com/downloads/geo-reports/${exportData.exportId}.${format}`;
     }, exportData.estimatedTime * 1000);
     
     return c.json(exportData);

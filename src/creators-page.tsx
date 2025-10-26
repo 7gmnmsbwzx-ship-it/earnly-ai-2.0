@@ -691,7 +691,7 @@ export function creatorsPage(c: Context) {
                             <i class="fas fa-rocket mr-2"></i>
                             Start Earning Now — Free
                         </a>
-                        <a href="mailto:creators@earnly.app" class="border-2 border-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all">
+                        <a href="mailto:creators@getearnly.com" class="border-2 border-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all">
                             <i class="fas fa-comments mr-2"></i>
                             Talk to Creator Success Team
                         </a>

@@ -462,7 +462,7 @@ export const AIPlatformsPage = () => {
                             <code class="text-sm text-gray-800">
                                 npm install earnly-sdk<br>
                                 // or<br>
-                                curl -X POST api.earnly.com/platforms
+                                curl -X POST api.getearnly.com/platforms
                             </code>
                         </div>
                     </div>

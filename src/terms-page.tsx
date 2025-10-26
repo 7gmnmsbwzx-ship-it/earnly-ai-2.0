@@ -324,9 +324,9 @@ export function termsPage(c: Context) {
                         <div class="highlight-box">
                             <p class="text-blue-800 font-medium mb-2">Legal & Support Contact</p>
                             <div class="text-blue-700 text-sm space-y-1">
-                                <p><strong>Legal Inquiries:</strong> legal@earnly.app</p>
-                                <p><strong>General Support:</strong> support@earnly.app</p>
-                                <p><strong>Business Inquiries:</strong> business@earnly.app</p>
+                                <p><strong>Legal Inquiries:</strong> legal@getearnly.com</p>
+                                <p><strong>General Support:</strong> support@getearnly.com</p>
+                                <p><strong>Business Inquiries:</strong> business@getearnly.com</p>
                                 <p><strong>Address:</strong> Earnly Inc., 123 AI Innovation Drive, San Francisco, CA 94107</p>
                             </div>
                         </div>
@@ -379,7 +379,7 @@ export function termsPage(c: Context) {
                                 </p>
                                 <p class="mb-4">
                                     For questions about these Terms of Service, please contact us at 
-                                    <a href="mailto:legal@earnly.app" class="text-blue-600 hover:text-blue-800">legal@earnly.app</a>
+                                    <a href="mailto:legal@getearnly.com" class="text-blue-600 hover:text-blue-800">legal@getearnly.com</a>
                                 </p>
                                 <div class="flex justify-center space-x-6 text-xs">
                                     <a href="/privacy" class="text-blue-600 hover:text-blue-800">Privacy Policy</a>
