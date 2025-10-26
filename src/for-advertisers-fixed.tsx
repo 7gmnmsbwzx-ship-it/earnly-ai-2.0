@@ -338,65 +338,6 @@ export const ForAdvertisersFixed = () => {
             </div>
         </section>
 
-        <!-- Performance Comparison -->
-        <section class="py-16 bg-gray-800">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-white mb-4">Performance Comparison</h2>
-                    <p class="text-xl text-gray-300">Traditional Advertising vs Earnly AI</p>
-                </div>
-                
-                <div class="glass p-8 rounded-2xl">
-                    <div class="grid lg:grid-cols-2 gap-8">
-                        <!-- Traditional -->
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-6 text-center">Traditional Advertising</h3>
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-center p-4 bg-gray-700 rounded-lg">
-                                    <span class="text-gray-300">Cost Per Click</span>
-                                    <span class="text-red-400 font-bold text-lg">$2.20</span>
-                                </div>
-                                <div class="flex justify-between items-center p-4 bg-gray-700 rounded-lg">
-                                    <span class="text-gray-300">Total Clicks</span>
-                                    <span class="text-white">4,545</span>
-                                </div>
-                                <div class="flex justify-between items-center p-4 bg-gray-700 rounded-lg">
-                                    <span class="text-gray-300">Conversions</span>
-                                    <span class="text-white">113</span>
-                                </div>
-                                <div class="flex justify-between items-center p-4 bg-red-600 bg-opacity-20 rounded-lg border border-red-500 border-opacity-30">
-                                    <span class="text-gray-300">Revenue</span>
-                                    <span class="text-red-300 font-bold text-xl">$16,950</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- With Earnly AI -->
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-6 text-center">With Earnly AI</h3>
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-center p-4 bg-green-600 bg-opacity-20 rounded-lg border border-green-500 border-opacity-30">
-                                    <span class="text-gray-300">Effective CPC</span>
-                                    <span class="text-green-400 font-bold text-lg">$1.58</span>
-                                </div>
-                                <div class="flex justify-between items-center p-4 bg-green-600 bg-opacity-20 rounded-lg border border-green-500 border-opacity-30">
-                                    <span class="text-gray-300">Total Clicks</span>
-                                    <span class="text-green-300">6,329</span>
-                                </div>
-                                <div class="flex justify-between items-center p-4 bg-green-600 bg-opacity-20 rounded-lg border border-green-500 border-opacity-30">
-                                    <span class="text-gray-300">Conversions</span>
-                                    <span class="text-green-300">441</span>
-                                </div>
-                                <div class="flex justify-between items-center p-4 bg-green-600 bg-opacity-20 rounded-lg border border-green-500 border-opacity-30">
-                                    <span class="text-gray-300">Revenue</span>
-                                    <span class="text-green-300 font-bold text-xl">$66,150</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Why AI-Native Advertising -->
         <section class="py-16 bg-gray-900">
