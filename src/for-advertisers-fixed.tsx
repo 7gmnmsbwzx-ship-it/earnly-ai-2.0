@@ -2028,7 +2028,7 @@ export const ForAdvertisersFixed = () => {
             
             function openVarioDemo() {
                 // Open Vario™ demo in new window
-                const varioUrl = 'https://vario-demo.earnly.com'; // Placeholder
+                const varioUrl = 'https://vario-demo.getearnly.com'; // Placeholder
                 alert('Vario™ AI Search Engine Demo\\n\\nExperience our AI-powered search platform with smart recommendations.\\n\\nFeatures:\\n• Contextual AI responses\\n• Smart product recommendations\\n• Real-time learning\\n• Enterprise-grade accuracy\\n\\nDemo coming soon!');
             }
             

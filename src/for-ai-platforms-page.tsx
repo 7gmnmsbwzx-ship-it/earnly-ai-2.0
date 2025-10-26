@@ -358,7 +358,7 @@ export const ForAIPlatformsPage = () => {
                         
                         <div class="bg-gray-900 rounded-lg p-4 mb-6 text-green-400 text-sm font-mono">
                             <div class="text-gray-400 mb-2"># Your dedicated instance</div>
-                            <div>your-company.earnly.ai</div>
+                            <div>your-company.getearnly.com</div>
                         </div>
                         
                         <ul class="space-y-2 text-sm text-gray-700 mb-6">
@@ -819,7 +819,7 @@ export const ForAIPlatformsPage = () => {
                                         </button>
                                     </div>
                                     <div id="cdn-install" class="font-mono text-green-400 text-sm">
-                                        &lt;script src="https://cdn.earnly.com/sdk.js"&gt;&lt;/script&gt;
+                                        &lt;script src="https://cdn.getearnly.com/sdk.js"&gt;&lt;/script&gt;
                                     </div>
                                 </div>
                             </div>

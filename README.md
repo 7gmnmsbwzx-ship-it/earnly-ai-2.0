@@ -180,7 +180,7 @@ GET /api/links/:userId
 ### ChatGPT Plugin Integration
 ```javascript
 // ChatGPT plugin calls Earnly API when users ask about products
-const response = await fetch('https://earnly.app/api/ai/query', {
+const response = await fetch('https://getearnly.com/api/ai/query', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -204,7 +204,7 @@ const recommendations = await response.json();
 import requests
 
 def handle_shopping_intent(user_query, conversation_id):
-    response = requests.post('https://earnly.app/api/ai/query', 
+    response = requests.post('https://getearnly.com/api/ai/query', 
         headers={'Authorization': 'Bearer YOUR_API_KEY'},
         json={
             'user_query': user_query,
@@ -402,10 +402,10 @@ We welcome contributions to make Earnly the leading AI-native monetization platf
 
 ## 📞 Support & Contact
 
-- **Documentation**: [docs.earnly.app](https://docs.earnly.app)
-- **API Reference**: [api.earnly.app](https://api.earnly.app)
+- **Documentation**: [docs.getearnly.com](https://docs.getearnly.com)
+- **API Reference**: [api.getearnly.com](https://api.getearnly.com)
 - **Developer Community**: [discord.gg/earnly](https://discord.gg/earnly)
-- **Business Inquiries**: partnerships@earnly.app
+- **Business Inquiries**: partnerships@getearnly.com
 
 ---
 

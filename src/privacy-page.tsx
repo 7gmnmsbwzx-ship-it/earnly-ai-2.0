@@ -287,7 +287,7 @@ export function privacyPage(c: Context) {
                         <h4 class="font-semibold text-blue-300 mb-2">How to Exercise Your Rights:</h4>
                         <ul class="list-disc pl-6 space-y-2 text-slate-300">
                             <li><span class="highlight">Account Settings:</span> Manage most preferences directly in your account dashboard</li>
-                            <li><span class="highlight">Email Requests:</span> Contact privacy@earnly.ai for data requests</li>
+                            <li><span class="highlight">Email Requests:</span> Contact privacy@getearnly.com for data requests</li>
                             <li><span class="highlight">Support Portal:</span> Submit requests through our customer support system</li>
                             <li><span class="highlight">Response Time:</span> We respond to verified requests within 30 days</li>
                         </ul>
@@ -397,7 +397,7 @@ export function privacyPage(c: Context) {
                         <div>
                             <h4 class="font-semibold text-blue-300 mb-2">Privacy Officer:</h4>
                             <p class="text-slate-300">
-                                <i class="fas fa-envelope mr-2"></i>privacy@earnly.ai<br>
+                                <i class="fas fa-envelope mr-2"></i>privacy@getearnly.com<br>
                                 <i class="fas fa-phone mr-2"></i>+1 (555) 123-4567<br>
                                 <i class="fas fa-clock mr-2"></i>Response within 48 hours
                             </p>
@@ -405,8 +405,8 @@ export function privacyPage(c: Context) {
                         <div>
                             <h4 class="font-semibold text-blue-300 mb-2">Data Protection Officer:</h4>
                             <p class="text-slate-300">
-                                <i class="fas fa-envelope mr-2"></i>dpo@earnly.ai<br>
-                                <i class="fas fa-globe mr-2"></i>https://earnly.ai/privacy-rights<br>
+                                <i class="fas fa-envelope mr-2"></i>dpo@getearnly.com<br>
+                                <i class="fas fa-globe mr-2"></i>https://getearnly.com/privacy-rights<br>
                                 <i class="fas fa-shield-alt mr-2"></i>GDPR & CCPA compliance
                             </p>
                         </div>
