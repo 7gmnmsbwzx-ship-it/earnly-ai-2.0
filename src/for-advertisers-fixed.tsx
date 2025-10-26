@@ -544,7 +544,10 @@ export const ForAdvertisersFixed = () => {
         <section class="py-20 bg-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <p class="text-sm font-semibold text-blue-400 mb-4 tracking-wide uppercase">WHY ADVERTISERS CHOOSE EARNLY</p>
+                    <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full px-6 py-2 mb-6">
+                        <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                        <p class="text-sm font-bold text-white tracking-wide uppercase">WHY ADVERTISERS CHOOSE EARNLY</p>
+                    </div>
                     <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                         Move Beyond Ads — Get Discovered at the Moment of Intent
                     </h2>
