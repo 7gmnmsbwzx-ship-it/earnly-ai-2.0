@@ -576,6 +576,155 @@ export const ForAdvertisersFixed = () => {
             </div>
         </section>
 
+        <!-- How It Works -->
+        <section class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
+            <!-- Background Animation -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-green-500 to-blue-500 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full px-6 py-2 mb-6">
+                        <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                        <p class="text-sm font-bold text-white tracking-wide uppercase">HOW IT WORKS</p>
+                    </div>
+                    <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-green-400">
+                            Earnly Connects
+                        </span> Your Brand to AI Platforms
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                        Our platform integrates your products directly into the AI agent ecosystem, allowing 
+                        seamless discovery when users are looking for solutions.
+                    </p>
+                </div>
+
+                <!-- Steps Process -->
+                <div class="relative">
+                    <!-- Connection Lines (Desktop) -->
+                    <div class="hidden lg:block absolute top-32 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
+                        <svg class="w-full h-16" viewBox="0 0 800 64">
+                            <defs>
+                                <linearGradient id="stepGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#3B82F6"/>
+                                    <stop offset="50%" style="stop-color:#8B5CF6"/>
+                                    <stop offset="100%" style="stop-color:#10B981"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M150,32 Q300,16 450,32 T750,32" 
+                                  stroke="url(#stepGradient)" 
+                                  stroke-width="4" 
+                                  fill="none" 
+                                  stroke-dasharray="12,6"
+                                  class="animate-pulse">
+                            </path>
+                            <circle cx="150" cy="32" r="8" fill="#3B82F6" class="animate-pulse"/>
+                            <circle cx="450" cy="32" r="8" fill="#8B5CF6" class="animate-pulse" style="animation-delay: 0.5s"/>
+                            <circle cx="750" cy="32" r="8" fill="#10B981" class="animate-pulse" style="animation-delay: 1s"/>
+                        </svg>
+                    </div>
+
+                    <!-- Three Steps -->
+                    <div class="grid lg:grid-cols-3 gap-8 lg:gap-12">
+                        <!-- Step 1: Publish Your Offers -->
+                        <div class="group text-center">
+                            <div class="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-lg rounded-3xl p-8 border border-blue-500/30 hover:border-blue-400/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20">
+                                <!-- Step Badge -->
+                                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                    <span class="text-3xl font-black text-white">1</span>
+                                </div>
+                                
+                                <!-- Icon -->
+                                <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-upload text-2xl text-white"></i>
+                                </div>
+                                
+                                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                                    Publish Your Offers
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed text-base">
+                                    Upload your products to the Earnly network with structured metadata that 
+                                    makes them discoverable by AI platforms.
+                                </p>
+                                
+                                <!-- Decorative Element -->
+                                <div class="mt-6 h-1 w-20 bg-gradient-to-r from-blue-500 to-transparent rounded-full mx-auto opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Get Matched by AI Platforms -->
+                        <div class="group text-center">
+                            <div class="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-lg rounded-3xl p-8 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20">
+                                <!-- Step Badge -->
+                                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                    <span class="text-3xl font-black text-white">2</span>
+                                </div>
+                                
+                                <!-- Icon -->
+                                <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-brain text-2xl text-white"></i>
+                                </div>
+                                
+                                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">
+                                    Get Matched by AI Platforms
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed text-base">
+                                    AI platforms dynamically pull your offers based on real-time user queries 
+                                    and preferences.
+                                </p>
+                                
+                                <!-- Decorative Element -->
+                                <div class="mt-6 h-1 w-20 bg-gradient-to-r from-purple-500 to-transparent rounded-full mx-auto opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Pay Only for Results -->
+                        <div class="group text-center">
+                            <div class="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-lg rounded-3xl p-8 border border-green-500/30 hover:border-green-400/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-green-500/20">
+                                <!-- Step Badge -->
+                                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                    <span class="text-3xl font-black text-white">3</span>
+                                </div>
+                                
+                                <!-- Icon -->
+                                <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-dollar-sign text-2xl text-white"></i>
+                                </div>
+                                
+                                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-green-300 transition-colors">
+                                    Pay Only for Results
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed text-base">
+                                    Only pay when users take verifiable actions — clicks, signups, or purchases. 
+                                    Maximize your ROI.
+                                </p>
+                                
+                                <!-- Decorative Element -->
+                                <div class="mt-6 h-1 w-20 bg-gradient-to-r from-green-500 to-transparent rounded-full mx-auto opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call-to-Action -->
+                    <div class="text-center mt-16">
+                        <button onclick="startCampaign()" class="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 text-white px-12 py-4 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-purple-500/30">
+                            <span class="relative z-10 flex items-center justify-center">
+                                <i class="fas fa-rocket mr-3 text-xl group-hover:animate-bounce"></i>
+                                Get Started Today
+                            </span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </button>
+                        <p class="text-gray-400 text-sm mt-4 max-w-lg mx-auto">
+                            Join thousands of brands already leveraging AI-native advertising • No setup fees • Performance-only billing
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA -->
         <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
