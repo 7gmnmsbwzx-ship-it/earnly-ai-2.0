@@ -109,12 +109,9 @@ export const ForAdvertisersFixed = () => {
                     <!-- Hero Content -->
                     <div class="animate-fade-in">
                         <div class="mb-6">
-                            <!-- Dynamic AI-Native Advertising Platform Banner -->
-                            <div class="flex justify-center mb-6">
-                                <div class="inline-flex items-center space-x-3 glass text-white px-6 py-3 rounded-full text-sm font-medium backdrop-blur-lg border border-white border-opacity-20">
-                                    <span class="w-3 h-3 bg-blue-400 rounded-full pulse-glow"></span>
-                                    <span id="advertising-dynamic-banner">AI-Native Advertising Platform</span>
-                                </div>
+                            <div class="inline-flex items-center space-x-2 bg-white bg-opacity-10 rounded-full px-4 py-2 mb-4">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full pulse-glow"></span>
+                                <span class="text-sm text-white" id="advertising-dynamic-banner">AI-Native Advertising Platform</span>
                             </div>
                         </div>
                         
