@@ -209,7 +209,7 @@ export function aiPlatformsDirectoryPage(c: any) {
                         <div>
                             <h4 class="font-semibold text-white mb-6">Resources</h4>
                             <ul class="space-y-3 text-gray-400">
-                                <li><a href="https://docs.getearnly.com" class="hover:text-white transition-colors">Documentation</a></li>
+                                <li><a href="/docs" class="hover:text-white transition-colors">Documentation</a></li>
                                 <li><a href="https://api.getearnly.com" class="hover:text-white transition-colors">API Reference</a></li>
                                 <li><a href="/help" class="hover:text-white transition-colors">Help Center</a></li>
                                 <li><a href="https://status.getearnly.com" class="hover:text-white transition-colors">System Status</a></li>

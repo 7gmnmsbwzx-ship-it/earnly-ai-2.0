@@ -14,6 +14,7 @@ import { getStartedPage } from './get-started-page'
 import { creatorsPage } from './creators-page'
 import { termsPage } from './terms-page'
 import { privacyPage } from './privacy-page'
+import { DocumentationPage } from './documentation-page'
 
 // Temporarily inline matching logic to avoid import issues
 
@@ -1251,6 +1252,11 @@ app.get('/privacy', (c) => {
   return privacyPage(c)
 })
 
+// Documentation Page
+app.get('/docs', (c) => {
+  return c.html(DocumentationPage())
+})
+
 // Dashboard route for authenticated users
 app.get('/dashboard', (c) => {
   return c.html(`
@@ -1561,7 +1567,7 @@ app.get('/dashboard/platform', (c) => {
                     <div>
                         <h4 class="font-semibold text-white mb-6">Resources</h4>
                         <ul class="space-y-3 text-gray-400">
-                            <li><a href="https://docs.getearnly.com" class="hover:text-white transition-colors flex items-center">
+                            <li><a href="/docs" class="hover:text-white transition-colors flex items-center">
                                 <i class="fas fa-book w-4 text-xs mr-3"></i>Documentation
                             </a></li>
                             <li><a href="https://api.getearnly.com" class="hover:text-white transition-colors flex items-center">

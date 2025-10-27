@@ -214,21 +214,7 @@ export function creatorsPage(c: Context) {
                             </a>
                         </div>
                         
-                        <!-- Trust Indicators -->
-                        <div class="flex items-center space-x-8 text-sm text-gray-300">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-shield-check text-green-400"></i>
-                                <span>Bank-Grade Security</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-clock text-blue-400"></i>
-                                <span>Real-time Payments</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-users text-purple-400"></i>
-                                <span>25K+ Active Creators</span>
-                            </div>
-                        </div>
+
                     </div>
                     
                     <!-- Revenue Dashboard Preview -->
@@ -697,20 +683,7 @@ export function creatorsPage(c: Context) {
                         </a>
                     </div>
                     
-                    <div class="flex items-center justify-center space-x-8 text-sm text-gray-400">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check text-green-400"></i>
-                            <span>Free Forever Plan</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check text-green-400"></i>
-                            <span>No Setup Fees</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-check text-green-400"></i>
-                            <span>Cancel Anytime</span>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>

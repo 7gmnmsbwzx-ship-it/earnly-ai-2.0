@@ -801,7 +801,7 @@ export const ForAdvertisersFixed = () => {
                     <div>
                         <h4 class="font-semibold text-white mb-6">Resources</h4>
                         <ul class="space-y-3 text-gray-400">
-                            <li><a href="https://docs.getearnly.com" class="hover:text-white transition-colors flex items-center">
+                            <li><a href="/docs" class="hover:text-white transition-colors flex items-center">
                                 <i class="fas fa-book w-4 text-xs mr-3"></i>Documentation
                             </a></li>
                             <li><a href="https://api.getearnly.com" class="hover:text-white transition-colors flex items-center">

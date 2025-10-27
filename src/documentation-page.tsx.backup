@@ -1,0 +1,4177 @@
+// Documentation Page - Based on AdMesh reference structure
+export const DocumentationPage = () => {
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Documentation | Earnly AI - Developer Guide</title>
+        <meta name="description" content="Complete developer documentation for Earnly AI integration. API reference, SDKs, examples, and best practices for AI-native advertising.">
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+        
+        <style>
+          .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+          }
+          
+          .sidebar-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
+          }
+          
+          .sidebar-scroll::-webkit-scrollbar {
+            width: 6px;
+          }
+          
+          .sidebar-scroll::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          
+          .sidebar-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 3px;
+          }
+          
+          .code-block {
+            position: relative;
+          }
+          
+          .copy-button {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            color: #e2e8f0;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+          }
+          
+          .copy-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+          
+          .nav-link.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+          }
+          
+          .content-section {
+            scroll-margin-top: 2rem;
+          }
+          
+          /* Custom scrollbar for main content */
+          .main-content {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f8fafc;
+          }
+          
+          .main-content::-webkit-scrollbar {
+            width: 8px;
+          }
+          
+          .main-content::-webkit-scrollbar-track {
+            background: #f8fafc;
+          }
+          
+          .main-content::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 4px;
+          }
+          
+          .main-content::-webkit-scrollbar-thumb:hover {
+            background-color: #94a3b8;
+          }
+          
+          /* Table styling */
+          .docs-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.875rem;
+          }
+          
+          .docs-table th,
+          .docs-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+          }
+          
+          .docs-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+          }
+          
+          .docs-table tr:nth-child(even) {
+            background-color: #f9fafb;
+          }
+          
+          /* Badge styling */
+          .method-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }
+          
+          .method-get { background: #dcfce7; color: #166534; }
+          .method-post { background: #dbeafe; color: #1e40af; }
+          .method-put { background: #fef3c7; color: #92400e; }
+          .method-delete { background: #fee2e2; color: #dc2626; }
+        </style>
+    </head>
+    <body class="bg-gray-50 text-gray-900">
+        <!-- Navigation Header -->
+        <nav class="fixed top-0 w-full z-50 glass border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-4">
+                        <a href="/" class="flex items-center">
+                            <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                                 alt="Earnly Logo" class="h-9 w-auto">
+                        </a>
+                        <div class="hidden md:block">
+                            <span class="text-gray-400">|</span>
+                            <span class="ml-3 text-gray-700 font-medium">Documentation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                        <a href="/for-advertisers" class="text-gray-600 hover:text-gray-900 transition-colors">For Advertisers</a>
+                        <a href="/for-ai-platforms" class="text-gray-600 hover:text-gray-900 transition-colors">For AI Platforms</a>
+                        <a href="https://github.com/getearnly" class="text-gray-600 hover:text-gray-900 transition-colors" target="_blank">
+                            <i class="fab fa-github mr-2"></i>GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex pt-16">
+            <!-- Sidebar Navigation -->
+            <aside class="fixed left-0 w-72 h-screen bg-white border-r border-gray-200 sidebar-scroll overflow-y-auto">
+                <div class="p-6">
+                    <!-- Search -->
+                    <div class="mb-6">
+                        <div class="relative">
+                            <input type="text" id="search-input" placeholder="Search docs..." 
+                                   class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                                   oninput="searchDocs()">
+                            <i class="fas fa-search absolute left-3 top-2.5 text-gray-400 text-sm"></i>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Menu -->
+                    <nav class="space-y-1">
+                        <!-- Getting Started -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Getting Started</h3>
+                            <a href="#introduction" onclick="showSection('introduction')" class="nav-link active block px-3 py-2 text-sm font-medium rounded-lg transition-colors">
+                                <i class="fas fa-rocket mr-2 text-xs"></i>Introduction
+                            </a>
+                            <a href="#quick-start" onclick="showSection('quick-start')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-play mr-2 text-xs"></i>Quick Start
+                            </a>
+                            <a href="#authentication" onclick="showSection('authentication')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-key mr-2 text-xs"></i>Authentication
+                            </a>
+                        </div>
+
+                        <!-- Integration Guides -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Integration Guides</h3>
+                            <a href="#ai-platforms" onclick="showSection('ai-platforms')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-robot mr-2 text-xs"></i>AI Platforms
+                            </a>
+                            <a href="#advertisers" onclick="showSection('advertisers')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-bullhorn mr-2 text-xs"></i>Advertisers
+                            </a>
+                            <a href="#frontend-sdk" onclick="showSection('frontend-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-code mr-2 text-xs"></i>Frontend SDKs
+                            </a>
+                            <a href="#backend-sdk" onclick="showSection('backend-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-server mr-2 text-xs"></i>Backend SDKs
+                            </a>
+                            <a href="#webhooks" onclick="showSection('webhooks')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-webhook mr-2 text-xs"></i>Webhooks
+                            </a>
+                            <a href="#no-code" onclick="showSection('no-code')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-magic mr-2 text-xs"></i>No-Code Solutions
+                            </a>
+                        </div>
+
+                        <!-- Advanced Features -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Advanced Features</h3>
+                            <a href="#attribution" onclick="showSection('attribution')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-link mr-2 text-xs"></i>Attribution & Tracking
+                            </a>
+                            <a href="#optimization" onclick="showSection('optimization')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-chart-line mr-2 text-xs"></i>Auto-Optimization
+                            </a>
+                            <a href="#personalization" onclick="showSection('personalization')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-user-cog mr-2 text-xs"></i>Personalization
+                            </a>
+                            <a href="#fraud-detection" onclick="showSection('fraud-detection')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-shield-alt mr-2 text-xs"></i>Fraud Detection
+                            </a>
+                            <a href="#ab-testing" onclick="showSection('ab-testing')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-flask mr-2 text-xs"></i>A/B Testing
+                            </a>
+                        </div>
+
+                        <!-- API Reference -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">API Reference</h3>
+                            <a href="#query-api" onclick="showSection('query-api')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-search mr-2 text-xs"></i>Query API
+                            </a>
+                            <a href="#recommendations" onclick="showSection('recommendations')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-star mr-2 text-xs"></i>Recommendations
+                            </a>
+                            <a href="#analytics" onclick="showSection('analytics')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-chart-bar mr-2 text-xs"></i>Analytics
+                            </a>
+                            <a href="#campaigns-api" onclick="showSection('campaigns-api')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-bullseye mr-2 text-xs"></i>Campaigns API
+                            </a>
+                            <a href="#revenue-api" onclick="showSection('revenue-api')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-dollar-sign mr-2 text-xs"></i>Revenue API
+                            </a>
+                            <a href="#geo-api" onclick="showSection('geo-api')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-globe mr-2 text-xs"></i>GEO API
+                            </a>
+                            <a href="#graphql-api" onclick="showSection('graphql-api')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-project-diagram mr-2 text-xs"></i>GraphQL API
+                            </a>
+                        </div>
+
+                        <!-- SDKs & Libraries -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">SDKs & Libraries</h3>
+                            <a href="#react-sdk" onclick="showSection('react-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fab fa-react mr-2 text-xs"></i>React SDK
+                            </a>
+                            <a href="#vue-sdk" onclick="showSection('vue-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fab fa-vuejs mr-2 text-xs"></i>Vue.js SDK
+                            </a>
+                            <a href="#angular-sdk" onclick="showSection('angular-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fab fa-angular mr-2 text-xs"></i>Angular SDK
+                            </a>
+                            <a href="#javascript-sdk" onclick="showSection('javascript-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fab fa-js-square mr-2 text-xs"></i>Vanilla JavaScript
+                            </a>
+                            <a href="#nodejs-sdk" onclick="showSection('nodejs-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fab fa-node-js mr-2 text-xs"></i>Node.js SDK
+                            </a>
+                            <a href="#python-sdk" onclick="showSection('python-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fab fa-python mr-2 text-xs"></i>Python SDK
+                            </a>
+                            <a href="#go-sdk" onclick="showSection('go-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-code mr-2 text-xs"></i>Go SDK
+                            </a>
+                            <a href="#php-sdk" onclick="showSection('php-sdk')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fab fa-php mr-2 text-xs"></i>PHP SDK
+                            </a>
+                        </div>
+
+                        <!-- Examples -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Platform Examples</h3>
+                            <a href="#chatgpt-integration" onclick="showSection('chatgpt-integration')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-comments mr-2 text-xs"></i>ChatGPT Integration
+                            </a>
+                            <a href="#claude-integration" onclick="showSection('claude-integration')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-brain mr-2 text-xs"></i>Claude Integration
+                            </a>
+                            <a href="#gemini-integration" onclick="showSection('gemini-integration')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-gem mr-2 text-xs"></i>Google Gemini
+                            </a>
+                            <a href="#perplexity-integration" onclick="showSection('perplexity-integration')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-search mr-2 text-xs"></i>Perplexity AI
+                            </a>
+                            <a href="#browser-extension" onclick="showSection('browser-extension')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-puzzle-piece mr-2 text-xs"></i>Browser Extensions
+                            </a>
+                            <a href="#mobile-app" onclick="showSection('mobile-app')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-mobile-alt mr-2 text-xs"></i>Mobile Apps
+                            </a>
+                        </div>
+
+                        <!-- Use Cases -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Use Cases</h3>
+                            <a href="#ecommerce-use-case" onclick="showSection('ecommerce-use-case')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-shopping-cart mr-2 text-xs"></i>E-commerce
+                            </a>
+                            <a href="#saas-use-case" onclick="showSection('saas-use-case')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-cloud mr-2 text-xs"></i>SaaS Platforms
+                            </a>
+                            <a href="#fintech-use-case" onclick="showSection('fintech-use-case')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-credit-card mr-2 text-xs"></i>FinTech
+                            </a>
+                            <a href="#marketplace-use-case" onclick="showSection('marketplace-use-case')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-store mr-2 text-xs"></i>Marketplaces
+                            </a>
+                        </div>
+
+                        <!-- Resources -->
+                        <div class="mb-4">
+                            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Resources</h3>
+                            <a href="#faq" onclick="showSection('faq')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-question-circle mr-2 text-xs"></i>FAQ
+                            </a>
+                            <a href="#support" onclick="showSection('support')" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                                <i class="fas fa-life-ring mr-2 text-xs"></i>Support
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 ml-72 main-content" style="height: calc(100vh - 4rem); overflow-y-auto;">
+                <div class="max-w-4xl mx-auto px-8 py-12">
+                    
+                    <!-- Introduction Section -->
+                    <section id="introduction" class="content-section">
+                        <div class="mb-8">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to Earnly AI</h1>
+                            <p class="text-xl text-gray-600 leading-relaxed mb-6">
+                                Earnly AI is the world's most advanced AI-native advertising platform that seamlessly connects advertisers with AI platforms through intelligent, contextual recommendations and real-time optimization powered by cutting-edge machine learning.
+                            </p>
+                            
+                            <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 mb-6 border border-green-200">
+                                <h2 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-rocket text-green-600 mr-2"></i>
+                                    Why Choose Earnly AI?
+                                </h2>
+                                <p class="text-gray-700 mb-4">Earnly AI goes beyond traditional advertising by offering the most comprehensive AI-native monetization solution in the market, combining the best of intent-based targeting with advanced conversational AI integration.</p>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <!-- Core Differentiators -->
+                            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
+                                <h2 class="text-lg font-semibold text-gray-900 mb-4">
+                                    <i class="fas fa-brain text-blue-600 mr-2"></i>
+                                    Advanced AI Features
+                                </h2>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>Conversational Context Understanding:</strong> Deep semantic analysis of multi-turn conversations</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>Real-time Intent Prediction:</strong> Advanced ML models predict user purchasing intent</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>Dynamic Personalization:</strong> Recommendations adapt based on user behavior patterns</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>Multi-modal Support:</strong> Text, voice, and visual conversation interfaces</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- SDK & Integration Features -->
+                            <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
+                                <h2 class="text-lg font-semibold text-gray-900 mb-4">
+                                    <i class="fas fa-code text-purple-600 mr-2"></i>
+                                    SDK-First Integration
+                                </h2>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>React/Vue/Angular SDKs:</strong> Plug-and-play frontend components with built-in tracking</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>Node.js/Python/Go SDKs:</strong> Server-side integration with caching and optimization</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>No-Code Components:</strong> Drop-in widgets requiring zero development</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5"></i>
+                                        <span><strong>GraphQL & REST APIs:</strong> Flexible integration options for any platform</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Monetization Features -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 mb-8">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">
+                                <i class="fas fa-chart-line text-green-600 mr-2"></i>
+                                Advanced Performance & Monetization
+                            </h2>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-3">Smart Billing Models</h3>
+                                    <ul class="space-y-2 text-sm text-gray-600">
+                                        <li>• CPC (Cost Per Click)</li>
+                                        <li>• CPA (Cost Per Acquisition)</li>
+                                        <li>• CPM (Cost Per Mille)</li>
+                                        <li>• Revenue Share</li>
+                                        <li>• Hybrid Performance Models</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-3">Attribution & Tracking</h3>
+                                    <ul class="space-y-2 text-sm text-gray-600">
+                                        <li>• Privacy-First Server-Side Tracking</li>
+                                        <li>• Cross-Device Attribution</li>
+                                        <li>• View-Through Conversions</li>
+                                        <li>• Multi-Touch Attribution</li>
+                                        <li>• Real-Time Verification</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-3">Optimization Engine</h3>
+                                    <ul class="space-y-2 text-sm text-gray-600">
+                                        <li>• Auto-Bid Optimization</li>
+                                        <li>• A/B Testing Framework</li>
+                                        <li>• Predictive Analytics</li>
+                                        <li>• Fraud Detection</li>
+                                        <li>• Performance Forecasting</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Platform Support -->
+                        <div class="bg-gray-50 rounded-xl p-6 mb-8">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">
+                                <i class="fas fa-plug text-blue-600 mr-2"></i>
+                                Comprehensive Platform Support
+                            </h2>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="text-center p-4 bg-white rounded-lg border">
+                                    <i class="fas fa-comments text-green-600 text-2xl mb-2"></i>
+                                    <h4 class="font-semibold text-sm">Chatbots & Assistants</h4>
+                                    <p class="text-xs text-gray-600">ChatGPT, Claude, Bard, Custom AI</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg border">
+                                    <i class="fas fa-search text-blue-600 text-2xl mb-2"></i>
+                                    <h4 class="font-semibold text-sm">AI Search Engines</h4>
+                                    <p class="text-xs text-gray-600">Perplexity, You.com, Vario™</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg border">
+                                    <i class="fas fa-desktop text-purple-600 text-2xl mb-2"></i>
+                                    <h4 class="font-semibold text-sm">Browser Extensions</h4>
+                                    <p class="text-xs text-gray-600">Chrome, Firefox, Safari, Edge</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg border">
+                                    <i class="fas fa-mobile-alt text-orange-600 text-2xl mb-2"></i>
+                                    <h4 class="font-semibold text-sm">Mobile Apps</h4>
+                                    <p class="text-xs text-gray-600">iOS, Android, PWA, React Native</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white rounded-lg border border-gray-200 p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-robot text-blue-600 mr-2"></i>
+                                    For AI Platforms
+                                </h3>
+                                <p class="text-gray-600 mb-4">Monetize your AI platform with contextual product recommendations that enhance user experience.</p>
+                                <a href="#ai-platforms" onclick="showSection('ai-platforms')" class="text-blue-600 hover:text-blue-700 font-medium">
+                                    Get Started →
+                                </a>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg border border-gray-200 p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-bullhorn text-purple-600 mr-2"></i>
+                                    For Advertisers
+                                </h3>
+                                <p class="text-gray-600 mb-4">Reach users at the moment of intent with AI-powered contextual advertising.</p>
+                                <a href="#advertisers" onclick="showSection('advertisers')" class="text-purple-600 hover:text-purple-700 font-medium">
+                                    Learn More →
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Platform Statistics</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-600">50M+</div>
+                                    <div class="text-sm text-gray-600">Monthly Queries</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-green-600">12.7%</div>
+                                    <div class="text-sm text-gray-600">Average CTR</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-purple-600">20.1%</div>
+                                    <div class="text-sm text-gray-600">Conversion Rate</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-orange-600">99.9%</div>
+                                    <div class="text-sm text-gray-600">Uptime</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick Start Section -->
+                    <section id="quick-start" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Quick Start Guide</h1>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-6 mb-8">
+                            <div class="flex items-start">
+                                <i class="fas fa-rocket text-green-600 mr-3 mt-1 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold text-green-800 mb-2">Get Started in Minutes</h4>
+                                    <p class="text-green-700 text-sm mb-3">Choose your integration path and start monetizing conversations in under 15 minutes.</p>
+                                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                        <div class="bg-white p-3 rounded border">
+                                            <strong class="text-green-800">Frontend SDK:</strong> Drop-in React/Vue components
+                                        </div>
+                                        <div class="bg-white p-3 rounded border">
+                                            <strong class="text-blue-800">Backend SDK:</strong> Server-side Node.js/Python integration
+                                        </div>
+                                        <div class="bg-white p-3 rounded border">
+                                            <strong class="text-purple-800">No-Code:</strong> WordPress plugins and widgets
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 1: Choose Your Integration Path</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-code text-blue-600 mr-2"></i>
+                                    Developer Integration
+                                </h3>
+                                <p class="text-gray-600 mb-4">For custom AI platforms and applications requiring full control and customization.</p>
+                                <ul class="space-y-2 text-sm text-gray-700 mb-4">
+                                    <li>✓ Complete API access and customization</li>
+                                    <li>✓ Multiple SDK options (React, Node.js, Python, Go)</li>
+                                    <li>✓ Advanced features and optimization</li>
+                                    <li>✓ Enterprise support and SLAs</li>
+                                </ul>
+                                <button onclick="showDeveloperPath()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700">
+                                    Choose Developer Path
+                                </button>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-magic text-purple-600 mr-2"></i>
+                                    No-Code Integration
+                                </h3>
+                                <p class="text-gray-600 mb-4">For quick setup without coding. Perfect for WordPress, Shopify, and existing platforms.</p>
+                                <ul class="space-y-2 text-sm text-gray-700 mb-4">
+                                    <li>✓ WordPress plugin (1-click install)</li>
+                                    <li>✓ Shopify app integration</li>
+                                    <li>✓ Embeddable widgets and iframes</li>
+                                    <li>✓ Pre-built templates and themes</li>
+                                </ul>
+                                <button onclick="showNoCodePath()" class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-purple-700">
+                                    Choose No-Code Path
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="developer-path" class="hidden">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-4">Developer Integration Steps</h2>
+                            
+                            <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Step 2A: Get Your API Key</h3>
+                                <ol class="list-decimal list-inside space-y-2 mb-4 text-gray-700">
+                                    <li>Sign up at <a href="/" class="text-blue-600 hover:underline">getearnly.com</a></li>
+                                    <li>Complete account verification (email + phone)</li>
+                                    <li>Navigate to Developer Dashboard</li>
+                                    <li>Create a new project and select your platform type</li>
+                                    <li>Generate production and sandbox API keys</li>
+                                </ol>
+                                
+                                <div class="bg-blue-50 border border-blue-200 rounded p-4">
+                                    <h4 class="font-semibold text-blue-800 mb-2">API Key Format</h4>
+                                    <code class="text-sm bg-white px-2 py-1 rounded border">ern_live_sk_1234567890abcdef...</code>
+                                    <p class="text-blue-700 text-sm mt-2">Store securely and never expose in client-side code.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Step 3A: Install SDK</h3>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-gray-800 mb-2">Frontend (React/Vue/Angular)</h4>
+                                    <div class="code-block bg-gray-900 rounded-lg p-4">
+                                        <button class="copy-button" onclick="copyCode(this)">
+                                            <i class="fas fa-copy mr-1"></i>Copy
+                                        </button>
+                                        <pre><code class="language-bash"># React
+npm install @earnly/react-sdk
+
+# Vue.js  
+npm install @earnly/vue-sdk
+
+# Angular
+npm install @earnly/angular-sdk
+
+# Vanilla JavaScript
+npm install @earnly/js-sdk</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-medium text-gray-800 mb-2">Backend (Node.js/Python/Go)</h4>
+                                    <div class="code-block bg-gray-900 rounded-lg p-4">
+                                        <button class="copy-button" onclick="copyCode(this)">
+                                            <i class="fas fa-copy mr-1"></i>Copy
+                                        </button>
+                                        <pre><code class="language-bash"># Node.js
+npm install @earnly/node-sdk
+
+# Python
+pip install earnly-sdk
+
+# Go
+go get github.com/earnly/go-sdk
+
+# PHP
+composer require earnly/php-sdk</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="no-code-path" class="hidden">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-4">No-Code Integration Steps</h2>
+                            
+                            <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Step 2B: Quick Setup Options</h3>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white border rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 mb-2">
+                                            <i class="fab fa-wordpress text-blue-600 mr-2"></i>WordPress Plugin
+                                        </h4>
+                                        <ol class="text-sm text-gray-700 space-y-1 mb-3">
+                                            <li>1. Download Earnly AI plugin from WordPress store</li>
+                                            <li>2. Install and activate plugin</li>
+                                            <li>3. Enter your API key in settings</li>
+                                            <li>4. Configure display preferences</li>
+                                            <li>5. Add shortcodes to posts/pages</li>
+                                        </ol>
+                                        <button class="w-full bg-blue-600 text-white py-2 px-3 rounded text-sm font-medium">
+                                            Get WordPress Plugin
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="bg-white border rounded-lg p-4">
+                                        <h4 class="font-semibold text-gray-900 mb-2">
+                                            <i class="fas fa-shopping-bag text-green-600 mr-2"></i>Shopify App
+                                        </h4>
+                                        <ol class="text-sm text-gray-700 space-y-1 mb-3">
+                                            <li>1. Install Earnly AI app from Shopify App Store</li>
+                                            <li>2. Connect your Earnly account</li>
+                                            <li>3. Configure product recommendations</li>
+                                            <li>4. Customize display templates</li>
+                                            <li>5. Launch and monitor performance</li>
+                                        </ol>
+                                        <button class="w-full bg-green-600 text-white py-2 px-3 rounded text-sm font-medium">
+                                            Get Shopify App
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 2: Make Your First API Call</h2>
+                        <p class="text-gray-600 mb-4">Here's a simple example to get product recommendations:</p>
+
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-javascript">// Initialize Earnly client
+const earnly = new EarnlyClient({
+  apiKey: 'your-api-key-here',
+  environment: 'production' // or 'sandbox'
+});
+
+// Get recommendations based on user query
+const recommendations = await earnly.query({
+  user_query: "I need a good laptop for programming",
+  conversation_context: "User is a software developer",
+  user_intent: "product_search",
+  conversation_id: "unique-conversation-id"
+});
+
+console.log(recommendations.recommendations);
+</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 3: Handle the Response</h2>
+                        <p class="text-gray-600 mb-4">The API returns structured recommendation data:</p>
+
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-json">{
+  "success": true,
+  "recommendations": [
+    {
+      "recommendation_id": 12345,
+      "product": {
+        "id": 1,
+        "title": "MacBook Pro 16-inch",
+        "description": "High-performance laptop perfect for software development",
+        "price": 2499.99,
+        "image_url": "https://example.com/macbook.jpg",
+        "product_url": "https://apple.com/macbook-pro"
+      },
+      "advertiser": {
+        "name": "Apple",
+        "handle": "apple_official"
+      },
+      "matching_score": 94.5,
+      "earnly_link": "https://getearnly.com/l/abc123"
+    }
+  ],
+  "context": {
+    "platform": "Your AI Platform",
+    "revenue_share": 25.0
+  }
+}</code></pre>
+                        </div>
+
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-green-800">Next Steps</h4>
+                                    <p class="text-green-700 text-sm">You're ready! Check out our platform-specific integration guides for detailed implementation examples.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Authentication Section -->
+                    <section id="authentication" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Authentication</h1>
+                        
+                        <p class="text-gray-600 mb-6">Earnly AI uses API keys for authentication. All API requests must include your API key in the Authorization header.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">API Key Authentication</h2>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-bash">curl -X POST https://api.getearnly.com/v1/query \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "user_query": "best productivity apps",
+    "conversation_context": "User asking about work tools"
+  }'</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Environment Setup</h2>
+                        
+                        <table class="docs-table mb-6">
+                            <thead>
+                                <tr>
+                                    <th>Environment</th>
+                                    <th>Base URL</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Production</td>
+                                    <td><code>https://api.getearnly.com</code></td>
+                                    <td>Live production environment</td>
+                                </tr>
+                                <tr>
+                                    <td>Sandbox</td>
+                                    <td><code>https://sandbox-api.getearnly.com</code></td>
+                                    <td>Testing environment with mock data</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Rate Limits</h2>
+                        <p class="text-gray-600 mb-4">API rate limits are applied per API key:</p>
+                        
+                        <ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+                            <li><strong>Free Tier:</strong> 1,000 requests per hour</li>
+                            <li><strong>Pro Tier:</strong> 10,000 requests per hour</li>
+                            <li><strong>Enterprise:</strong> Custom limits</li>
+                        </ul>
+
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-info-circle text-blue-600 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-blue-800">Security Best Practices</h4>
+                                    <ul class="text-blue-700 text-sm mt-2 space-y-1">
+                                        <li>• Never expose API keys in client-side code</li>
+                                        <li>• Use environment variables to store API keys</li>
+                                        <li>• Rotate API keys regularly</li>
+                                        <li>• Monitor API key usage in the dashboard</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- AI Platforms Integration -->
+                    <section id="ai-platforms" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">AI Platforms Integration</h1>
+                        
+                        <p class="text-gray-600 mb-6">Integrate Earnly AI into your AI platform to monetize conversations with contextual product recommendations.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Integration Overview</h2>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                            <h3 class="text-lg font-semibold mb-4">How it works:</h3>
+                            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                <li>User asks a question to your AI platform</li>
+                                <li>Your AI processes the query and sends context to Earnly</li>
+                                <li>Earnly returns relevant product recommendations</li>
+                                <li>You display recommendations alongside your AI response</li>
+                                <li>User clicks → conversion → you earn revenue share</li>
+                            </ol>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Implementation Example</h2>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-javascript">// Example: ChatGPT-style integration
+async function processUserQuery(userMessage, conversationHistory) {
+  // 1. Generate your AI response
+  const aiResponse = await yourAI.generate(userMessage, conversationHistory);
+  
+  // 2. Get contextual recommendations from Earnly
+  const earnlyResponse = await earnly.query({
+    user_query: userMessage,
+    conversation_context: aiResponse,
+    user_intent: detectIntent(userMessage), // 'product_search', 'comparison', etc.
+    conversation_id: conversation.id,
+    user_demographics: {
+      platform: 'your-ai-platform',
+      session_id: session.id
+    }
+  });
+  
+  // 3. Combine AI response with recommendations
+  return {
+    ai_response: aiResponse,
+    recommendations: earnlyResponse.recommendations,
+    display_format: 'inline' // 'inline', 'sidebar', 'bottom'
+  };
+}</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Revenue Sharing</h2>
+                        
+                        <table class="docs-table mb-6">
+                            <thead>
+                                <tr>
+                                    <th>Tier</th>
+                                    <th>Monthly Queries</th>
+                                    <th>Revenue Share</th>
+                                    <th>Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Starter</td>
+                                    <td>&lt; 100K</td>
+                                    <td>70%</td>
+                                    <td>Basic recommendations</td>
+                                </tr>
+                                <tr>
+                                    <td>Growth</td>
+                                    <td>100K - 1M</td>
+                                    <td>75%</td>
+                                    <td>Advanced matching + Analytics</td>
+                                </tr>
+                                <tr>
+                                    <td>Enterprise</td>
+                                    <td>1M+</td>
+                                    <td>80%</td>
+                                    <td>Custom models + Priority support</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-green-800 mb-2">Ready to integrate?</h3>
+                            <p class="text-green-700 text-sm mb-3">Join hundreds of AI platforms already earning revenue with Earnly.</p>
+                            <a href="/for-ai-platforms" class="inline-flex items-center bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700">
+                                Start Integration →
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Query API Reference -->
+                    <section id="query-api" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Query API Reference</h1>
+                        
+                        <p class="text-gray-600 mb-6">The Query API is the core endpoint for getting product recommendations based on user conversations and context.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                            <span class="method-badge method-post">POST</span>
+                            <span class="ml-3">/v1/query</span>
+                        </h2>
+                        
+                        <p class="text-gray-600 mb-6">Submit a user query and conversation context to receive relevant product recommendations.</p>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Request Body</h3>
+                        
+                        <table class="docs-table mb-6">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Required</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>user_query</code></td>
+                                    <td>string</td>
+                                    <td>Yes</td>
+                                    <td>The user's original question or message</td>
+                                </tr>
+                                <tr>
+                                    <td><code>conversation_context</code></td>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Previous conversation history or AI response context</td>
+                                </tr>
+                                <tr>
+                                    <td><code>user_intent</code></td>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Detected user intent: 'product_search', 'comparison', 'general'</td>
+                                </tr>
+                                <tr>
+                                    <td><code>conversation_id</code></td>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Unique identifier for the conversation session</td>
+                                </tr>
+                                <tr>
+                                    <td><code>user_demographics</code></td>
+                                    <td>object</td>
+                                    <td>No</td>
+                                    <td>User demographic information for better targeting</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Example Request</h3>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-json">{
+  "user_query": "I need a good laptop for video editing",
+  "conversation_context": "User mentioned they work in post-production and need powerful hardware",
+  "user_intent": "product_search",
+  "conversation_id": "conv_abc123",
+  "user_demographics": {
+    "platform": "your-ai-assistant",
+    "session_id": "sess_xyz789",
+    "user_segment": "creative_professional"
+  }
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Response Format</h3>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-json">{
+  "success": true,
+  "recommendations": [
+    {
+      "recommendation_id": 1234567,
+      "product": {
+        "id": 456,
+        "title": "MacBook Pro 16-inch M3 Max",
+        "description": "Professional laptop with M3 Max chip, perfect for video editing and creative work",
+        "price": 3999.99,
+        "brand": "Apple",
+        "image_url": "https://example.com/macbook-pro.jpg",
+        "product_url": "https://apple.com/macbook-pro-16",
+        "category": "electronics",
+        "subcategory": "laptops"
+      },
+      "advertiser": {
+        "name": "Apple Store",
+        "handle": "apple_official",
+        "verified": true,
+        "rating": 4.9
+      },
+      "matching_score": 96.5,
+      "relevance_breakdown": {
+        "relevance_score": 98,
+        "intent_match": 95,
+        "context_match": 97,
+        "audience_match": 94,
+        "budget_efficiency": 88
+      },
+      "recommendation_reason": "Perfect match for professional video editing with M3 Max performance and 64GB unified memory",
+      "earnly_link": "https://getearnly.com/l/abc123xyz",
+      "estimated_commission": 199.99,
+      "conversion_tracking": {
+        "click_tracking": true,
+        "view_tracking": true,
+        "conversion_attribution": "30_day"
+      }
+    }
+  ],
+  "context": {
+    "platform": "your-ai-assistant", 
+    "query_processed": true,
+    "revenue_share": 75.0,
+    "processing_time_ms": 84,
+    "ai_model_version": "earnly-ai-v3.2"
+  }
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Error Responses</h3>
+                        
+                        <table class="docs-table">
+                            <thead>
+                                <tr>
+                                    <th>Status Code</th>
+                                    <th>Error Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>400</td>
+                                    <td>Bad Request</td>
+                                    <td>Missing required parameters or invalid format</td>
+                                </tr>
+                                <tr>
+                                    <td>401</td>
+                                    <td>Unauthorized</td>
+                                    <td>Invalid or missing API key</td>
+                                </tr>
+                                <tr>
+                                    <td>429</td>
+                                    <td>Rate Limit</td>
+                                    <td>Too many requests - rate limit exceeded</td>
+                                </tr>
+                                <tr>
+                                    <td>500</td>
+                                    <td>Server Error</td>
+                                    <td>Internal server error - try again later</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- JavaScript SDK Section -->
+                    <section id="javascript-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">JavaScript SDK</h1>
+                        
+                        <p class="text-gray-600 mb-6">The official JavaScript SDK for Earnly AI makes integration simple and provides type-safe interfaces.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-bash"># Install via npm
+npm install @earnly/sdk
+
+# Install via yarn
+yarn add @earnly/sdk</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Quick Setup</h2>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-javascript">import { EarnlyClient } from '@earnly/sdk';
+
+const earnly = new EarnlyClient({
+  apiKey: process.env.EARNLY_API_KEY,
+  environment: 'production', // 'production' or 'sandbox'
+  timeout: 5000, // Request timeout in ms
+  retries: 3 // Number of retry attempts
+});
+
+// Test connection
+const health = await earnly.health();
+console.log('Earnly API Status:', health.status);</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Core Methods</h2>
+
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Query for Recommendations</h3>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-javascript">const recommendations = await earnly.query({
+  user_query: "best headphones for music production",
+  conversation_context: "User is a music producer looking for studio equipment",
+  user_intent: "product_search",
+  conversation_id: "conv_123",
+  options: {
+    max_recommendations: 3,
+    min_score: 0.8,
+    categories: ['electronics', 'audio'],
+    price_range: { min: 100, max: 1000 }
+  }
+});
+
+// Handle recommendations
+recommendations.forEach(rec => {
+  console.log(\`\${rec.product.title} - Score: \${rec.matching_score}\`);
+});</code></pre>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Track Interactions</h3>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-javascript">// Track when user views a recommendation
+await earnly.trackInteraction({
+  recommendation_id: 1234567,
+  interaction_type: 'view',
+  conversation_id: 'conv_123',
+  timestamp: Date.now()
+});
+
+// Track when user clicks a recommendation
+await earnly.trackInteraction({
+  recommendation_id: 1234567,
+  interaction_type: 'click',
+  conversation_id: 'conv_123',
+  metadata: {
+    position: 1,
+    display_format: 'inline'
+  }
+});
+
+// Track conversions (automatic via Earnly links)
+// Conversions are tracked automatically when users complete purchases
+// through Earnly tracking links</code></pre>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Error Handling</h3>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-javascript">import { EarnlyError, RateLimitError, AuthError } from '@earnly/sdk';
+
+try {
+  const recommendations = await earnly.query({
+    user_query: "laptop recommendations"
+  });
+} catch (error) {
+  if (error instanceof RateLimitError) {
+    console.log('Rate limit exceeded, retry after:', error.retryAfter);
+  } else if (error instanceof AuthError) {
+    console.log('Authentication failed:', error.message);
+  } else if (error instanceof EarnlyError) {
+    console.log('Earnly API error:', error.message, error.code);
+  } else {
+    console.log('Unexpected error:', error);
+  }
+}</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">TypeScript Support</h2>
+                        
+                        <p class="text-gray-600 mb-4">The SDK includes full TypeScript support with comprehensive type definitions:</p>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-typescript">import { 
+  EarnlyClient, 
+  QueryRequest, 
+  QueryResponse, 
+  Recommendation 
+} from '@earnly/sdk';
+
+const earnly = new EarnlyClient({ 
+  apiKey: process.env.EARNLY_API_KEY! 
+});
+
+const request: QueryRequest = {
+  user_query: "gaming laptops under $2000",
+  user_intent: "product_search",
+  conversation_id: "conv_456"
+};
+
+const response: QueryResponse = await earnly.query(request);
+const recommendations: Recommendation[] = response.recommendations;</code></pre>
+                        </div>
+                    </section>
+
+                    <!-- FAQ Section -->
+                    <section id="faq" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h1>
+
+                        <div class="space-y-6">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">How does Earnly AI determine which products to recommend?</h3>
+                                <p class="text-gray-600">Earnly AI uses advanced machine learning algorithms to analyze user intent, conversation context, and real-time market data. Our matching engine considers semantic similarity, user behavior patterns, product popularity, and advertiser bid strategies to deliver the most relevant recommendations.</p>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">What revenue share do AI platforms receive?</h3>
+                                <p class="text-gray-600">Revenue sharing ranges from 70-80% depending on your tier and monthly query volume. We believe in fair partnerships - the more value you bring, the more you earn. Enterprise clients can negotiate custom terms.</p>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">How long does integration typically take?</h3>
+                                <p class="text-gray-600">Most AI platforms can integrate Earnly in 2-4 hours using our SDKs. This includes initial setup, testing, and basic customization. More complex integrations with custom UI/UX may take 1-2 days.</p>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Do you support real-time recommendations?</h3>
+                                <p class="text-gray-600">Yes! Our API responds in under 100ms on average, making it perfect for real-time conversational interfaces. We use global edge infrastructure to ensure low latency worldwide.</p>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">What data privacy protections are in place?</h3>
+                                <p class="text-gray-600">We're GDPR compliant and SOC 2 certified. User data is encrypted in transit and at rest. We only process the minimal data needed for recommendations and never store sensitive personal information without explicit consent.</p>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I customize the recommendation display format?</h3>
+                                <p class="text-gray-600">Absolutely! Our API returns structured data that you can format however you like. We also provide pre-built UI components and templates for common use cases to speed up implementation.</p>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">What happens if the API is down?</h3>
+                                <p class="text-gray-600">We maintain 99.9% uptime with automatic failover and redundancy. Our SDKs include built-in retry logic and graceful degradation. If our service is unavailable, your AI platform continues to work normally without recommendations.</p>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">How are conversions tracked and attributed?</h3>
+                                <p class="text-gray-600">We use advanced attribution models with 30-day conversion windows. Tracking happens through our secure redirect links with cross-device and cross-session tracking capabilities. All conversions are verified with advertiser systems.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Support Section -->
+                    <!-- React SDK Section -->
+                    <section id="react-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">React SDK</h1>
+                        
+                        <p class="text-gray-600 mb-6">The Earnly React SDK provides plug-and-play components for seamless integration with React applications. Features built-in tracking, multiple layouts, and TypeScript support.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-bash">npm install @earnly/react-sdk
+# or
+yarn add @earnly/react-sdk</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Basic Usage</h2>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-jsx">import React from 'react';
+import { EarnlyProvider, EarnlyRecommendations } from '@earnly/react-sdk';
+
+function App() {
+  return (
+    &lt;EarnlyProvider apiKey="your-api-key" environment="production"&gt;
+      &lt;div className="chat-interface"&gt;
+        {/* Your chat messages */}
+        &lt;div className="message user"&gt;
+          I need a good laptop for programming
+        &lt;/div&gt;
+        
+        {/* AI Response with recommendations */}
+        &lt;div className="message ai"&gt;
+          &lt;p&gt;Here are some excellent programming laptops:&lt;/p&gt;
+          
+          &lt;EarnlyRecommendations
+            query="programming laptop"
+            context="User is a software developer"
+            layout="inline"
+            maxRecommendations={3}
+            onRecommendationClick={(rec) =&gt; console.log('Clicked:', rec)}
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/EarnlyProvider&gt;
+  );
+}</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Available Components</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold mb-3">&lt;EarnlyRecommendations /&gt;</h3>
+                                <p class="text-gray-600 text-sm mb-3">Main component for displaying product recommendations with automatic tracking.</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Multiple layout options (inline, grid, carousel)</li>
+                                    <li>• Built-in click and view tracking</li>
+                                    <li>• Customizable styling and themes</li>
+                                    <li>• Loading states and error handling</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold mb-3">&lt;EarnlyAnalytics /&gt;</h3>
+                                <p class="text-gray-600 text-sm mb-3">Analytics dashboard component for monitoring performance metrics.</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Real-time performance charts</li>
+                                    <li>• Revenue and conversion tracking</li>
+                                    <li>• Customizable date ranges</li>
+                                    <li>• Export capabilities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Attribution & Tracking Section -->
+                    <section id="attribution" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Attribution & Tracking</h1>
+                        
+                        <p class="text-gray-600 mb-6">Earnly AI provides industry-leading attribution and tracking capabilities with privacy-first, server-side tracking that ensures accurate measurement without compromising user privacy.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Attribution Models</h2>
+                        
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-mouse-pointer text-blue-600 mr-2"></i>
+                                    Last-Click Attribution
+                                </h3>
+                                <p class="text-gray-600 text-sm mb-4">Traditional model crediting the final touchpoint before conversion. Simple and widely understood.</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>✓ Simple implementation</li>
+                                    <li>✓ Industry standard</li>
+                                    <li>✓ Easy to explain to stakeholders</li>
+                                    <li>⚠️ May undervalue earlier touchpoints</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-route text-green-600 mr-2"></i>
+                                    Multi-Touch Attribution
+                                </h3>
+                                <p class="text-gray-600 text-sm mb-4">Advanced model distributing credit across all touchpoints in the conversion journey.</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>✓ More accurate attribution</li>
+                                    <li>✓ Values entire customer journey</li>
+                                    <li>✓ Better optimization insights</li>
+                                    <li>✓ AI-powered weight distribution</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-brain text-purple-600 mr-2"></i>
+                                    AI-Powered Attribution
+                                </h3>
+                                <p class="text-gray-600 text-sm mb-4">Machine learning model that learns optimal attribution patterns for your specific use case.</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>✓ Adaptive to your business</li>
+                                    <li>✓ Continuous learning and optimization</li>
+                                    <li>✓ Predictive conversion modeling</li>
+                                    <li>✓ Cross-device attribution</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Privacy-First Tracking</h2>
+                        
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+                            <h3 class="text-lg font-semibold text-green-800 mb-3">
+                                <i class="fas fa-shield-alt text-green-600 mr-2"></i>
+                                Server-Side Tracking Architecture
+                            </h3>
+                            <p class="text-green-700 mb-4">Unlike traditional cookie-based tracking, Earnly AI processes all attribution server-side, ensuring GDPR compliance and resistance to ad blockers.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white rounded p-4">
+                                    <h4 class="font-semibold text-green-800 mb-2">Benefits</h4>
+                                    <ul class="text-sm text-green-700 space-y-1">
+                                        <li>• No cookies or localStorage required</li>
+                                        <li>• Immune to ad blockers</li>
+                                        <li>• GDPR and CCPA compliant</li>
+                                        <li>• 99.9% tracking accuracy</li>
+                                        <li>• Real-time verification</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white rounded p-4">
+                                    <h4 class="font-semibold text-green-800 mb-2">Technical Features</h4>
+                                    <ul class="text-sm text-green-700 space-y-1">
+                                        <li>• Cryptographic link signatures</li>
+                                        <li>• Fraud detection algorithms</li>
+                                        <li>• Cross-domain tracking</li>
+                                        <li>• Mobile app attribution</li>
+                                        <li>• Offline conversion import</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Auto-Optimization Section -->
+                    <section id="optimization" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Auto-Optimization Engine</h1>
+                        
+                        <p class="text-gray-600 mb-6">Earnly AI's machine learning optimization engine continuously improves performance by automatically adjusting bids, targeting, and recommendations based on real-time data and predicted outcomes.</p>
+
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8 border border-blue-200">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-3">
+                                <i class="fas fa-magic text-blue-600 mr-2"></i>
+                                How Auto-Optimization Works
+                            </h2>
+                            <div class="grid md:grid-cols-4 gap-4 text-sm">
+                                <div class="bg-white p-4 rounded border">
+                                    <div class="font-semibold text-blue-800 mb-2">1. Data Collection</div>
+                                    <p class="text-gray-600">Continuous monitoring of performance metrics, user behavior, and market conditions</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border">
+                                    <div class="font-semibold text-green-800 mb-2">2. Pattern Analysis</div>
+                                    <p class="text-gray-600">AI identifies optimization opportunities and performance patterns</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border">
+                                    <div class="font-semibold text-purple-800 mb-2">3. Prediction Modeling</div>
+                                    <p class="text-gray-600">ML models predict optimal settings for maximum ROI</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border">
+                                    <div class="font-semibold text-orange-800 mb-2">4. Automated Adjustment</div>
+                                    <p class="text-gray-600">Real-time implementation of optimized parameters</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Optimization Features</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-bullseye text-blue-600 mr-2"></i>
+                                    Smart Bid Management
+                                </h3>
+                                <p class="text-gray-600 mb-4">Automated bidding strategies that optimize for your specific goals and constraints.</p>
+                                
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-blue-50 p-4 rounded">
+                                        <h4 class="font-semibold text-blue-800 mb-2">Target CPA Bidding</h4>
+                                        <p class="text-blue-700 text-sm">Automatically adjusts bids to achieve your target cost per acquisition</p>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded">
+                                        <h4 class="font-semibold text-green-800 mb-2">Maximize Conversions</h4>
+                                        <p class="text-green-700 text-sm">Optimizes bids to generate the maximum number of conversions within budget</p>
+                                    </div>
+                                    <div class="bg-purple-50 p-4 rounded">
+                                        <h4 class="font-semibold text-purple-800 mb-2">Target ROAS</h4>
+                                        <p class="text-purple-700 text-sm">Maintains your desired return on ad spend across all campaigns</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-users text-green-600 mr-2"></i>
+                                    Audience Optimization
+                                </h3>
+                                <p class="text-gray-600 mb-4">Dynamic audience targeting that evolves based on performance data and user behavior patterns.</p>
+                                
+                                <table class="docs-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>Description</th>
+                                            <th>Performance Impact</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lookalike Modeling</td>
+                                            <td>Finds users similar to your best converters</td>
+                                            <td>+45% conversion rate</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Behavioral Targeting</td>
+                                            <td>Targets based on real-time user actions</td>
+                                            <td>+32% CTR improvement</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Intent Prediction</td>
+                                            <td>Predicts purchase intent from conversation context</td>
+                                            <td>+67% relevance score</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dynamic Exclusions</td>
+                                            <td>Automatically excludes low-performing segments</td>
+                                            <td>-28% wasted spend</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- A/B Testing Section -->
+                    <section id="ab-testing" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">A/B Testing Framework</h1>
+                        
+                        <p class="text-gray-600 mb-6">Earnly AI includes a comprehensive A/B testing framework that allows you to test different recommendation formats, messaging, and optimization strategies to maximize performance.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Setting Up Tests</h2>
+                        
+                        <div class="code-block bg-gray-900 rounded-lg p-4 mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre><code class="language-javascript">// Create A/B test via API
+const test = await earnly.createABTest({
+  name: "Recommendation Layout Test",
+  description: "Test inline vs grid layout performance",
+  variants: [
+    {
+      name: "control",
+      weight: 0.5,
+      parameters: {
+        layout: "inline",
+        maxRecommendations: 3
+      }
+    },
+    {
+      name: "variant",
+      weight: 0.5, 
+      parameters: {
+        layout: "grid",
+        maxRecommendations: 6
+      }
+    }
+  ],
+  metrics: ["ctr", "conversion_rate", "revenue_per_user"],
+  duration: 14, // days
+  minimumSampleSize: 1000
+});</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Test Types</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Layout & Design Tests</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>• Recommendation card layouts (inline, grid, carousel)</li>
+                                    <li>• Color schemes and branding</li>
+                                    <li>• Call-to-action button text and styling</li>
+                                    <li>• Image vs text-only recommendations</li>
+                                    <li>• Mobile vs desktop optimizations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Algorithm & Strategy Tests</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>• Different recommendation algorithms</li>
+                                    <li>• Number of recommendations shown</li>
+                                    <li>• Personalization levels</li>
+                                    <li>• Timing and frequency of recommendations</li>
+                                    <li>• Targeting and audience segmentation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Statistical Analysis</h2>
+                        
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Built-in Statistical Engine</h3>
+                            <p class="text-gray-600 mb-4">Earnly AI automatically handles statistical significance testing, confidence intervals, and sample size calculations.</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-4 mb-4">
+                                <div class="bg-white p-4 rounded border">
+                                    <h4 class="font-semibold text-gray-800 mb-2">Confidence Level</h4>
+                                    <p class="text-2xl font-bold text-blue-600">95%</p>
+                                    <p class="text-sm text-gray-600">Standard statistical significance threshold</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border">
+                                    <h4 class="font-semibold text-gray-800 mb-2">Minimum Detectable Effect</h4>
+                                    <p class="text-2xl font-bold text-green-600">5%</p>
+                                    <p class="text-sm text-gray-600">Smallest performance difference we can detect</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border">
+                                    <h4 class="font-semibold text-gray-800 mb-2">Power Analysis</h4>
+                                    <p class="text-2xl font-bold text-purple-600">80%</p>
+                                    <p class="text-sm text-gray-600">Probability of detecting a true effect</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 border border-blue-200 rounded p-4">
+                                <h4 class="font-semibold text-blue-800 mb-2">Auto-Stopping Rules</h4>
+                                <p class="text-blue-700 text-sm">Tests automatically stop when statistical significance is reached or when it becomes clear no significant difference exists, saving time and resources.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="support" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Support & Resources</h1>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-comments text-blue-600 mr-2"></i>
+                                    Community Support
+                                </h3>
+                                <p class="text-gray-600 mb-4">Join our developer community for discussions, examples, and peer support.</p>
+                                <a href="https://discord.gg/earnly" class="text-blue-600 hover:text-blue-700 font-medium" target="_blank">
+                                    Join Discord Community →
+                                </a>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                                    <i class="fas fa-envelope text-green-600 mr-2"></i>
+                                    Email Support
+                                </h3>
+                                <p class="text-gray-600 mb-4">Get direct help from our technical team.</p>
+                                <a href="mailto:support@getearnly.com" class="text-green-600 hover:text-green-700 font-medium">
+                                    support@getearnly.com →
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8 border border-blue-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Enterprise Support</h3>
+                            <p class="text-gray-600 mb-4">Enterprise clients receive priority support with dedicated account management, custom integrations, and SLA guarantees.</p>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>24/7 Priority Support</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Dedicated Account Manager</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Custom Integration Support</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>SLA Guarantees</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Additional Resources</h2>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-8">
+                            <a href="https://status.getearnly.com" target="_blank" class="block bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-heartbeat text-green-600 mr-2"></i>
+                                    <h4 class="font-semibold text-gray-900">System Status</h4>
+                                </div>
+                                <p class="text-gray-600 text-sm">Real-time API status and uptime monitoring</p>
+                            </a>
+                            
+                            <a href="https://github.com/getearnly" target="_blank" class="block bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                                <div class="flex items-center mb-2">
+                                    <i class="fab fa-github text-gray-900 mr-2"></i>
+                                    <h4 class="font-semibold text-gray-900">GitHub</h4>
+                                </div>
+                                <p class="text-gray-600 text-sm">Open source SDKs and code examples</p>
+                            </a>
+                            
+                            <a href="/changelog" class="block bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-history text-blue-600 mr-2"></i>
+                                    <h4 class="font-semibold text-gray-900">Changelog</h4>
+                                </div>
+                                <p class="text-gray-600 text-sm">Latest API updates and new features</p>
+                            </a>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Support Response Times</h3>
+                            <table class="docs-table">
+                                <thead>
+                                    <tr>
+                                        <th>Plan</th>
+                                        <th>Response Time</th>
+                                        <th>Channels</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Free</td>
+                                        <td>48 hours</td>
+                                        <td>Community, Email</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pro</td>
+                                        <td>24 hours</td>
+                                        <td>Community, Email, Priority Queue</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Enterprise</td>
+                                        <td>4 hours</td>
+                                        <td>All channels + Phone + Dedicated Manager</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="vue-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Vue.js SDK</h1>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 mb-8 border border-green-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fab fa-vuejs text-2xl text-green-600 mr-3"></i>
+                                <h2 class="text-xl font-semibold text-gray-900">Vue.js Integration</h2>
+                            </div>
+                            <p class="text-gray-700 mb-4">Build AI-powered recommendation systems in Vue.js applications with our official Vue SDK. Features reactive data binding, Composition API support, and TypeScript integration.</p>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-bash">npm install @earnly/vue-sdk
+# or
+yarn add @earnly/vue-sdk
+# or
+pnpm add @earnly/vue-sdk</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Setup & Configuration</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">// main.js
+import { createApp } from 'vue'
+import { EarnlyVuePlugin } from '@earnly/vue-sdk'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(EarnlyVuePlugin, {
+  apiKey: 'your-api-key',
+  userId: 'user-123',
+  environment: 'production', // or 'sandbox'
+  options: {
+    autoTrack: true,
+    enableAnalytics: true,
+    privacyMode: false,
+    customEndpoint: 'https://api.getearnly.com'
+  }
+})
+
+app.mount('#app')</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Vue Components</h2>
+                        
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">EarnlyRecommendations Component</h3>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-vue">&lt;template&gt;
+  &lt;div class="recommendations-container"&gt;
+    &lt;h2&gt;Recommended for You&lt;/h2&gt;
+    
+    &lt;EarnlyRecommendations
+      :context="context"
+      :max-recommendations="6"
+      :layout="'grid'"
+      :enable-tracking="true"
+      @recommendation-click="handleClick"
+      @recommendations-loaded="handleLoaded"
+      @error="handleError"
+    &gt;
+      &lt;template #recommendation="{ recommendation }"&gt;
+        &lt;div class="custom-recommendation-card"&gt;
+          &lt;img :src="recommendation.imageUrl" :alt="recommendation.title" /&gt;
+          &lt;h3&gt;{{ recommendation.title }}&lt;/h3&gt;
+          &lt;p&gt;{{ recommendation.description }}&lt;/p&gt;
+          &lt;span class="price"&gt;{{ recommendation.price }}&lt;/span&gt;
+          &lt;button @click="handleRecommendationClick(recommendation)"&gt;
+            Learn More
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/template&gt;
+      
+      &lt;template #loading&gt;
+        &lt;div class="loading-spinner"&gt;
+          &lt;i class="fas fa-spinner fa-spin"&gt;&lt;/i&gt;
+          Loading recommendations...
+        &lt;/div&gt;
+      &lt;/template&gt;
+      
+      &lt;template #error="{ error }"&gt;
+        &lt;div class="error-message"&gt;
+          &lt;p&gt;Failed to load recommendations: {{ error.message }}&lt;/p&gt;
+          &lt;button @click="retryRecommendations"&gt;Retry&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/template&gt;
+    &lt;/EarnlyRecommendations&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+import { ref, computed, onMounted } from 'vue'
+import { useEarnly } from '@earnly/vue-sdk'
+
+interface RecommendationContext {
+  page: string
+  category?: string
+  tags?: string[]
+  userPreferences?: Record&lt;string, any&gt;
+}
+
+interface Recommendation {
+  id: string
+  title: string
+  description: string
+  imageUrl: string
+  price: string
+  clickUrl: string
+  metadata: Record&lt;string, any&gt;
+}
+
+const { trackEvent, getRecommendations, updateUserProfile } = useEarnly()
+
+const context = ref&lt;RecommendationContext&gt;({
+  page: 'product-detail',
+  category: 'electronics',
+  tags: ['smartphone', 'tech'],
+  userPreferences: {
+    priceRange: '$200-$800',
+    brand: 'premium'
+  }
+})
+
+const handleClick = (recommendation: Recommendation) =&gt; {
+  trackEvent('recommendation_click', {
+    recommendationId: recommendation.id,
+    context: context.value,
+    timestamp: Date.now()
+  })
+  
+  // Navigate or perform action
+  window.open(recommendation.clickUrl, '_blank')
+}
+
+const handleLoaded = (recommendations: Recommendation[]) =&gt; {
+  trackEvent('recommendations_displayed', {
+    count: recommendations.length,
+    context: context.value
+  })
+}
+
+const handleError = (error: Error) =&gt; {
+  console.error('Recommendation error:', error)
+  trackEvent('recommendation_error', {
+    error: error.message,
+    context: context.value
+  })
+}
+
+const handleRecommendationClick = (recommendation: Recommendation) =&gt; {
+  handleClick(recommendation)
+}
+
+const retryRecommendations = () =&gt; {
+  // Component will automatically retry
+  trackEvent('recommendation_retry', {
+    context: context.value
+  })
+}
+
+onMounted(() =&gt; {
+  trackEvent('page_view', {
+    page: 'recommendations',
+    context: context.value
+  })
+})
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.recommendations-container {
+  padding: 2rem;
+}
+
+.custom-recommendation-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-recommendation-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  color: #dc2626;
+}
+&lt;/style&gt;</code></pre>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Composition API Usage</h3>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-vue">&lt;script setup lang="ts"&gt;
+import { ref, reactive, computed, watch } from 'vue'
+import { useEarnly } from '@earnly/vue-sdk'
+
+// Initialize Earnly composable
+const { 
+  recommendations, 
+  isLoading, 
+  error, 
+  trackEvent, 
+  updateContext,
+  refreshRecommendations 
+} = useEarnly()
+
+// Reactive context
+const context = reactive({
+  userId: 'user-123',
+  page: 'homepage',
+  category: 'featured',
+  filters: {
+    priceRange: [0, 1000],
+    inStock: true
+  }
+})
+
+// Update recommendations when context changes
+watch(context, (newContext) =&gt; {
+  updateContext(newContext)
+}, { deep: true })
+
+// Computed properties
+const filteredRecommendations = computed(() =&gt; {
+  return recommendations.value.filter(rec =&gt; 
+    rec.metadata.price &lt;= context.filters.priceRange[1]
+  )
+})
+
+// Event handlers
+const handleInteraction = (type: string, data: any) =&gt; {
+  trackEvent(type, {
+    ...data,
+    context: context,
+    timestamp: Date.now()
+  })
+}
+
+// Manual recommendation fetching
+const loadMoreRecommendations = async () =&gt; {
+  try {
+    await refreshRecommendations({
+      ...context,
+      limit: 12,
+      offset: recommendations.value.length
+    })
+  } catch (err) {
+    console.error('Failed to load more recommendations:', err)
+  }
+}
+&lt;/script&gt;</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Advanced Features</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Real-time Updates</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-javascript">// Real-time recommendation updates
+const { enableRealTimeUpdates } = useEarnly()
+
+// Enable WebSocket connection for live updates
+enableRealTimeUpdates({
+  onUpdate: (newRecommendations) =&gt; {
+    // Handle real-time updates
+    console.log('New recommendations:', newRecommendations)
+  },
+  onUserBehaviorChange: (insights) =&gt; {
+    // React to user behavior changes
+    updatePersonalization(insights)
+  }
+})</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Custom Filters</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-javascript">// Advanced filtering
+const customFilters = ref({
+  category: ['electronics', 'accessories'],
+  priceRange: { min: 50, max: 500 },
+  availability: 'in_stock',
+  rating: { min: 4.0 },
+  tags: ['trending', 'new_arrival'],
+  customField: 'premium'
+})
+
+// Apply filters to recommendations
+const { applyFilters } = useEarnly()
+applyFilters(customFilters.value)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="angular-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Angular SDK</h1>
+                        
+                        <div class="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-6 mb-8 border border-red-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fab fa-angular text-2xl text-red-600 mr-3"></i>
+                                <h2 class="text-xl font-semibold text-gray-900">Angular Integration</h2>
+                            </div>
+                            <p class="text-gray-700 mb-4">Enterprise-grade Angular integration with dependency injection, RxJS observables, and Angular CLI support. Fully compatible with Angular 12+.</p>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation & Setup</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-bash"># Install the SDK
+npm install @earnly/angular-sdk
+
+# Install peer dependencies if not already present
+npm install @angular/common @angular/core rxjs</code></pre>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Module Configuration</h3>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-typescript">// app.module.ts
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { EarnlyModule } from '@earnly/angular-sdk'
+
+import { AppComponent } from './app.component'
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    EarnlyModule.forRoot({
+      apiKey: 'your-api-key',
+      userId: 'user-123',
+      environment: 'production',
+      config: {
+        autoTrack: true,
+        enableAnalytics: true,
+        privacyMode: false,
+        retryAttempts: 3,
+        timeout: 5000
+      }
+    })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Service Usage</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-typescript">// recommendation.service.ts
+import { Injectable } from '@angular/core'
+import { Observable, BehaviorSubject } from 'rxjs'
+import { EarnlyService } from '@earnly/angular-sdk'
+
+export interface Recommendation {
+  id: string
+  title: string
+  description: string
+  imageUrl: string
+  price: number
+  category: string
+  metadata: Record&lt;string, any&gt;
+}
+
+export interface RecommendationContext {
+  userId: string
+  page: string
+  category?: string
+  filters?: Record&lt;string, any&gt;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RecommendationService {
+  private contextSubject = new BehaviorSubject&lt;RecommendationContext&gt;({
+    userId: '',
+    page: 'home'
+  })
+
+  public context$ = this.contextSubject.asObservable()
+
+  constructor(private earnly: EarnlyService) {}
+
+  getRecommendations(context?: RecommendationContext): Observable&lt;Recommendation[]&gt; {
+    if (context) {
+      this.updateContext(context)
+    }
+    return this.earnly.getRecommendations(this.contextSubject.value)
+  }
+
+  updateContext(context: Partial&lt;RecommendationContext&gt;): void {
+    const currentContext = this.contextSubject.value
+    this.contextSubject.next({ ...currentContext, ...context })
+  }
+
+  trackInteraction(event: string, data: any): void {
+    this.earnly.trackEvent(event, {
+      ...data,
+      context: this.contextSubject.value,
+      timestamp: Date.now()
+    })
+  }
+
+  updateUserProfile(profile: Record&lt;string, any&gt;): Observable&lt;any&gt; {
+    return this.earnly.updateUserProfile(profile)
+  }
+}</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Component Implementation</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-typescript">// recommendations.component.ts
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core'
+import { Observable, Subject, combineLatest } from 'rxjs'
+import { takeUntil, switchMap, startWith, catchError } from 'rxjs/operators'
+import { RecommendationService, Recommendation, RecommendationContext } from './recommendation.service'
+
+@Component({
+  selector: 'app-recommendations',
+  templateUrl: './recommendations.component.html',
+  styleUrls: ['./recommendations.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class RecommendationsComponent implements OnInit, OnDestroy {
+  @Input() context: RecommendationContext = { userId: '', page: 'default' }
+  @Input() maxRecommendations: number = 6
+  @Input() layout: 'grid' | 'list' | 'carousel' = 'grid'
+  @Input() enableTracking: boolean = true
+  
+  @Output() recommendationClick = new EventEmitter&lt;Recommendation&gt;()
+  @Output() recommendationsLoaded = new EventEmitter&lt;Recommendation[]&gt;()
+  @Output() error = new EventEmitter&lt;Error&gt;()
+
+  recommendations$: Observable&lt;Recommendation[]&gt;
+  isLoading = true
+  hasError = false
+  
+  private destroy$ = new Subject&lt;void&gt;()
+  private refresh$ = new Subject&lt;void&gt;()
+
+  constructor(
+    private recommendationService: RecommendationService
+  ) {
+    this.recommendations$ = combineLatest([
+      this.recommendationService.context$,
+      this.refresh$.pipe(startWith(null))
+    ]).pipe(
+      switchMap(() =&gt; this.recommendationService.getRecommendations()),
+      catchError((error) =&gt; {
+        this.hasError = true
+        this.error.emit(error)
+        return []
+      }),
+      takeUntil(this.destroy$)
+    )
+  }
+
+  ngOnInit(): void {
+    if (this.context) {
+      this.recommendationService.updateContext(this.context)
+    }
+
+    this.recommendations$.subscribe({
+      next: (recommendations) =&gt; {
+        this.isLoading = false
+        this.hasError = false
+        this.recommendationsLoaded.emit(recommendations.slice(0, this.maxRecommendations))
+      },
+      error: (error) =&gt; {
+        this.isLoading = false
+        this.hasError = true
+        this.error.emit(error)
+      }
+    })
+
+    // Track component view
+    if (this.enableTracking) {
+      this.recommendationService.trackInteraction('recommendations_view', {
+        component: 'RecommendationsComponent',
+        layout: this.layout,
+        maxRecommendations: this.maxRecommendations
+      })
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next()
+    this.destroy$.complete()
+  }
+
+  onRecommendationClick(recommendation: Recommendation): void {
+    if (this.enableTracking) {
+      this.recommendationService.trackInteraction('recommendation_click', {
+        recommendationId: recommendation.id,
+        title: recommendation.title,
+        category: recommendation.category,
+        position: 0 // You might want to track position
+      })
+    }
+    
+    this.recommendationClick.emit(recommendation)
+  }
+
+  refresh(): void {
+    this.isLoading = true
+    this.hasError = false
+    this.refresh$.next()
+  }
+
+  trackByRecommendation(index: number, recommendation: Recommendation): string {
+    return recommendation.id
+  }
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Template Example</h3>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-html">&lt;!-- recommendations.component.html --&gt;
+&lt;div class="recommendations-container" [class]="'layout-' + layout"&gt;
+  &lt;div class="header" *ngIf="!isLoading && !hasError"&gt;
+    &lt;h2&gt;Recommended for You&lt;/h2&gt;
+    &lt;button 
+      class="refresh-button" 
+      (click)="refresh()" 
+      [disabled]="isLoading"
+      aria-label="Refresh recommendations"
+    &gt;
+      &lt;i class="fas fa-sync-alt" [class.fa-spin]="isLoading"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class="loading-state" *ngIf="isLoading"&gt;
+    &lt;div class="spinner"&gt;&lt;/div&gt;
+    &lt;p&gt;Loading personalized recommendations...&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="error-state" *ngIf="hasError && !isLoading"&gt;
+    &lt;div class="error-icon"&gt;
+      &lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Unable to load recommendations&lt;/p&gt;
+    &lt;button class="retry-button" (click)="refresh()"&gt;
+      Try Again
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div 
+    class="recommendations-grid" 
+    *ngIf="recommendations$ | async as recommendations; else noRecommendations"
+  &gt;
+    &lt;div 
+      class="recommendation-card"
+      *ngFor="let recommendation of recommendations | slice:0:maxRecommendations; trackBy: trackByRecommendation"
+      (click)="onRecommendationClick(recommendation)"
+      [attr.data-recommendation-id]="recommendation.id"
+    &gt;
+      &lt;div class="image-container"&gt;
+        &lt;img 
+          [src]="recommendation.imageUrl" 
+          [alt]="recommendation.title"
+          loading="lazy"
+          onerror="this.src='assets/placeholder-image.png'"
+        /&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="content"&gt;
+        &lt;h3 class="title">{{ recommendation.title }}&lt;/h3&gt;
+        &lt;p class="description">{{ recommendation.description }}&lt;/p&gt;
+        
+        &lt;div class="metadata"&gt;
+          &lt;span class="price" *ngIf="recommendation.price"&gt;
+            {{ recommendation.price | currency }}
+          &lt;/span&gt;
+          &lt;span class="category">{{ recommendation.category }}&lt;/span&gt;
+        &lt;/div&gt;
+        
+        &lt;button class="cta-button" type="button"&gt;
+          Learn More
+          &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;ng-template #noRecommendations&gt;
+    &lt;div class="no-recommendations" *ngIf="!isLoading && !hasError"&gt;
+      &lt;p&gt;No recommendations available at this time.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                        
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-blue-800 mb-2">Angular Best Practices</h4>
+                            <ul class="text-blue-700 text-sm space-y-1">
+                                <li>• Use OnPush change detection for better performance</li>
+                                <li>• Implement proper unsubscription patterns with takeUntil</li>
+                                <li>• Leverage Angular's dependency injection for services</li>
+                                <li>• Use trackBy functions for ngFor performance optimization</li>
+                                <li>• Handle loading and error states appropriately</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="nodejs-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Node.js SDK</h1>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-6 mb-8 border border-green-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fab fa-node-js text-2xl text-green-600 mr-3"></i>
+                                <h2 class="text-xl font-semibold text-gray-900">Server-Side Integration</h2>
+                            </div>
+                            <p class="text-gray-700 mb-4">Full-featured Node.js SDK for server-side recommendation generation, user tracking, and advanced analytics. Supports Express, Koa, Fastify, and other Node.js frameworks.</p>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-bash">npm install @earnly/node-sdk
+# or
+yarn add @earnly/node-sdk</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Quick Start</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">const { EarnlyClient } = require('@earnly/node-sdk')
+
+// Initialize the client
+const earnly = new EarnlyClient({
+  apiKey: process.env.EARNLY_API_KEY,
+  environment: 'production', // or 'sandbox'
+  options: {
+    timeout: 5000,
+    retryAttempts: 3,
+    enableLogging: true,
+    cacheEnabled: true,
+    cacheTTL: 300 // 5 minutes
+  }
+})
+
+// Basic recommendation request
+async function getRecommendations(userId, context) {
+  try {
+    const recommendations = await earnly.getRecommendations({
+      userId,
+      context: {
+        page: 'product-detail',
+        category: 'electronics',
+        currentProduct: 'smartphone-123',
+        userAgent: context.userAgent,
+        ipAddress: context.ipAddress
+      },
+      options: {
+        maxRecommendations: 6,
+        includeMetadata: true,
+        personalized: true
+      }
+    })
+    
+    return recommendations
+  } catch (error) {
+    console.error('Failed to fetch recommendations:', error)
+    throw error
+  }
+}</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Express.js Integration</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">const express = require('express')
+const { EarnlyClient, EarnlyMiddleware } = require('@earnly/node-sdk')
+
+const app = express()
+const earnly = new EarnlyClient({
+  apiKey: process.env.EARNLY_API_KEY,
+  environment: process.env.NODE_ENV === 'production' ? 'production' : 'sandbox'
+})
+
+// Add Earnly middleware for automatic tracking
+app.use(EarnlyMiddleware({
+  client: earnly,
+  autoTrack: {
+    pageViews: true,
+    userSessions: true,
+    apiCalls: false
+  },
+  excludePaths: ['/health', '/metrics', '/admin']
+}))
+
+// Recommendations endpoint
+app.get('/api/recommendations/:userId', async (req, res) =&gt; {
+  try {
+    const { userId } = req.params
+    const { category, page, limit = 6 } = req.query
+    
+    // Extract context from request
+    const context = {
+      userId,
+      page: page || 'homepage',
+      category,
+      userAgent: req.get('User-Agent'),
+      ipAddress: req.ip,
+      referrer: req.get('Referer'),
+      sessionId: req.sessionID,
+      timestamp: Date.now()
+    }
+    
+    // Get personalized recommendations
+    const recommendations = await earnly.getRecommendations({
+      userId,
+      context,
+      options: {
+        maxRecommendations: parseInt(limit),
+        includeMetadata: true,
+        personalized: true,
+        filterSeen: true // Exclude previously seen recommendations
+      }
+    })
+    
+    // Track recommendation request
+    await earnly.trackEvent('recommendations_requested', {
+      userId,
+      context,
+      recommendationCount: recommendations.length
+    })
+    
+    res.json({
+      success: true,
+      data: recommendations,
+      metadata: {
+        userId,
+        timestamp: Date.now(),
+        count: recommendations.length
+      }
+    })
+    
+  } catch (error) {
+    console.error('Recommendation API error:', error)
+    res.status(500).json({
+      success: false,
+      error: error.message
+    })
+  }
+})
+
+// Event tracking endpoint
+app.post('/api/track', async (req, res) =&gt; {
+  try {
+    const { event, userId, data } = req.body
+    
+    if (!event || !userId) {
+      return res.status(400).json({
+        success: false,
+        error: 'Event and userId are required'
+      })
+    }
+    
+    await earnly.trackEvent(event, {
+      userId,
+      ...data,
+      timestamp: Date.now(),
+      source: 'api'
+    })
+    
+    res.json({ success: true })
+    
+  } catch (error) {
+    console.error('Event tracking error:', error)
+    res.status(500).json({
+      success: false,
+      error: error.message
+    })
+  }
+})
+
+// User profile update endpoint
+app.put('/api/users/:userId/profile', async (req, res) =&gt; {
+  try {
+    const { userId } = req.params
+    const profileData = req.body
+    
+    await earnly.updateUserProfile(userId, {
+      ...profileData,
+      lastUpdated: Date.now()
+    })
+    
+    res.json({ success: true })
+    
+  } catch (error) {
+    console.error('Profile update error:', error)
+    res.status(500).json({
+      success: false,
+      error: error.message
+    })
+  }
+})
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () =&gt; {
+  console.log(\`Server running on port \${PORT}\`)
+})</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Advanced Features</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Batch Operations</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-javascript">// Batch recommendation requests
+const batchResults = await earnly.batchRecommendations([
+  { userId: 'user1', context: { page: 'home' } },
+  { userId: 'user2', context: { page: 'product' } },
+  { userId: 'user3', context: { page: 'cart' } }
+])
+
+// Batch event tracking
+await earnly.batchTrackEvents([
+  { event: 'page_view', userId: 'user1', data: {} },
+  { event: 'product_click', userId: 'user2', data: {} },
+  { event: 'purchase', userId: 'user3', data: {} }
+])</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Caching & Performance</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-javascript">// Configure caching
+const earnly = new EarnlyClient({
+  apiKey: process.env.EARNLY_API_KEY,
+  cache: {
+    enabled: true,
+    ttl: 600, // 10 minutes
+    type: 'redis', // or 'memory'
+    redisUrl: process.env.REDIS_URL
+  }
+})
+
+// Manual cache control
+await earnly.cache.set('user:123:recommendations', data, 300)
+const cached = await earnly.cache.get('user:123:recommendations')</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="go-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Go SDK</h1>
+                        
+                        <div class="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-6 mb-8 border border-cyan-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fab fa-golang text-2xl text-cyan-600 mr-3"></i>
+                                <h2 class="text-xl font-semibold text-gray-900">Go Integration</h2>
+                            </div>
+                            <p class="text-gray-700 mb-4">High-performance Go SDK optimized for microservices and cloud-native applications.</p>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-bash">go get github.com/getearnly/earnly-go-sdk</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Basic Usage</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-go">package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "github.com/getearnly/earnly-go-sdk"
+)
+
+func main() {
+    client, err := earnly.NewClient(&earnly.Config{
+        APIKey:      "your-api-key",
+        Environment: earnly.Production,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer client.Close()
+
+    recommendations, err := client.GetRecommendations(context.Background(), &earnly.RecommendationRequest{
+        UserID: "user-123",
+        Context: map[string]interface{}{
+            "page": "homepage",
+        },
+    })
+    
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Found %d recommendations", len(recommendations))
+}</code></pre>
+                        </div>
+
+                        <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-cyan-800 mb-2">Go Best Practices</h4>
+                            <ul class="text-cyan-700 text-sm space-y-1">
+                                <li>• Use context for request cancellation and timeouts</li>
+                                <li>• Implement proper error handling with wrapped errors</li>
+                                <li>• Leverage goroutines for concurrent processing</li>
+                                <li>• Configure connection pools for high-throughput scenarios</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="php-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">PHP SDK</h1>
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-bash">go get github.com/getearnly/earnly-go-sdk
+
+# Or with specific version
+go get github.com/getearnly/earnly-go-sdk@v1.2.0</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Quick Start</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-go">package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+
+    "github.com/getearnly/earnly-go-sdk"
+)
+
+func main() {
+    // Initialize client with configuration
+    client, err := earnly.NewClient(&earnly.Config{
+        APIKey:      "your-api-key",
+        Environment: earnly.Production, // or earnly.Sandbox
+        Timeout:     5 * time.Second,
+        RetryAttempts: 3,
+        EnableLogging: true,
+    })
+    if err != nil {
+        log.Fatal("Failed to create client:", err)
+    }
+    defer client.Close()
+
+    // Create context for the request
+    ctx := context.Background()
+
+    // Get recommendations
+    recommendations, err := client.GetRecommendations(ctx, &earnly.RecommendationRequest{
+        UserID: "user-123",
+        Context: map[string]interface{}{
+            "page":     "homepage",
+            "category": "electronics",
+            "userAgent": "Mozilla/5.0...",
+            "ipAddress": "192.168.1.1",
+        },
+        Options: &earnly.RecommendationOptions{
+            MaxRecommendations: 6,
+            Personalized:      true,
+            IncludeMetadata:   true,
+        },
+    })
+    if err != nil {
+        log.Fatal("Failed to get recommendations:", err)
+    }
+
+    fmt.Printf("Found %d recommendations\n", len(recommendations))
+    for _, rec := range recommendations {
+        fmt.Printf("- %s (ID: %s)\n", rec.Title, rec.ID)
+    }
+
+    // Track user event
+    err = client.TrackEvent(ctx, &earnly.Event{
+        Name:   "recommendations_viewed",
+        UserID: "user-123",
+        Data: map[string]interface{}{
+            "page":               "homepage",
+            "recommendationCount": len(recommendations),
+            "timestamp":          time.Now().Unix(),
+        },
+    })
+    if err != nil {
+        log.Printf("Failed to track event: %v", err)
+    }
+}</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">HTTP Server Integration</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-go">package main
+
+import (
+    "context"
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "strconv"
+    "time"
+
+    "github.com/getearnly/earnly-go-sdk"
+    "github.com/gorilla/mux"
+)
+
+type Server struct {
+    client *earnly.Client
+}
+
+func NewServer(apiKey string) (*Server, error) {
+    client, err := earnly.NewClient(&earnly.Config{
+        APIKey:        apiKey,
+        Environment:   earnly.Production,
+        Timeout:       5 * time.Second,
+        RetryAttempts: 3,
+        EnableLogging: true,
+    })
+    if err != nil {
+        return nil, err
+    }
+
+    return &Server{client: client}, nil
+}
+
+// RecommendationResponse represents the API response
+type RecommendationResponse struct {
+    Success         bool                      \`json:"success"\`
+    Recommendations []earnly.Recommendation   \`json:"recommendations"\`
+    Count           int                       \`json:"count"\`
+    Error           string                    \`json:"error,omitempty"\`
+}
+
+// GetRecommendations handles GET /api/recommendations/{userID}
+func (s *Server) GetRecommendations(w http.ResponseWriter, r *http.Request) {
+    vars := mux.Vars(r)
+    userID := vars["userID"]
+    
+    if userID == "" {
+        http.Error(w, "User ID is required", http.StatusBadRequest)
+        return
+    }
+
+    // Parse query parameters
+    category := r.URL.Query().Get("category")
+    page := r.URL.Query().Get("page")
+    if page == "" {
+        page = "homepage"
+    }
+    
+    limitStr := r.URL.Query().Get("limit")
+    limit := 6
+    if limitStr != "" {
+        if l, err := strconv.Atoi(limitStr); err == nil {
+            limit = l
+        }
+    }
+
+    // Build context from request
+    context := map[string]interface{}{
+        "page":      page,
+        "userAgent": r.Header.Get("User-Agent"),
+        "ipAddress": getClientIP(r),
+        "referrer":  r.Header.Get("Referer"),
+        "timestamp": time.Now().Unix(),
+    }
+    
+    if category != "" {
+        context["category"] = category
+    }
+
+    // Get recommendations
+    recommendations, err := s.client.GetRecommendations(r.Context(), &earnly.RecommendationRequest{
+        UserID:  userID,
+        Context: context,
+        Options: &earnly.RecommendationOptions{
+            MaxRecommendations: limit,
+            Personalized:      true,
+            IncludeMetadata:   true,
+            FilterSeen:        true,
+        },
+    })
+
+    response := RecommendationResponse{
+        Success: err == nil,
+        Count:   len(recommendations),
+    }
+
+    if err != nil {
+        response.Error = err.Error()
+        w.WriteHeader(http.StatusInternalServerError)
+    } else {
+        response.Recommendations = recommendations
+        
+        // Track the recommendation request
+        go s.trackEventAsync(r.Context(), &earnly.Event{
+            Name:   "recommendations_requested",
+            UserID: userID,
+            Data: map[string]interface{}{
+                "context": context,
+                "count":   len(recommendations),
+            },
+        })
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(response)
+}
+
+// TrackEvent handles POST /api/track
+func (s *Server) TrackEvent(w http.ResponseWriter, r *http.Request) {
+    var eventRequest struct {
+        Event  string                 \\`json:\"event\"\\`
+        UserID string                 \\`json:\"userId\"\\`
+        Data   map[string]interface{} \\`json:\"data\"\\`
+    }
+
+    if err := json.NewDecoder(r.Body).Decode(&eventRequest); err != nil {
+        http.Error(w, "Invalid JSON", http.StatusBadRequest)
+        return
+    }
+
+    if eventRequest.Event == "" || eventRequest.UserID == "" {
+        http.Error(w, "Event and userID are required", http.StatusBadRequest)
+        return
+    }
+
+    // Add timestamp if not provided
+    if eventRequest.Data == nil {
+        eventRequest.Data = make(map[string]interface{})
+    }
+    eventRequest.Data["timestamp"] = time.Now().Unix()
+    eventRequest.Data["source"] = "go-api"
+
+    err := s.client.TrackEvent(r.Context(), &earnly.Event{
+        Name:   eventRequest.Event,
+        UserID: eventRequest.UserID,
+        Data:   eventRequest.Data,
+    })
+
+    response := map[string]interface{}{
+        "success": err == nil,
+    }
+
+    if err != nil {
+        response["error"] = err.Error()
+        w.WriteHeader(http.StatusInternalServerError)
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(response)
+}
+
+func (s *Server) trackEventAsync(ctx context.Context, event *earnly.Event) {
+    if err := s.client.TrackEvent(ctx, event); err != nil {
+        log.Printf("Failed to track event: %v", err)
+    }
+}
+
+func getClientIP(r *http.Request) string {
+    // Check X-Forwarded-For header first
+    forwarded := r.Header.Get("X-Forwarded-For")
+    if forwarded != "" {
+        return forwarded
+    }
+    
+    // Check X-Real-IP header
+    realIP := r.Header.Get("X-Real-IP")
+    if realIP != "" {
+        return realIP
+    }
+    
+    // Fall back to RemoteAddr
+    return r.RemoteAddr
+}
+
+func main() {
+    server, err := NewServer("your-api-key")
+    if err != nil {
+        log.Fatal("Failed to create server:", err)
+    }
+
+    r := mux.NewRouter()
+    
+    // API routes
+    api := r.PathPrefix("/api").Subrouter()
+    api.HandleFunc("/recommendations/{userID}", server.GetRecommendations).Methods("GET")
+    api.HandleFunc("/track", server.TrackEvent).Methods("POST")
+    
+    // Add CORS middleware
+    r.Use(func(next http.Handler) http.Handler {
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+            w.Header().Set("Access-Control-Allow-Origin", "*")
+            w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+            w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+            
+            if r.Method == "OPTIONS" {
+                return
+            }
+            
+            next.ServeHTTP(w, r)
+        })
+    })
+
+    fmt.Println("Server starting on :8080")
+    log.Fatal(http.ListenAndServe(":8080", r))
+}</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Advanced Features</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Concurrent Processing</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-go">// Batch process multiple users concurrently
+type UserRequest struct {
+    UserID  string
+    Context map[string]interface{}
+}
+
+func (s *Server) BatchRecommendations(
+    ctx context.Context, 
+    requests []UserRequest
+) ([][]earnly.Recommendation, error) {
+    results := make([][]earnly.Recommendation, len(requests))
+    errChan := make(chan error, len(requests))
+    
+    var wg sync.WaitGroup
+    for i, req := range requests {
+        wg.Add(1)
+        go func(index int, userReq UserRequest) {
+            defer wg.Done()
+            
+            recs, err := s.client.GetRecommendations(ctx, &earnly.RecommendationRequest{
+                UserID:  userReq.UserID,
+                Context: userReq.Context,
+                Options: &earnly.RecommendationOptions{
+                    MaxRecommendations: 6,
+                    Personalized:      true,
+                },
+            })
+            
+            if err != nil {
+                errChan <- err
+                return
+            }
+            
+            results[index] = recs
+        }(i, req)
+    }
+    
+    wg.Wait()
+    close(errChan)
+    
+    // Check for errors
+    if err := <-errChan; err != nil {
+        return nil, err
+    }
+    
+    return results, nil
+}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Connection Pool & Circuit Breaker</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-go">// Advanced client configuration
+client, err := earnly.NewClient(&earnly.Config{
+    APIKey:      "your-api-key",
+    Environment: earnly.Production,
+    
+    // HTTP client settings
+    Timeout:         5 * time.Second,
+    IdleTimeout:     90 * time.Second,
+    MaxIdleConns:    100,
+    MaxConnsPerHost: 10,
+    
+    // Retry and circuit breaker
+    RetryAttempts:    3,
+    RetryDelay:       time.Second,
+    CircuitBreaker: &earnly.CircuitBreakerConfig{
+        FailureThreshold: 5,
+        ResetTimeout:     30 * time.Second,
+    },
+    
+    // Caching
+    Cache: &earnly.CacheConfig{
+        Enabled: true,
+        TTL:     5 * time.Minute,
+        MaxSize: 1000,
+    },
+})</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="php-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">PHP SDK</h1>
+                        
+                        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-6 mb-8 border border-purple-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fab fa-php text-2xl text-purple-600 mr-3"></i>
+                                <h2 class="text-xl font-semibold text-gray-900">PHP Integration</h2>
+                            </div>
+                            <p class="text-gray-700 mb-4">Robust PHP SDK with support for Laravel, Symfony, WordPress, and vanilla PHP. Features PSR-4 autoloading, Composer integration, and enterprise-grade caching.</p>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-bash">composer require earnly/php-sdk
+
+# Or with specific version
+composer require earnly/php-sdk:^1.0</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Basic Usage</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-php">&lt;?php
+
+require_once 'vendor/autoload.php';
+
+use Earnly\Client\EarnlyClient;
+use Earnly\Configuration\Configuration;
+use Earnly\Model\RecommendationRequest;
+use Earnly\Model\Event;
+
+// Initialize the client
+$config = new Configuration([
+    'api_key' =&gt; 'your-api-key',
+    'environment' =&gt; 'production', // or 'sandbox'
+    'timeout' =&gt; 5.0,
+    'retry_attempts' =&gt; 3,
+    'enable_logging' =&gt; true,
+    'cache_enabled' =&gt; true,
+    'cache_ttl' =&gt; 300
+]);
+
+$client = new EarnlyClient($config);
+
+/**
+ * Get personalized recommendations for a user
+ */
+function getRecommendations($client, $userId, $context = []) {
+    try {
+        $request = new RecommendationRequest([
+            'user_id' =&gt; $userId,
+            'context' =&gt; array_merge([
+                'page' =&gt; 'homepage',
+                'timestamp' =&gt; time()
+            ], $context),
+            'options' =&gt; [
+                'max_recommendations' =&gt; 6,
+                'personalized' =&gt; true,
+                'include_metadata' =&gt; true,
+                'filter_seen' =&gt; true
+            ]
+        ]);
+        
+        $recommendations = $client-&gt;getRecommendations($request);
+        return $recommendations;
+        
+    } catch (Exception $e) {
+        error_log('Failed to fetch recommendations: ' . $e-&gt;getMessage());
+        return [];
+    }
+}
+
+/**
+ * Track user events
+ */
+function trackEvent($client, $eventName, $userId, $data = []) {
+    try {
+        $event = new Event([
+            'name' =&gt; $eventName,
+            'user_id' =&gt; $userId,
+            'data' =&gt; array_merge($data, [
+                'timestamp' =&gt; time(),
+                'source' =&gt; 'php-sdk'
+            ])
+        ]);
+        
+        $client-&gt;trackEvent($event);
+        return true;
+        
+    } catch (Exception $e) {
+        error_log('Failed to track event: ' . $e-&gt;getMessage());
+        return false;
+    }
+}
+
+// Example usage
+$userId = 'user-123';
+$context = [
+    'category' =&gt; 'electronics',
+    'user_agent' =&gt; $_SERVER['HTTP_USER_AGENT'] ?? '',
+    'ip_address' =&gt; $_SERVER['REMOTE_ADDR'] ?? '',
+    'referrer' =&gt; $_SERVER['HTTP_REFERER'] ?? ''
+];
+
+// Get recommendations
+$recommendations = getRecommendations($client, $userId, $context);
+echo "Found " . count($recommendations) . " recommendations\n";
+
+// Track page view
+trackEvent($client, 'page_view', $userId, [
+    'page' =&gt; 'homepage',
+    'category' =&gt; 'electronics'
+]);</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Laravel Integration</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-php">&lt;?php
+
+// config/earnly.php
+return [
+    'api_key' =&gt; env('EARNLY_API_KEY'),
+    'environment' =&gt; env('EARNLY_ENVIRONMENT', 'production'),
+    'timeout' =&gt; 5.0,
+    'retry_attempts' =&gt; 3,
+    'enable_logging' =&gt; env('EARNLY_LOGGING', true),
+    'cache_enabled' =&gt; true,
+    'cache_store' =&gt; 'redis', // Laravel cache store
+    'cache_ttl' =&gt; 300
+];
+
+// app/Providers/EarnlyServiceProvider.php
+&lt;?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Earnly\Laravel\EarnlyLaravelClient;
+use Earnly\Configuration\Configuration;
+
+class EarnlyServiceProvider extends ServiceProvider
+{
+    public function register()
+    {
+        $this-&gt;app-&gt;singleton(EarnlyLaravelClient::class, function ($app) {
+            $config = new Configuration(config('earnly'));
+            return new EarnlyLaravelClient($config);
+        });
+    }
+
+    public function boot()
+    {
+        $this-&gt;publishes([
+            __DIR__ . '/../../config/earnly.php' =&gt; config_path('earnly.php'),
+        ], 'earnly-config');
+    }
+}
+
+// app/Http/Controllers/RecommendationController.php
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Earnly\Laravel\EarnlyLaravelClient;
+use Earnly\Model\RecommendationRequest as EarnlyRecommendationRequest;
+use App\Http\Controllers\Controller;
+
+class RecommendationController extends Controller
+{
+    private $earnlyClient;
+
+    public function __construct(EarnlyLaravelClient $earnlyClient)
+    {
+        $this-&gt;earnlyClient = $earnlyClient;
+    }
+
+    /**
+     * Get recommendations for a user
+     */
+    public function getRecommendations(Request $request, $userId): JsonResponse
+    {
+        $request-&gt;validate([
+            'category' =&gt; 'sometimes|string',
+            'page' =&gt; 'sometimes|string',
+            'limit' =&gt; 'sometimes|integer|min:1|max:20'
+        ]);
+
+        try {
+            $context = [
+                'page' =&gt; $request-&gt;input('page', 'homepage'),
+                'category' =&gt; $request-&gt;input('category'),
+                'user_agent' =&gt; $request-&gt;userAgent(),
+                'ip_address' =&gt; $request-&gt;ip(),
+                'session_id' =&gt; $request-&gt;session()-&gt;getId(),
+                'timestamp' =&gt; time()
+            ];
+
+            // Remove null values
+            $context = array_filter($context);
+
+            $recommendationRequest = new EarnlyRecommendationRequest([
+                'user_id' =&gt; $userId,
+                'context' =&gt; $context,
+                'options' =&gt; [
+                    'max_recommendations' =&gt; $request-&gt;input('limit', 6),
+                    'personalized' =&gt; true,
+                    'include_metadata' =&gt; true,
+                    'filter_seen' =&gt; true
+                ]
+            ]);
+
+            $recommendations = $this-&gt;earnlyClient-&gt;getRecommendations($recommendationRequest);
+
+            // Track the recommendation request
+            $this-&gt;earnlyClient-&gt;trackEventAsync('recommendations_viewed', $userId, [
+                'context' =&gt; $context,
+                'recommendation_count' =&gt; count($recommendations)
+            ]);
+
+            return response()-&gt;json([
+                'success' =&gt; true,
+                'data' =&gt; $recommendations,
+                'count' =&gt; count($recommendations),
+                'user_id' =&gt; $userId
+            ]);
+
+        } catch (\Exception $e) {
+            \Log::error('Recommendation fetch failed', [
+                'user_id' =&gt; $userId,
+                'error' =&gt; $e-&gt;getMessage()
+            ]);
+
+            return response()-&gt;json([
+                'success' =&gt; false,
+                'error' =&gt; 'Failed to fetch recommendations'
+            ], 500);
+        }
+    }
+
+    /**
+     * Track user events
+     */
+    public function trackEvent(Request $request): JsonResponse
+    {
+        $request-&gt;validate([
+            'event' =&gt; 'required|string',
+            'user_id' =&gt; 'required|string',
+            'data' =&gt; 'sometimes|array'
+        ]);
+
+        try {
+            $this-&gt;earnlyClient-&gt;trackEvent(
+                $request-&gt;input('event'),
+                $request-&gt;input('user_id'),
+                array_merge(
+                    $request-&gt;input('data', []),
+                    [
+                        'timestamp' =&gt; time(),
+                        'source' =&gt; 'laravel-api',
+                        'ip_address' =&gt; $request-&gt;ip()
+                    ]
+                )
+            );
+
+            return response()-&gt;json(['success' =&gt; true]);
+
+        } catch (\Exception $e) {
+            \Log::error('Event tracking failed', [
+                'event' =&gt; $request-&gt;input('event'),
+                'user_id' =&gt; $request-&gt;input('user_id'),
+                'error' =&gt; $e-&gt;getMessage()
+            ]);
+
+            return response()-&gt;json([
+                'success' =&gt; false,
+                'error' =&gt; 'Failed to track event'
+            ], 500);
+        }
+    }
+}
+
+// routes/api.php
+Route::middleware('api')-&gt;group(function () {
+    Route::get('recommendations/{userId}', [RecommendationController::class, 'getRecommendations']);
+    Route::post('track', [RecommendationController::class, 'trackEvent']);
+});</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">WordPress Plugin</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-php">&lt;?php
+/**
+ * Plugin Name: Earnly Recommendations
+ * Description: AI-powered content and product recommendations for WordPress
+ * Version: 1.0.0
+ * Author: Earnly
+ */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
+
+use Earnly\Client\EarnlyClient;
+use Earnly\Configuration\Configuration;
+use Earnly\Model\RecommendationRequest;
+
+class EarnlyWordPressPlugin
+{
+    private $client;
+    
+    public function __construct()
+    {
+        add_action('init', [$this, 'init']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+        add_shortcode('earnly_recommendations', [$this, 'recommendations_shortcode']);
+        add_action('wp_ajax_earnly_track', [$this, 'handle_track_event']);
+        add_action('wp_ajax_nopriv_earnly_track', [$this, 'handle_track_event']);
+    }
+    
+    public function init()
+    {
+        $config = new Configuration([
+            'api_key' =&gt; get_option('earnly_api_key'),
+            'environment' =&gt; get_option('earnly_environment', 'production'),
+            'timeout' =&gt; 5.0,
+            'cache_enabled' =&gt; true,
+            'cache_ttl' =&gt; 300
+        ]);
+        
+        $this-&gt;client = new EarnlyClient($config);
+    }
+    
+    public function enqueue_scripts()
+    {
+        wp_enqueue_script(
+            'earnly-recommendations',
+            plugin_dir_url(__FILE__) . 'assets/earnly-recommendations.js',
+            ['jquery'],
+            '1.0.0',
+            true
+        );
+        
+        wp_localize_script('earnly-recommendations', 'earnly_ajax', [
+            'ajax_url' =&gt; admin_url('admin-ajax.php'),
+            'nonce' =&gt; wp_create_nonce('earnly_nonce')
+        ]);
+    }
+    
+    /**
+     * Shortcode: [earnly_recommendations user_id="123" category="products" limit="6"]
+     */
+    public function recommendations_shortcode($atts)
+    {
+        $atts = shortcode_atts([
+            'user_id' =&gt; get_current_user_id(),
+            'category' =&gt; '',
+            'limit' =&gt; 6,
+            'layout' =&gt; 'grid',
+            'show_images' =&gt; true
+        ], $atts);
+        
+        if (empty($atts['user_id'])) {
+            return '&lt;p&gt;User ID required for recommendations&lt;/p&gt;';
+        }
+        
+        try {
+            $context = [
+                'page' =&gt; is_home() ? 'homepage' : get_post_type(),
+                'category' =&gt; $atts['category'],
+                'post_id' =&gt; get_the_ID(),
+                'user_agent' =&gt; $_SERVER['HTTP_USER_AGENT'] ?? '',
+                'timestamp' =&gt; time()
+            ];
+            
+            $request = new RecommendationRequest([
+                'user_id' =&gt; $atts['user_id'],
+                'context' =&gt; array_filter($context),
+                'options' =&gt; [
+                    'max_recommendations' =&gt; intval($atts['limit']),
+                    'personalized' =&gt; true,
+                    'include_metadata' =&gt; true
+                ]
+            ]);
+            
+            $recommendations = $this-&gt;client-&gt;getRecommendations($request);
+            
+            return $this-&gt;render_recommendations($recommendations, $atts);
+            
+        } catch (Exception $e) {
+            error_log('Earnly WordPress error: ' . $e-&gt;getMessage());
+            return '&lt;p&gt;Unable to load recommendations&lt;/p&gt;';
+        }
+    }
+    
+    private function render_recommendations($recommendations, $atts)
+    {
+        if (empty($recommendations)) {
+            return '&lt;p&gt;No recommendations available&lt;/p&gt;';
+        }
+        
+        $html = '&lt;div class="earnly-recommendations layout-' . esc_attr($atts['layout']) . '"&gt;';
+        $html .= '&lt;h3&gt;Recommended for You&lt;/h3&gt;';
+        $html .= '&lt;div class="recommendations-grid"&gt;';
+        
+        foreach ($recommendations as $rec) {
+            $html .= '&lt;div class="recommendation-item" data-id="' . esc_attr($rec['id']) . '"&gt;';
+            
+            if ($atts['show_images'] && !empty($rec['image_url'])) {
+                $html .= '&lt;img src="' . esc_url($rec['image_url']) . '" alt="' . esc_attr($rec['title']) . '" /&gt;';
+            }
+            
+            $html .= '&lt;h4&gt;&lt;a href="' . esc_url($rec['click_url']) . '" class="recommendation-link"&gt;';
+            $html .= esc_html($rec['title']) . '&lt;/a&gt;&lt;/h4&gt;';
+            $html .= '&lt;p&gt;' . esc_html($rec['description']) . '&lt;/p&gt;';
+            $html .= '&lt;/div&gt;';
+        }
+        
+        $html .= '&lt;/div&gt;&lt;/div&gt;';
+        
+        return $html;
+    }
+    
+    public function handle_track_event()
+    {
+        if (!wp_verify_nonce($_POST['nonce'], 'earnly_nonce')) {
+            wp_die('Security check failed');
+        }
+        
+        $event = sanitize_text_field($_POST['event']);
+        $userId = sanitize_text_field($_POST['user_id']);
+        $data = json_decode(stripslashes($_POST['data']), true);
+        
+        try {
+            $this-&gt;client-&gt;trackEvent($event, $userId, $data);
+            wp_send_json_success();
+        } catch (Exception $e) {
+            wp_send_json_error($e-&gt;getMessage());
+        }
+    }
+}
+
+// Initialize the plugin
+new EarnlyWordPressPlugin();</code></pre>
+                        </div>
+                        
+                        <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-indigo-800 mb-2">PHP Best Practices</h4>
+                            <ul class="text-indigo-700 text-sm space-y-1">
+                                <li>• Use Composer for dependency management</li>
+                                <li>• Follow PSR-4 autoloading standards</li>
+                                <li>• Implement proper error handling and logging</li>
+                                <li>• Use type hints and return types for better code quality</li>
+                                <li>• Leverage framework-specific features (Laravel facades, WordPress hooks)</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="python-sdk" class="content-section hidden">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-6">Python SDK</h1>
+                        
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8 border border-blue-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fab fa-python text-2xl text-blue-600 mr-3"></i>
+                                <h2 class="text-xl font-semibold text-gray-900">Python Integration</h2>
+                            </div>
+                            <p class="text-gray-700 mb-4">Comprehensive Python SDK supporting Django, Flask, FastAPI, and asyncio. Includes advanced ML features, data science tools, and enterprise-grade performance optimization.</p>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-bash">pip install earnly-python-sdk
+
+# Optional dependencies for specific frameworks
+pip install earnly-python-sdk[django]    # Django integration
+pip install earnly-python-sdk[flask]     # Flask integration  
+pip install earnly-python-sdk[fastapi]   # FastAPI integration
+pip install earnly-python-sdk[async]     # Async support
+pip install earnly-python-sdk[ml]        # ML tools and pandas integration</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Basic Usage</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-python">from earnly import EarnlyClient
+import asyncio
+from typing import List, Dict, Optional
+
+# Initialize client
+client = EarnlyClient(
+    api_key="your-api-key",
+    environment="production",  # or "sandbox"
+    config={
+        "timeout": 5.0,
+        "retry_attempts": 3,
+        "enable_logging": True,
+        "cache_enabled": True,
+        "cache_ttl": 300
+    }
+)
+
+# Synchronous recommendations
+def get_recommendations(user_id: str, context: Dict) -&gt; List[Dict]:
+    """Get personalized recommendations for a user"""
+    try:
+        recommendations = client.get_recommendations(
+            user_id=user_id,
+            context={
+                "page": "homepage",
+                "category": "electronics",
+                "user_agent": context.get("user_agent"),
+                "ip_address": context.get("ip_address"),
+                **context
+            },
+            options={
+                "max_recommendations": 6,
+                "personalized": True,
+                "include_metadata": True,
+                "filter_seen": True
+            }
+        )
+        return recommendations
+    except Exception as e:
+        print(f"Error fetching recommendations: {e}")
+        return []
+
+# Asynchronous recommendations
+async def get_recommendations_async(user_id: str, context: Dict) -&gt; List[Dict]:
+    """Async version for high-performance applications"""
+    async with client.async_session() as session:
+        recommendations = await session.get_recommendations(
+            user_id=user_id,
+            context=context,
+            options={"max_recommendations": 6}
+        )
+        return recommendations
+
+# Event tracking
+def track_user_event(user_id: str, event: str, data: Dict) -&gt; bool:
+    """Track user events and interactions"""
+    try:
+        client.track_event(
+            event=event,
+            user_id=user_id,
+            data={
+                **data,
+                "timestamp": int(time.time()),
+                "source": "python-sdk"
+            }
+        )
+        return True
+    except Exception as e:
+        print(f"Error tracking event: {e}")
+        return False
+
+# Example usage
+if __name__ == "__main__":
+    context = {
+        "user_agent": "Mozilla/5.0...",
+        "ip_address": "192.168.1.1",
+        "referrer": "https://google.com"
+    }
+    
+    # Get recommendations
+    recs = get_recommendations("user-123", context)
+    print(f"Found {len(recs)} recommendations")
+    
+    # Track page view
+    track_user_event("user-123", "page_view", {
+        "page": "homepage", 
+        "category": "electronics"
+    })</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Django Integration</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-python"># settings.py
+INSTALLED_APPS = [
+    # ... other apps
+    'earnly.django',
+]
+
+EARNLY_CONFIG = {
+    'API_KEY': os.environ.get('EARNLY_API_KEY'),
+    'ENVIRONMENT': 'production',
+    'AUTO_TRACK_VIEWS': True,
+    'AUTO_TRACK_USERS': True,
+    'MIDDLEWARE_ENABLED': True,
+    'CACHE_BACKEND': 'redis',
+    'CACHE_TTL': 300
+}
+
+MIDDLEWARE = [
+    # ... other middleware
+    'earnly.django.middleware.EarnlyMiddleware',
+]
+
+# views.py
+from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
+from earnly.django import get_earnly_client, track_event
+from django.contrib.auth.decorators import login_required
+import json
+
+@require_http_methods(["GET"])
+@login_required
+def recommendations_view(request):
+    """Django view for serving recommendations"""
+    client = get_earnly_client()
+    user_id = str(request.user.id)
+    
+    # Extract context from request
+    context = {
+        'page': request.GET.get('page', 'homepage'),
+        'category': request.GET.get('category'),
+        'user_agent': request.META.get('HTTP_USER_AGENT'),
+        'ip_address': get_client_ip(request),
+        'referrer': request.META.get('HTTP_REFERER'),
+        'session_key': request.session.session_key
+    }
+    
+    try:
+        recommendations = client.get_recommendations(
+            user_id=user_id,
+            context=context,
+            options={
+                'max_recommendations': int(request.GET.get('limit', 6)),
+                'personalized': True,
+                'include_metadata': True
+            }
+        )
+        
+        # Automatically track the recommendation request
+        track_event(
+            event='recommendations_viewed',
+            user_id=user_id,
+            data={
+                'context': context,
+                'recommendation_count': len(recommendations)
+            }
+        )
+        
+        return JsonResponse({
+            'success': True,
+            'recommendations': recommendations,
+            'count': len(recommendations)
+        })
+        
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
+
+def get_client_ip(request):
+    """Extract client IP address from request"""
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+# models.py - Optional Django model integration
+from django.db import models
+from earnly.django.models import EarnlyTrackingMixin
+
+class Product(models.Model, EarnlyTrackingMixin):
+    """Product model with automatic Earnly tracking"""
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    category = models.CharField(max_length=100)
+    
+    class Meta:
+        earnly_tracking = {
+            'events': ['view', 'click', 'purchase'],
+            'metadata_fields': ['title', 'category', 'price']
+        }</code></pre>
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">FastAPI Integration</h2>
+                        
+                        <div class="code-block mb-6">
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <i class="fas fa-copy mr-1"></i>Copy
+                            </button>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-python">from fastapi import FastAPI, Depends, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from earnly.fastapi import EarnlyMiddleware, EarnlyClient, get_earnly_client
+from pydantic import BaseModel
+from typing import List, Optional, Dict, Any
+import asyncio
+
+app = FastAPI(title="Recommendation API", version="1.0.0")
+
+# Add Earnly middleware
+app.add_middleware(
+    EarnlyMiddleware,
+    api_key="your-api-key",
+    auto_track_requests=True,
+    exclude_paths=["/health", "/docs", "/openapi.json"]
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+# Pydantic models
+class RecommendationRequest(BaseModel):
+    user_id: str
+    context: Dict[str, Any] = {}
+    max_recommendations: int = 6
+    personalized: bool = True
+
+class EventTrackingRequest(BaseModel):
+    event: str
+    user_id: str
+    data: Dict[str, Any] = {}
+
+class RecommendationResponse(BaseModel):
+    id: str
+    title: str
+    description: str
+    image_url: str
+    click_url: str
+    metadata: Dict[str, Any]
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "service": "earnly-recommendations"}
+
+@app.post("/recommendations", response_model=List[RecommendationResponse])
+async def get_recommendations(
+    request: RecommendationRequest,
+    http_request: Request,
+    client: EarnlyClient = Depends(get_earnly_client)
+):
+    """Get personalized recommendations"""
+    try:
+        # Enhance context with request information
+        enhanced_context = {
+            **request.context,
+            "user_agent": http_request.headers.get("user-agent"),
+            "ip_address": http_request.client.host,
+            "timestamp": int(asyncio.get_event_loop().time())
+        }
+        
+        recommendations = await client.get_recommendations_async(
+            user_id=request.user_id,
+            context=enhanced_context,
+            options={
+                "max_recommendations": request.max_recommendations,
+                "personalized": request.personalized,
+                "include_metadata": True
+            }
+        )
+        
+        return recommendations
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/track")
+async def track_event(
+    request: EventTrackingRequest,
+    client: EarnlyClient = Depends(get_earnly_client)
+):
+    """Track user events"""
+    try:
+        await client.track_event_async(
+            event=request.event,
+            user_id=request.user_id,
+            data={
+                **request.data,
+                "timestamp": int(asyncio.get_event_loop().time())
+            }
+        )
+        
+        return {"success": True}
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/recommendations/{user_id}")
+async def get_user_recommendations(
+    user_id: str,
+    category: Optional[str] = None,
+    page: str = "homepage",
+    limit: int = 6,
+    client: EarnlyClient = Depends(get_earnly_client)
+):
+    """Get recommendations for a specific user"""
+    context = {
+        "page": page,
+        "category": category
+    }
+    
+    recommendations = await client.get_recommendations_async(
+        user_id=user_id,
+        context=context,
+        options={"max_recommendations": limit}
+    )
+    
+    return {
+        "user_id": user_id,
+        "recommendations": recommendations,
+        "count": len(recommendations)
+    }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)</code></pre>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Science Integration</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-python">import pandas as pd
+from earnly.ml import EarnlyAnalyzer
+
+# Analyze recommendation performance
+analyzer = EarnlyAnalyzer(client)
+
+# Get performance data as DataFrame
+df = analyzer.get_performance_data(
+    start_date='2024-01-01',
+    end_date='2024-01-31',
+    metrics=['ctr', 'conversion_rate', 'revenue']
+)
+
+# Generate insights
+insights = analyzer.generate_insights(df)
+print(insights['summary'])</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Bulk Operations</h3>
+                                <div class="code-block mb-4">
+                                    <button class="copy-button" onclick="copyCode(this)">
+                                        <i class="fas fa-copy mr-1"></i>Copy
+                                    </button>
+                                    <pre class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-python"># Batch process multiple users
+user_contexts = [
+    {'user_id': 'u1', 'context': {'page': 'home'}},
+    {'user_id': 'u2', 'context': {'page': 'product'}}
+]
+
+# Async batch processing
+results = await client.batch_recommendations(
+    user_contexts, 
+    max_workers=10
+)
+
+# Bulk event import
+events_df = pd.read_csv('events.csv')
+client.bulk_import_events(events_df)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </main>
+        </div>
+
+        <script>
+            // Navigation functionality
+            function showSection(sectionId) {
+                // Hide all sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show target section
+                document.getElementById(sectionId).classList.remove('hidden');
+                
+                // Update navigation active state
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    link.classList.add('text-gray-600', 'hover:text-gray-900', 'hover:bg-gray-100');
+                });
+                
+                // Set active link
+                const activeLink = document.querySelector(\`[href="#\${sectionId}"]\`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    activeLink.classList.remove('text-gray-600', 'hover:text-gray-900', 'hover:bg-gray-100');
+                }
+                
+                // Scroll to top of content
+                document.querySelector('.main-content').scrollTop = 0;
+                
+                // Update URL hash
+                window.history.replaceState(null, null, \`#\${sectionId}\`);
+            }
+            
+            // Copy code functionality
+            function copyCode(button) {
+                const codeBlock = button.parentElement.querySelector('code');
+                const text = codeBlock.textContent;
+                
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check mr-1"></i>Copied!';
+                    button.classList.add('bg-green-600', 'text-white');
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.classList.remove('bg-green-600', 'text-white');
+                    }, 2000);
+                });
+            }
+            
+            // Search functionality
+            function searchDocs() {
+                const query = document.getElementById('search-input').value.toLowerCase();
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                navLinks.forEach(link => {
+                    const text = link.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        link.style.display = 'block';
+                    } else {
+                        link.style.display = query === '' ? 'block' : 'none';
+                    }
+                });
+            }
+            
+            // Handle URL hash on load
+            document.addEventListener('DOMContentLoaded', function() {
+                const hash = window.location.hash.substring(1);
+                if (hash && document.getElementById(hash)) {
+                    showSection(hash);
+                } else {
+                    showSection('introduction');
+                }
+            });
+            
+            // Handle browser back/forward
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash.substring(1);
+                if (hash && document.getElementById(hash)) {
+                    showSection(hash);
+                }
+            });
+            
+            // Integration path selection
+            function showDeveloperPath() {
+                document.getElementById('developer-path').classList.remove('hidden');
+                document.getElementById('no-code-path').classList.add('hidden');
+            }
+            
+            function showNoCodePath() {
+                document.getElementById('no-code-path').classList.remove('hidden');
+                document.getElementById('developer-path').classList.add('hidden');
+            }
+        </script>
+    </body>
+    </html>
+  `
+}
