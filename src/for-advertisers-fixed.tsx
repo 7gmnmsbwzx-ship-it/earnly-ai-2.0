@@ -747,64 +747,107 @@ export const ForAdvertisersFixed = () => {
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
+        <!-- Optimized Footer -->
+        <footer class="bg-gray-900 text-white py-16 border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div>
-                        <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
-                             alt="Earnly Logo" 
-                             class="h-8 w-auto mb-4">
-                        <p class="text-gray-400 leading-relaxed">AI-native advertising platform connecting advertisers with AI platforms through contextual recommendations and real-time optimization.</p>
+                <div class="grid lg:grid-cols-5 md:grid-cols-4 gap-8">
+                    <!-- Company Info -->
+                    <div class="lg:col-span-2">
+                        <div class="flex items-center mb-6">
+                            <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                                 alt="Earnly Logo" 
+                                 class="h-10 w-auto"
+                                 style="background: transparent;">
+                        </div>
+                        <p class="text-gray-400 mb-6 leading-relaxed max-w-md">
+                            The world's most advanced AI-native monetization platform connecting advertisers with AI platforms through contextual recommendations and real-time optimization.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://twitter.com/getearnly" class="text-gray-400 hover:text-blue-400 transition-colors" title="Follow us on Twitter">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/getearnly" class="text-gray-400 hover:text-blue-500 transition-colors" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://github.com/getearnly" class="text-gray-400 hover:text-purple-400 transition-colors" title="View our GitHub">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="https://discord.gg/earnly" class="text-gray-400 hover:text-indigo-400 transition-colors" title="Join our Discord">
+                                <i class="fab fa-discord text-xl"></i>
+                            </a>
+                        </div>
                     </div>
                     
+                    <!-- Solutions -->
                     <div>
                         <h4 class="font-semibold text-white mb-6">Solutions</h4>
                         <ul class="space-y-3 text-gray-400">
-                            <li><a href="/for-advertisers" class="hover:text-white transition-colors">For Advertisers</a></li>
-                            <li><a href="/for-ai-platforms" class="hover:text-white transition-colors">For AI Platforms</a></li>
-                            <li><a href="/creators" class="hover:text-white transition-colors">For Creators</a></li>
-                            <li><a href="/geo-report" class="hover:text-white transition-colors">GEO Analytics</a></li>
+                            <li><a href="/for-advertisers" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-bullhorn w-4 text-xs mr-3"></i>For Advertisers
+                            </a></li>
+                            <li><a href="/for-ai-platforms" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-robot w-4 text-xs mr-3"></i>For AI Platforms
+                            </a></li>
+                            <li><a href="/creators" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-users w-4 text-xs mr-3"></i>For Creators
+                            </a></li>
+                            <li><a href="/geo-report" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-chart-line w-4 text-xs mr-3"></i>GEO Analytics
+                            </a></li>
                         </ul>
                     </div>
                     
+                    <!-- Resources -->
                     <div>
                         <h4 class="font-semibold text-white mb-6">Resources</h4>
                         <ul class="space-y-3 text-gray-400">
-                            <li><a href="https://docs.getearnly.com" class="hover:text-white transition-colors">Documentation</a></li>
-                            <li><a href="https://api.getearnly.com" class="hover:text-white transition-colors">API Reference</a></li>
-                            <li><a href="/help" class="hover:text-white transition-colors">Help Center</a></li>
-                            <li><a href="https://status.getearnly.com" class="hover:text-white transition-colors">System Status</a></li>
+                            <li><a href="https://docs.getearnly.com" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-book w-4 text-xs mr-3"></i>Documentation
+                            </a></li>
+                            <li><a href="https://api.getearnly.com" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-code w-4 text-xs mr-3"></i>API Reference
+                            </a></li>
+                            <li><a href="/help" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-question-circle w-4 text-xs mr-3"></i>Help Center
+                            </a></li>
+                            <li><a href="https://status.getearnly.com" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-heartbeat w-4 text-xs mr-3"></i>System Status
+                            </a></li>
                         </ul>
                     </div>
                     
+                    <!-- Company & Contact -->
                     <div>
                         <h4 class="font-semibold text-white mb-6">Contact</h4>
                         <ul class="space-y-3 text-gray-400">
-                            <li><a href="mailto:hello@getearnly.com" class="hover:text-white transition-colors">hello@getearnly.com</a></li>
-                            <li><a href="mailto:support@getearnly.com" class="hover:text-white transition-colors">Support</a></li>
-                            <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                            <li><a href="/terms" class="hover:text-white transition-colors">Terms of Service</a></li>
+                            <li><a href="mailto:hello@getearnly.com" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-envelope w-4 text-xs mr-3"></i>hello@getearnly.com
+                            </a></li>
+                            <li><a href="mailto:support@getearnly.com" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-life-ring w-4 text-xs mr-3"></i>Support
+                            </a></li>
+                            <li><a href="mailto:partnerships@getearnly.com" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-handshake w-4 text-xs mr-3"></i>Partnerships
+                            </a></li>
+                            <li><a href="/careers" class="hover:text-white transition-colors flex items-center">
+                                <i class="fas fa-briefcase w-4 text-xs mr-3"></i>Careers
+                            </a></li>
                         </ul>
                     </div>
                 </div>
                 
+                <!-- Bottom Section -->
                 <div class="border-t border-gray-800 mt-12 pt-8">
-                    <div class="flex flex-col md:flex-row justify-between items-center">
-                        <div class="text-gray-400 text-sm mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex flex-col lg:flex-row justify-between items-center">
+                        <div class="text-gray-400 text-sm mb-6 lg:mb-0 text-center lg:text-left">
                             <p>&copy; 2025 Earnly AI. All rights reserved.</p>
                             <p class="mt-1">Transforming AI conversations into revenue streams worldwide.</p>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://twitter.com/getearnly" class="text-gray-400 hover:text-blue-400 transition-colors" title="Follow us on Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://linkedin.com/company/getearnly" class="text-gray-400 hover:text-blue-500 transition-colors" title="Connect on LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/getearnly" class="text-gray-400 hover:text-purple-400 transition-colors" title="View our GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
+                        <div class="flex flex-wrap justify-center lg:justify-end gap-6 text-sm text-gray-400">
+                            <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+                            <a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
+                            <a href="/security" class="hover:text-white transition-colors">Security</a>
+                            <a href="/cookies" class="hover:text-white transition-colors">Cookie Policy</a>
                         </div>
                     </div>
                 </div>
