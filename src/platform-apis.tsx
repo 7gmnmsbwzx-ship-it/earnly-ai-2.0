@@ -22,12 +22,16 @@ export async function fetchYouTubeVideos(query: string, apiKey: string = '', max
         const videoId = Math.random().toString(36).substring(2, 13);
         const daysAgo = Math.floor(Math.random() * 365);
         
+        // Use deterministic image based on query and index for consistency
+        const imageHash = Math.abs((query + i).split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % 1000);
+        const thumbnailUrl = `https://placehold.co/640x360/1e293b/6366f1?text=${encodeURIComponent(contentType)}+${i + 1}&font=montserrat`;
+        
         videos.push({
             id: `youtube_${videoId}`,
             platform: 'youtube',
             title: `${query} - ${contentType} ${i + 1}`,
             description: `Comprehensive ${contentType.toLowerCase()} about ${query}. Learn everything you need to know with step-by-step explanations, practical examples, and expert insights. Perfect for beginners and advanced learners alike.`,
-            image: `https://picsum.photos/seed/yt-${query}${i}/640/360`,
+            image: thumbnailUrl,
             author: channel,
             videoId: videoId,
             publishedAt: new Date(Date.now() - daysAgo * 24 * 60 * 60 * 1000).toISOString(),
@@ -36,7 +40,7 @@ export async function fetchYouTubeVideos(query: string, apiKey: string = '', max
             likes: Math.floor(views * 0.03).toLocaleString(),
             embedUrl: `https://www.youtube.com/embed/${videoId}`,
             viewUrl: `https://www.youtube.com/watch?v=${videoId}`,
-            thumbnail: `https://picsum.photos/seed/yt-${query}${i}/640/360`
+            thumbnail: thumbnailUrl
         });
     }
     
@@ -62,12 +66,14 @@ export async function fetchRedditPosts(subreddit: string = 'all', query: string 
         const comments = Math.floor(Math.random() * 2000 + 5);
         const hoursAgo = Math.floor(Math.random() * 48);
         
+        const redditThumbnail = `https://placehold.co/400x300/1a1a1b/ff4500?text=${encodeURIComponent(postType)}&font=montserrat`;
+        
         posts.push({
             id: `reddit_${Math.random().toString(36).substring(7)}`,
             platform: 'reddit',
             title: `${postType}: ${query} - ${i + 1}`,
             description: `Community discussion about ${query}. Users share their experiences, tips, and insights. Join the conversation and learn from others who have dealt with similar topics. [${postType}]`,
-            image: `https://picsum.photos/seed/reddit-${query}${i}/400/300`,
+            image: redditThumbnail,
             author: `u/${author}`,
             subreddit: sub,
             score: score.toLocaleString(),
@@ -103,12 +109,14 @@ export async function searchAmazonProducts(query: string, limit: number = 20) {
         const reviews = Math.floor(Math.random() * 50000 + 100);
         const price = (Math.random() * 300 + 9.99).toFixed(2);
         
+        const productImage = `https://placehold.co/400x400/232f3e/ff9900?text=${encodeURIComponent(category)}&font=montserrat`;
+        
         products.push({
             id: `amazon_${Date.now()}_${i}`,
             platform: 'amazon',
             title: `${adjective} ${query} - ${category}`,
             description: `${feature} - High-quality ${query} with verified reviews. Fast Prime delivery available. Perfect for everyday use with outstanding performance.`,
-            image: `https://picsum.photos/seed/${query}${i}/400/400`,
+            image: productImage,
             price: `$${price}`,
             rating: rating,
             reviews: reviews.toLocaleString(),
@@ -148,12 +156,14 @@ export async function generateAIAnswer(query: string) {
         answer = `Regarding "${query}", here are the key points to know:\n\n• It's a topic with multiple dimensions worth exploring\n• Understanding the basics is essential before diving deeper\n• Practical applications can vary based on context\n• Expert opinions and user experiences provide valuable insights\n\nFor more detailed information, explore the search results below from various platforms.`;
     }
     
+    const aiImage = `https://placehold.co/400x300/8b5cf6/ffffff?text=AI+Summary&font=montserrat`;
+    
     return {
         id: `ai_${Date.now()}`,
         platform: 'ai',
         title: `AI Summary: ${query}`,
         description: answer,
-        image: `https://picsum.photos/seed/ai-${query}/400/300`,
+        image: aiImage,
         confidence: '0.85',
         answerType,
         sources: [
@@ -187,12 +197,14 @@ export async function fetchPinterestPins(query: string, limit: number = 20) {
         // Use Unsplash for diverse, high-quality placeholder images
         const imageId = Math.floor(Math.random() * 1000);
         
+        const pinImage = `https://placehold.co/300x450/e60023/ffffff?text=${encodeURIComponent(pinType)}&font=montserrat`;
+        
         pins.push({
             id: `pinterest_${Date.now()}_${i}`,
             platform: 'pinterest',
             title: `${query} - ${pinType}`,
             description: `Discover creative ${pinType.toLowerCase()} for ${query}. Get inspired by beautiful designs and practical ideas you can try today!`,
-            image: `https://picsum.photos/seed/${query}-pin${i}/300/450`,
+            image: pinImage,
             saves: saves.toLocaleString(),
             author: creator,
             boardName: `${query} Collection`,

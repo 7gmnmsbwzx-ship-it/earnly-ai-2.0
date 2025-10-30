@@ -987,9 +987,33 @@ export function VarioAISearch() {
             }
             
             function handleGoogleSignIn() {
-                if (window.google) {
-                    google.accounts.id.prompt();
-                }
+                // Demo mode: Since Google OAuth requires real Client ID setup,
+                // we'll simulate sign-in for demonstration purposes
+                showNotification('Demo Mode: Sign In functionality requires Google OAuth setup', 'info');
+                
+                // Simulate demo user sign-in
+                setTimeout(() => {
+                    currentUser = {
+                        id: 'demo_user_' + Date.now(),
+                        email: 'demo@vario.ai',
+                        name: 'Demo User',
+                        picture: 'https://page.gensparksite.com/v1/base64_upload/90026a44a26b2dfe7a63d303273598c4',
+                        google_id: 'demo_google_id'
+                    };
+                    
+                    sessionToken = 'demo_token_' + Date.now();
+                    localStorage.setItem('vario_session_token', sessionToken);
+                    
+                    updateAuthUI();
+                    showNotification('Demo sign-in successful! (For production, configure Google OAuth)', 'success');
+                }, 500);
+                
+                // Real implementation (commented for reference):
+                // if (window.google && window.google.accounts) {
+                //     google.accounts.id.prompt();
+                // } else {
+                //     showNotification('Google Sign-In not loaded', 'error');
+                // }
             }
             
             async function handleGoogleSignInResponse(response) {
