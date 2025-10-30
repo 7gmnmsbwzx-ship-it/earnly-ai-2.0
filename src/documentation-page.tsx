@@ -6,8 +6,27 @@ export const DocumentationPage = () => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Documentation | Earnly AI - Complete Developer Guide</title>
-        <meta name="description" content="Complete developer documentation for Earnly AI integration. API reference, SDKs, examples, and best practices for AI-native advertising.">
+        <title>Documentation | Earnly AI - Complete Developer Guide & API Reference</title>
+        <meta name="description" content="Complete developer documentation for Earnly AI integration. API reference, SDKs, code examples, and best practices for AI-native advertising implementation.">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://getearnly.com/docs">
+        <meta property="og:title" content="Documentation | Earnly AI Developer Guide">
+        <meta property="og:description" content="Complete API reference, SDKs, and code examples for Earnly AI integration.">
+        <meta property="og:image" content="https://getearnly.com/static/og-docs.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://getearnly.com/docs">
+        <meta property="twitter:title" content="Earnly AI Documentation & API Reference">
+        <meta property="twitter:description" content="Developer guide for AI-native advertising integration with complete API documentation.">
+        <meta property="twitter:image" content="https://getearnly.com/static/og-docs.png">
+        
+        <!-- Additional SEO -->
+        <meta name="keywords" content="API documentation, developer guide, SDK integration, API reference, code examples, AI advertising API">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://getearnly.com/docs">
         
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">

@@ -7,8 +7,27 @@ export function creatorsPage(c: Context) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>For Creators - Earnly | Monetize Your Content with AI-Native Advertising</title>
+        <title>For Creators | Earnly - Monetize Your Content with AI-Native Advertising</title>
         <meta name="description" content="Transform your content into revenue streams. Join thousands of creators earning with Earnly's AI-native monetization platform designed specifically for content creators.">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://getearnly.com/creators">
+        <meta property="og:title" content="For Creators | Earnly - Monetize Your Content">
+        <meta property="og:description" content="Transform your content into revenue with AI-native advertising. Join thousands of creators earning with Earnly.">
+        <meta property="og:image" content="https://getearnly.com/static/og-creators.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://getearnly.com/creators">
+        <meta property="twitter:title" content="For Creators | Earnly Content Monetization">
+        <meta property="twitter:description" content="Monetize your content with AI-native advertising. Earn more from your audience.">
+        <meta property="twitter:image" content="https://getearnly.com/static/og-creators.png">
+        
+        <!-- Additional SEO -->
+        <meta name="keywords" content="content monetization, creator economy, influencer monetization, social media earnings, content creator platform, AI monetization">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://getearnly.com/creators">
         
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">

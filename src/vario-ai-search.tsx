@@ -8,6 +8,25 @@ export function VarioAISearch() {
         <title>Vario™ AI Search Engine - Discover Everything, Everywhere</title>
         <meta name="description" content="The ultimate AI-powered discovery platform. ChatGPT + Amazon + Pinterest + TikTok + Instagram + Reddit + Twitter + YouTube = Vario™. Smarter, personalized, all-in-one.">
         
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://getearnly.com/vario">
+        <meta property="og:title" content="Vario™ AI Search Engine - Discover Everything, Everywhere">
+        <meta property="og:description" content="The ultimate AI-powered discovery platform combining ChatGPT, Amazon, Pinterest, TikTok, Instagram, Reddit, Twitter, and YouTube.">
+        <meta property="og:image" content="https://getearnly.com/static/og-vario.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://getearnly.com/vario">
+        <meta property="twitter:title" content="Vario™ AI Search - All-in-One Discovery Platform">
+        <meta property="twitter:description" content="AI-powered search combining ChatGPT, Amazon, social media, and more in one intelligent platform.">
+        <meta property="twitter:image" content="https://getearnly.com/static/og-vario.png">
+        
+        <!-- Additional SEO -->
+        <meta name="keywords" content="AI search engine, unified search, ChatGPT search, Amazon search, social media search, intelligent discovery, AI-powered search">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://getearnly.com/vario">
+        
         <!-- Favicon -->
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>">
         

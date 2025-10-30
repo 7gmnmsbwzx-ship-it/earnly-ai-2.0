@@ -9,6 +9,25 @@ export const ForAIPlatformsPage = () => {
         <title>For AI Platforms | Earnly - Monetize Every Conversation</title>
         <meta name="description" content="Transform your AI platform into a revenue engine. Seamless integration, contextual recommendations, transparent earnings.">
         
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://getearnly.com/for-ai-platforms">
+        <meta property="og:title" content="For AI Platforms | Earnly - Monetize Every Conversation">
+        <meta property="og:description" content="Transform your AI platform into a revenue engine with seamless integration and contextual recommendations.">
+        <meta property="og:image" content="https://getearnly.com/static/og-platforms.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://getearnly.com/for-ai-platforms">
+        <meta property="twitter:title" content="For AI Platforms | Earnly - Monetize AI Conversations">
+        <meta property="twitter:description" content="Seamless integration for AI platforms to generate revenue from contextual recommendations.">
+        <meta property="twitter:image" content="https://getearnly.com/static/og-platforms.png">
+        
+        <!-- Additional SEO -->
+        <meta name="keywords" content="AI platform monetization, ChatGPT monetization, AI revenue, API integration, contextual recommendations, AI SDK">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://getearnly.com/for-ai-platforms">
+        
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <link href="/static/advanced-styles.css" rel="stylesheet">

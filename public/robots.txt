@@ -1,0 +1,22 @@
+# robots.txt for Earnly AI Platform
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /_worker.js
+
+# Sitemap
+Sitemap: https://getearnly.com/sitemap.xml
+
+# Crawl-delay for bots
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

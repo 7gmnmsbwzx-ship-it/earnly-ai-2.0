@@ -9,6 +9,25 @@ export const ForAdvertisersFixed = () => {
         <title>For Advertisers | Earnly - AI-Native Advertising Platform</title>
         <meta name="description" content="Transform your advertising with AI-native placements that reach users at the moment of intent. Performance-only billing, contextual targeting, and verified results.">
         
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://getearnly.com/for-advertisers">
+        <meta property="og:title" content="For Advertisers | Earnly - AI-Native Advertising Platform">
+        <meta property="og:description" content="Transform your advertising with AI-native placements that reach users at the moment of intent. Performance-only billing, contextual targeting, and verified results.">
+        <meta property="og:image" content="https://getearnly.com/static/og-advertisers.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://getearnly.com/for-advertisers">
+        <meta property="twitter:title" content="For Advertisers | Earnly - AI-Native Advertising">
+        <meta property="twitter:description" content="Reach users at the moment of intent with AI-native advertising. Performance-only billing and verified results.">
+        <meta property="twitter:image" content="https://getearnly.com/static/og-advertisers.png">
+        
+        <!-- Additional SEO -->
+        <meta name="keywords" content="AI advertising, performance marketing, contextual ads, AI native advertising, digital advertising platform, ROI advertising, conversion tracking">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://getearnly.com/for-advertisers">
+        
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         

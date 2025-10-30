@@ -6,8 +6,27 @@ export const GeoReportPage = () => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GEO Report | Earnly - Generative Engine Optimization</title>
+        <title>GEO Report | Earnly - Generative Engine Optimization Analytics</title>
         <meta name="description" content="Track your Generative Engine Optimization performance across AI platforms. Monitor AI search rankings, optimization scores, and conversion rates across ChatGPT, Claude, Gemini, and more.">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://getearnly.com/geo-report">
+        <meta property="og:title" content="GEO Report | Earnly - Generative Engine Optimization">
+        <meta property="og:description" content="Track GEO performance across AI platforms. Monitor rankings, scores, and conversions for ChatGPT, Claude, Gemini, and more.">
+        <meta property="og:image" content="https://getearnly.com/static/og-geo.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://getearnly.com/geo-report">
+        <meta property="twitter:title" content="GEO Report | Generative Engine Optimization Analytics">
+        <meta property="twitter:description" content="Monitor your AI search performance across ChatGPT, Claude, Gemini, and Perplexity.">
+        <meta property="twitter:image" content="https://getearnly.com/static/og-geo.png">
+        
+        <!-- Additional SEO -->
+        <meta name="keywords" content="GEO, generative engine optimization, AI search optimization, ChatGPT SEO, Claude optimization, Gemini ranking, AI visibility">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://getearnly.com/geo-report">
         
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">

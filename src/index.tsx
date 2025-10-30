@@ -1653,6 +1653,44 @@ app.get('/vario', (c) => {
   return c.html(VarioAISearch())
 })
 
+// SEO - Sitemap
+app.get('/sitemap.xml', async (c) => {
+  return c.text(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://getearnly.com/</loc><lastmod>2025-01-15</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://getearnly.com/for-advertisers</loc><lastmod>2025-01-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://getearnly.com/for-ai-platforms</loc><lastmod>2025-01-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://getearnly.com/creators</loc><lastmod>2025-01-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://getearnly.com/vario</loc><lastmod>2025-01-15</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://getearnly.com/geo-report</loc><lastmod>2025-01-15</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://getearnly.com/docs</loc><lastmod>2025-01-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getearnly.com/get-started</loc><lastmod>2025-01-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getearnly.com/terms</loc><lastmod>2025-01-15</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://getearnly.com/privacy</loc><lastmod>2025-01-15</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+</urlset>`, 200, {
+    'Content-Type': 'application/xml',
+  })
+})
+
+// SEO - Robots.txt
+app.get('/robots.txt', async (c) => {
+  return c.text(`User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /_worker.js
+
+Sitemap: https://getearnly.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /`, 200, {
+    'Content-Type': 'text/plain',
+  })
+})
+
 // Dashboard route for authenticated users
 app.get('/dashboard', (c) => {
   return c.html(`
@@ -1661,7 +1699,8 @@ app.get('/dashboard', (c) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Earnly AI | Dashboard</title>
+        <title>Dashboard | Earnly AI - Unified Analytics & Campaign Management</title>
+        <meta name="description" content="Access your Earnly AI dashboard to monitor campaigns, track revenue, analyze performance metrics, and optimize your AI-native advertising strategy in real-time.">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <link href="/static/styles.css" rel="stylesheet">
@@ -1689,7 +1728,8 @@ app.get('/dashboard/advertiser', (c) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Advertiser Dashboard | Earnly AI</title>
+        <title>Advertiser Dashboard | Earnly AI - Campaign Analytics & Performance</title>
+        <meta name="description" content="Monitor your advertising campaigns, track conversions, analyze ROI, and optimize your AI-native ad strategy with real-time analytics and insights.">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
@@ -1809,7 +1849,8 @@ app.get('/dashboard/platform', (c) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Platform Dashboard | Earnly AI</title>
+        <title>Platform Dashboard | Earnly AI - Monetization & Integration Management</title>
+        <meta name="description" content="Manage your AI platform integration, track API usage, monitor revenue streams, and optimize monetization with comprehensive analytics and real-time insights.">
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>

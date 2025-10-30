@@ -11,6 +11,26 @@ export const AdvancedHomepage = () => {
         <title>Earnly AI | Enterprise AI-Native Monetization Platform</title>
         <meta name="description" content="Transform AI conversations into revenue. The world's most advanced platform for contextual advertising in AI ecosystems with real-time optimization and predictive analytics.">
         
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://getearnly.com/">
+        <meta property="og:title" content="Earnly AI | Enterprise AI-Native Monetization Platform">
+        <meta property="og:description" content="Transform AI conversations into revenue. The world's most advanced platform for contextual advertising in AI ecosystems with real-time optimization and predictive analytics.">
+        <meta property="og:image" content="https://getearnly.com/static/og-image.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://getearnly.com/">
+        <meta property="twitter:title" content="Earnly AI | Enterprise AI-Native Monetization Platform">
+        <meta property="twitter:description" content="Transform AI conversations into revenue. The world's most advanced platform for contextual advertising in AI ecosystems.">
+        <meta property="twitter:image" content="https://getearnly.com/static/og-image.png">
+        
+        <!-- Additional SEO -->
+        <meta name="keywords" content="AI monetization, AI advertising, contextual ads, AI native advertising, ChatGPT monetization, AI platform revenue, generative engine optimization, GEO">
+        <meta name="author" content="Earnly AI">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://getearnly.com/">
+        
         <!-- Preload Critical Assets -->
         <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
         <link rel="preload" href="/static/advanced-styles.css" as="style">
