@@ -2110,6 +2110,10 @@ export const ForAdvertisersFixed = () => {
                 alert('Dashboard demo coming soon! Contact our team to see the full analytics platform in action.');
             }
             
+            function openVarioDemo() {
+                window.location.href = '/vario';
+            }
+            
             // Initialize on load
             document.addEventListener('DOMContentLoaded', function() {
                 selectAdFormat('inline'); // Set default format

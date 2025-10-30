@@ -66,9 +66,6 @@ export const AdvancedHomepage = () => {
                         </div>
                         
                         <div class="hidden md:flex space-x-8 ml-10">
-                            <a href="/vario" class="text-white hover:text-cyan-400 transition-colors flex items-center">
-                                <i class="fas fa-search mr-2"></i>Vario™ Search
-                            </a>
                             <a href="/for-advertisers" class="text-white hover:text-blue-400 transition-colors">For Advertisers</a>
                             <a href="/for-ai-platforms" class="text-white hover:text-blue-400 transition-colors">For AI Platforms</a>
                             <a href="/creators" class="text-white hover:text-purple-400 transition-colors">For Creators</a>
