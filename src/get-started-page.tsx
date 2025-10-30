@@ -467,11 +467,11 @@ export function getStartedPage(c: Context) {
                                     <span id="website-label">Website URL</span>
                                 </label>
                                 <div class="relative group">
-                                    <input type="url" 
+                                    <input type="text" 
                                            name="website"
                                            required
                                            class="form-input w-full px-4 py-3 pl-12 rounded-xl text-lg"
-                                           placeholder="https://example.com"
+                                           placeholder="https://example.com or example.com"
                                            id="website-input"
                                            oninput="detectEmailDomain(this.value)">
                                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -825,35 +825,44 @@ export function getStartedPage(c: Context) {
                     // Extract domain from URL
                     let domain = url.trim();
                     
-                    // Remove protocol
-                    domain = domain.replace(/^https?:\\/\\//, '');
+                    if (domain.length === 0) {
+                        websiteValidation.textContent = '';
+                        document.getElementById('email-domain').value = '@example.com';
+                        return;
+                    }
+                    
+                    // Remove protocol (http://, https://, etc.)
+                    domain = domain.replace(/^[a-zA-Z]+:\\/\\//, '');
                     
                     // Remove www.
                     domain = domain.replace(/^www\\./, '');
                     
-                    // Remove path
-                    domain = domain.split('/')[0];
+                    // Remove path, query params, and hash
+                    domain = domain.split('/')[0].split('?')[0].split('#')[0];
                     
                     // Remove port
                     domain = domain.split(':')[0];
                     
-                    if (domain && domain.includes('.')) {
+                    // Validate domain format (must have at least one dot and valid characters)
+                    const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*(\\.[a-zA-Z0-9][a-zA-Z0-9-]*)*\\.[a-zA-Z]{2,}$/;
+                    
+                    if (domain && domainRegex.test(domain)) {
                         detectedDomain = domain;
                         document.getElementById('email-domain').value = '@' + domain;
                         websiteValidation.className = 'validation-message success';
                         websiteValidation.innerHTML = '<i class="fas fa-check-circle mr-1"></i>Domain detected: ' + domain;
                         updateFullEmail();
-                    } else if (url.length > 0) {
-                        websiteValidation.className = 'validation-message error';
-                        websiteValidation.innerHTML = '<i class="fas fa-exclamation-circle mr-1"></i>Please enter a valid website URL';
-                        document.getElementById('email-domain').value = '@example.com';
                     } else {
-                        websiteValidation.textContent = '';
+                        websiteValidation.className = 'validation-message error';
+                        websiteValidation.innerHTML = '<i class="fas fa-exclamation-circle mr-1"></i>Please enter a valid domain (e.g., example.com)';
                         document.getElementById('email-domain').value = '@example.com';
+                        detectedDomain = '';
                     }
                 } catch (e) {
                     websiteValidation.className = 'validation-message error';
                     websiteValidation.innerHTML = '<i class="fas fa-exclamation-circle mr-1"></i>Invalid URL format';
+                    document.getElementById('email-domain').value = '@example.com';
+                    detectedDomain = '';
                 }
             }
 
@@ -928,6 +937,18 @@ export function getStartedPage(c: Context) {
                 const emailPrefix = formData.get('email-prefix');
                 const emailDomain = document.getElementById('email-domain').value;
                 const password = formData.get('password');
+                
+                // Validate domain was detected
+                if (!detectedDomain || emailDomain === '@example.com') {
+                    alert('Please enter a valid website URL (e.g., example.com or www.example.com)');
+                    return;
+                }
+                
+                // Validate email prefix
+                if (!emailPrefix || emailPrefix.trim().length === 0) {
+                    alert('Please enter an email username');
+                    return;
+                }
                 
                 // Validate password
                 if (!checkPasswordRequirements(password, 'business')) {
