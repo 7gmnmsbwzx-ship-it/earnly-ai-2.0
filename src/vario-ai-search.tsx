@@ -279,13 +279,12 @@ export function VarioAISearch() {
                 <div class="flex items-center justify-between">
                     <!-- Logo -->
                     <div class="flex items-center space-x-3">
-                        <div class="vario-gradient p-2 rounded-xl">
-                            <i class="fas fa-search text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-xl font-bold vario-text-gradient">Vario™</h1>
-                            <p class="text-xs" style="color: var(--text-muted);">AI Search Engine</p>
-                        </div>
+                        <img 
+                            src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/Vario%20Logo.png" 
+                            alt="Vario Logo" 
+                            class="h-9 w-auto"
+                            style="background: transparent;"
+                        />
                     </div>
                     
                     <!-- Navigation Links -->
