@@ -283,7 +283,7 @@ export function VarioAISearch() {
                             <i class="fas fa-search text-white text-xl"></i>
                         </div>
                         <div>
-                            <h1 class="text-xl font-bold" style="color: #000000;">Vario™</h1>
+                            <h1 class="text-xl font-bold" style="color: var(--text-primary);">Vario™</h1>
                             <p class="text-xs" style="color: var(--text-muted);">AI Search Engine</p>
                         </div>
                     </div>
