@@ -186,6 +186,22 @@ export function getStartedPage(c: Context) {
                 cursor: not-allowed;
             }
             
+            /* Testimonial Card */
+            .testimonial-card {
+                background: rgba(15, 23, 42, 0.6);
+                border: 1px solid rgba(148, 163, 184, 0.2);
+                backdrop-filter: blur(15px);
+                transition: opacity 0.3s ease-in-out;
+            }
+            
+            .testimonial-content {
+                display: none;
+            }
+            
+            .testimonial-content:not(.hidden) {
+                display: block;
+            }
+            
             /* Slide Animation */
             .slide-enter {
                 animation: slideIn 0.3s ease-out;
@@ -245,36 +261,144 @@ export function getStartedPage(c: Context) {
 
         <!-- Main Content -->
         <div class="py-8 lg:py-12">
-            <div class="max-w-4xl mx-auto px-6 lg:px-8">
-                
-                <!-- Progress Indicator -->
-                <div class="mb-8">
-                    <div class="flex items-center justify-center">
-                        <div class="flex items-center space-x-4">
-                            <!-- Step 1 -->
-                            <div class="flex items-center">
-                                <div class="progress-step active flex items-center justify-center w-10 h-10 rounded-full bg-slate-700 text-white font-bold text-sm" id="step-1-indicator">
-                                    1
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+                    
+                    <!-- Left Side - Welcome & Testimonial -->
+                    <div class="text-white hidden lg:block">
+                        <div class="mb-8">
+                            <h1 class="text-5xl font-bold mb-6 leading-tight bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                                Welcome to Earnly
+                            </h1>
+                            <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                                Join our platform to monetize AI interactions and connect with your audience
+                            </p>
+                        </div>
+                        
+                        <!-- Dynamic Testimonial Card -->
+                        <div class="testimonial-card rounded-2xl p-8 floating-animation" id="testimonial-card">
+                            <!-- Advertiser Testimonial -->
+                            <div id="advertiser-testimonial" class="testimonial-content hidden">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                                         class="w-16 h-16 rounded-full border-2 border-blue-400/50" alt="Mike R.">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="font-bold text-white text-lg">Mike R.</div>
+                                            <div class="bg-blue-500/20 text-blue-300 text-xs px-2 py-1 rounded-full">
+                                                Verified User
+                                            </div>
+                                        </div>
+                                        <div class="text-sm text-slate-400 mb-4">Marketing Director, TechFlow Solutions</div>
+                                    </div>
                                 </div>
-                                <span class="ml-3 text-sm font-medium text-white" id="step-1-label">Choose Role</span>
+                                <blockquote class="text-slate-200 text-lg leading-relaxed mb-4">
+                                    "Earnly gave us instant visibility across all apps. We hit <span class="text-green-400 font-semibold">500 conversions</span> in our first week through AI-driven offers. It's the future of marketing."
+                                </blockquote>
+                                <div class="flex items-center space-x-4 text-sm text-slate-400">
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>5.0 rating</span>
+                                    </div>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-calendar text-blue-400"></i>
+                                        <span>2 weeks ago</span>
+                                    </div>
+                                </div>
                             </div>
-                            
-                            <!-- Line -->
-                            <div class="progress-line w-16 h-1 bg-slate-700" id="progress-line"></div>
-                            
-                            <!-- Step 2 -->
-                            <div class="flex items-center">
-                                <div class="progress-step flex items-center justify-center w-10 h-10 rounded-full bg-slate-700 text-slate-400 font-bold text-sm" id="step-2-indicator">
-                                    2
+
+                            <!-- AI Platform Testimonial -->
+                            <div id="platform-testimonial" class="testimonial-content hidden">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+                                         class="w-16 h-16 rounded-full border-2 border-purple-400/50" alt="Alex T.">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="font-bold text-white text-lg">Alex T.</div>
+                                            <div class="bg-purple-500/20 text-purple-300 text-xs px-2 py-1 rounded-full">
+                                                Verified User
+                                            </div>
+                                        </div>
+                                        <div class="text-sm text-slate-400 mb-4">CTO, IntelliChat AI</div>
+                                    </div>
                                 </div>
-                                <span class="ml-3 text-sm font-medium text-slate-400" id="step-2-label">Create Account</span>
+                                <blockquote class="text-slate-200 text-lg leading-relaxed mb-4">
+                                    "Integrating Earnly's monetization layer increased our <span class="text-green-400 font-semibold">revenue by 340%</span>. Our AI responses now generate income while providing better user experiences."
+                                </blockquote>
+                                <div class="flex items-center space-x-4 text-sm text-slate-400">
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>5.0 rating</span>
+                                    </div>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-calendar text-purple-400"></i>
+                                        <span>1 week ago</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Creator Testimonial -->
+                            <div id="creator-testimonial" class="testimonial-content">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                         class="w-16 h-16 rounded-full border-2 border-pink-400/50" alt="Sarah Chen">
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="font-bold text-white text-lg">Sarah Chen</div>
+                                            <div class="bg-pink-500/20 text-pink-300 text-xs px-2 py-1 rounded-full">
+                                                Verified Creator
+                                            </div>
+                                        </div>
+                                        <div class="text-sm text-slate-400 mb-4">Tech YouTuber • 850K subscribers</div>
+                                    </div>
+                                </div>
+                                <blockquote class="text-slate-200 text-lg leading-relaxed mb-4">
+                                    "My 5-year-old tech tutorials are still earning me money! AI assistants reference my content daily, and I get paid for each citation. It's like having <span class="text-green-400 font-semibold">passive income from my entire content history</span>."
+                                </blockquote>
+                                <div class="flex items-center space-x-4 text-sm text-slate-400">
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>5.0 rating</span>
+                                    </div>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-calendar text-pink-400"></i>
+                                        <span>3 days ago</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Form Container -->
-                <div class="glass-card rounded-3xl p-8 max-w-2xl mx-auto">
+                    <!-- Right Side - Form Container -->
+                    <div>
+                        <!-- Progress Indicator -->
+                        <div class="mb-8">
+                            <div class="flex items-center justify-center">
+                                <div class="flex items-center space-x-4">
+                                    <!-- Step 1 -->
+                                    <div class="flex items-center">
+                                        <div class="progress-step active flex items-center justify-center w-10 h-10 rounded-full bg-slate-700 text-white font-bold text-sm" id="step-1-indicator">
+                                            1
+                                        </div>
+                                        <span class="ml-3 text-sm font-medium text-white" id="step-1-label">Choose Role</span>
+                                    </div>
+                                    
+                                    <!-- Line -->
+                                    <div class="progress-line w-16 h-1 bg-slate-700" id="progress-line"></div>
+                                    
+                                    <!-- Step 2 -->
+                                    <div class="flex items-center">
+                                        <div class="progress-step flex items-center justify-center w-10 h-10 rounded-full bg-slate-700 text-slate-400 font-bold text-sm" id="step-2-indicator">
+                                            2
+                                        </div>
+                                        <span class="ml-3 text-sm font-medium text-slate-400" id="step-2-label">Create Account</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Container -->
+                        <div class="glass-card rounded-3xl p-8">
                     
                     <!-- Step 1: Role Selection -->
                     <div class="step-content active slide-enter" id="step-1">
@@ -579,7 +703,13 @@ export function getStartedPage(c: Context) {
                         </p>
                     </div>
 
+                        </div>
+                        <!-- End Form Container -->
+                    </div>
+                    <!-- End Right Column -->
+                    
                 </div>
+                <!-- End Grid -->
             </div>
         </div>
 
@@ -602,6 +732,28 @@ export function getStartedPage(c: Context) {
                 
                 // Enable continue button
                 document.getElementById('continue-btn').disabled = false;
+                
+                // Show corresponding testimonial
+                showTestimonial(role);
+            }
+            
+            // Show testimonial based on role
+            function showTestimonial(type) {
+                // Hide all testimonials
+                document.getElementById('advertiser-testimonial').classList.add('hidden');
+                document.getElementById('platform-testimonial').classList.add('hidden');
+                document.getElementById('creator-testimonial').classList.add('hidden');
+
+                // Show selected testimonial with fade effect
+                const testimonialCard = document.getElementById('testimonial-card');
+                if (testimonialCard) {
+                    testimonialCard.style.opacity = '0.7';
+                    
+                    setTimeout(() => {
+                        document.getElementById(type + '-testimonial').classList.remove('hidden');
+                        testimonialCard.style.opacity = '1';
+                    }, 150);
+                }
             }
 
             // Navigate to Step 2
