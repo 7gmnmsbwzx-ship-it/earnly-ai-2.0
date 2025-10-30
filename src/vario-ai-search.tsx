@@ -2051,6 +2051,53 @@ export function VarioAISearch() {
             window.closePlatformConnectionsModal = closePlatformConnectionsModal;
             window.showAccountSettings = showAccountSettings;
             window.closeAccountSettingsModal = closeAccountSettingsModal;
+            
+            // CRITICAL: Add event listeners as backup for view toggle buttons
+            // This ensures buttons work even if onclick handlers fail
+            console.log('Initializing view toggle button event listeners...');
+            
+            // Wait for DOM to be ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initViewToggleButtons);
+            } else {
+                initViewToggleButtons();
+            }
+            
+            function initViewToggleButtons() {
+                console.log('Setting up view toggle button event listeners');
+                
+                // Find all view toggle buttons
+                const viewButtons = document.querySelectorAll('.results-view-btn');
+                console.log('Found', viewButtons.length, 'view toggle buttons');
+                
+                viewButtons.forEach((button, index) => {
+                    console.log('Button', index, ':', button.outerHTML.substring(0, 100));
+                    
+                    // Remove any existing listeners
+                    const newButton = button.cloneNode(true);
+                    button.parentNode.replaceChild(newButton, button);
+                    
+                    // Add click event listener
+                    newButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        console.log('Button clicked!', e.target);
+                        
+                        // Determine which view based on button content
+                        const icon = newButton.querySelector('i');
+                        const isGrid = icon && icon.classList.contains('fa-th');
+                        const view = isGrid ? 'grid' : 'list';
+                        
+                        console.log('Detected view:', view);
+                        setResultsView(e, view);
+                    });
+                    
+                    console.log('Event listener attached to button', index);
+                });
+                
+                console.log('View toggle buttons initialization complete');
+            }
         </script>
     </body>
     </html>
