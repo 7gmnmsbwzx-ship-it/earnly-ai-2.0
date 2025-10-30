@@ -390,40 +390,6 @@ export function VarioAISearch() {
                         </p>
                     </div>
                     
-                    <!-- API Info Banner -->
-                    <div id="apiInfoBanner" class="glass-card rounded-xl p-4 mb-6 border-l-4" style="border-color: var(--vario-accent);">
-                        <div class="flex items-start space-x-3">
-                            <i class="fas fa-info-circle text-2xl" style="color: var(--vario-accent);"></i>
-                            <div class="flex-1">
-                                <h4 class="font-semibold mb-1" style="color: var(--text-primary);">🎉 Real Content Fetching Enabled!</h4>
-                                <p class="text-sm mb-2" style="color: var(--text-secondary);">
-                                    Vario™ now fetches <strong>real content</strong> from YouTube, Reddit, Amazon, and Pinterest. Results are displayed directly within the app with preview functionality.
-                                </p>
-                                <details class="text-sm" style="color: var(--text-muted);">
-                                    <summary class="cursor-pointer hover:text-cyan-400 transition-colors">Setup API Keys (Optional - for YouTube)</summary>
-                                    <div class="mt-2 pl-4 border-l-2" style="border-color: var(--border-color);">
-                                        <p class="mb-2"><strong>Free APIs Working Now:</strong></p>
-                                        <ul class="list-disc pl-4 space-y-1">
-                                            <li>✅ Reddit - No key needed (public JSON)</li>
-                                            <li>✅ Amazon - Mock data (full API requires approval)</li>
-                                            <li>✅ Pinterest - Mock data (full API requires approval)</li>
-                                            <li>⚠️ YouTube - Requires API key (10,000 free quota/day)</li>
-                                        </ul>
-                                        <p class="mt-3"><strong>To enable YouTube:</strong></p>
-                                        <ol class="list-decimal pl-4 space-y-1 mt-1">
-                                            <li>Get free API key at <a href="https://console.cloud.google.com" target="_blank" class="text-cyan-400 hover:underline">Google Cloud Console</a></li>
-                                            <li>Enable "YouTube Data API v3"</li>
-                                            <li>Add your key to search URL: <code class="bg-gray-800 px-2 py-1 rounded text-xs">?youtube_key=YOUR_KEY</code></li>
-                                        </ol>
-                                    </div>
-                                </details>
-                            </div>
-                            <button onclick="document.getElementById('apiInfoBanner').style.display='none'" class="text-gray-400 hover:text-white">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
                     <!-- Main Search Bar -->
                     <div class="search-container mb-8">
                         <div class="relative">
@@ -1071,14 +1037,9 @@ export function VarioAISearch() {
             }
             
             function updateAuthUI() {
-                console.log('🔄 updateAuthUI called, currentUser:', currentUser);
-                
                 // Top navigation UI
                 const topNavSignIn = document.getElementById('topNavSignIn');
                 const topNavUserProfile = document.getElementById('topNavUserProfile');
-                
-                console.log('📍 topNavSignIn element:', topNavSignIn);
-                console.log('📍 topNavUserProfile element:', topNavUserProfile);
                 
                 // Modal content UI
                 const signInContainer = document.getElementById('googleSignInContainer');
@@ -1117,14 +1078,7 @@ export function VarioAISearch() {
                     updatePlatformConnectionStatus();
                 } else {
                     // Show sign in button
-                    console.log('👤 No user, showing sign in button');
-                    if (topNavSignIn) {
-                        console.log('✅ Removing hidden class from topNavSignIn');
-                        topNavSignIn.classList.remove('hidden');
-                        console.log('📊 topNavSignIn classes after:', topNavSignIn.className);
-                    } else {
-                        console.error('❌ topNavSignIn element not found!');
-                    }
+                    if (topNavSignIn) topNavSignIn.classList.remove('hidden');
                     if (topNavUserProfile) topNavUserProfile.classList.add('hidden');
                     if (signInContainer) signInContainer.classList.remove('hidden');
                     if (profileContainer) profileContainer.classList.add('hidden');
