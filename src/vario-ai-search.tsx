@@ -220,6 +220,26 @@ export function VarioAISearch() {
                 background: var(--vario-success);
             }
             
+            /* Results View Toggle Buttons */
+            .results-view-btn {
+                color: var(--text-muted);
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .results-view-btn:hover {
+                color: var(--text-primary);
+                background: rgba(99, 102, 241, 0.1);
+            }
+            
+            .results-view-btn.active {
+                color: var(--text-primary);
+                background: var(--vario-primary);
+                color: white;
+            }
+            
             /* Loading Animation */
             .loading-spinner {
                 width: 40px;
@@ -505,11 +525,11 @@ export function VarioAISearch() {
                             </select>
                             
                             <!-- View Toggle -->
-                            <div class="flex bg-gray-800 rounded-lg p-1">
-                                <button onclick="setResultsView(event, 'grid')" class="results-view-btn active px-3 py-1 rounded">
+                            <div class="flex rounded-lg p-1" style="background: var(--accent-bg);">
+                                <button onclick="setResultsView(event, 'grid')" class="results-view-btn active px-3 py-1 rounded transition-colors">
                                     <i class="fas fa-th"></i>
                                 </button>
-                                <button onclick="setResultsView(event, 'list')" class="results-view-btn px-3 py-1 rounded">
+                                <button onclick="setResultsView(event, 'list')" class="results-view-btn px-3 py-1 rounded transition-colors">
                                     <i class="fas fa-list"></i>
                                 </button>
                             </div>
