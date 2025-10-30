@@ -2066,37 +2066,31 @@ export function VarioAISearch() {
             function initViewToggleButtons() {
                 console.log('Setting up view toggle button event listeners');
                 
-                // Find all view toggle buttons
-                const viewButtons = document.querySelectorAll('.results-view-btn');
-                console.log('Found', viewButtons.length, 'view toggle buttons');
-                
-                viewButtons.forEach((button, index) => {
-                    console.log('Button', index, ':', button.outerHTML.substring(0, 100));
-                    
-                    // Remove any existing listeners
-                    const newButton = button.cloneNode(true);
-                    button.parentNode.replaceChild(newButton, button);
-                    
-                    // Add click event listener
-                    newButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        console.log('Button clicked!', e.target);
-                        
-                        // Determine which view based on button content
-                        const icon = newButton.querySelector('i');
-                        const isGrid = icon && icon.classList.contains('fa-th');
-                        const view = isGrid ? 'grid' : 'list';
-                        
-                        console.log('Detected view:', view);
-                        setResultsView(e, view);
+                // Use event delegation on the parent container
+                const resultsSection = document.getElementById('search');
+                if (resultsSection) {
+                    resultsSection.addEventListener('click', function(e) {
+                        // Check if click is on a view toggle button or its child
+                        const button = e.target.closest('.results-view-btn');
+                        if (button) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            console.log('View toggle button clicked!', button);
+                            
+                            // Determine which view based on button icon
+                            const icon = button.querySelector('i');
+                            const isGrid = icon && icon.classList.contains('fa-th');
+                            const view = isGrid ? 'grid' : 'list';
+                            
+                            console.log('Switching to view:', view);
+                            setResultsView(e, view);
+                        }
                     });
-                    
-                    console.log('Event listener attached to button', index);
-                });
-                
-                console.log('View toggle buttons initialization complete');
+                    console.log('Event delegation set up on search section');
+                } else {
+                    console.log('Search section not found for event delegation');
+                }
             }
         </script>
     </body>
