@@ -235,9 +235,8 @@ export function VarioAISearch() {
             }
             
             .results-view-btn.active {
-                color: var(--text-primary);
-                background: var(--vario-primary);
-                color: white;
+                color: white !important;
+                background: var(--vario-primary) !important;
             }
             
             /* Loading Animation */
@@ -526,10 +525,10 @@ export function VarioAISearch() {
                             
                             <!-- View Toggle -->
                             <div class="flex rounded-lg p-1" style="background: var(--accent-bg);">
-                                <button onclick="setResultsView(event, 'grid')" class="results-view-btn active px-3 py-1 rounded transition-colors" title="Grid view">
+                                <button type="button" onclick="setResultsView(event, 'grid')" class="results-view-btn active px-3 py-1 rounded transition-colors" title="Grid view" aria-label="Grid view">
                                     <i class="fas fa-th" style="pointer-events: none;"></i>
                                 </button>
-                                <button onclick="setResultsView(event, 'list')" class="results-view-btn px-3 py-1 rounded transition-colors" title="List view">
+                                <button type="button" onclick="setResultsView(event, 'list')" class="results-view-btn px-3 py-1 rounded transition-colors" title="List view" aria-label="List view">
                                     <i class="fas fa-list" style="pointer-events: none;"></i>
                                 </button>
                             </div>
@@ -1970,6 +1969,8 @@ export function VarioAISearch() {
             }
             
             function setResultsView(e, view) {
+                console.log('setResultsView called with view:', view);
+                
                 // Remove active class from all buttons
                 document.querySelectorAll('.results-view-btn').forEach(btn => {
                     btn.classList.remove('active');
@@ -1981,21 +1982,37 @@ export function VarioAISearch() {
                     const button = e.target.closest('.results-view-btn');
                     if (button) {
                         button.classList.add('active');
+                        console.log('Active class added to button');
+                    } else {
+                        console.log('Button not found via closest()');
                     }
                 }
                 
                 // Update grid layout
                 const grid = document.getElementById('resultsGrid');
                 if (grid) {
+                    console.log('Grid found, switching to', view, 'view');
                     if (view === 'list') {
-                        // List view - single column
+                        // List view - single column, full width cards
                         grid.style.columnCount = '1';
                         grid.classList.remove('masonry-grid');
+                        // Make cards full width in list view
+                        grid.querySelectorAll('.result-card').forEach(card => {
+                            card.style.width = '100%';
+                            card.style.marginBottom = '1rem';
+                        });
                     } else {
                         // Grid view - masonry layout
                         grid.style.columnCount = '';
                         grid.classList.add('masonry-grid');
+                        // Reset card widths for masonry grid
+                        grid.querySelectorAll('.result-card').forEach(card => {
+                            card.style.width = '';
+                            card.style.marginBottom = '';
+                        });
                     }
+                } else {
+                    console.log('Grid not found - resultsGrid element missing');
                 }
             }
             
