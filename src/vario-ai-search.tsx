@@ -65,6 +65,9 @@ export function VarioAISearch() {
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
+                display: inline-block;
+                padding: 0.1em 0;
+                line-height: 1.2;
             }
             
             /* Glass Morphism */
@@ -376,10 +379,10 @@ export function VarioAISearch() {
         <main class="pt-24 pb-16">
             <!-- Hero Search Section -->
             <section id="search" class="min-h-screen flex items-center justify-center px-6">
-                <div class="w-full max-w-4xl text-center">
+                <div class="w-full max-w-5xl text-center">
                     <!-- Hero Title -->
-                    <div class="mb-8">
-                        <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4 vario-text-gradient">
+                    <div class="mb-8 overflow-visible">
+                        <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4 vario-text-gradient leading-tight">
                             Discover Everything,<br>Everywhere
                         </h1>
                         <p class="text-lg md:text-xl" style="color: var(--text-secondary);">
