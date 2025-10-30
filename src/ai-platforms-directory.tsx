@@ -38,7 +38,7 @@ export function aiPlatformsDirectoryPage(c: any) {
                     <div class="flex justify-between items-center h-16">
                         <div class="flex items-center space-x-4">
                             <a href="/" class="flex items-center">
-                                <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                                <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                                      alt="Earnly Logo" class="h-8 w-auto">
                             </a>
                             <div class="hidden md:flex space-x-6 ml-8">
@@ -193,7 +193,7 @@ export function aiPlatformsDirectoryPage(c: any) {
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid md:grid-cols-4 gap-8">
                         <div>
-                            <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                            <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                                  alt="Earnly Logo" class="h-10 w-auto mb-6">
                             <p class="text-gray-400 leading-relaxed">Connecting AI platforms with monetization opportunities through intelligent integrations and real-time optimization.</p>
                         </div>

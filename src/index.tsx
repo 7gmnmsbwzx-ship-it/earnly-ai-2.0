@@ -1707,8 +1707,9 @@ app.get('/dashboard/advertiser', (c) => {
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center space-x-4">
                         <a href="/" class="flex items-center">
-                            <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
-                                 alt="Earnly Logo" class="h-9 w-auto">
+                            <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
+                                 alt="Earnly Logo" class="h-9 w-auto"
+                                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22%3E%3Ctext x=%2210%22 y=%2240%22 font-family=%22Arial%22 font-size=%2236%22 font-weight=%22bold%22 fill=%22%234f46e5%22%3EEarnly%3C/text%3E%3C/svg%3E';">
                         </a>
                         <span class="text-blue-400 font-semibold">Advertiser Dashboard</span>
                     </div>
@@ -1826,8 +1827,9 @@ app.get('/dashboard/platform', (c) => {
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center space-x-4">
                         <a href="/" class="flex items-center">
-                            <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
-                                 alt="Earnly Logo" class="h-9 w-auto">
+                            <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
+                                 alt="Earnly Logo" class="h-9 w-auto"
+                                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22%3E%3Ctext x=%2210%22 y=%2240%22 font-family=%22Arial%22 font-size=%2236%22 font-weight=%22bold%22 fill=%22%234f46e5%22%3EEarnly%3C/text%3E%3C/svg%3E';">
                         </a>
                         <span class="text-green-400 font-semibold">Platform Dashboard</span>
                     </div>
@@ -1916,10 +1918,11 @@ app.get('/dashboard/platform', (c) => {
                     <!-- Company Info -->
                     <div class="lg:col-span-2">
                         <div class="flex items-center mb-6">
-                            <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                            <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                                  alt="Earnly Logo" 
                                  class="h-10 w-auto"
-                                 style="background: transparent;">
+                                 style="background: transparent;"
+                                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22%3E%3Ctext x=%2210%22 y=%2240%22 font-family=%22Arial%22 font-size=%2236%22 font-weight=%22bold%22 fill=%22%234f46e5%22%3EEarnly%3C/text%3E%3C/svg%3E';">
                         </div>
                         <p class="text-gray-400 mb-6 leading-relaxed max-w-md">
                             The world's most advanced AI-native monetization platform connecting advertisers with AI platforms through contextual recommendations and real-time optimization.

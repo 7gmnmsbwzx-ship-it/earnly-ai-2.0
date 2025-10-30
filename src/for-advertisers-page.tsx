@@ -100,7 +100,7 @@ export const ForAdvertisersPage = () => {
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center">
                             <div class="flex items-center justify-center py-2 pr-2">
-                                <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                                <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                                      alt="Earnly Logo" 
                                      class="h-9 w-auto"
                                      style="background: transparent;">
@@ -559,7 +559,7 @@ export const ForAdvertisersPage = () => {
                     <!-- Company Info -->
                     <div class="lg:col-span-2">
                         <div class="flex items-center mb-6">
-                            <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                            <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                                  alt="Earnly Logo" 
                                  class="h-10 w-auto"
                                  style="background: transparent;">

@@ -67,7 +67,7 @@ export function privacyPage(c: Context) {
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <a href="/" class="flex items-center">
-                        <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                        <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                              alt="Earnly Logo" 
                              class="h-8 w-auto">
                     </a>
@@ -429,7 +429,7 @@ export function privacyPage(c: Context) {
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <div class="flex items-center space-x-6 mb-4 md:mb-0">
-                        <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                        <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                              alt="Earnly Logo" 
                              class="h-6 w-auto">
                         <span class="text-slate-400">© 2025 Earnly. All rights reserved.</span>

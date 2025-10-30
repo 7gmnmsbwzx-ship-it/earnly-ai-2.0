@@ -82,7 +82,7 @@ export function signinPage(c: Context) {
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <a href="/" class="flex items-center floating-animation">
-                        <img src="https://github.com/7gmnmsbwzx-ship-it/earnly-assets/blob/main/earnly%20logo.png?raw=true" 
+                        <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                              alt="Earnly Logo" 
                              class="h-10 w-auto">
                     </a>
