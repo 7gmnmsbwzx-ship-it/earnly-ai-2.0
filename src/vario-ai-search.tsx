@@ -285,6 +285,10 @@ export function VarioAISearch() {
                             class="h-9 w-auto"
                             style="background: transparent;"
                         />
+                        <div>
+                            <h1 class="text-xl font-bold" style="color: #000000;">Vario™</h1>
+                            <p class="text-xs" style="color: var(--text-muted);">AI Search Engine</p>
+                        </div>
                     </div>
                     
                     <!-- Navigation Links -->
