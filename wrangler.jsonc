@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "webapp",
+  "name": "earnly-ai",
   "compatibility_date": "2025-10-17",
   "pages_build_output_dir": "./dist",
   "compatibility_flags": [
@@ -9,8 +9,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "webapp-production",
-      "database_id": "local-development"
+      "database_name": "earnly-ai-production",
+      "database_id": "fba4ee22-ac58-4468-9504-4633c3090fb3"
     }
   ]
 }
