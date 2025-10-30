@@ -526,11 +526,11 @@ export function VarioAISearch() {
                             
                             <!-- View Toggle -->
                             <div class="flex rounded-lg p-1" style="background: var(--accent-bg);">
-                                <button onclick="setResultsView(event, 'grid')" class="results-view-btn active px-3 py-1 rounded transition-colors">
-                                    <i class="fas fa-th"></i>
+                                <button onclick="setResultsView(event, 'grid')" class="results-view-btn active px-3 py-1 rounded transition-colors" title="Grid view">
+                                    <i class="fas fa-th" style="pointer-events: none;"></i>
                                 </button>
-                                <button onclick="setResultsView(event, 'list')" class="results-view-btn px-3 py-1 rounded transition-colors">
-                                    <i class="fas fa-list"></i>
+                                <button onclick="setResultsView(event, 'list')" class="results-view-btn px-3 py-1 rounded transition-colors" title="List view">
+                                    <i class="fas fa-list" style="pointer-events: none;"></i>
                                 </button>
                             </div>
                         </div>
@@ -1970,20 +1970,31 @@ export function VarioAISearch() {
             }
             
             function setResultsView(e, view) {
+                // Remove active class from all buttons
                 document.querySelectorAll('.results-view-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 
-                if (e && e.target) {
-                    e.target.classList.add('active');
+                // Add active class to clicked button
+                if (e) {
+                    // Handle clicks on icon or button
+                    const button = e.target.closest('.results-view-btn');
+                    if (button) {
+                        button.classList.add('active');
+                    }
                 }
                 
+                // Update grid layout
                 const grid = document.getElementById('resultsGrid');
                 if (grid) {
                     if (view === 'list') {
+                        // List view - single column
                         grid.style.columnCount = '1';
+                        grid.classList.remove('masonry-grid');
                     } else {
+                        // Grid view - masonry layout
                         grid.style.columnCount = '';
+                        grid.classList.add('masonry-grid');
                     }
                 }
             }
