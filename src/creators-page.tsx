@@ -153,8 +153,8 @@ export function creatorsPage(c: Context) {
                         <a href="/signin" class="text-white hover:text-blue-400 transition-colors px-4 py-2 font-medium">
                             Sign In
                         </a>
-                        <a href="/get-started" class="creator-gradient text-white px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
-                            Start Earning
+                        <a href="/creator-dashboard" class="creator-gradient text-white px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Creator Dashboard
                         </a>
                     </div>
                 </div>
@@ -197,14 +197,14 @@ export function creatorsPage(c: Context) {
                                 <div class="text-sm text-gray-300">Avg Revenue Increase</div>
                             </div>
                             <div class="creator-stat">
-                                <div class="revenue-counter text-3xl font-bold">24hrs</div>
+                                <div class="revenue-counter text-3xl font-bold">5 mins</div>
                                 <div class="text-sm text-gray-300">Setup Time</div>
                             </div>
                         </div>
 
                         <!-- CTA Buttons -->
                         <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                            <a href="/get-started" class="creator-gradient text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform text-center">
+                            <a href="/creator-dashboard" class="creator-gradient text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform text-center">
                                 <i class="fas fa-rocket mr-2"></i>
                                 Start Earning Today
                             </a>
@@ -673,9 +673,9 @@ export function creatorsPage(c: Context) {
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                        <a href="/get-started" class="creator-gradient text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform">
+                        <a href="/creator-dashboard" class="creator-gradient text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform">
                             <i class="fas fa-rocket mr-2"></i>
-                            Start Earning Now — Free
+                            Access Creator Dashboard
                         </a>
                         <a href="mailto:creators@getearnly.com" class="border-2 border-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all">
                             <i class="fas fa-comments mr-2"></i>

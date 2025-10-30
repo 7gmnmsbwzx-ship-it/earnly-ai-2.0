@@ -15,6 +15,8 @@ import { creatorsPage } from './creators-page'
 import { termsPage } from './terms-page'
 import { privacyPage } from './privacy-page'
 import { DocumentationPage } from './documentation-page'
+import { CreatorDashboard } from './creator-dashboard'
+import { VarioAISearch } from './vario-ai-search'
 
 // Temporarily inline matching logic to avoid import issues
 
@@ -1173,6 +1175,390 @@ app.get('/api/geo/queries', async (c) => {
 });
 
 // ============================================================================
+// VARIO™ OAUTH AUTHENTICATION APIs
+// ============================================================================
+
+import {
+  verifyGoogleToken,
+  createOrUpdateUser,
+  generateAuthUrl,
+  exchangeCodeForToken,
+  saveOAuthToken,
+  getUserPlatformToken,
+  refreshOAuthToken,
+  getUserConnectedPlatforms,
+  disconnectPlatform,
+  generateSessionToken,
+  verifySessionToken
+} from './oauth-manager'
+
+// Google Sign-In
+app.post('/api/auth/google/signin', async (c) => {
+  const { env } = c;
+  try {
+    const body = await c.req.json();
+    const { idToken } = body;
+    
+    if (!idToken) {
+      return c.json({ error: 'ID token is required' }, 400);
+    }
+    
+    // Verify Google token
+    const userData = await verifyGoogleToken(idToken);
+    
+    // Create or update user
+    const userId = await createOrUpdateUser(env.DB, userData);
+    
+    // Generate session token
+    const sessionToken = await generateSessionToken(userId, userData.email);
+    
+    // Get connected platforms
+    const connectedPlatforms = await getUserConnectedPlatforms(env.DB, userId);
+    
+    return c.json({
+      success: true,
+      user: {
+        id: userId,
+        email: userData.email,
+        name: userData.name,
+        picture: userData.picture
+      },
+      sessionToken,
+      connectedPlatforms
+    });
+  } catch (error: any) {
+    console.error('Google sign-in error:', error);
+    return c.json({ error: 'Authentication failed', message: error.message }, 401);
+  }
+});
+
+// Get current user info
+app.get('/api/auth/me', async (c) => {
+  const { env } = c;
+  try {
+    const authHeader = c.req.header('Authorization');
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return c.json({ error: 'No authorization token' }, 401);
+    }
+    
+    const token = authHeader.substring(7);
+    const payload = verifySessionToken(token);
+    
+    // Get user details
+    const user = await env.DB.prepare(`
+      SELECT id, email, name, picture, created_at, last_login_at
+      FROM vario_users
+      WHERE id = ?
+    `).bind(payload.userId).first();
+    
+    if (!user) {
+      return c.json({ error: 'User not found' }, 404);
+    }
+    
+    // Get connected platforms
+    const connectedPlatforms = await getUserConnectedPlatforms(env.DB, user.id);
+    
+    return c.json({
+      user,
+      connectedPlatforms
+    });
+  } catch (error: any) {
+    return c.json({ error: 'Authentication failed', message: error.message }, 401);
+  }
+});
+
+// Connect a platform (Step 1: Generate auth URL)
+app.get('/api/auth/connect/:platform', async (c) => {
+  try {
+    const platform = c.req.param('platform');
+    const redirectUri = c.req.query('redirect_uri') || 'https://your-domain.com/auth/callback';
+    
+    // Get client credentials from environment
+    const clientId = c.env?.[`${platform.toUpperCase()}_CLIENT_ID`] || '';
+    
+    if (!clientId) {
+      return c.json({ error: `${platform} OAuth not configured` }, 400);
+    }
+    
+    // Generate state for CSRF protection
+    const state = Math.random().toString(36).substring(7);
+    
+    // Generate authorization URL
+    const authUrl = generateAuthUrl(platform, clientId, redirectUri, state);
+    
+    return c.json({
+      authUrl,
+      state,
+      platform
+    });
+  } catch (error: any) {
+    return c.json({ error: 'Failed to generate auth URL', message: error.message }, 500);
+  }
+});
+
+// OAuth callback (Step 2: Exchange code for token)
+app.get('/api/auth/callback/:platform', async (c) => {
+  const { env } = c;
+  try {
+    const platform = c.req.param('platform');
+    const code = c.req.query('code');
+    const state = c.req.query('state');
+    
+    if (!code) {
+      return c.json({ error: 'Authorization code missing' }, 400);
+    }
+    
+    // Get user from session
+    const authHeader = c.req.header('Authorization');
+    if (!authHeader) {
+      return c.json({ error: 'Not authenticated' }, 401);
+    }
+    
+    const token = authHeader.substring(7);
+    const payload = verifySessionToken(token);
+    
+    // Get OAuth credentials
+    const clientId = env[`${platform.toUpperCase()}_CLIENT_ID`] || '';
+    const clientSecret = env[`${platform.toUpperCase()}_CLIENT_SECRET`] || '';
+    const redirectUri = c.req.query('redirect_uri') || 'https://your-domain.com/auth/callback';
+    
+    // Exchange code for token
+    const tokenData = await exchangeCodeForToken(platform, code, clientId, clientSecret, redirectUri);
+    
+    // Save token to database
+    await saveOAuthToken(env.DB, payload.userId, platform, tokenData);
+    
+    return c.json({
+      success: true,
+      platform,
+      message: `${platform} connected successfully`
+    });
+  } catch (error: any) {
+    return c.json({ error: 'OAuth callback failed', message: error.message }, 500);
+  }
+});
+
+// Get connected platforms
+app.get('/api/auth/platforms', async (c) => {
+  const { env } = c;
+  try {
+    const authHeader = c.req.header('Authorization');
+    if (!authHeader) {
+      return c.json({ error: 'Not authenticated' }, 401);
+    }
+    
+    const token = authHeader.substring(7);
+    const payload = verifySessionToken(token);
+    
+    const platforms = await getUserConnectedPlatforms(env.DB, payload.userId);
+    
+    return c.json({
+      platforms
+    });
+  } catch (error: any) {
+    return c.json({ error: 'Failed to fetch platforms', message: error.message }, 401);
+  }
+});
+
+// Disconnect a platform
+app.delete('/api/auth/disconnect/:platform', async (c) => {
+  const { env } = c;
+  try {
+    const platform = c.req.param('platform');
+    const authHeader = c.req.header('Authorization');
+    
+    if (!authHeader) {
+      return c.json({ error: 'Not authenticated' }, 401);
+    }
+    
+    const token = authHeader.substring(7);
+    const payload = verifySessionToken(token);
+    
+    await disconnectPlatform(env.DB, payload.userId, platform);
+    
+    return c.json({
+      success: true,
+      message: `${platform} disconnected successfully`
+    });
+  } catch (error: any) {
+    return c.json({ error: 'Failed to disconnect platform', message: error.message }, 500);
+  }
+});
+
+// ============================================================================
+// VARIO™ AI SEARCH - PLATFORM INTEGRATION APIs
+// ============================================================================
+
+import { 
+  fetchYouTubeVideos, 
+  fetchRedditPosts, 
+  searchAmazonProducts,
+  fetchPinterestPins,
+  generateAIAnswer,
+  searchAllPlatforms 
+} from './platform-apis'
+
+// Unified search across all platforms
+app.get('/api/vario/search', async (c) => {
+  try {
+    const query = c.req.query('q') || '';
+    const platforms = c.req.query('platforms')?.split(',') || ['youtube', 'reddit', 'amazon', 'pinterest', 'ai'];
+    const maxPerPlatform = parseInt(c.req.query('limit') || '10');
+    
+    if (!query) {
+      return c.json({ error: 'Query parameter "q" is required' }, 400);
+    }
+    
+    // Get API keys from environment or query
+    const apiKeys = {
+      youtube: c.req.query('youtube_key') || c.env?.YOUTUBE_API_KEY || ''
+    };
+    
+    const options = {
+      includeYouTube: platforms.includes('youtube'),
+      includeReddit: platforms.includes('reddit'),
+      includeAmazon: platforms.includes('amazon'),
+      includePinterest: platforms.includes('pinterest'),
+      includeAI: platforms.includes('ai'),
+      maxPerPlatform
+    };
+    
+    const results = await searchAllPlatforms(query, apiKeys, options);
+    
+    return c.json({
+      query,
+      total_results: results.length,
+      results,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error: any) {
+    console.error('Search error:', error);
+    return c.json({ error: 'Search failed', message: error.message }, 500);
+  }
+});
+
+// YouTube specific search
+app.get('/api/vario/youtube/search', async (c) => {
+  try {
+    const query = c.req.query('q') || '';
+    const maxResults = parseInt(c.req.query('limit') || '20');
+    const apiKey = c.req.query('key') || c.env?.YOUTUBE_API_KEY || '';
+    
+    if (!query) {
+      return c.json({ error: 'Query parameter "q" is required' }, 400);
+    }
+    
+    if (!apiKey) {
+      return c.json({ error: 'YouTube API key is required' }, 400);
+    }
+    
+    const results = await fetchYouTubeVideos(query, apiKey, maxResults);
+    
+    return c.json({
+      platform: 'youtube',
+      query,
+      total_results: results.length,
+      results
+    });
+  } catch (error: any) {
+    return c.json({ error: 'YouTube search failed', message: error.message }, 500);
+  }
+});
+
+// Reddit specific search
+app.get('/api/vario/reddit/search', async (c) => {
+  try {
+    const query = c.req.query('q') || '';
+    const subreddit = c.req.query('subreddit') || 'all';
+    const limit = parseInt(c.req.query('limit') || '20');
+    
+    if (!query && subreddit === 'all') {
+      return c.json({ error: 'Query parameter "q" or "subreddit" is required' }, 400);
+    }
+    
+    const results = await fetchRedditPosts(subreddit, query, limit);
+    
+    return c.json({
+      platform: 'reddit',
+      query,
+      subreddit,
+      total_results: results.length,
+      results
+    });
+  } catch (error: any) {
+    return c.json({ error: 'Reddit search failed', message: error.message }, 500);
+  }
+});
+
+// Amazon products search
+app.get('/api/vario/amazon/search', async (c) => {
+  try {
+    const query = c.req.query('q') || '';
+    const limit = parseInt(c.req.query('limit') || '20');
+    
+    if (!query) {
+      return c.json({ error: 'Query parameter "q" is required' }, 400);
+    }
+    
+    const results = await searchAmazonProducts(query, limit);
+    
+    return c.json({
+      platform: 'amazon',
+      query,
+      total_results: results.length,
+      results
+    });
+  } catch (error: any) {
+    return c.json({ error: 'Amazon search failed', message: error.message }, 500);
+  }
+});
+
+// Pinterest pins search
+app.get('/api/vario/pinterest/search', async (c) => {
+  try {
+    const query = c.req.query('q') || '';
+    const limit = parseInt(c.req.query('limit') || '20');
+    
+    if (!query) {
+      return c.json({ error: 'Query parameter "q" is required' }, 400);
+    }
+    
+    const results = await fetchPinterestPins(query, limit);
+    
+    return c.json({
+      platform: 'pinterest',
+      query,
+      total_results: results.length,
+      results
+    });
+  } catch (error: any) {
+    return c.json({ error: 'Pinterest search failed', message: error.message }, 500);
+  }
+});
+
+// AI answer generation
+app.post('/api/vario/ai/answer', async (c) => {
+  try {
+    const body = await c.req.json();
+    const query = body.query || '';
+    
+    if (!query) {
+      return c.json({ error: 'Query is required in request body' }, 400);
+    }
+    
+    const answer = await generateAIAnswer(query);
+    
+    return c.json({
+      platform: 'ai',
+      query,
+      answer
+    });
+  } catch (error: any) {
+    return c.json({ error: 'AI answer generation failed', message: error.message }, 500);
+  }
+});
+
+// ============================================================================
 // MAIN ROUTES
 // ============================================================================
 
@@ -1255,6 +1641,16 @@ app.get('/privacy', (c) => {
 // Documentation Page
 app.get('/docs', (c) => {
   return c.html(DocumentationPage())
+})
+
+// Creator Dashboard
+app.get('/creator-dashboard', (c) => {
+  return c.html(CreatorDashboard())
+})
+
+// Vario™ AI Search Engine
+app.get('/vario', (c) => {
+  return c.html(VarioAISearch())
 })
 
 // Dashboard route for authenticated users
