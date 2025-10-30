@@ -280,7 +280,7 @@ export function VarioAISearch() {
                     <!-- Logo -->
                     <div class="flex items-center space-x-3">
                         <img 
-                            src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/Vario%20Logo.png" 
+                            src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/Vario%20Logo.svg" 
                             alt="Vario Logo" 
                             class="h-9 w-auto"
                             style="background: transparent;"
