@@ -92,6 +92,57 @@ app.post('/api/auth/signin', async (c) => {
   }
 })
 
+// New registration endpoint for Get Started flow
+app.post('/api/register', async (c) => {
+  const { env } = c
+  try {
+    const { accountType, website, email, password } = await c.req.json()
+    
+    // Validate required fields
+    if (!accountType || !email || !password) {
+      return c.json({ error: 'Missing required fields' }, 400)
+    }
+    
+    // Validate password requirements
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,}$/
+    if (!passwordRegex.test(password)) {
+      return c.json({ error: 'Password does not meet requirements' }, 400)
+    }
+    
+    // Check if user exists
+    const existing = await env.DB.prepare('SELECT id FROM users WHERE email = ?').bind(email).first()
+    if (existing) {
+      return c.json({ error: 'Email already registered' }, 400)
+    }
+    
+    // Hash password
+    const hashedPassword = await hashPassword(password)
+    
+    // Extract name from email
+    const name = email.split('@')[0]
+    
+    // Create user
+    const result = await env.DB.prepare(`
+      INSERT INTO users (email, password_hash, name, username) 
+      VALUES (?, ?, ?, ?)
+    `).bind(email, hashedPassword, name, name).run()
+    
+    const userId = result.meta.last_row_id
+    
+    // Create user session or token here if needed
+    
+    return c.json({ 
+      success: true, 
+      userId: userId,
+      email: email,
+      accountType: accountType
+    })
+  } catch (error) {
+    console.error('Registration error:', error)
+    return c.json({ error: 'Registration failed' }, 500)
+  }
+})
+
 // ============================================================================
 // CREATOR LINK MANAGEMENT
 // ============================================================================
