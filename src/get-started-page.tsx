@@ -1098,7 +1098,13 @@ export function getStartedPage(c: Context) {
                 // Simulate successful OAuth
                 alert('✅ Successfully connected to ' + platformName + '!');
                 
-                // Redirect to creator dashboard
+                // Set authentication token and redirect to creator dashboard
+                // This simulates successful OAuth authentication
+                localStorage.setItem('earnly_auth', 'oauth_' + platform + '_' + Date.now());
+                localStorage.setItem('creator_platform', platform);
+                localStorage.setItem('creator_email', 'creator@' + platform + '.example');
+                
+                // Redirect to creator dashboard (will bypass login modal)
                 window.location.href = '/creator-dashboard?welcome=true&platform=' + platform;
             }
         </script>

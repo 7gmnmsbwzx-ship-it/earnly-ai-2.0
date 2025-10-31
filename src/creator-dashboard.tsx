@@ -207,46 +207,8 @@ export function CreatorDashboard() {
         </style>
     </head>
     <body class="font-sans transition-colors duration-300" style="background-color: var(--primary-bg); color: var(--text-primary);">
-        <!-- Login Modal -->
-        <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-            <div class="glass-card p-8 rounded-2xl max-w-md w-full mx-4">
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl font-bold mb-2">Welcome Back</h2>
-                    <p class="text-gray-300">Sign in to your creator dashboard</p>
-                </div>
-                
-                <form id="loginForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Email</label>
-                        <input type="email" id="email" class="w-full p-3 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);" placeholder="creator@example.com">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Password</label>
-                        <input type="password" id="password" class="w-full p-3 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);" placeholder="••••••••">
-                    </div>
-                    
-                    <div class="flex items-center justify-between">
-                        <label class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <span class="text-sm">Remember me</span>
-                        </label>
-                        <a href="#" class="text-sm text-blue-400 hover:underline">Forgot password?</a>
-                    </div>
-                    
-                    <button type="submit" class="w-full dashboard-gradient text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-                        Sign In
-                    </button>
-                </form>
-                
-                <div class="mt-6 text-center">
-                    <p class="text-gray-400">Don't have an account? <a href="/creators" class="text-blue-400 hover:underline">Sign up now</a></p>
-                </div>
-            </div>
-        </div>
-
         <!-- Dashboard Layout -->
-        <div id="dashboardContent" class="hidden">
+        <div id="dashboardContent">
             <!-- Sidebar -->
             <div class="fixed left-0 top-0 w-64 sidebar z-40">
                 <div class="p-6 border-b border-gray-700">
@@ -1477,44 +1439,43 @@ export function CreatorDashboard() {
                 if (savedAuth) {
                     isAuthenticated = true;
                     showDashboard();
+                    
+                    // Check if this is a new creator from OAuth
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const isWelcome = urlParams.get('welcome') === 'true';
+                    const platform = urlParams.get('platform');
+                    
+                    if (isWelcome && platform) {
+                        // Show welcome notification for new creators
+                        setTimeout(() => {
+                            const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
+                            showNotification('🎉 Welcome! Your ' + platformName + ' account is connected. Start monetizing your content now!', 'success');
+                        }, 500);
+                        
+                        // Update user info from localStorage
+                        const creatorEmail = localStorage.getItem('creator_email');
+                        if (creatorEmail) {
+                            document.getElementById('userName').textContent = creatorEmail.split('@')[0];
+                        }
+                    }
                 } else {
-                    showLoginModal();
+                    // No authentication - redirect to Get Started
+                    window.location.href = '/get-started';
                 }
             }
             
-            function showLoginModal() {
-                document.getElementById('loginModal').classList.remove('hidden');
-                document.getElementById('dashboardContent').classList.add('hidden');
-            }
-            
             function showDashboard() {
-                document.getElementById('loginModal').classList.add('hidden');
                 document.getElementById('dashboardContent').classList.remove('hidden');
             }
             
             function logout() {
                 localStorage.removeItem('earnly_auth');
+                localStorage.removeItem('creator_platform');
+                localStorage.removeItem('creator_email');
                 isAuthenticated = false;
-                showLoginModal();
+                // Redirect to Get Started instead of showing login modal
+                window.location.href = '/get-started';
             }
-            
-            // Login Form Handler
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                
-                // Simple demo authentication (in real app, use proper auth)
-                if (email && password) {
-                    localStorage.setItem('earnly_auth', 'demo_token');
-                    isAuthenticated = true;
-                    showDashboard();
-                    
-                    // Update user name
-                    document.getElementById('userName').textContent = email.split('@')[0];
-                }
-            });
             
             // Section Navigation
             function setupEventListeners() {
