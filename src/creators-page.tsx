@@ -169,11 +169,8 @@ export function creatorsPage(c: Context) {
                             <span class="text-gray-400">creators earning</span>
                         </div>
                         
-                        <a href="/signin" class="text-white hover:text-blue-400 transition-colors px-4 py-2 font-medium">
-                            Sign In
-                        </a>
-                        <a href="/creator-dashboard" class="creator-gradient text-white px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
-                            Creator Dashboard
+                        <a href="/get-started" class="creator-gradient text-white px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Get Started
                         </a>
                     </div>
                 </div>

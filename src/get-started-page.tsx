@@ -249,12 +249,7 @@ export function getStartedPage(c: Context) {
                              onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22%3E%3Ctext x=%2210%22 y=%2240%22 font-family=%22Arial%22 font-size=%2236%22 font-weight=%22bold%22 fill=%22%234f46e5%22%3EEarnly%3C/text%3E%3C/svg%3E';">
                     </a>
                     
-                    <div class="flex items-center space-x-6">
-                        <span class="text-slate-300 text-sm">Already have an account?</span>
-                        <a href="/signin" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-all duration-300 font-medium backdrop-blur-sm border border-white/20">
-                            Sign in
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </nav>
