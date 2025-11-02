@@ -50,7 +50,10 @@ Earnly transforms conversations into revenue by enabling brands to promote produ
 
 ### ✅ Creator Economy Features
 - **Comprehensive Creator Dashboard**: Full-featured dashboard with sign-in, earnings tracking, and content management
-- **Content Library Management**: Upload, organize, and monetize content with AI-ready format conversion
+- **URL Content Submission**: Submit content from any platform (YouTube, Twitter, Medium, GitHub, etc.) via URL
+- **Multi-Platform Support**: Auto-detect content source (YouTube, Instagram, TikTok, Twitter, Medium, GitHub, LinkedIn, RedNote)
+- **File Upload Support**: Upload all content formats (PDF, DOCX, TXT, MD, JSON, CSV, images, videos)
+- **Content Library Management**: Organize and monetize content with AI-ready format conversion
 - **RAG Marketplace Integration**: Transform content into AI-ready models and license to AI companies
 - **Earnings Analytics**: Interactive charts, revenue breakdown, and performance insights
 - **Payout Management**: Automated payments, method management, and transaction history
@@ -79,6 +82,8 @@ Earnly transforms conversations into revenue by enabling brands to promote produ
 ```
 src/
 ├── index.tsx                  # Main Hono application with all API endpoints
+├── creator-api.tsx            # Creator content management REST API
+├── creator-dashboard.tsx      # Functional creator dashboard with forms
 ├── documentation-page.tsx     # Comprehensive developer documentation
 ├── advanced-homepage.tsx      # Enterprise homepage component
 ├── for-advertisers-fixed.tsx  # Dedicated advertiser benefits page
@@ -92,8 +97,10 @@ src/
 ### Database Schema (Cloudflare D1 SQLite)
 ```
 migrations/
-├── 0001_initial_schema.sql     # Basic user and link management
-└── 0002_ai_monetization_schema.sql # Complete AI monetization tables
+├── 0001_initial_schema.sql                # Basic user and link management
+├── 0002_ai_monetization_schema.sql        # Complete AI monetization tables
+├── 0003_oauth_authentication.sql          # OAuth integration system
+└── 0004_creator_content_management.sql    # Creator content management system
 ```
 
 **Core Tables:**
@@ -106,6 +113,17 @@ migrations/
 - `revenue_events` - Conversion and commission tracking
 - `campaigns` - Advertising campaign management
 - `analytics_daily` - Aggregated performance metrics
+
+**Creator Content Management Tables:**
+- `creator_content` - All content types (URL submissions, file uploads, social imports)
+- `creator_integrations` - Social media platform connections
+- `content_processing_queue` - Content processing status tracking
+- `rag_models` - AI models created from content
+- `rag_licenses` - Licensing agreements with AI companies
+- `content_earnings` - Revenue tracking per content item
+- `content_analytics` - Daily performance metrics
+- `creator_payouts` - Payment management
+- `url_import_logs` - URL submission tracking
 
 ### Frontend (Vanilla JS + Tailwind CSS)
 ```
@@ -220,7 +238,41 @@ GET /api/analytics/advertiser/:userId/revenue
 
 ### Creator APIs
 ```bash
-# Create Trackable Links
+# Submit Content via URL
+POST /api/creator/content/url
+{
+  "creator_id": 1,
+  "url": "https://www.youtube.com/watch?v=example",
+  "title": "My Tutorial Video",
+  "description": "Step-by-step guide",
+  "category": "education",
+  "tags": ["tutorial", "guide"]
+}
+
+# Get Creator Content Library
+GET /api/creator/content/:creatorId
+GET /api/creator/content/:creatorId?status=active
+
+# Get Single Content Item
+GET /api/creator/content/item/:contentId
+
+# Update Content
+PUT /api/creator/content/:contentId
+{
+  "title": "Updated Title",
+  "description": "Updated description"
+}
+
+# Delete Content
+DELETE /api/creator/content/:contentId
+
+# Get Creator Statistics
+GET /api/creator/stats/:creatorId
+
+# Get Earnings Data
+GET /api/creator/earnings/:creatorId
+
+# Create Trackable Links (Legacy)
 POST /api/links
 {
   "user_id": 1,
@@ -228,7 +280,7 @@ POST /api/links
   "url": "https://example.com/product"
 }
 
-# Link Analytics
+# Link Analytics (Legacy)
 GET /api/links/:userId
 ```
 
@@ -302,9 +354,22 @@ npm install
 npm run db:migrate:local
 npm run db:seed
 
+# IMPORTANT: Create a test user for creator features
+npx wrangler d1 execute earnly-ai-production --local --command="INSERT OR IGNORE INTO users (email, password_hash, name, username, bio, is_verified) VALUES ('creator@test.com', 'hashed_password_placeholder', 'Test Creator', 'testcreator', 'Content creator for testing', TRUE);"
+
 # Start development server
 npm run build
 npm run dev:sandbox
+```
+
+### Note on Foreign Key Constraints
+The creator content management system uses foreign key constraints to ensure data integrity. If you encounter "FOREIGN KEY constraint failed" errors when submitting content:
+
+1. Ensure a user exists in the database with the `creator_id` you're using
+2. For local development, run the command above to create a test user
+3. For production, create users via the authentication system or manually:
+```bash
+npx wrangler d1 execute earnly-ai-production --remote --command="INSERT INTO users (email, password_hash, name, username, bio, is_verified) VALUES ('creator@test.com', 'hashed_password_placeholder', 'Test Creator', 'testcreator', 'Content creator for testing', TRUE);"
 ```
 
 ### 2. Register Your AI Platform
@@ -376,6 +441,41 @@ earnly-ai-platform/
 ├── wrangler.jsonc      # Cloudflare configuration
 └── ecosystem.config.cjs # PM2 process management
 ```
+
+## 🎯 Recent Updates (November 2, 2025)
+
+### ✅ Completed - Creator Content Management System
+- **Functional Creator Dashboard**: Complete implementation with working URL submission and file upload forms
+  - URL submission form with validation and error handling
+  - Platform auto-detection (YouTube, Twitter, Instagram, TikTok, Medium, GitHub, LinkedIn, RedNote)
+  - Category selection with 10+ predefined categories
+  - Tag management for content organization
+  - Real-time submission status feedback
+  
+- **REST API Implementation**: Complete backend API for creator content management
+  - `POST /api/creator/content/url` - Submit content via URL
+  - `GET /api/creator/content/:creatorId` - Retrieve creator's content library with filtering
+  - `GET /api/creator/content/item/:contentId` - Get single content item details
+  - `PUT /api/creator/content/:contentId` - Update content information
+  - `DELETE /api/creator/content/:contentId` - Remove content from library
+  - `GET /api/creator/stats/:creatorId` - Get creator statistics and metrics
+  - `GET /api/creator/earnings/:creatorId` - Retrieve earnings data
+
+- **Database Schema**: Comprehensive schema for content management (migration 0004)
+  - `creator_content` table with 31 fields for all content types
+  - Foreign key constraints for data integrity
+  - Support for URL submissions, file uploads, and social imports
+  - Tracking fields for earnings, analytics, and AI processing
+
+- **Bug Fixes**: Resolved production deployment issues
+  - Fixed foreign key constraint error by creating test user in production database
+  - Verified API functionality in both local and production environments
+  - Confirmed content submission and retrieval working correctly
+
+- **Theme System Improvements**: Fixed creator dashboard theme switching
+  - Replaced hardcoded colors with CSS variables
+  - Proper theme support for all UI elements
+  - Consistent appearance across light and dark modes
 
 ## 🎯 Recent Updates (October 27, 2025)
 
@@ -486,8 +586,8 @@ We welcome contributions to make Earnly the leading AI-native monetization platf
 
 ---
 
-**Last Updated**: October 27, 2025  
+**Last Updated**: November 2, 2025  
 **Platform Status**: ✅ Active Development  
-**Latest Version**: v2.4.0 (Comprehensive Documentation Platform - AdMesh Feature Parity)
+**Latest Version**: v2.5.0 (Creator Content Management System - Full Implementation)
 
 *Earnly - Transforming conversations into commerce through intelligent AI integration.*
