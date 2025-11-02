@@ -213,10 +213,10 @@ export function CreatorDashboard() {
             <div class="fixed left-0 top-0 w-64 sidebar z-40">
                 <div class="p-6 border-b" style="border-color: var(--border-color);">
                     <div class="flex items-center">
-                        <img src="https://page.gensparksite.com/v1/base64_upload/738e754593db5b74b3b5e61548eb85cd" 
-                             alt="Earnly Creator Logo" 
+                        <img src="https://page.gensparksite.com/v1/base64_upload/69487192e6348416a00ec925828afcf4" 
+                             alt="Earnly Logo" 
                              class="h-10 w-auto"
-                             onerror="this.onerror=null; this.innerHTML='<span class=\'text-xl font-bold\' style=\'color: var(--text-primary);\'><i class=\'fas fa-brain text-blue-400 mr-2\'></i>Earnly Creator</span>';">
+                             onerror="this.onerror=null; this.innerHTML='<span class=\'text-xl font-bold\' style=\'color: var(--text-primary);\'><i class=\'fas fa-brain text-blue-400 mr-2\'></i>Earnly</span>';">
                     </div>
                 </div>
                 
