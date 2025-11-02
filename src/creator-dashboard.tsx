@@ -44,6 +44,15 @@ export function CreatorDashboard() {
                 --glass-border: rgba(0, 0, 0, 0.1);
             }
 
+            /* Logo Theme Adaptation */
+            .logo-theme-adaptive {
+                transition: filter 0.3s ease;
+            }
+            
+            [data-theme="light"] .logo-theme-adaptive {
+                filter: brightness(0) saturate(100%);
+            }
+
             /* Custom Dashboard Styles */
             .dashboard-gradient {
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -215,7 +224,7 @@ export function CreatorDashboard() {
                     <div class="flex items-center">
                         <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/earnly%20logo.png" 
                              alt="Earnly Logo" 
-                             class="h-10 w-auto"
+                             class="h-10 w-auto logo-theme-adaptive"
                              onerror="this.onerror=null; this.innerHTML='<span class=\'text-xl font-bold\' style=\'color: var(--text-primary);\'><i class=\'fas fa-brain text-blue-400 mr-2\'></i>Earnly</span>';">
                     </div>
                 </div>
