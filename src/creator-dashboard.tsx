@@ -390,25 +390,25 @@ export function CreatorDashboard() {
                                         </div>
                                     </div>
                                     
-                                    <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+                                    <div class="flex items-center justify-between p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
                                         <div class="flex items-center">
                                             <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
-                                            <span>Content Licensing</span>
+                                            <span style="color: var(--text-primary);">Content Licensing</span>
                                         </div>
                                         <div class="text-right">
-                                            <div class="font-semibold">$2,156</div>
-                                            <div class="text-sm text-gray-400">23% of revenue</div>
+                                            <div class="font-semibold" style="color: var(--text-primary);">$2,156</div>
+                                            <div class="text-sm" style="color: var(--text-muted);">23% of revenue</div>
                                         </div>
                                     </div>
                                     
-                                    <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+                                    <div class="flex items-center justify-between p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
                                         <div class="flex items-center">
                                             <div class="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
-                                            <span>RAG Marketplace</span>
+                                            <span style="color: var(--text-primary);">RAG Marketplace</span>
                                         </div>
                                         <div class="text-right">
-                                            <div class="font-semibold">$1,460</div>
-                                            <div class="text-sm text-gray-400">10% of revenue</div>
+                                            <div class="font-semibold" style="color: var(--text-primary);">$1,460</div>
+                                            <div class="text-sm" style="color: var(--text-muted);">10% of revenue</div>
                                         </div>
                                     </div>
                                 </div>
@@ -589,17 +589,17 @@ export function CreatorDashboard() {
                                 </div>
                                 
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                                    <div class="bg-gray-800 p-4 rounded-lg">
-                                        <h4 class="font-semibold mb-2">📚 Educational Content</h4>
-                                        <p class="text-sm text-gray-400">Tutorials, courses, guides</p>
+                                    <div class="p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
+                                        <h4 class="font-semibold mb-2" style="color: var(--text-primary);">📚 Educational Content</h4>
+                                        <p class="text-sm" style="color: var(--text-muted);">Tutorials, courses, guides</p>
                                     </div>
-                                    <div class="bg-gray-800 p-4 rounded-lg">
-                                        <h4 class="font-semibold mb-2">📊 Research & Data</h4>
-                                        <p class="text-sm text-gray-400">Papers, datasets, analysis</p>
+                                    <div class="p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
+                                        <h4 class="font-semibold mb-2" style="color: var(--text-primary);">📊 Research & Data</h4>
+                                        <p class="text-sm" style="color: var(--text-muted);">Papers, datasets, analysis</p>
                                     </div>
-                                    <div class="bg-gray-800 p-4 rounded-lg">
-                                        <h4 class="font-semibold mb-2">💻 Code & Documentation</h4>
-                                        <p class="text-sm text-gray-400">Libraries, APIs, technical docs</p>
+                                    <div class="p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
+                                        <h4 class="font-semibold mb-2" style="color: var(--text-primary);">💻 Code & Documentation</h4>
+                                        <p class="text-sm" style="color: var(--text-muted);">Libraries, APIs, technical docs</p>
                                     </div>
                                 </div>
                             </div>
@@ -610,13 +610,13 @@ export function CreatorDashboard() {
                             <div class="flex justify-between items-center mb-4">
                                 <h3 class="text-2xl font-semibold">Your Content Library</h3>
                                 <div class="flex space-x-4">
-                                    <select class="bg-gray-800 border border-gray-600 rounded px-3 py-2">
+                                    <select class="rounded px-3 py-2 transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
                                         <option>All Content</option>
                                         <option>Published</option>
                                         <option>Processing</option>
                                         <option>Draft</option>
                                     </select>
-                                    <select class="bg-gray-800 border border-gray-600 rounded px-3 py-2">
+                                    <select class="rounded px-3 py-2 transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
                                         <option>Sort by Date</option>
                                         <option>Sort by Revenue</option>
                                         <option>Sort by Views</option>
@@ -736,17 +736,17 @@ export function CreatorDashboard() {
                                 <p class="text-gray-400 mb-6">Transform your content into AI-ready RAG models and license to AI companies</p>
                                 
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                                    <div class="bg-gray-800 p-6 rounded-lg">
+                                    <div class="p-6 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
                                         <h4 class="font-semibold mb-2 text-green-400">🧠 AI-Ready Format</h4>
-                                        <p class="text-sm text-gray-400">Automatic conversion to RAG-compatible embeddings and vector databases</p>
+                                        <p class="text-sm" style="color: var(--text-muted);">Automatic conversion to RAG-compatible embeddings and vector databases</p>
                                     </div>
-                                    <div class="bg-gray-800 p-6 rounded-lg">
+                                    <div class="p-6 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
                                         <h4 class="font-semibold mb-2 text-blue-400">💼 Enterprise Licensing</h4>
-                                        <p class="text-sm text-gray-400">License your models to leading AI companies for training and inference</p>
+                                        <p class="text-sm" style="color: var(--text-muted);">License your models to leading AI companies for training and inference</p>
                                     </div>
-                                    <div class="bg-gray-800 p-6 rounded-lg">
+                                    <div class="p-6 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
                                         <h4 class="font-semibold mb-2 text-purple-400">📊 Performance Analytics</h4>
-                                        <p class="text-sm text-gray-400">Track usage, revenue, and optimization opportunities in real-time</p>
+                                        <p class="text-sm" style="color: var(--text-muted);">Track usage, revenue, and optimization opportunities in real-time</p>
                                     </div>
                                 </div>
                             </div>
@@ -781,12 +781,12 @@ export function CreatorDashboard() {
                                 
                                 <!-- Model Stats -->
                                 <div class="grid grid-cols-2 gap-4 mb-4">
-                                    <div class="bg-gray-800 p-3 rounded">
-                                        <div class="text-sm text-gray-400">Monthly Revenue</div>
+                                    <div class="p-3 rounded transition-colors duration-300" style="background-color: var(--accent-bg);">
+                                        <div class="text-sm" style="color: var(--text-muted);">Monthly Revenue</div>
                                         <div class="text-lg font-semibold text-green-400">$2,347</div>
                                     </div>
-                                    <div class="bg-gray-800 p-3 rounded">
-                                        <div class="text-sm text-gray-400">Query Volume</div>
+                                    <div class="p-3 rounded transition-colors duration-300" style="background-color: var(--accent-bg);">
+                                        <div class="text-sm" style="color: var(--text-muted);">Query Volume</div>
                                         <div class="text-lg font-semibold text-blue-400">45.2K</div>
                                     </div>
                                 </div>
@@ -1090,31 +1090,31 @@ export function CreatorDashboard() {
                             </div>
                             
                             <div class="space-y-4">
-                                <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg border-l-4 border-green-500">
+                                <div class="flex items-center justify-between p-4 rounded-lg border-l-4 border-green-500 transition-colors duration-300" style="background-color: var(--accent-bg);">
                                     <div class="flex items-center">
                                         <i class="fas fa-university text-green-400 text-xl mr-4"></i>
                                         <div>
-                                            <div class="font-semibold">Bank Transfer (Primary)</div>
-                                            <div class="text-sm text-gray-400">Wells Fargo ****7892</div>
+                                            <div class="font-semibold" style="color: var(--text-primary);">Bank Transfer (Primary)</div>
+                                            <div class="text-sm" style="color: var(--text-muted);">Wells Fargo ****7892</div>
                                         </div>
                                     </div>
                                     <div class="text-right">
                                         <div class="text-green-400 text-sm font-semibold">✓ Verified</div>
-                                        <div class="text-xs text-gray-500">2-3 business days</div>
+                                        <div class="text-xs" style="color: var(--text-muted);">2-3 business days</div>
                                     </div>
                                 </div>
                                 
-                                <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+                                <div class="flex items-center justify-between p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
                                     <div class="flex items-center">
                                         <i class="fab fa-paypal text-blue-400 text-xl mr-4"></i>
                                         <div>
-                                            <div class="font-semibold">PayPal</div>
-                                            <div class="text-sm text-gray-400">alex.chen@email.com</div>
+                                            <div class="font-semibold" style="color: var(--text-primary);">PayPal</div>
+                                            <div class="text-sm" style="color: var(--text-muted);">alex.chen@email.com</div>
                                         </div>
                                     </div>
                                     <div class="text-right">
                                         <div class="text-yellow-400 text-sm font-semibold">⏳ Pending Verification</div>
-                                        <div class="text-xs text-gray-500">Instant transfer</div>
+                                        <div class="text-xs" style="color: var(--text-muted);">Instant transfer</div>
                                     </div>
                                 </div>
                             </div>
@@ -1124,7 +1124,7 @@ export function CreatorDashboard() {
                         <div class="glass-card p-6 rounded-xl">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-xl font-semibold">Payout History</h3>
-                                <select class="bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+                                <select class="rounded px-3 py-2 text-sm transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
                                     <option>Last 6 months</option>
                                     <option>Last year</option>
                                     <option>All time</option>
@@ -1180,23 +1180,23 @@ export function CreatorDashboard() {
                                 <form class="space-y-6">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
-                                            <label class="block text-sm font-medium mb-2">First Name</label>
-                                            <input type="text" value="Alex" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-600 focus:border-blue-500 focus:outline-none">
+                                            <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">First Name</label>
+                                            <input type="text" value="Alex" class="w-full p-3 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
                                         </div>
                                         <div>
-                                            <label class="block text-sm font-medium mb-2">Last Name</label>
-                                            <input type="text" value="Chen" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-600 focus:border-blue-500 focus:outline-none">
+                                            <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Last Name</label>
+                                            <input type="text" value="Chen" class="w-full p-3 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
                                         </div>
                                     </div>
                                     
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">Email</label>
-                                        <input type="email" value="alex.chen@email.com" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-600 focus:border-blue-500 focus:outline-none">
+                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Email</label>
+                                        <input type="email" value="alex.chen@email.com" class="w-full p-3 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
                                     </div>
                                     
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">Bio</label>
-                                        <textarea rows="4" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-600 focus:border-blue-500 focus:outline-none" placeholder="Tell us about yourself and your content...">Full-stack developer specializing in AI/ML applications. Creator of popular Python and React tutorials with focus on practical, real-world implementations.</textarea>
+                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Bio</label>
+                                        <textarea rows="4" class="w-full p-3 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);" placeholder="Tell us about yourself and your content...">Full-stack developer specializing in AI/ML applications. Creator of popular Python and React tutorials with focus on practical, real-world implementations.</textarea>
                                     </div>
                                     
                                     <button type="submit" class="dashboard-gradient text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90">
