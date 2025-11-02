@@ -17,6 +17,7 @@ import { privacyPage } from './privacy-page'
 import { DocumentationPage } from './documentation-page'
 import { CreatorDashboard } from './creator-dashboard'
 import { VarioAISearch } from './vario-ai-search'
+import creatorAPI from './creator-api'
 
 // Temporarily inline matching logic to avoid import issues
 
@@ -29,6 +30,9 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use('/api/*', cors())
 app.use('/static/*', serveStatic({ root: './public' }))
 app.use(renderer)
+
+// Mount creator content management API
+app.route('/api/creator', creatorAPI)
 
 // Utility function to hash passwords
 const hashPassword = async (password: string): Promise<string> => {

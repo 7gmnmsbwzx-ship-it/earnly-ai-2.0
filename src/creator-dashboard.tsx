@@ -578,159 +578,147 @@ export function CreatorDashboard() {
                     
                     <!-- Content Library Section -->
                     <div id="content-section" class="dashboard-section hidden">
-                        <!-- Content Upload Area -->
-                        <div class="glass-card p-8 rounded-xl mb-8">
-                            <div class="text-center">
-                                <div class="content-gradient p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-                                    <i class="fas fa-cloud-upload-alt text-white text-3xl"></i>
-                                </div>
-                                <h3 class="text-2xl font-semibold mb-2">Upload Your Content</h3>
-                                <p class="text-gray-400 mb-6">Transform your content into AI-ready format and start earning revenue</p>
+                        <!-- Upload Tabs -->
+                        <div class="glass-card p-6 rounded-xl mb-8">
+                            <div class="flex space-x-4 border-b pb-4 mb-6" style="border-color: var(--border-color);">
+                                <button onclick="showUploadTab('url')" id="urlTab" class="upload-tab px-6 py-2 rounded-lg font-semibold transition-colors active" style="background-color: var(--accent-bg); color: var(--text-primary);">
+                                    <i class="fas fa-link mr-2"></i>Submit URL
+                                </button>
+                                <button onclick="showUploadTab('file')" id="fileTab" class="upload-tab px-6 py-2 rounded-lg font-semibold transition-colors" style="color: var(--text-muted);">
+                                    <i class="fas fa-upload mr-2"></i>Upload File
+                                </button>
+                            </div>
+                            
+                            <!-- URL Submission Form -->
+                            <div id="urlUploadForm" class="upload-form-container">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--text-primary);">Submit Content URL</h3>
+                                <p class="mb-6" style="color: var(--text-muted);">Add content from any platform - YouTube, Medium, GitHub, social media, or your own website</p>
                                 
-                                <div class="border-2 border-dashed border-gray-600 rounded-xl p-8 mb-6">
+                                <form id="contentUrlForm" class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Content URL *</label>
+                                        <input type="url" id="contentUrl" required
+                                               class="w-full p-3 rounded-lg transition-colors duration-300" 
+                                               style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);"
+                                               placeholder="https://youtube.com/watch?v=..., https://medium.com/@user/post, etc.">
+                                        <p class="text-xs mt-1" style="color: var(--text-muted);">Supports: YouTube, Twitter, Instagram, TikTok, GitHub, Medium, LinkedIn, RedNote, and more</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Title *</label>
+                                        <input type="text" id="contentTitle" required
+                                               class="w-full p-3 rounded-lg transition-colors duration-300" 
+                                               style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);"
+                                               placeholder="Give your content a descriptive title">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Description</label>
+                                        <textarea id="contentDescription" rows="3"
+                                                  class="w-full p-3 rounded-lg transition-colors duration-300" 
+                                                  style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);"
+                                                  placeholder="Brief description of your content"></textarea>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Category</label>
+                                            <select id="contentCategory"
+                                                    class="w-full p-3 rounded-lg transition-colors duration-300" 
+                                                    style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                                                <option value="education">📚 Education</option>
+                                                <option value="technology">💻 Technology</option>
+                                                <option value="research">📊 Research</option>
+                                                <option value="entertainment">🎬 Entertainment</option>
+                                                <option value="business">💼 Business</option>
+                                                <option value="lifestyle">🌟 Lifestyle</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Tags (comma-separated)</label>
+                                            <input type="text" id="contentTags"
+                                                   class="w-full p-3 rounded-lg transition-colors duration-300" 
+                                                   style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);"
+                                                   placeholder="ai, tutorial, coding">
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="urlSubmitMessage" class="hidden p-3 rounded-lg mb-4"></div>
+                                    
+                                    <button type="submit" id="submitUrlBtn" class="dashboard-gradient text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 w-full">
+                                        <i class="fas fa-cloud-upload-alt mr-2"></i>
+                                        Submit Content
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <!-- File Upload Form -->
+                            <div id="fileUploadForm" class="upload-form-container hidden">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--text-primary);">Upload Files</h3>
+                                <p class="mb-6" style="color: var(--text-muted);">Upload documents, code, images, or videos directly from your computer</p>
+                                
+                                <div class="border-2 border-dashed rounded-xl p-8 mb-6 transition-colors" 
+                                     style="border-color: var(--border-color);" 
+                                     id="dropZone">
                                     <div class="text-center">
-                                        <i class="fas fa-file-upload text-4xl text-gray-500 mb-4"></i>
-                                        <p class="text-lg mb-2">Drag and drop your files here</p>
-                                        <p class="text-gray-500 mb-4">or</p>
-                                        <button class="dashboard-gradient text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90">
+                                        <i class="fas fa-cloud-upload-alt text-5xl mb-4" style="color: var(--text-muted);"></i>
+                                        <p class="text-lg mb-2" style="color: var(--text-primary);">Drag and drop files here</p>
+                                        <p class="mb-4" style="color: var(--text-muted);">or</p>
+                                        <input type="file" id="fileInput" multiple class="hidden" accept=".pdf,.doc,.docx,.txt,.md,.json,.csv,.jpg,.jpeg,.png,.gif,.mp4,.mov">
+                                        <button onclick="document.getElementById('fileInput').click()" class="dashboard-gradient text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90">
                                             Choose Files
                                         </button>
-                                        <p class="text-sm text-gray-500 mt-4">Supports: PDF, DOCX, TXT, MD, JSON, CSV (Max 100MB)</p>
+                                        <p class="text-sm mt-4" style="color: var(--text-muted);">Supports: PDF, DOCX, TXT, MD, JSON, CSV, Images, Videos (Max 100MB)</p>
                                     </div>
                                 </div>
                                 
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                                    <div class="p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
-                                        <h4 class="font-semibold mb-2" style="color: var(--text-primary);">📚 Educational Content</h4>
-                                        <p class="text-sm" style="color: var(--text-muted);">Tutorials, courses, guides</p>
-                                    </div>
-                                    <div class="p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
-                                        <h4 class="font-semibold mb-2" style="color: var(--text-primary);">📊 Research & Data</h4>
-                                        <p class="text-sm" style="color: var(--text-muted);">Papers, datasets, analysis</p>
-                                    </div>
-                                    <div class="p-4 rounded-lg transition-colors duration-300" style="background-color: var(--accent-bg);">
-                                        <h4 class="font-semibold mb-2" style="color: var(--text-primary);">💻 Code & Documentation</h4>
-                                        <p class="text-sm" style="color: var(--text-muted);">Libraries, APIs, technical docs</p>
-                                    </div>
-                                </div>
+                                <div id="fileList" class="space-y-2 mb-4"></div>
+                                <div id="fileUploadMessage" class="hidden p-3 rounded-lg mb-4"></div>
+                                
+                                <button onclick="uploadFiles()" id="uploadFilesBtn" class="dashboard-gradient text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 w-full hidden">
+                                    <i class="fas fa-upload mr-2"></i>
+                                    Upload Selected Files
+                                </button>
                             </div>
                         </div>
                         
                         <!-- Content Library Grid -->
                         <div class="mb-6">
                             <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-2xl font-semibold">Your Content Library</h3>
+                                <h3 class="text-2xl font-semibold" style="color: var(--text-primary);">Your Content Library</h3>
                                 <div class="flex space-x-4">
-                                    <select class="rounded px-3 py-2 transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
-                                        <option>All Content</option>
-                                        <option>Published</option>
-                                        <option>Processing</option>
-                                        <option>Draft</option>
+                                    <select id="contentFilter" onchange="loadCreatorContent()" class="rounded px-3 py-2 transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                                        <option value="all">All Content</option>
+                                        <option value="published">Published</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="draft">Draft</option>
                                     </select>
-                                    <select class="rounded px-3 py-2 transition-colors duration-300" style="background-color: var(--accent-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
-                                        <option>Sort by Date</option>
-                                        <option>Sort by Revenue</option>
-                                        <option>Sort by Views</option>
-                                    </select>
+                                    <button onclick="loadCreatorContent()" class="px-4 py-2 rounded-lg transition-colors" style="background-color: var(--accent-bg); color: var(--text-primary);">
+                                        <i class="fas fa-sync-alt mr-2"></i>Refresh
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <!-- Content Item 1 -->
-                            <div class="content-card glass-card p-6 rounded-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <div class="bg-green-500 p-2 rounded-lg">
-                                        <i class="fas fa-code text-white"></i>
-                                    </div>
-                                    <span class="status-badge status-published">Published</span>
-                                </div>
-                                <h4 class="text-lg font-semibold mb-2">Python ML Tutorial Series</h4>
-                                <p class="text-gray-400 text-sm mb-4">Comprehensive machine learning tutorials with code examples</p>
-                                
-                                <div class="space-y-2 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">Revenue:</span>
-                                        <span class="font-semibold text-green-400">$1,247.32</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">AI Interactions:</span>
-                                        <span class="font-semibold">12,400</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">Licenses:</span>
-                                        <span class="font-semibold">3 Active</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-4 pt-4 border-t border-gray-700 flex justify-between">
-                                    <button class="text-blue-400 hover:underline text-sm">View Details</button>
-                                    <button class="text-purple-400 hover:underline text-sm">Create RAG Model</button>
-                                </div>
+                        <div id="contentLibraryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Loading State -->
+                            <div class="col-span-full text-center py-12">
+                                <i class="fas fa-spinner fa-spin text-4xl mb-4" style="color: var(--text-muted);"></i>
+                                <p style="color: var(--text-muted);">Loading your content...</p>
                             </div>
-                            
-                            <!-- Content Item 2 -->
-                            <div class="content-card glass-card p-6 rounded-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <div class="bg-blue-500 p-2 rounded-lg">
-                                        <i class="fas fa-chart-bar text-white"></i>
-                                    </div>
-                                    <span class="status-badge status-processing">Processing</span>
-                                </div>
-                                <h4 class="text-lg font-semibold mb-2">Data Science Research Papers</h4>
-                                <p class="text-gray-400 text-sm mb-4">Collection of peer-reviewed research in data science and AI</p>
-                                
-                                <div class="space-y-2 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">Revenue:</span>
-                                        <span class="font-semibold text-green-400">$892.16</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">AI Interactions:</span>
-                                        <span class="font-semibold">8,700</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">Licenses:</span>
-                                        <span class="font-semibold">2 Pending</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-4 pt-4 border-t border-gray-700 flex justify-between">
-                                    <button class="text-blue-400 hover:underline text-sm">View Details</button>
-                                    <button class="text-gray-500 text-sm cursor-not-allowed">Processing...</button>
-                                </div>
-                            </div>
-                            
-                            <!-- Content Item 3 -->
-                            <div class="content-card glass-card p-6 rounded-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <div class="bg-purple-500 p-2 rounded-lg">
-                                        <i class="fas fa-book text-white"></i>
-                                    </div>
-                                    <span class="status-badge status-published">Published</span>
-                                </div>
-                                <h4 class="text-lg font-semibold mb-2">React Component Library</h4>
-                                <p class="text-gray-400 text-sm mb-4">Reusable React components with TypeScript documentation</p>
-                                
-                                <div class="space-y-2 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">Revenue:</span>
-                                        <span class="font-semibold text-green-400">$634.89</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">AI Interactions:</span>
-                                        <span class="font-semibold">5,200</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-400">Licenses:</span>
-                                        <span class="font-semibold">1 Active</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-4 pt-4 border-t border-gray-700 flex justify-between">
-                                    <button class="text-blue-400 hover:underline text-sm">View Details</button>
-                                    <button class="text-purple-400 hover:underline text-sm">Create RAG Model</button>
-                                </div>
+                        </div>
+                        
+                        <!-- Empty State -->
+                        <div id="emptyState" class="hidden text-center py-12">
+                            <div class="glass-card p-12 rounded-xl inline-block">
+                                <i class="fas fa-inbox text-6xl mb-4" style="color: var(--text-muted);"></i>
+                                <h3 class="text-xl font-semibold mb-2" style="color: var(--text-primary);">No Content Yet</h3>
+                                <p class="mb-6" style="color: var(--text-muted);">Start monetizing by submitting your first content</p>
+                                <button onclick="showSection('content'); showUploadTab('url')" class="dashboard-gradient text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90">
+                                    <i class="fas fa-plus mr-2"></i>Add Content
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1720,6 +1708,325 @@ export function CreatorDashboard() {
             
             // Initialize animations after dashboard loads
             setTimeout(animateCounters, 500);
+            
+            // ============================================================================
+            // CREATOR CONTENT MANAGEMENT
+            // ============================================================================
+            
+            let currentCreatorId = 1; // Default for demo, should come from auth
+            
+            // Switch between upload tabs
+            function showUploadTab(tab) {
+                document.querySelectorAll('.upload-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.style.backgroundColor = 'transparent';
+                });
+                document.querySelectorAll('.upload-form-container').forEach(f => f.classList.add('hidden'));
+                
+                if (tab === 'url') {
+                    document.getElementById('urlTab').classList.add('active');
+                    document.getElementById('urlTab').style.backgroundColor = 'var(--accent-bg)';
+                    document.getElementById('urlUploadForm').classList.remove('hidden');
+                } else {
+                    document.getElementById('fileTab').classList.add('active');
+                    document.getElementById('fileTab').style.backgroundColor = 'var(--accent-bg)';
+                    document.getElementById('fileUploadForm').classList.remove('hidden');
+                }
+            }
+            
+            // Submit URL form
+            document.getElementById('contentUrlForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('submitUrlBtn');
+                const messageDiv = document.getElementById('urlSubmitMessage');
+                
+                // Get form values
+                const url = document.getElementById('contentUrl').value.trim();
+                const title = document.getElementById('contentTitle').value.trim();
+                const description = document.getElementById('contentDescription').value.trim();
+                const category = document.getElementById('contentCategory').value;
+                const tagsInput = document.getElementById('contentTags').value.trim();
+                const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()) : [];
+                
+                // Disable button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+                
+                try {
+                    const response = await fetch('/api/creator/content/url', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            creator_id: currentCreatorId,
+                            url,
+                            title,
+                            description,
+                            category,
+                            tags
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        messageDiv.className = 'p-3 rounded-lg mb-4 bg-green-500 bg-opacity-20 border border-green-500 text-green-400';
+                        messageDiv.textContent = '✓ Content submitted successfully! Processing...';
+                        messageDiv.classList.remove('hidden');
+                        
+                        // Reset form
+                        document.getElementById('contentUrlForm').reset();
+                        
+                        // Reload content library
+                        setTimeout(() => {
+                            loadCreatorContent();
+                            showSection('content');
+                        }, 1500);
+                    } else {
+                        throw new Error(data.error || 'Submission failed');
+                    }
+                } catch (error) {
+                    messageDiv.className = 'p-3 rounded-lg mb-4 bg-red-500 bg-opacity-20 border border-red-500 text-red-400';
+                    messageDiv.textContent = '✗ ' + error.message;
+                    messageDiv.classList.remove('hidden');
+                }
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-cloud-upload-alt mr-2"></i>Submit Content';
+            });
+            
+            // Load creator's content library
+            async function loadCreatorContent() {
+                const grid = document.getElementById('contentLibraryGrid');
+                const emptyState = document.getElementById('emptyState');
+                const filter = document.getElementById('contentFilter').value;
+                
+                grid.innerHTML = '<div class="col-span-full text-center py-12"><i class="fas fa-spinner fa-spin text-4xl mb-4" style="color: var(--text-muted);"></i><p style="color: var(--text-muted);">Loading content...</p></div>';
+                
+                try {
+                    const url = filter === 'all' 
+                        ? '/api/creator/content/' + currentCreatorId
+                        : '/api/creator/content/' + currentCreatorId + '?status=' + filter;
+                    
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    
+                    if (data.success && data.content && data.content.length > 0) {
+                        grid.innerHTML = data.content.map(item => createContentCard(item)).join('');
+                        emptyState.classList.add('hidden');
+                    } else {
+                        grid.innerHTML = '';
+                        emptyState.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    console.error('Failed to load content:', error);
+                    grid.innerHTML = '<div class="col-span-full text-center py-12 text-red-400"><i class="fas fa-exclamation-triangle text-4xl mb-4"></i><p>Failed to load content</p></div>';
+                }
+            }
+            
+            // Create content card HTML
+            function createContentCard(item) {
+                const statusColors = {
+                    published: 'status-published',
+                    processing: 'status-processing',
+                    draft: 'status-draft'
+                };
+                
+                const iconColors = {
+                    youtube: 'bg-red-500',
+                    twitter: 'bg-blue-400',
+                    instagram: 'bg-pink-500',
+                    github: 'bg-gray-700',
+                    medium: 'bg-green-600',
+                    blog: 'bg-purple-500',
+                    default: 'bg-blue-500'
+                };
+                
+                const icons = {
+                    youtube: 'fab fa-youtube',
+                    twitter: 'fab fa-twitter',
+                    instagram: 'fab fa-instagram',
+                    github: 'fab fa-github',
+                    medium: 'fab fa-medium',
+                    blog: 'fas fa-blog',
+                    default: 'fas fa-file-alt'
+                };
+                
+                const iconColor = iconColors[item.source_type] || iconColors.default;
+                const icon = icons[item.source_type] || icons.default;
+                const statusClass = statusColors[item.status] || statusColors.draft;
+                
+                return '<div class="content-card glass-card p-6 rounded-xl">' +
+                    '<div class="flex justify-between items-start mb-4">' +
+                        '<div class="' + iconColor + ' p-2 rounded-lg">' +
+                            '<i class="' + icon + ' text-white"></i>' +
+                        '</div>' +
+                        '<span class="status-badge ' + statusClass + '">' + item.status + '</span>' +
+                    '</div>' +
+                    '<h4 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">' + escapeHtml(item.title) + '</h4>' +
+                    '<p class="text-sm mb-4" style="color: var(--text-muted);">' + escapeHtml(item.description || 'No description') + '</p>' +
+                    '<div class="space-y-2 text-sm">' +
+                        '<div class="flex justify-between">' +
+                            '<span style="color: var(--text-muted);">Platform:</span>' +
+                            '<span style="color: var(--text-primary);">' + (item.platform || 'Unknown') + '</span>' +
+                        '</div>' +
+                        '<div class="flex justify-between">' +
+                            '<span style="color: var(--text-muted);">Category:</span>' +
+                            '<span style="color: var(--text-primary);">' + (item.category || 'N/A') + '</span>' +
+                        '</div>' +
+                        '<div class="flex justify-between">' +
+                            '<span style="color: var(--text-muted);">Earnings:</span>' +
+                            '<span class="font-semibold text-green-400">$' + (item.total_earnings || 0).toFixed(2) + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="mt-4 pt-4 border-t flex justify-between" style="border-color: var(--border-color);">' +
+                        '<button onclick="viewContentDetails(' + item.id + ')" class="text-blue-400 hover:underline text-sm">View Details</button>' +
+                        '<button onclick="deleteContent(' + item.id + ')" class="text-red-400 hover:underline text-sm">Delete</button>' +
+                    '</div>' +
+                '</div>';
+            }
+            
+            // View content details
+            function viewContentDetails(contentId) {
+                alert('Content details view coming soon! Content ID: ' + contentId);
+                // TODO: Show modal or navigate to details page
+            }
+            
+            // Delete content
+            async function deleteContent(contentId) {
+                if (!confirm('Are you sure you want to delete this content?')) return;
+                
+                try {
+                    const response = await fetch('/api/creator/content/' + contentId, {
+                        method: 'DELETE'
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        loadCreatorContent();
+                        showNotification('Content deleted successfully', 'success');
+                    } else {
+                        throw new Error(data.error);
+                    }
+                } catch (error) {
+                    showNotification('Failed to delete content: ' + error.message, 'error');
+                }
+            }
+            
+            // HTML escape helper
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            // Show notification
+            function showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                const colors = {
+                    success: 'bg-green-500',
+                    error: 'bg-red-500',
+                    info: 'bg-blue-500'
+                };
+                
+                notification.className = 'fixed top-20 right-6 ' + colors[type] + ' text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-slide-in';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+            
+            // Load content when section is shown
+            document.querySelectorAll('.sidebar-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const section = this.dataset.section;
+                    if (section === 'content') {
+                        loadCreatorContent();
+                    }
+                });
+            });
+            
+            // File upload handling
+            const fileInput = document.getElementById('fileInput');
+            const dropZone = document.getElementById('dropZone');
+            const fileList = document.getElementById('fileList');
+            const uploadFilesBtn = document.getElementById('uploadFilesBtn');
+            let selectedFiles = [];
+            
+            fileInput.addEventListener('change', function() {
+                handleFiles(this.files);
+            });
+            
+            dropZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#667eea';
+                this.style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
+            });
+            
+            dropZone.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.style.borderColor = 'var(--border-color)';
+                this.style.backgroundColor = 'transparent';
+            });
+            
+            dropZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.borderColor = 'var(--border-color)';
+                this.style.backgroundColor = 'transparent';
+                handleFiles(e.dataTransfer.files);
+            });
+            
+            function handleFiles(files) {
+                selectedFiles = Array.from(files);
+                displayFileList();
+                uploadFilesBtn.classList.remove('hidden');
+            }
+            
+            function displayFileList() {
+                fileList.innerHTML = selectedFiles.map((file, index) => 
+                    '<div class="flex items-center justify-between p-3 rounded-lg" style="background-color: var(--accent-bg);">' +
+                        '<div class="flex items-center">' +
+                            '<i class="fas fa-file text-blue-400 mr-3"></i>' +
+                            '<div>' +
+                                '<p class="font-semibold" style="color: var(--text-primary);">' + file.name + '</p>' +
+                                '<p class="text-xs" style="color: var(--text-muted);">' + (file.size / 1024 / 1024).toFixed(2) + ' MB</p>' +
+                            '</div>' +
+                        '</div>' +
+                        '<button onclick="removeFile(' + index + ')" class="text-red-400 hover:text-red-300">' +
+                            '<i class="fas fa-times"></i>' +
+                        '</button>' +
+                    '</div>'
+                ).join('');
+            }
+            
+            function removeFile(index) {
+                selectedFiles.splice(index, 1);
+                displayFileList();
+                if (selectedFiles.length === 0) {
+                    uploadFilesBtn.classList.add('hidden');
+                }
+            }
+            
+            async function uploadFiles() {
+                const messageDiv = document.getElementById('fileUploadMessage');
+                const uploadBtn = document.getElementById('uploadFilesBtn');
+                
+                uploadBtn.disabled = true;
+                uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Uploading...';
+                
+                messageDiv.className = 'p-3 rounded-lg mb-4 bg-blue-500 bg-opacity-20 border border-blue-500 text-blue-400';
+                messageDiv.textContent = 'File upload will be available soon. For now, please use URL submission.';
+                messageDiv.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    uploadBtn.disabled = false;
+                    uploadBtn.innerHTML = '<i class="fas fa-upload mr-2"></i>Upload Selected Files';
+                }, 2000);
+            }
         </script>
     </body>
     </html>
