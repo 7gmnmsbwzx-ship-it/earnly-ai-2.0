@@ -97,6 +97,15 @@ export function VarioAISearch() {
                 box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
             }
             
+            /* Logo Theme Adaptation */
+            .logo-theme-adaptive {
+                transition: filter 0.3s ease;
+            }
+            
+            [data-theme="light"] .logo-theme-adaptive {
+                filter: brightness(0) saturate(100%);
+            }
+            
             .glass-search {
                 background: rgba(255, 255, 255, 0.1);
                 backdrop-filter: blur(30px);
@@ -300,7 +309,7 @@ export function VarioAISearch() {
                     <div class="flex items-center space-x-3">
                         <img src="https://raw.githubusercontent.com/7gmnmsbwzx-ship-it/earnly-assets/main/Vario_Logo-removebg-preview.png" 
                              alt="Vario Logo" 
-                             class="h-12 w-auto"
+                             class="h-12 w-auto logo-theme-adaptive"
                              onerror="this.onerror=null; this.outerHTML='<div class=\'vario-gradient p-2 rounded-xl\'><i class=\'fas fa-search text-white text-xl\'></i></div>';">
                         <div>
                             <h1 class="text-xl font-bold" style="color: var(--text-primary);">Vario™</h1>
