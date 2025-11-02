@@ -211,11 +211,13 @@ export function CreatorDashboard() {
         <div id="dashboardContent">
             <!-- Sidebar -->
             <div class="fixed left-0 top-0 w-64 sidebar z-40">
-                <div class="p-6 border-b border-gray-700">
-                    <h1 class="text-xl font-bold">
-                        <i class="fas fa-brain text-blue-400 mr-2"></i>
-                        Earnly Creator
-                    </h1>
+                <div class="p-6 border-b" style="border-color: var(--border-color);">
+                    <div class="flex items-center">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/738e754593db5b74b3b5e61548eb85cd" 
+                             alt="Earnly Creator Logo" 
+                             class="h-10 w-auto"
+                             onerror="this.onerror=null; this.innerHTML='<span class=\'text-xl font-bold\' style=\'color: var(--text-primary);\'><i class=\'fas fa-brain text-blue-400 mr-2\'></i>Earnly Creator</span>';">
+                    </div>
                 </div>
                 
                 <nav class="mt-6">
