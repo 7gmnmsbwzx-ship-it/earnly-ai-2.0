@@ -1432,34 +1432,32 @@ export function CreatorDashboard() {
                 setupEventListeners();
             });
             
-            function checkAuthState() {
-                // Check if user is logged in (in real app, check JWT/session)
-                const savedAuth = localStorage.getItem('earnly_auth');
-                if (savedAuth) {
-                    isAuthenticated = true;
-                    showDashboard();
+            async function checkAuthState() {
+                // Check if user is logged in by calling /api/auth/me
+                try {
+                    const response = await fetch('/api/auth/me', {
+                        credentials: 'include' // Include cookies
+                    });
                     
-                    // Check if this is a new creator from OAuth
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const isWelcome = urlParams.get('welcome') === 'true';
-                    const platform = urlParams.get('platform');
+                    const data = await response.json();
                     
-                    if (isWelcome && platform) {
-                        // Show welcome notification for new creators
-                        setTimeout(() => {
-                            const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
-                            showNotification('🎉 Welcome! Your ' + platformName + ' account is connected. Start monetizing your content now!', 'success');
-                        }, 500);
+                    if (data.authenticated && data.user) {
+                        isAuthenticated = true;
+                        currentUser = data.user;
+                        currentCreatorId = data.user.id;
                         
-                        // Update user info from localStorage
-                        const creatorEmail = localStorage.getItem('creator_email');
-                        if (creatorEmail) {
-                            document.getElementById('userName').textContent = creatorEmail.split('@')[0];
-                        }
+                        // Update UI with user info
+                        document.getElementById('userName').textContent = data.user.name || data.user.email.split('@')[0];
+                        
+                        showDashboard();
+                    } else {
+                        // Not authenticated - redirect to auth page
+                        window.location.href = '/static/auth.html';
                     }
-                } else {
-                    // No authentication - redirect to Get Started
-                    window.location.href = '/get-started';
+                } catch (error) {
+                    console.error('Auth check failed:', error);
+                    // Redirect to auth page on error
+                    window.location.href = '/static/auth.html';
                 }
             }
             
@@ -1467,13 +1465,22 @@ export function CreatorDashboard() {
                 document.getElementById('dashboardContent').classList.remove('hidden');
             }
             
-            function logout() {
-                localStorage.removeItem('earnly_auth');
-                localStorage.removeItem('creator_platform');
-                localStorage.removeItem('creator_email');
+            async function logout() {
+                try {
+                    await fetch('/api/auth/logout', {
+                        method: 'POST',
+                        credentials: 'include'
+                    });
+                } catch (error) {
+                    console.error('Logout error:', error);
+                }
+                
                 isAuthenticated = false;
-                // Redirect to Get Started instead of showing login modal
-                window.location.href = '/get-started';
+                currentUser = null;
+                currentCreatorId = null;
+                
+                // Redirect to auth page
+                window.location.href = '/static/auth.html';
             }
             
             // Section Navigation
@@ -1713,7 +1720,8 @@ export function CreatorDashboard() {
             // CREATOR CONTENT MANAGEMENT
             // ============================================================================
             
-            let currentCreatorId = 1; // Default for demo, should come from auth
+            let currentCreatorId = null; // Will be set from authenticated session
+            let currentUser = null; // Will store authenticated user data
             
             // Switch between upload tabs
             function showUploadTab(tab) {
@@ -1757,8 +1765,8 @@ export function CreatorDashboard() {
                     const response = await fetch('/api/creator/content/url', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include', // Include session cookie
                         body: JSON.stringify({
-                            creator_id: currentCreatorId,
                             url,
                             title,
                             description,
@@ -1802,6 +1810,11 @@ export function CreatorDashboard() {
                 const emptyState = document.getElementById('emptyState');
                 const filter = document.getElementById('contentFilter').value;
                 
+                if (!currentCreatorId) {
+                    grid.innerHTML = '<div class="col-span-full text-center py-12 text-red-400"><i class="fas fa-exclamation-triangle text-4xl mb-4"></i><p>Please sign in to view content</p></div>';
+                    return;
+                }
+                
                 grid.innerHTML = '<div class="col-span-full text-center py-12"><i class="fas fa-spinner fa-spin text-4xl mb-4" style="color: var(--text-muted);"></i><p style="color: var(--text-muted);">Loading content...</p></div>';
                 
                 try {
@@ -1809,7 +1822,9 @@ export function CreatorDashboard() {
                         ? '/api/creator/content/' + currentCreatorId
                         : '/api/creator/content/' + currentCreatorId + '?status=' + filter;
                     
-                    const response = await fetch(url);
+                    const response = await fetch(url, {
+                        credentials: 'include' // Include session cookie
+                    });
                     const data = await response.json();
                     
                     if (data.success && data.content && data.content.length > 0) {
