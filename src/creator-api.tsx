@@ -1,5 +1,7 @@
 // Creator Content Management API Endpoints
 import { Hono } from 'hono'
+import { getCookie } from 'hono/cookie'
+import { verifySession } from './simple-auth-api'
 
 type Bindings = {
   DB: D1Database
@@ -16,8 +18,20 @@ export const creatorAPI = new Hono<{ Bindings: Bindings }>()
 creatorAPI.post('/content/url', async (c) => {
   const { env } = c
   try {
+    // Get creator ID from session
+    const sessionToken = getCookie(c, 'session_token')
+    if (!sessionToken) {
+      return c.json({ error: 'Not authenticated' }, 401)
+    }
+    
+    const session = await verifySession(env.DB, sessionToken)
+    if (!session) {
+      return c.json({ error: 'Invalid or expired session' }, 401)
+    }
+    
+    const creator_id = session.user_id
+    
     const { 
-      creator_id, 
       url, 
       title, 
       description, 
@@ -25,8 +39,8 @@ creatorAPI.post('/content/url', async (c) => {
       tags 
     } = await c.req.json()
     
-    if (!creator_id || !url) {
-      return c.json({ error: 'creator_id and url are required' }, 400)
+    if (!url) {
+      return c.json({ error: 'url is required' }, 400)
     }
     
     // Detect platform from URL
