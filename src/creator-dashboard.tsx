@@ -1433,31 +1433,44 @@ export function CreatorDashboard() {
             });
             
             async function checkAuthState() {
-                // Check if user is logged in by calling /api/auth/me
-                try {
-                    const response = await fetch('/api/auth/me', {
-                        credentials: 'include' // Include cookies
-                    });
+                // Check if user came from OAuth (localStorage auth)
+                const savedAuth = localStorage.getItem('earnly_auth');
+                
+                if (savedAuth) {
+                    // Authenticated via OAuth
+                    isAuthenticated = true;
                     
-                    const data = await response.json();
+                    // Get creator info from localStorage
+                    const creatorEmail = localStorage.getItem('creator_email') || 'creator@example.com';
+                    const creatorPlatform = localStorage.getItem('creator_platform') || 'oauth';
                     
-                    if (data.authenticated && data.user) {
-                        isAuthenticated = true;
-                        currentUser = data.user;
-                        currentCreatorId = data.user.id;
-                        
-                        // Update UI with user info
-                        document.getElementById('userName').textContent = data.user.name || data.user.email.split('@')[0];
-                        
-                        showDashboard();
-                    } else {
-                        // Not authenticated - redirect to auth page
-                        window.location.href = '/static/auth.html';
+                    currentUser = {
+                        id: savedAuth.split('_')[2] || Date.now(),
+                        name: creatorEmail.split('@')[0],
+                        email: creatorEmail,
+                        platform: creatorPlatform
+                    };
+                    currentCreatorId = currentUser.id;
+                    
+                    // Update UI with user info
+                    document.getElementById('userName').textContent = currentUser.name;
+                    
+                    // Check if this is a new creator from OAuth (show welcome)
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const isWelcome = urlParams.get('welcome') === 'true';
+                    const platform = urlParams.get('platform');
+                    
+                    if (isWelcome && platform) {
+                        setTimeout(() => {
+                            const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
+                            showNotification('🎉 Welcome! Your ' + platformName + ' account is connected. Start monetizing your content now!', 'success');
+                        }, 500);
                     }
-                } catch (error) {
-                    console.error('Auth check failed:', error);
-                    // Redirect to auth page on error
-                    window.location.href = '/static/auth.html';
+                    
+                    showDashboard();
+                } else {
+                    // Not authenticated - redirect to Get Started
+                    window.location.href = '/get-started';
                 }
             }
             
@@ -1466,21 +1479,17 @@ export function CreatorDashboard() {
             }
             
             async function logout() {
-                try {
-                    await fetch('/api/auth/logout', {
-                        method: 'POST',
-                        credentials: 'include'
-                    });
-                } catch (error) {
-                    console.error('Logout error:', error);
-                }
+                // Clear localStorage auth
+                localStorage.removeItem('earnly_auth');
+                localStorage.removeItem('creator_platform');
+                localStorage.removeItem('creator_email');
                 
                 isAuthenticated = false;
                 currentUser = null;
                 currentCreatorId = null;
                 
-                // Redirect to auth page
-                window.location.href = '/static/auth.html';
+                // Redirect to Get Started
+                window.location.href = '/get-started';
             }
             
             // Section Navigation
