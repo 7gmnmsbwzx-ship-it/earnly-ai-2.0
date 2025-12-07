@@ -1707,9 +1707,10 @@ app.get('/creator-dashboard', (c) => {
   return c.html(CreatorDashboard())
 })
 
-// Vario™ AI Search Engine
+// Vario™ Link-in-Bio Tool - Redirect to new platform
 app.get('/vario', (c) => {
-  return c.html(VarioAISearch())
+  // Redirect to the new Vario link-in-bio platform
+  return c.redirect('https://getearnly.com')
 })
 
 // SEO - Sitemap
