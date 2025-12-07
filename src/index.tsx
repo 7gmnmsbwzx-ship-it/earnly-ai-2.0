@@ -1709,8 +1709,8 @@ app.get('/creator-dashboard', (c) => {
 
 // Vario™ Link-in-Bio Tool - Redirect to new platform
 app.get('/vario', (c) => {
-  // Redirect to the new Vario link-in-bio platform
-  return c.redirect('https://getearnly.com')
+  // Redirect to the new Vario link-in-bio platform (sandbox development environment)
+  return c.redirect('https://3000-iym6gdsyrgvh7nix90lk8-cbeee0f9.sandbox.novita.ai/')
 })
 
 // SEO - Sitemap
