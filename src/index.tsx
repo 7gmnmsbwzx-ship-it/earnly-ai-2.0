@@ -1707,10 +1707,14 @@ app.get('/creator-dashboard', (c) => {
   return c.html(CreatorDashboard())
 })
 
-// Vario™ Link-in-Bio Tool - Redirect to new platform
+// Vario™ Link-in-Bio Tool - Handled by Cloudflare Worker Proxy
+// The /vario route is now proxied by vario-proxy Worker
+// Worker fetches from vario-platform.pages.dev and serves at getearnly.com/vario
+// No redirect needed - URL stays as getearnly.com/vario
+
+// Fallback redirect (only triggers if Worker fails)
 app.get('/vario', (c) => {
-  // Redirect to the new Vario link-in-bio platform (sandbox development environment)
-  return c.redirect('https://3000-iym6gdsyrgvh7nix90lk8-cbeee0f9.sandbox.novita.ai/')
+  return c.redirect('https://vario-platform.pages.dev')
 })
 
 // SEO - Sitemap
