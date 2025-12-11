@@ -838,7 +838,7 @@ export const AdvancedHomepage = () => {
                     <div>
                         <h4 class="font-semibold text-white mb-6">Solutions</h4>
                         <ul class="space-y-3 text-gray-400">
-                            <li><a href="/vario" class="hover:text-white transition-colors flex items-center">
+                            <li><a href="https://vario.getearnly.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center">
                                 <i class="fas fa-search w-4 text-xs mr-3"></i>Vario™ AI Search
                             </a></li>
                             <li><a href="/for-advertisers" class="hover:text-white transition-colors flex items-center">
